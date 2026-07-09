@@ -50,6 +50,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   }, [items]);
 
+  // If the user comes back from Shopify checkout via the browser Back button, the
+  // page is often restored from cache with isCheckingOut still true — reset it.
+  useEffect(() => {
+    const reset = () => setIsCheckingOut(false);
+    window.addEventListener("pageshow", reset);
+    return () => window.removeEventListener("pageshow", reset);
+  }, []);
+
   const totalItems = items.reduce((s, i) => s + i.quantity, 0);
   const subtotal = items.reduce((s, i) => s + i.price * i.quantity, 0);
 

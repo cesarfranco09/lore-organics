@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { useCart } from "@/contexts/CartContext";
+import { isStoreLive } from "@/lib/shopify";
 import { ShieldCheck, Lock, Leaf, ChevronDown, ChevronUp, CreditCard, ArrowLeft, Heart } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -26,7 +27,8 @@ const countries = [
 ];
 
 const Checkout = () => {
-  const { items, subtotal } = useCart();
+  const { items, subtotal, checkout, isCheckingOut } = useCart();
+  const storeLive = isStoreLive();
   const [shippingMethod, setShippingMethod] = useState("standard");
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [summaryOpen, setSummaryOpen] = useState(false);
@@ -417,16 +419,30 @@ const Checkout = () => {
               </p>
             </section>
 
-            {/* CTA */}
-            <button
-              disabled
-              aria-disabled="true"
-              className="w-full bg-muted text-muted-foreground py-4 rounded-sm text-label tracking-widest cursor-not-allowed opacity-70 flex items-center justify-center gap-3"
-            >
-              <CreditCard size={18} strokeWidth={1.5} />
-              Coming Soon
-            </button>
-            <p className="text-xs text-muted-foreground text-center mt-2">Launching October 1st, 2026.</p>
+            {/* CTA: hands off to Shopify's secure hosted checkout when live */}
+            {storeLive ? (
+              <button
+                type="button"
+                onClick={checkout}
+                disabled={isCheckingOut}
+                className="w-full bg-primary text-primary-foreground py-4 rounded-sm text-label tracking-widest hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-wait flex items-center justify-center gap-3"
+              >
+                <CreditCard size={18} strokeWidth={1.5} />
+                {isCheckingOut ? "Redirecting to secure checkout…" : "Continue to Secure Checkout"}
+              </button>
+            ) : (
+              <>
+                <button
+                  disabled
+                  aria-disabled="true"
+                  className="w-full bg-muted text-muted-foreground py-4 rounded-sm text-label tracking-widest cursor-not-allowed opacity-70 flex items-center justify-center gap-3"
+                >
+                  <CreditCard size={18} strokeWidth={1.5} />
+                  Coming Soon
+                </button>
+                <p className="text-xs text-muted-foreground text-center mt-2">Launching October 1st, 2026.</p>
+              </>
+            )}
           </div>
 
           {/* ───── RIGHT COLUMN (desktop) ───── */}

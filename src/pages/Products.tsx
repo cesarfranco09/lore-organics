@@ -1,6 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import { Leaf, Droplets, Award, ArrowRight, ShoppingBag } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
+import { useShopifyProducts } from "@/hooks/useShopifyProducts";
+import { isStoreLive } from "@/lib/shopify";
 import Seo from "@/components/Seo";
 
 
@@ -25,11 +27,14 @@ interface Product {
   category: ProductCategory;
   comingSoon?: boolean;
   alt?: string;
+  /** Handle of the matching product in Shopify (admin → Products → the URL slug). */
+  shopifyHandle?: string;
 }
 
 const products: Product[] = [
   {
     id: "day-pad",
+    shopifyHandle: "organic-cotton-day-pad",
     image: "/lovable-uploads/day-pads-sage.webp",
     title: "Organic Cotton Day Pad",
     price: 6.90,
@@ -42,6 +47,9 @@ const products: Product[] = [
   },
   {
     id: "night-pad",
+    // NOTE: current handle in Shopify has a stray "-by" (title typo). If you fix the
+    // handle in Shopify admin, update it here too.
+    shopifyHandle: "organic-cotton-night-pad-by",
     image: "/lovable-uploads/6cf4ee2b-9d53-4707-a40f-661d9359f9ad.webp",
     title: "Organic Cotton Night Pad",
     price: 7.90,
@@ -54,6 +62,8 @@ const products: Product[] = [
   },
   {
     id: "regular-tampon",
+    // Not in Shopify yet — expected handle once created (Shopify derives it from the title).
+    shopifyHandle: "organic-cotton-regular-tampons",
     image: "/lovable-uploads/tampons-box.webp",
     title: "Organic Cotton Regular Tampons",
     price: 5.90,
@@ -66,6 +76,8 @@ const products: Product[] = [
   },
   {
     id: "super-tampon",
+    // Not in Shopify yet — expected handle once created.
+    shopifyHandle: "organic-cotton-super-tampons",
     image: "/lovable-uploads/tampons-box-super.webp",
     title: "Organic Cotton Super Tampons",
     price: 5.90,
@@ -78,6 +90,8 @@ const products: Product[] = [
   },
   {
     id: "liner",
+    // Not in Shopify yet — expected handle once created.
+    shopifyHandle: "organic-cotton-liners",
     image: "/lovable-uploads/daae0592-f7db-4ec4-99be-058364328e9a.webp",
     title: "Organic Cotton Liners",
     price: 4.90,
@@ -125,6 +139,8 @@ const DropletIcons = ({ count }: { count: number }) => (
 const Products = () => {
   const { category } = useParams<{ category?: string }>();
   const { addItem } = useCart();
+  const { byHandle } = useShopifyProducts();
+  const storeLive = isStoreLive();
 
   const filteredProducts = category
     ? products.filter((p) => p.category === category)
@@ -138,11 +154,13 @@ const Products = () => {
     : "Every Lore product is made from GOTS-certified organic cotton, free from plastics, toxins, and synthetic fragrances.";
 
   const handleAddToCart = (product: Product) => {
+    const live = product.shopifyHandle ? byHandle[product.shopifyHandle] : undefined;
     addItem({
       id: product.id,
       name: product.title,
       image: product.image,
-      price: product.price,
+      price: live ? parseFloat(live.priceRange.minVariantPrice.amount) : product.price,
+      variantId: live?.variants[0]?.id,
     });
   };
 
@@ -187,7 +205,13 @@ const Products = () => {
       </section>
 
       {/* Product Details */}
-      {filteredProducts.map((product, index) => (
+      {filteredProducts.map((product, index) => {
+        const live = product.shopifyHandle ? byHandle[product.shopifyHandle] : undefined;
+        const purchasable = storeLive && !product.comingSoon && live?.availableForSale && Boolean(live.variants[0]);
+        // In Shopify but not sellable (e.g. inventory at 0) → "Out of Stock".
+        // Not in Shopify at all (or store not live) → "Coming Soon".
+        const outOfStock = storeLive && !product.comingSoon && live && !live.availableForSale;
+        return (
         <section
           key={product.title}
           className={`section-padding ${index % 2 === 0 ? "bg-card" : ""}`}
@@ -211,19 +235,35 @@ const Products = () => {
               <h2 className="text-editorial-md mb-4">{product.title}</h2>
               <p className="text-body-lg text-muted-foreground mb-4">{product.description}</p>
 
-              {/* Price hidden during pricing review */}
+              {/* Price shown only once the store is live (hidden during pricing review) */}
+              {purchasable && live && (
+                <p className="font-serif text-2xl mb-6">
+                  €{parseFloat(live.priceRange.minVariantPrice.amount).toFixed(2)}
+                </p>
+              )}
 
-              {/* Coming Soon */}
+              {/* Buy button: live Add to Cart once the store launches, Coming Soon until then */}
               <div className="mb-10">
-                <button
-                  type="button"
-                  disabled
-                  aria-disabled="true"
-                  className="inline-flex items-center gap-3 bg-muted text-muted-foreground px-8 py-3.5 text-label rounded-sm cursor-not-allowed opacity-70"
-                >
-                  <ShoppingBag size={16} strokeWidth={1.5} />
-                  Coming Soon
-                </button>
+                {purchasable ? (
+                  <button
+                    type="button"
+                    onClick={() => handleAddToCart(product)}
+                    className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-3.5 text-label rounded-sm hover:opacity-90 transition-opacity"
+                  >
+                    <ShoppingBag size={16} strokeWidth={1.5} />
+                    Add to Cart
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    disabled
+                    aria-disabled="true"
+                    className="inline-flex items-center gap-3 bg-muted text-muted-foreground px-8 py-3.5 text-label rounded-sm cursor-not-allowed opacity-70"
+                  >
+                    <ShoppingBag size={16} strokeWidth={1.5} />
+                    {outOfStock ? "Out of Stock" : "Coming Soon"}
+                  </button>
+                )}
               </div>
 
               {/* Variants */}
@@ -270,7 +310,8 @@ const Products = () => {
             </div>
           </div>
         </section>
-      ))}
+        );
+      })}
 
       {/* CTA */}
       <section className="section-padding bg-lore-sage/20 text-center">

@@ -2,9 +2,11 @@ import { useCart } from "@/contexts/CartContext";
 import { Heart } from "lucide-react";
 import { X, Minus, Plus, ShoppingBag, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { isStoreLive } from "@/lib/shopify";
 
 const CartDrawer = () => {
-  const { items, totalItems, subtotal, isOpen, closeCart, removeItem, updateQuantity } = useCart();
+  const { items, totalItems, subtotal, isOpen, closeCart, removeItem, updateQuantity, checkout, isCheckingOut } = useCart();
+  const storeLive = isStoreLive();
 
   return (
     <>
@@ -22,7 +24,7 @@ const CartDrawer = () => {
           /* Mobile: bottom sheet */
           inset-x-0 bottom-0 max-h-[85vh] rounded-t-2xl border-t
           /* Desktop: right panel */
-          md:inset-y-0 md:right-0 md:left-auto md:bottom-auto md:max-h-none md:rounded-t-none md:rounded-l-none md:border-t-0 md:border-l md:w-[420px]
+          md:top-0 md:bottom-0 md:right-0 md:left-auto md:max-h-none md:rounded-t-none md:rounded-l-none md:border-t-0 md:border-l md:w-[420px]
           ${isOpen
             ? "translate-y-0 md:translate-x-0"
             : "translate-y-full md:translate-y-0 md:translate-x-full"
@@ -256,18 +258,38 @@ const CartDrawer = () => {
         {items.length > 0 && (
           <div className="shrink-0 px-6 py-5 border-t border-border/40"
             style={{ background: "linear-gradient(0deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%)" }}>
-            {/* Subtotal hidden during pricing review */}
+            {/* Subtotal shown once the store is live (hidden during pricing review) */}
+            {storeLive && (
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-label text-muted-foreground">Subtotal</span>
+                <span className="font-serif text-lg">€{subtotal.toFixed(2)}</span>
+              </div>
+            )}
 
-            {/* Coming Soon */}
-            <button
-              type="button"
-              disabled
-              aria-disabled="true"
-              className="w-full inline-flex items-center justify-center gap-2 bg-muted text-muted-foreground px-8 py-3.5 text-label rounded-sm cursor-not-allowed opacity-70"
-            >
-              Coming Soon
-            </button>
-            <p className="text-xs text-muted-foreground text-center mt-2">Launching October 1st, 2026.</p>
+            {/* Checkout: hands off to Shopify's secure hosted checkout when live */}
+            {storeLive ? (
+              <button
+                type="button"
+                onClick={checkout}
+                disabled={isCheckingOut}
+                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-label rounded-sm hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-wait"
+              >
+                {isCheckingOut ? "Redirecting…" : "Checkout"}
+                {!isCheckingOut && <ArrowRight size={14} />}
+              </button>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-muted text-muted-foreground px-8 py-3.5 text-label rounded-sm cursor-not-allowed opacity-70"
+                >
+                  Coming Soon
+                </button>
+                <p className="text-xs text-muted-foreground text-center mt-2">Launching October 1st, 2026.</p>
+              </>
+            )}
 
             {/* Continue */}
             <button
