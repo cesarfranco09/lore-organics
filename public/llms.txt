@@ -1,0 +1,18 @@
+# Lore Organics
+
+> Premium organic period care. GOTS certified organic cotton pads, tampons and liners. Launching October 1st 2026 in the Netherlands and Germany.
+
+Lore Organics designs plastic-free, GOTS certified organic cotton period care for women with high standards. We donate 1% of every sale to women's shelters and period poverty organisations from day one.
+
+## Pages
+
+- [Home](/): Brand overview, waitlist signup and FAQ.
+- [Products](/products): Organic cotton pads, tampons and liners with full material transparency.
+- [Cycle Box](/cycle-box): Customisable subscription box, save up to 15%.
+- [About](/about): Our mission, founders and design philosophy.
+- [Sustainability](/sustainability): Materials, certifications and lifecycle.
+- [Impact](/impact): How we fund period equity through every purchase.
+
+## Optional
+
+- [Privacy Policy](/privacy-policy): How we handle your data.
