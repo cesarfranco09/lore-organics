@@ -1,5 +1,10 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Seo from "@/components/Seo";
+import { useCart } from "@/contexts/CartContext";
+import { useShopifyProducts } from "@/hooks/useShopifyProducts";
+import { isStoreLive, type CartLineInput } from "@/lib/shopify";
+import { resolveSellingPlan } from "@/lib/subscriptions";
+import { useTranslation } from "react-i18next";
 import {
   Package,
   Leaf,
@@ -20,19 +25,21 @@ import {
 
 interface ProductDef {
   id: string;
+  /** Canonical English name — used for checkout tracking + alt text (alt stays English). Display name comes from i18n. */
   name: string;
-  subtitle: string;
   image: string;
   price: number;
   alt: string;
+  /** Matching Shopify product handle (must carry an Appstle selling plan to subscribe). */
+  shopifyHandle: string;
 }
 
 const products: ProductDef[] = [
-  { id: "day-pad", name: "Day Pads", subtitle: "10 per pack", price: 6.90, image: "/lovable-uploads/day-pads-cycle.webp", alt: "Lore Organics organic cotton day pads pack for Cycle Box subscription, GOTS certified plastic free period care" },
-  { id: "night-pad", name: "Night Pads", subtitle: "10 per pack", price: 7.90, image: "/lovable-uploads/6cf4ee2b-9d53-4707-a40f-661d9359f9ad.webp", alt: "Lore Organics organic cotton night pads pack, biodegradable 280mm overnight period protection" },
-  { id: "regular-tampon", name: "Tampons Regular", subtitle: "16 per pack", price: 5.90, image: "/lovable-uploads/tampons-box.webp", alt: "Lore Organics GOTS certified organic cotton regular tampons pack, sustainable period care subscription" },
-  { id: "super-tampon", name: "Tampons Super", subtitle: "16 per pack", price: 5.90, image: "/lovable-uploads/tampons-box-super.webp", alt: "Lore Organics organic cotton super tampons pack for heavier flow, plastic free period care" },
-  { id: "liners", name: "Liners", subtitle: "24 per pack", price: 4.90, image: "/lovable-uploads/daae0592-f7db-4ec4-99be-058364328e9a.webp", alt: "Lore Organics organic cotton pantyliners pack, ultra-thin biodegradable everyday liner" },
+  { id: "day-pad", shopifyHandle: "organic-cotton-day-pad", name: "Day Pads", price: 6.90, image: "/lovable-uploads/day-pads-cycle.webp", alt: "Lore Organics organic cotton day pads pack for Cycle Box subscription, GOTS certified plastic free period care" },
+  { id: "night-pad", shopifyHandle: "organic-cotton-night-pad-by", name: "Night Pads", price: 7.90, image: "/lovable-uploads/6cf4ee2b-9d53-4707-a40f-661d9359f9ad.webp", alt: "Lore Organics organic cotton night pads pack, biodegradable 280mm overnight period protection" },
+  { id: "regular-tampon", shopifyHandle: "organic-cotton-tampons-regular", name: "Tampons Regular", price: 5.90, image: "/lovable-uploads/tampons-box.webp", alt: "Lore Organics GOTS certified organic cotton regular tampons pack, sustainable period care subscription" },
+  { id: "super-tampon", shopifyHandle: "organic-cotton-tampons-super", name: "Tampons Super", price: 5.90, image: "/lovable-uploads/tampons-box-super.webp", alt: "Lore Organics organic cotton super tampons pack for heavier flow, plastic free period care" },
+  { id: "liners", shopifyHandle: "organic-cotton-panty-liners", name: "Liners", price: 4.90, image: "/lovable-uploads/daae0592-f7db-4ec4-99be-058364328e9a.webp", alt: "Lore Organics organic cotton pantyliners pack, ultra-thin biodegradable everyday liner" },
 ];
 
 type ProductId = typeof products[number]["id"];
@@ -41,70 +48,46 @@ type FrequencyId = "bimonthly" | "quarterly";
 
 interface FrequencyDef {
   id: FrequencyId;
-  label: string;
-  tag: string;
   discount: number;
-  shipping: string;
   maxes: Record<ProductId, number>;
 }
 
 const frequencies: FrequencyDef[] = [
   {
     id: "bimonthly",
-    label: "Every 2 months",
-    tag: "No discount",
     discount: 0,
-    shipping: "€4.95 flat shipping",
     maxes: { "day-pad": 4, "night-pad": 4, "regular-tampon": 2, "super-tampon": 2, "liners": 2 },
   },
   {
     id: "quarterly",
-    label: "Every 3 months",
-    tag: "Save 5%",
     discount: 5,
-    shipping: "€4.95 flat shipping",
     maxes: { "day-pad": 6, "night-pad": 6, "regular-tampon": 3, "super-tampon": 3, "liners": 3 },
   },
 ];
 
 interface Suggestion {
-  label: string;
-  desc: string;
   quantities: Record<ProductId, number>;
 }
 
+/* Labels/descriptions live in the "cyclebox" i18n namespace under suggestions.{frequency}.{index}. */
 const suggestionsByFrequency: Record<FrequencyId, Suggestion[]> = {
   bimonthly: [
-    { label: "Light flow", desc: "1 Day · 1 Night · 1 Tampon · 1 Liner", quantities: { "day-pad": 1, "night-pad": 1, "regular-tampon": 1, "super-tampon": 0, "liners": 1 } },
-    { label: "Medium flow", desc: "2 Day · 1 Night · 2 Tampons · 1 Liner", quantities: { "day-pad": 2, "night-pad": 1, "regular-tampon": 1, "super-tampon": 1, "liners": 1 } },
-    { label: "Heavy flow", desc: "2 Day · 2 Night · 2 Tampons · 2 Liners", quantities: { "day-pad": 2, "night-pad": 2, "regular-tampon": 1, "super-tampon": 1, "liners": 2 } },
+    { quantities: { "day-pad": 1, "night-pad": 1, "regular-tampon": 1, "super-tampon": 0, "liners": 1 } },
+    { quantities: { "day-pad": 2, "night-pad": 1, "regular-tampon": 1, "super-tampon": 1, "liners": 1 } },
+    { quantities: { "day-pad": 2, "night-pad": 2, "regular-tampon": 1, "super-tampon": 1, "liners": 2 } },
   ],
   quarterly: [
-    { label: "Light flow", desc: "2 Day · 1 Night · 2 Tampons · 2 Liners", quantities: { "day-pad": 2, "night-pad": 1, "regular-tampon": 1, "super-tampon": 1, "liners": 2 } },
-    { label: "Medium flow", desc: "2 Day · 2 Night · 2 Tampons · 2 Liners", quantities: { "day-pad": 2, "night-pad": 2, "regular-tampon": 1, "super-tampon": 1, "liners": 2 } },
-    { label: "Heavy flow", desc: "3 Day · 3 Night · 3 Tampons · 3 Liners", quantities: { "day-pad": 3, "night-pad": 3, "regular-tampon": 2, "super-tampon": 1, "liners": 3 } },
+    { quantities: { "day-pad": 2, "night-pad": 1, "regular-tampon": 1, "super-tampon": 1, "liners": 2 } },
+    { quantities: { "day-pad": 2, "night-pad": 2, "regular-tampon": 1, "super-tampon": 1, "liners": 2 } },
+    { quantities: { "day-pad": 3, "night-pad": 3, "regular-tampon": 2, "super-tampon": 1, "liners": 3 } },
   ],
 };
 
-const benefits = [
-  { icon: Leaf, title: "Organic Materials", desc: "Made with certified organic cotton for a safer, more natural period." },
-  { icon: Truck, title: "Discreet Delivery", desc: "Your Cycle Box arrives in simple, private packaging." },
-  { icon: Repeat, title: "Flexible Subscription", desc: "Skip a cycle, swap products, or cancel anytime." },
-  { icon: BadgePercent, title: "Save with Subscription", desc: "Subscribers save 5% with the quarterly plan, every order." },
-];
+/* Titles/descriptions live in the "cyclebox" i18n namespace under benefits.items.{index}. */
+const benefitIcons = [Leaf, Truck, Repeat, BadgePercent];
 
-const faqs = [
-  { q: "When do you launch?", a: "We launch October 1st 2026, starting in the Netherlands and Germany. Join the waitlist to be the first to know and receive 10% off your first order." },
-  { q: "Where do you deliver?", a: "At launch we deliver across the Netherlands and Germany. More European countries are planned throughout 2027 and beyond." },
-  { q: "What makes Lore different from other organic brands?", a: "Three things: our products are GOTS certified organic cotton, independently verified, not just a claim. We donate 1% of every sale to women's shelters and period poverty organisations from day one. And we tell you exactly where every product comes from and what is in it. No greenwashing, no vague claims." },
-  { q: "What does GOTS certified mean?", a: "GOTS stands for Global Organic Textile Standard. It means our cotton is grown without pesticides or toxic chemicals, processed without synthetic dyes or bleaching agents, and verified at every step of the supply chain by an independent certifier. It is the gold standard for organic textiles worldwide." },
-  { q: "What products will you offer at launch?", a: "We launch with five products: Organic Cotton Day Pad, Organic Cotton Night Pad, Tampon Regular, Tampon Super, and Pantyliner Ultra-thin. All are individually wrapped and made from 100% GOTS certified organic cotton." },
-  { q: "Can I subscribe and customise my delivery?", a: "Yes, our Cycle Box lets you choose exactly which products you need and how often you want them delivered, every 2 months or every 3 months. The quarterly plan saves you 5%, and both plans enjoy €4.95 flat shipping. You can pause, swap products, or cancel anytime." },
-  { q: "Are your products plastic free?", a: "Our tampon and pad products contain no plastic in the absorbent materials, they are made from organic cotton. Our pantyliner contains a biopolymer backing layer which is plant-based. We are fully transparent about all materials and publish a complete breakdown on our website." },
-  { q: "How does your 1% donation model work?", a: "From our very first sale, 1% of every order's net revenue goes directly to women's shelters and period poverty organisations in the Netherlands. You do not need to do anything, it is built into every purchase automatically." },
-  { q: "What is the From One Woman to Another donation option?", a: "At checkout you can choose to add a pad or tampon box at a reduced price. That box does not come to you, it goes directly to a woman who needs it through our partner organisations. Pads and tampons only. No admin, no middleman. Just one woman helping another." },
-  { q: "I have a question not answered here, how do I reach you?", a: "Email us at info@lore-organics.com and we will get back to you within 48 hours." },
-];
+/* Q/A pairs live in the "cyclebox" i18n namespace under faq.items.{index}. */
+const FAQ_COUNT = 10;
 
 const SHIPPING = 4.95;
 
@@ -235,6 +218,7 @@ const SageBag = ({
   removingId: string | null;
   totalSelected: number;
 }) => {
+  const { t } = useTranslation("cyclebox");
   const sageBase = "193, 203, 184";
 
   return (
@@ -302,7 +286,7 @@ const SageBag = ({
                 </div>
                 <p className="text-center font-serif"
                   style={{ opacity: 0.35, fontStyle: "italic", fontSize: "0.85rem", color: "hsl(var(--muted-foreground))" }}>
-                  Your cycle ritual awaits
+                  {t("bag.empty")}
                 </p>
               </div>
             )}
@@ -339,7 +323,7 @@ const SageBag = ({
 
       <div className="flex items-center justify-center mt-5 px-2">
         <span className="text-label text-muted-foreground" style={{ fontSize: "0.58rem", letterSpacing: "0.15em" }}>
-          Your Cycle Kit
+          {t("bag.kitLabel")}
         </span>
       </div>
     </div>
@@ -349,6 +333,7 @@ const SageBag = ({
 /* ─── Component ─── */
 
 const CycleBox = () => {
+  const { t } = useTranslation("cyclebox");
   const builderRef = useRef<HTMLDivElement>(null);
   const bagRef = useRef<HTMLDivElement>(null);
   const productRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -368,11 +353,58 @@ const CycleBox = () => {
   const [animCounter, setAnimCounter] = useState(0);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  const { checkoutLines, isCheckingOut } = useCart();
+  const { byHandle } = useShopifyProducts();
+  const storeLive = isStoreLive();
+
   const frequency = frequencies.find((f) => f.id === selectedFrequency)!;
   const totalSelected = Object.values(quantities).reduce((a, b) => a + b, 0);
+
+  const selectedProducts = products.filter((p) => (quantities[p.id] || 0) > 0);
+
+  // A box is subscribable when every selected product is live, in stock, and
+  // carries an Appstle selling plan matching the chosen frequency.
+  const subscribable =
+    storeLive &&
+    selectedProducts.length > 0 &&
+    selectedProducts.every((p) => {
+      const live = byHandle[p.shopifyHandle];
+      return live?.availableForSale && live.variants[0] && resolveSellingPlan(live, selectedFrequency);
+    });
+
+  // Prefer the discount configured on the Shopify selling plan (checkout applies
+  // that one server-side); the static value is only the pre-launch display.
+  const livePlanDiscount = subscribable
+    ? resolveSellingPlan(byHandle[selectedProducts[0].shopifyHandle], selectedFrequency)?.percentageOff ?? null
+    : null;
+  const effectiveDiscount = livePlanDiscount ?? frequency.discount;
+
   const subtotal = products.reduce((sum, p) => sum + (quantities[p.id] || 0) * p.price, 0);
-  const discountAmount = subtotal * (frequency.discount / 100);
+  const discountAmount = subtotal * (effectiveDiscount / 100);
   const total = subtotal - discountAmount + (totalSelected > 0 ? SHIPPING : 0);
+
+  const startSubscription = () => {
+    if (!subscribable) return;
+    // Send base variants + sellingPlanId — Shopify checkout applies the
+    // subscription pricing itself (never pre-discount the payload).
+    const lines: CartLineInput[] = selectedProducts.map((p) => {
+      const live = byHandle[p.shopifyHandle];
+      return {
+        merchandiseId: live.variants[0].id,
+        quantity: quantities[p.id],
+        sellingPlanId: resolveSellingPlan(live, selectedFrequency)?.id,
+      };
+    });
+    void checkoutLines(
+      lines,
+      selectedProducts.map((p) => ({
+        id: p.shopifyHandle,
+        name: p.name,
+        price: p.price,
+        quantity: quantities[p.id],
+      }))
+    );
+  };
 
   const launchFlyingItem = useCallback((productId: string, image: string) => {
     const sourceEl = productRefs.current[productId];
@@ -490,8 +522,8 @@ const CycleBox = () => {
   return (
     <main className="pt-20">
       <Seo
-        title="Cycle Box Subscription — Custom Organic Period Care"
-        description="Build your custom Cycle Box. Choose pads, tampons and frequency. Never run out, adjust anytime. Save 5% with quarterly plus €4.95 flat shipping."
+        title={t("seo.title")}
+        description={t("seo.description")}
         path="/cycle-box"
       />
       {flyingItems.map((item) => (
@@ -504,31 +536,31 @@ const CycleBox = () => {
         <div className="relative z-10 max-w-3xl mx-auto px-4">
           <div className="divider-botanical mx-auto mb-8" />
           <h1 className="text-editorial-xl mb-6 fade-in-up">
-            Build Your<br />Cycle Box
+            {t("hero.title1")}<br />{t("hero.title2")}
           </h1>
           <p className="font-serif text-xl sm:text-2xl text-foreground/80 max-w-xl mx-auto mb-4 fade-in-up">
-            Never run out, adjust anytime.
+            {t("hero.tagline")}
           </p>
           <p className="text-body-lg text-muted-foreground max-w-md mx-auto mb-10 fade-in-up">
-            Organic period care delivered discreetly to your door.
+            {t("hero.subtitle")}
           </p>
           <div className="flex justify-center mb-10 fade-in-up">
             <button
               onClick={scrollToBuilder}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-10 py-4 text-label hover:opacity-90 transition-opacity rounded-full"
             >
-              Build My Box <ArrowRight size={14} />
+              {t("hero.cta")} <ArrowRight size={14} />
             </button>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-6 text-body text-muted-foreground fade-in-up">
             <span className="flex items-center gap-2">
-              <Leaf size={15} className="text-secondary-foreground" strokeWidth={1.5} /> 100% organic cotton
+              <Leaf size={15} className="text-secondary-foreground" strokeWidth={1.5} /> {t("hero.trust.organic")}
             </span>
             <span className="flex items-center gap-2">
-              <Truck size={15} className="text-secondary-foreground" strokeWidth={1.5} /> Discreet delivery
+              <Truck size={15} className="text-secondary-foreground" strokeWidth={1.5} /> {t("hero.trust.discreet")}
             </span>
             <span className="flex items-center gap-2">
-              <ShieldCheck size={15} className="text-secondary-foreground" strokeWidth={1.5} /> Skip, swap, or cancel anytime
+              <ShieldCheck size={15} className="text-secondary-foreground" strokeWidth={1.5} /> {t("hero.trust.flexible")}
             </span>
           </div>
         </div>
@@ -537,22 +569,22 @@ const CycleBox = () => {
       {/* ════════ HOW IT WORKS ════════ */}
       <section id="how-it-works" className="section-padding bg-card">
         <div className="max-w-5xl mx-auto">
-          <p className="text-label text-muted-foreground text-center mb-4">Simple as 1-2</p>
-          <h2 className="text-editorial-md text-center mb-16">How it works</h2>
+          <p className="text-label text-muted-foreground text-center mb-4">{t("howItWorks.label")}</p>
+          <h2 className="text-editorial-md text-center mb-16">{t("howItWorks.title")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
               {
                 step: "01",
                 icon: Truck,
-                title: "Choose Delivery Frequency",
-                items: ["Every 2 months", "Every 3 months — save 5%"],
-                desc: "Both with €4.95 flat shipping.",
+                title: t("howItWorks.step1.title"),
+                items: [t("howItWorks.step1.items.0"), t("howItWorks.step1.items.1")],
+                desc: t("howItWorks.step1.desc"),
               },
               {
                 step: "02",
                 icon: Heart,
-                title: "Build Your Box",
-                desc: "Mix and match products based on your flow. Day pads, night pads, regular or super tampons, liners, you decide.",
+                title: t("howItWorks.step2.title"),
+                desc: t("howItWorks.step2.desc"),
               },
             ].map((s, i) => (
               <div key={i} className="text-center md:text-left">
@@ -578,10 +610,10 @@ const CycleBox = () => {
       {/* ════════ BOX BUILDER ════════ */}
       <section ref={builderRef} className="section-padding">
         <div className="max-w-6xl mx-auto">
-          <p className="text-label text-muted-foreground text-center mb-4">Customise</p>
-          <h2 className="text-editorial-md text-center mb-4">Build Your Cycle Box</h2>
+          <p className="text-label text-muted-foreground text-center mb-4">{t("builder.label")}</p>
+          <h2 className="text-editorial-md text-center mb-4">{t("builder.title")}</h2>
           <p className="text-body text-muted-foreground text-center max-w-xl mx-auto mb-16 italic">
-            Never run out, adjust anytime.
+            {t("hero.tagline")}
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
@@ -590,7 +622,7 @@ const CycleBox = () => {
 
               {/* Step 1: Frequency */}
               <div>
-                <h3 className="text-label text-muted-foreground mb-6">Step 1: Choose Delivery Frequency</h3>
+                <h3 className="text-label text-muted-foreground mb-6">{t("builder.step1Label")}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {frequencies.map((freq) => {
                     const active = selectedFrequency === freq.id;
@@ -604,11 +636,11 @@ const CycleBox = () => {
                             : "border-border/60 hover:border-lore-sage hover:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.06)]"
                         }`}
                       >
-                        <span className="font-serif text-lg block mb-1">{freq.label}</span>
+                        <span className="font-serif text-lg block mb-1">{t(`frequencies.${freq.id}.label`)}</span>
                         {freq.discount > 0 && (
-                          <span className="text-label text-lore-botanical block">{freq.tag}</span>
+                          <span className="text-label text-lore-botanical block">{t(`frequencies.${freq.id}.tag`)}</span>
                         )}
-                        <span className="text-body text-muted-foreground text-sm block mt-1">{freq.shipping}</span>
+                        <span className="text-body text-muted-foreground text-sm block mt-1">{t(`frequencies.${freq.id}.shipping`)}</span>
                       </button>
                     );
                   })}
@@ -618,10 +650,10 @@ const CycleBox = () => {
               {/* Step 2: Build Your Box */}
               <div>
                 <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
-                  <h3 className="text-label text-muted-foreground">Step 2: Build Your Box</h3>
+                  <h3 className="text-label text-muted-foreground">{t("builder.step2Label")}</h3>
                   <span className="text-body text-muted-foreground">
                     <span className="font-medium text-foreground">{totalSelected}</span>{" "}
-                    pack{totalSelected === 1 ? "" : "s"} selected
+                    {t("builder.packsSelected", { count: totalSelected })}
                   </span>
                 </div>
 
@@ -634,7 +666,7 @@ const CycleBox = () => {
                   >
                     <span className="flex items-center gap-2 text-body">
                       <Sparkles size={15} className="text-secondary-foreground" strokeWidth={1.5} />
-                      <span className="font-serif italic">Not sure how much? See our suggestions</span>
+                      <span className="font-serif italic">{t("builder.suggestionsToggle")}</span>
                     </span>
                     {showSuggestions ? (
                       <ChevronUp size={16} className="text-muted-foreground" strokeWidth={1.5} />
@@ -645,19 +677,19 @@ const CycleBox = () => {
                   {showSuggestions && (
                     <div className="px-4 py-4 border-t border-border/40 space-y-3">
                       <p className="text-body text-muted-foreground/80 text-sm italic">
-                        Gentle starting points, adjust up or down. Tampons can be split between Regular and Super as you prefer.
+                        {t("builder.suggestionsHint")}
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        {suggestionsByFrequency[selectedFrequency].map((s) => (
+                        {suggestionsByFrequency[selectedFrequency].map((s, idx) => (
                           <button
-                            key={s.label}
+                            key={idx}
                             onClick={() => applySuggestion(s)}
                             className="text-left border border-border/60 rounded-sm p-3 hover:border-lore-botanical hover:bg-lore-sage/10 transition-all duration-200"
                           >
-                            <span className="font-serif text-base block mb-1">{s.label}</span>
-                            <span className="text-body text-muted-foreground text-xs block">{s.desc}</span>
+                            <span className="font-serif text-base block mb-1">{t(`suggestions.${selectedFrequency}.${idx}.label`)}</span>
+                            <span className="text-body text-muted-foreground text-xs block">{t(`suggestions.${selectedFrequency}.${idx}.desc`)}</span>
                             <span className="text-label text-lore-botanical block mt-2" style={{ fontSize: "0.6rem" }}>
-                              Tap to autofill
+                              {t("builder.autofill")}
                             </span>
                           </button>
                         ))}
@@ -685,7 +717,7 @@ const CycleBox = () => {
                             ref={(el) => { productRefs.current[prod.id] = el; }}
                             className="w-16 h-16 bg-muted/30 rounded-sm overflow-hidden shrink-0 shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)] cursor-pointer transition-transform duration-200 hover:scale-105 active:scale-95"
                             onClick={() => !atMax && updateQty(prod.id, 1)}
-                            title={atMax ? `Max ${max} per ${frequency.label.toLowerCase()}` : "Click to add to your kit"}
+                            title={atMax ? t("builder.maxPer", { max, frequency: t(`frequencies.${selectedFrequency}.labelLower`) }) : t("builder.clickToAdd")}
                           >
                             <img
                               src={prod.image}
@@ -696,15 +728,15 @@ const CycleBox = () => {
                             />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="font-serif text-lg leading-tight">{prod.name}</p>
-                            <p className="text-body text-muted-foreground text-sm">{prod.subtitle} · €{prod.price.toFixed(2)}</p>
+                            <p className="font-serif text-lg leading-tight">{t(`products.${prod.id}.name`)}</p>
+                            <p className="text-body text-muted-foreground text-sm">{t(`products.${prod.id}.subtitle`)} · €{prod.price.toFixed(2)}</p>
                           </div>
                           <div className="flex items-center gap-3 shrink-0">
                             <button
                               onClick={() => updateQty(prod.id, -1)}
                               disabled={qty === 0}
                               className="w-8 h-8 border border-border/60 rounded-full flex items-center justify-center text-foreground hover:bg-muted/50 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90"
-                              aria-label={`Decrease ${prod.name}`}
+                              aria-label={t("builder.decrease", { name: t(`products.${prod.id}.name`) })}
                             >
                               <Minus size={14} strokeWidth={1.5} />
                             </button>
@@ -713,7 +745,7 @@ const CycleBox = () => {
                               onClick={() => updateQty(prod.id, 1)}
                               disabled={atMax}
                               className="w-8 h-8 border border-border/60 rounded-full flex items-center justify-center text-foreground hover:bg-muted/50 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed active:scale-90"
-                              aria-label={`Increase ${prod.name}`}
+                              aria-label={t("builder.increase", { name: t(`products.${prod.id}.name`) })}
                             >
                               <Plus size={14} strokeWidth={1.5} />
                             </button>
@@ -731,8 +763,8 @@ const CycleBox = () => {
               <div className="lg:sticky lg:top-28 space-y-6">
 
                 <div className="text-center lg:text-left">
-                  <p className="text-label text-muted-foreground mb-1">Your Selection</p>
-                  <h3 className="font-serif text-2xl">Your Cycle Kit</h3>
+                  <p className="text-label text-muted-foreground mb-1">{t("selection.label")}</p>
+                  <h3 className="font-serif text-2xl">{t("bag.kitLabel")}</h3>
                 </div>
 
                 <SageBag
@@ -757,55 +789,74 @@ const CycleBox = () => {
                         .filter((p) => quantities[p.id] > 0)
                         .map((p) => (
                           <div key={p.id} className="flex items-center justify-between text-body text-muted-foreground">
-                            <span>{p.name} <span className="text-foreground/70">×{quantities[p.id]}</span></span>
+                            <span>{t(`products.${p.id}.name`)} <span className="text-foreground/70">×{quantities[p.id]}</span></span>
                             <span className="text-foreground font-medium">€{(p.price * quantities[p.id]).toFixed(2)}</span>
                           </div>
                         ))}
                     </div>
                   ) : (
                     <p className="text-body text-muted-foreground/80 italic mb-4 text-center">
-                      Add products to see your total.
+                      {t("summary.empty")}
                     </p>
                   )}
 
                   {totalSelected > 0 && (
                     <div className="border-t border-border/40 pt-3 space-y-1.5">
                       <div className="flex items-center justify-between text-body text-muted-foreground">
-                        <span>Subtotal</span>
+                        <span>{t("summary.subtotal")}</span>
                         <span>€{subtotal.toFixed(2)}</span>
                       </div>
-                      {frequency.discount > 0 && (
+                      {effectiveDiscount > 0 && (
                         <div className="flex items-center justify-between text-body text-lore-botanical">
-                          <span>Subscription discount ({frequency.discount}%)</span>
+                          <span>{t("summary.discount", { percent: effectiveDiscount })}</span>
                           <span>−€{discountAmount.toFixed(2)}</span>
                         </div>
                       )}
                       <div className="flex items-center justify-between text-body text-muted-foreground">
-                        <span>Shipping</span>
+                        <span>{t("summary.shipping")}</span>
                         <span>€{SHIPPING.toFixed(2)}</span>
                       </div>
                       <div className="flex items-center justify-between font-serif text-lg pt-2 border-t border-border/40 mt-2">
-                        <span>Total</span>
+                        <span>{t("summary.total")}</span>
                         <span>€{total.toFixed(2)}</span>
                       </div>
                       <p className="text-label text-muted-foreground text-center pt-2" style={{ fontSize: "0.6rem" }}>
-                        Billed {frequency.label.toLowerCase()} · {frequency.shipping}
+                        {t("summary.billed", { frequency: t(`frequencies.${selectedFrequency}.labelLower`), shipping: t(`frequencies.${selectedFrequency}.shipping`) })}
                       </p>
                     </div>
                   )}
 
-                  <button
-                    disabled
-                    aria-disabled="true"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-muted text-muted-foreground px-8 py-3.5 text-label rounded-sm cursor-not-allowed opacity-70 mt-4"
-                  >
-                    Coming Soon
-                  </button>
-                  <p className="text-xs text-muted-foreground mt-2 text-center">Launching October 1st, 2026.</p>
+                  {subscribable ? (
+                    <>
+                      <button
+                        type="button"
+                        onClick={startSubscription}
+                        disabled={isCheckingOut}
+                        className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-label rounded-sm hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-wait mt-4"
+                      >
+                        {isCheckingOut ? t("summary.redirecting") : t("summary.start")}
+                        {!isCheckingOut && <ArrowRight size={14} />}
+                      </button>
+                      <p className="text-xs text-muted-foreground mt-2 text-center">
+                        {t("summary.recurring", { frequency: t(`frequencies.${selectedFrequency}.labelLower`) })}
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        disabled
+                        aria-disabled="true"
+                        className="w-full inline-flex items-center justify-center gap-2 bg-muted text-muted-foreground px-8 py-3.5 text-label rounded-sm cursor-not-allowed opacity-70 mt-4"
+                      >
+                        {t("summary.comingSoon")}
+                      </button>
+                      <p className="text-xs text-muted-foreground mt-2 text-center">{t("summary.launching")}</p>
+                    </>
+                  )}
                 </div>
 
                 <p className="text-body text-muted-foreground/70 italic text-center text-sm">
-                  Delivered {frequency.label.toLowerCase()} · Discreet packaging
+                  {t("summary.delivered", { frequency: t(`frequencies.${selectedFrequency}.labelLower`) })}
                 </p>
               </div>
             </div>
@@ -816,16 +867,16 @@ const CycleBox = () => {
       {/* ════════ BENEFITS ════════ */}
       <section className="section-padding bg-card">
         <div className="max-w-5xl mx-auto">
-          <p className="text-label text-muted-foreground text-center mb-4">Why subscribe</p>
-          <h2 className="text-editorial-md text-center mb-16">The Cycle Box advantage</h2>
+          <p className="text-label text-muted-foreground text-center mb-4">{t("benefits.label")}</p>
+          <h2 className="text-editorial-md text-center mb-16">{t("benefits.title")}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            {benefits.map((b, i) => (
+            {benefitIcons.map((Icon, i) => (
               <div key={i} className="text-center">
                 <div className="w-14 h-14 mx-auto mb-5 bg-lore-sage/25 rounded-full flex items-center justify-center shadow-[0_2px_12px_-4px_rgba(0,0,0,0.06)]">
-                  <b.icon size={22} className="text-secondary-foreground" strokeWidth={1.5} />
+                  <Icon size={22} className="text-secondary-foreground" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-serif text-lg mb-2">{b.title}</h3>
-                <p className="text-body text-muted-foreground">{b.desc}</p>
+                <h3 className="font-serif text-lg mb-2">{t(`benefits.items.${i}.title`)}</h3>
+                <p className="text-body text-muted-foreground">{t(`benefits.items.${i}.desc`)}</p>
               </div>
             ))}
           </div>
@@ -835,10 +886,10 @@ const CycleBox = () => {
       {/* ════════ FAQ ════════ */}
       <section className="section-padding bg-card">
         <div className="max-w-2xl mx-auto">
-          <p className="text-label text-muted-foreground text-center mb-4">Questions</p>
-          <h2 className="text-editorial-md text-center mb-12">Frequently Asked</h2>
+          <p className="text-label text-muted-foreground text-center mb-4">{t("faq.label")}</p>
+          <h2 className="text-editorial-md text-center mb-12">{t("faq.title")}</h2>
           <div className="space-y-0">
-            {faqs.map((faq, i) => {
+            {Array.from({ length: FAQ_COUNT }).map((_, i) => {
               const isOpen = openFaq === i;
               return (
                 <div key={i} className="border-b border-border/40">
@@ -846,7 +897,7 @@ const CycleBox = () => {
                     onClick={() => setOpenFaq(isOpen ? null : i)}
                     className="w-full flex items-center justify-between py-6 text-left"
                   >
-                    <span className="font-serif text-lg pr-4">{faq.q}</span>
+                    <span className="font-serif text-lg pr-4">{t(`faq.items.${i}.q`)}</span>
                     {isOpen ? (
                       <ChevronUp size={18} className="text-muted-foreground shrink-0" strokeWidth={1.5} />
                     ) : (
@@ -855,7 +906,7 @@ const CycleBox = () => {
                   </button>
                   {isOpen && (
                     <div className="pb-6 pr-8">
-                      <p className="text-body text-muted-foreground">{faq.a}</p>
+                      <p className="text-body text-muted-foreground">{t(`faq.items.${i}.a`)}</p>
                     </div>
                   )}
                 </div>
@@ -871,16 +922,16 @@ const CycleBox = () => {
         <div className="relative z-10 max-w-2xl mx-auto">
           <div className="divider-botanical mx-auto mb-8" />
           <h2 className="text-editorial-lg mb-6">
-            Never run out,<br />adjust anytime.
+            {t("finalCta.title1")}<br />{t("finalCta.title2")}
           </h2>
           <p className="text-body-lg text-muted-foreground mb-10 max-w-lg mx-auto">
-            Build your Cycle Box and get organic essentials delivered when you need them.
+            {t("finalCta.body")}
           </p>
           <button
             onClick={scrollToBuilder}
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-10 py-4 text-label hover:opacity-90 transition-opacity rounded-sm"
           >
-            Build Your Cycle Box <ArrowRight size={14} />
+            {t("finalCta.cta")} <ArrowRight size={14} />
           </button>
         </div>
       </section>

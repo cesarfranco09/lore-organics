@@ -1,0 +1,54 @@
+{
+  "seo": {
+    "title": "Impact — Menstruatiegelijkheid in Nederland & Duitsland | Lore Organics",
+    "description": "1% van de omzet en een donatiemodel van vrouw tot vrouw. Hoe elke aankoop van onze GOTS-gecertificeerde tampons en maandverband van biologisch katoen menstruatiegelijkheid financiert in Nederland en Duitsland."
+  },
+  "hero": {
+    "titleLine1": "Menstruatiezorg is een recht,",
+    "titleLine2": "geen privilege.",
+    "body": "Vanaf onze allereerste verkoop geven we terug. Ingebouwd in elke aankoop, automatisch."
+  },
+  "stat": {
+    "figure": "1 op de 4",
+    "body1": "vrouwen in Duitsland zegt dat de maandelijkse kosten van hun menstruatie een financiële last zijn.",
+    "body2": "In Nederland kon 1 op de 8 vrouwen het afgelopen jaar de menstruatieproducten die ze nodig had niet betalen, en kon nog eens 1 op de 5 ze maar met moeite bekostigen.",
+    "body3": "Gebrek aan toegang tot veilige menstruatieproducten raakt onderwijs, werk, gezondheid en waardigheid. Wij vinden dat elke vrouw toegang verdient tot schone, veilige menstruatiezorg, wat haar omstandigheden ook zijn. Die overtuiging zit vanaf dag één ingebouwd in ons bedrijfsmodel."
+  },
+  "cards": [
+    {
+      "title": "Wat we doneren",
+      "body": "GOTS-gecertificeerd maandverband en tampons van biologisch katoen. Dezelfde producten die jij koopt. We hanteren voor elk Lore-product dezelfde standaard, omdat vrouwen die donaties ontvangen dezelfde kwaliteit verdienen als vrouwen die het kunnen betalen."
+    },
+    {
+      "title": "Lokale partnerschappen",
+      "body": "We werken samen met lokale opvanghuizen, scholen en buurtcentra om ervoor te zorgen dat donaties terechtkomen bij de vrouwen die ze het hardst nodig hebben. Onze partnerorganisaties maken we bekend bij de lancering. Vertegenwoordig je een organisatie die zich inzet tegen menstruatiearmoede in Nederland of Duitsland? Dan horen we graag van je via"
+    },
+    {
+      "title": "Systeemverandering",
+      "body": "Menstruatiearmoede los je niet op met donaties alleen. Er is beleidsverandering nodig rond producttransparantie, betaalbaarheid en toegang. We zijn een klein merk, maar we geloven dat elke stem telt. En die van ons laten we horen."
+    }
+  ],
+  "ways": {
+    "titleLine1": "Twee manieren",
+    "titleLine2": "waarop we teruggeven.",
+    "items": [
+      {
+        "label": "1% van de omzet, automatisch",
+        "body": "Geven zit in ons. Bij elke aankoop gaat 1% van onze opbrengst naar het doneren van onze producten aan vrouwen in de buurt die ze nodig hebben. Die keuze hebben we bewust gemaakt, want elke vrouw verdient toegang tot veilige menstruatiezorg, maar niet elke vrouw heeft die toegang. Doe mee en zorg samen met ons voor elkaar."
+      },
+      {
+        "label": "Deel het verschil",
+        "body": "Omdat geven actief mag voelen. Voeg bij het afrekenen een maandverband toe tegen kostprijs en wij doneren het, volledig, aan vrouwenopvanghuizen en lokale organisaties. We houden elke donatie bij en laten je precies zien waar jouw impact terechtkomt."
+      }
+    ]
+  },
+  "quote": {
+    "love": "Liefs,",
+    "role": "Medeoprichters van Lore Organics"
+  },
+  "cta": {
+    "title": "Elke aankoop maakt een verschil.",
+    "body": "Schrijf je in voor de wachtlijst en maak vanaf dag één deel uit van de beweging.",
+    "button": "Schrijf je in voor de wachtlijst"
+  }
+}

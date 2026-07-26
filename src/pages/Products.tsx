@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Leaf, Droplets, Award, ArrowRight, ShoppingBag } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useCart } from "@/contexts/CartContext";
 import { useShopifyProducts } from "@/hooks/useShopifyProducts";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import { isStoreLive } from "@/lib/shopify";
+import { trackViewContent } from "@/lib/analytics";
 import Seo from "@/components/Seo";
 
 
@@ -62,8 +66,7 @@ const products: Product[] = [
   },
   {
     id: "regular-tampon",
-    // Not in Shopify yet — expected handle once created (Shopify derives it from the title).
-    shopifyHandle: "organic-cotton-regular-tampons",
+    shopifyHandle: "organic-cotton-tampons-regular",
     image: "/lovable-uploads/tampons-box.webp",
     title: "Organic Cotton Regular Tampons",
     price: 5.90,
@@ -76,8 +79,7 @@ const products: Product[] = [
   },
   {
     id: "super-tampon",
-    // Not in Shopify yet — expected handle once created.
-    shopifyHandle: "organic-cotton-super-tampons",
+    shopifyHandle: "organic-cotton-tampons-super",
     image: "/lovable-uploads/tampons-box-super.webp",
     title: "Organic Cotton Super Tampons",
     price: 5.90,
@@ -90,8 +92,7 @@ const products: Product[] = [
   },
   {
     id: "liner",
-    // Not in Shopify yet — expected handle once created.
-    shopifyHandle: "organic-cotton-liners",
+    shopifyHandle: "organic-cotton-panty-liners",
     image: "/lovable-uploads/daae0592-f7db-4ec4-99be-058364328e9a.webp",
     title: "Organic Cotton Liners",
     price: 4.90,
@@ -105,23 +106,16 @@ const products: Product[] = [
   },
 ];
 
-const categoryTitles: Record<string, { label: string; heading: string; description: string }> = {
-  pads: {
-    label: "Pads",
-    heading: "Organic Cotton Pads",
-    description: "Day and night pads made from GOTS-certified organic cotton for all-day comfort and protection.",
-  },
-  tampons: {
-    label: "Tampons",
-    heading: "Organic Cotton Tampons",
-    description: "Digital tampons with Cottonlock™ 360° safety veil, pure organic cotton, no synthetic materials.",
-  },
-  "panty-liners": {
-    label: "Panty Liners",
-    heading: "Organic Cotton Panty Liners",
-    description: "Ultra-thin organic cotton liners for everyday freshness and breathable comfort.",
-  },
-};
+/**
+ * Categories with translated hero copy in src/locales/{lng}/products.json
+ * (categories.<key>.label/heading/description).
+ *
+ * NOTE: the English strings kept in `products` above stay the source of truth
+ * for analytics (trackViewContent), the cart line name, and the JSON-LD block;
+ * user-visible copy is looked up per-render via the "products" i18n namespace
+ * using the stable `id` values (items.<id>.title etc.).
+ */
+const KNOWN_CATEGORIES = ["pads", "tampons", "panty-liners"] as const;
 
 const DropletIcons = ({ count }: { count: number }) => (
   <div className="flex gap-1">
@@ -138,6 +132,8 @@ const DropletIcons = ({ count }: { count: number }) => (
 
 const Products = () => {
   const { category } = useParams<{ category?: string }>();
+  const { t } = useTranslation("products");
+  const { localize } = useLocalizedPath();
   const { addItem } = useCart();
   const { byHandle } = useShopifyProducts();
   const storeLive = isStoreLive();
@@ -146,12 +142,22 @@ const Products = () => {
     ? products.filter((p) => p.category === category)
     : products;
 
-  const info = category && categoryTitles[category];
-  const heroLabel = info ? info.label : "Our Products";
-  const heroHeading = info ? info.heading : "Clean by design.";
-  const heroDescription = info
-    ? info.description
-    : "Every Lore product is made from GOTS-certified organic cotton, free from plastics, toxins, and synthetic fragrances.";
+  // Meta ViewContent + GA4 view_item_list, once per category view.
+  useEffect(() => {
+    const visible = category ? products.filter((p) => p.category === category) : products;
+    trackViewContent(
+      visible.map((p) => ({ id: p.shopifyHandle ?? p.id, name: p.title, price: p.price })),
+      category ?? "all-products"
+    );
+  }, [category]);
+
+  const knownCategory =
+    category && (KNOWN_CATEGORIES as readonly string[]).includes(category) ? category : undefined;
+  const heroLabel = knownCategory ? t(`categories.${knownCategory}.label`) : t("hero.label");
+  const heroHeading = knownCategory ? t(`categories.${knownCategory}.heading`) : t("hero.heading");
+  const heroDescription = knownCategory
+    ? t(`categories.${knownCategory}.description`)
+    : t("hero.description");
 
   const handleAddToCart = (product: Product) => {
     const live = product.shopifyHandle ? byHandle[product.shopifyHandle] : undefined;
@@ -173,7 +179,7 @@ const Products = () => {
       "@type": "Product",
       name: p.title,
       description: p.description,
-      image: p.image.startsWith("http") ? p.image : `https://lore-organics-elevated.lovable.app${p.image}`,
+      image: p.image.startsWith("http") ? p.image : `https://www.lore-organics.com${p.image}`,
       brand: { "@type": "Brand", name: "Lore Organics" },
       offers: {
         "@type": "Offer",
@@ -186,14 +192,15 @@ const Products = () => {
     })),
   };
 
-  const seoTitle = info
-    ? `${info.heading} — GOTS Certified Organic Cotton | Lore Organics`
-    : "Shop Organic Cotton Tampons, Pads & Liners — GOTS Certified | Lore Organics";
+  const seoTitle = knownCategory
+    ? t("seo.categoryTitle", { heading: heroHeading })
+    : t("seo.title");
+  const seoDescription = knownCategory ? heroDescription : t("seo.description");
   const seoPath = category ? `/products/${category}` : "/products";
 
   return (
     <main className="pt-20">
-      <Seo title={seoTitle} description={heroDescription} path={seoPath} jsonLd={productJsonLd} />
+      <Seo title={seoTitle} description={seoDescription} path={seoPath} jsonLd={productJsonLd} />
       {/* Hero */}
       <section className="section-padding text-center">
         <p className="text-label text-lore-botanical mb-4">{heroLabel}</p>
@@ -211,6 +218,12 @@ const Products = () => {
         // In Shopify but not sellable (e.g. inventory at 0) → "Out of Stock".
         // Not in Shopify at all (or store not live) → "Coming Soon".
         const outOfStock = storeLive && !product.comingSoon && live && !live.availableForSale;
+        // Materials come back as an array once the namespace has loaded;
+        // fall back to the English list in the interim.
+        const translatedMaterials = t(`items.${product.id}.materials`, { returnObjects: true });
+        const materials = Array.isArray(translatedMaterials)
+          ? (translatedMaterials as string[])
+          : product.materials;
         return (
         <section
           key={product.title}
@@ -230,10 +243,10 @@ const Products = () => {
 
             <div className="w-full lg:w-1/2">
               {product.comingSoon && (
-                <span className="inline-block text-label text-lore-botanical bg-lore-sage/30 px-3 py-1 mb-4">Coming Soon</span>
+                <span className="inline-block text-label text-lore-botanical bg-lore-sage/30 px-3 py-1 mb-4">{t("buttons.comingSoon")}</span>
               )}
-              <h2 className="text-editorial-md mb-4">{product.title}</h2>
-              <p className="text-body-lg text-muted-foreground mb-4">{product.description}</p>
+              <h2 className="text-editorial-md mb-4">{t(`items.${product.id}.title`)}</h2>
+              <p className="text-body-lg text-muted-foreground mb-4">{t(`items.${product.id}.description`)}</p>
 
               {/* Price shown only once the store is live (hidden during pricing review) */}
               {purchasable && live && (
@@ -251,7 +264,7 @@ const Products = () => {
                     className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-3.5 text-label rounded-sm hover:opacity-90 transition-opacity"
                   >
                     <ShoppingBag size={16} strokeWidth={1.5} />
-                    Add to Cart
+                    {t("buttons.addToCart")}
                   </button>
                 ) : (
                   <button
@@ -261,19 +274,19 @@ const Products = () => {
                     className="inline-flex items-center gap-3 bg-muted text-muted-foreground px-8 py-3.5 text-label rounded-sm cursor-not-allowed opacity-70"
                   >
                     <ShoppingBag size={16} strokeWidth={1.5} />
-                    {outOfStock ? "Out of Stock" : "Coming Soon"}
+                    {outOfStock ? t("buttons.outOfStock") : t("buttons.comingSoon")}
                   </button>
                 )}
               </div>
 
               {/* Variants */}
               <div className="mb-10">
-                <h3 className="text-label text-muted-foreground mb-4">Product Details</h3>
+                <h3 className="text-label text-muted-foreground mb-4">{t("sections.details")}</h3>
                 <div className="space-y-3">
-                  {product.variants.map((v) => (
+                  {product.variants.map((v, i) => (
                     <div key={v.name} className="flex items-center justify-between py-3 border-b border-border/50">
                       <div>
-                        <span className="font-serif text-lg">{v.name}</span>
+                        <span className="font-serif text-lg">{t(`items.${product.id}.variants.${i}`)}</span>
                         {v.size && <span className="text-body text-muted-foreground ml-3">{v.size}</span>}
                       </div>
                       <DropletIcons count={v.absorbency} />
@@ -284,9 +297,9 @@ const Products = () => {
 
               {/* Materials */}
               <div className="mb-10">
-                <h3 className="text-label text-muted-foreground mb-4">Materials & Transparency</h3>
+                <h3 className="text-label text-muted-foreground mb-4">{t("sections.materials")}</h3>
                 <ul className="space-y-2">
-                  {product.materials.map((m) => (
+                  {materials.map((m) => (
                     <li key={m} className="text-body text-muted-foreground flex items-start gap-3">
                       <Leaf size={14} className="text-lore-botanical mt-1 shrink-0" strokeWidth={1.5} />
                       {m}
@@ -297,7 +310,7 @@ const Products = () => {
 
               {/* Certifications */}
               <div>
-                <h3 className="text-label text-muted-foreground mb-4">Certifications</h3>
+                <h3 className="text-label text-muted-foreground mb-4">{t("sections.certifications")}</h3>
                 <div className="flex gap-3">
                   {product.certifications.map((cert) => (
                     <div key={cert} className="flex items-center gap-2 bg-lore-sage/20 px-4 py-2">
@@ -315,15 +328,15 @@ const Products = () => {
 
       {/* CTA */}
       <section className="section-padding bg-lore-sage/20 text-center">
-        <h2 className="text-editorial-md mb-6">Ready to make the switch?</h2>
+        <h2 className="text-editorial-md mb-6">{t("cta.heading")}</h2>
         <p className="text-body text-muted-foreground mb-8 max-w-md mx-auto">
-          Join thousands of women choosing certified organic period care.
+          {t("cta.body")}
         </p>
         <Link
-          to="/cycle-box"
+          to={localize("/cycle-box")}
           className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-label hover:opacity-90 transition-opacity"
         >
-          Build Your Cycle Box <ArrowRight size={14} />
+          {t("cta.button")} <ArrowRight size={14} />
         </Link>
       </section>
     </main>

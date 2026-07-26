@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "Bio-Baumwoll-Tampons, Binden & Slipeinlagen kaufen — GOTS-zertifiziert | Lore Organics",
+    "categoryTitle": "{{heading}} — GOTS-zertifizierte Bio-Baumwolle | Lore Organics",
+    "description": "Jedes Lore-Produkt besteht aus GOTS-zertifizierter Bio-Baumwolle – frei von Plastik, Schadstoffen und synthetischen Duftstoffen."
+  },
+  "hero": {
+    "label": "Unsere Produkte",
+    "heading": "Rein durchdacht.",
+    "description": "Jedes Lore-Produkt besteht aus GOTS-zertifizierter Bio-Baumwolle – frei von Plastik, Schadstoffen und synthetischen Duftstoffen."
+  },
+  "categories": {
+    "pads": {
+      "label": "Binden",
+      "heading": "Bio-Baumwoll-Binden",
+      "description": "Tages- und Nachtbinden aus GOTS-zertifizierter Bio-Baumwolle – für Komfort und Schutz rund um die Uhr."
+    },
+    "tampons": {
+      "label": "Tampons",
+      "heading": "Bio-Baumwoll-Tampons",
+      "description": "Digitale Tampons mit Cottonlock™ 360°-Schutzschleier, reine Bio-Baumwolle, ohne synthetische Materialien."
+    },
+    "panty-liners": {
+      "label": "Slipeinlagen",
+      "heading": "Bio-Baumwoll-Slipeinlagen",
+      "description": "Hauchdünne Slipeinlagen aus Bio-Baumwolle für tägliche Frische und atmungsaktiven Komfort."
+    }
+  },
+  "items": {
+    "day-pad": {
+      "title": "Bio-Baumwoll-Tagesbinde",
+      "description": "Ultrakomfortable Tagesbinde aus Bio-Baumwolle (240 mm) für sicheren, reizfreien Schutz am Tag.",
+      "variants": ["Tagesbinde"],
+      "materials": [
+        "100 % GOTS-zertifizierte Bio-Baumwolle",
+        "Biologisch abbaubare Unterschicht",
+        "Kein Plastik auf deiner Haut"
+      ]
+    },
+    "night-pad": {
+      "title": "Bio-Baumwoll-Nachtbinde",
+      "description": "Extra lange Nachtbinde aus Bio-Baumwolle (280 mm) – für starke Tage und ein sicheres Gefühl die ganze Nacht.",
+      "variants": ["Nachtbinde"],
+      "materials": [
+        "100 % GOTS-zertifizierte Bio-Baumwolle",
+        "Biologisch abbaubare Unterschicht",
+        "Kein Plastik auf deiner Haut"
+      ]
+    },
+    "regular-tampon": {
+      "title": "Bio-Baumwoll-Tampons Regular",
+      "description": "Digitale Tampons für leichte bis mittlere Tage, mit 360°-Schutzschleier aus Baumwolle, ohne synthetische Anti-Faser-Schichten.",
+      "variants": ["Regular"],
+      "materials": [
+        "100 % GOTS-zertifizierte Bio-Baumwolle",
+        "Cottonlock™ 360°-Schutzschleier",
+        "Ohne synthetische Viskose",
+        "Ohne Plastikapplikator"
+      ]
+    },
+    "super-tampon": {
+      "title": "Bio-Baumwoll-Tampons Super",
+      "description": "Besonders saugstarke digitale Tampons für mittlere bis starke Tage, mit 360°-Schutzschleier aus Baumwolle, ohne synthetische Anti-Faser-Schichten.",
+      "variants": ["Super"],
+      "materials": [
+        "100 % GOTS-zertifizierte Bio-Baumwolle",
+        "Cottonlock™ 360°-Schutzschleier",
+        "Ohne synthetische Viskose",
+        "Ohne Plastikapplikator"
+      ]
+    },
+    "liner": {
+      "title": "Bio-Baumwoll-Slipeinlagen",
+      "description": "Hauchdünne Slipeinlagen aus Bio-Baumwolle für tägliche Frische. Demnächst verfügbar.",
+      "variants": ["Slipeinlage"],
+      "materials": [
+        "100 % GOTS-zertifizierte Bio-Baumwolle",
+        "Hauchdünnes Design",
+        "Atmungsaktiver Aufbau",
+        "Biologisch abbaubar"
+      ]
+    }
+  },
+  "sections": {
+    "details": "Produktdetails",
+    "materials": "Materialien & Transparenz",
+    "certifications": "Zertifizierungen"
+  },
+  "buttons": {
+    "addToCart": "In den Warenkorb",
+    "outOfStock": "Ausverkauft",
+    "comingSoon": "Demnächst verfügbar"
+  },
+  "cta": {
+    "heading": "Bereit für den Wechsel?",
+    "body": "Schließ dich Tausenden Frauen an, die sich für zertifizierte Bio-Periodenpflege entscheiden.",
+    "button": "Stell deine Cycle Box zusammen"
+  }
+}

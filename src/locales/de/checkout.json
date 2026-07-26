@@ -1,0 +1,95 @@
+{
+  "seo": {
+    "title": "Kasse — Lore Organics",
+    "description": "Sichere Kasse für deine Lore Organics-Bestellung. Plastikfreie Bio-Periodenprodukte, geliefert in die Niederlande und nach Deutschland."
+  },
+  "empty": {
+    "title": "Dein Warenkorb ist leer",
+    "body": "Füge erst ein paar Produkte hinzu, bevor du zur Kasse gehst.",
+    "cta": "Produkte entdecken"
+  },
+  "back": "Zurück zum Shop",
+  "title": "Kasse",
+  "contact": {
+    "title": "Kontaktdaten",
+    "email": "E-Mail-Adresse",
+    "emailPlaceholder": "du@beispiel.com",
+    "phone": "Telefonnummer",
+    "optional": "(optional)",
+    "phonePlaceholder": "+49 151 12345678"
+  },
+  "address": {
+    "title": "Lieferadresse",
+    "firstName": "Vorname",
+    "firstNamePlaceholder": "María",
+    "lastName": "Nachname",
+    "lastNamePlaceholder": "García",
+    "address": "Adresse",
+    "addressPlaceholder": "Beispielstraße 12",
+    "apt": "Wohnung / Zusatz",
+    "aptPlaceholder": "2B",
+    "city": "Stadt",
+    "cityPlaceholder": "Berlin",
+    "postal": "Postleitzahl",
+    "postalPlaceholder": "10115",
+    "country": "Land",
+    "countries": {
+      "spain": "Spanien",
+      "germany": "Deutschland",
+      "france": "Frankreich",
+      "italy": "Italien",
+      "netherlands": "Niederlande",
+      "belgium": "Belgien",
+      "austria": "Österreich",
+      "portugal": "Portugal",
+      "ireland": "Irland",
+      "sweden": "Schweden",
+      "denmark": "Dänemark",
+      "finland": "Finnland",
+      "norway": "Norwegen",
+      "switzerland": "Schweiz",
+      "unitedKingdom": "Vereinigtes Königreich"
+    }
+  },
+  "shipping": {
+    "title": "Versandart",
+    "standard": "Standardversand",
+    "standardTime": "5–7 Werktage",
+    "express": "Expressversand",
+    "expressTime": "1–3 Werktage"
+  },
+  "payment": {
+    "title": "Zahlungsmethode",
+    "card": "Karte",
+    "applePay": "Apple Pay",
+    "paypal": "PayPal",
+    "klarna": "Klarna",
+    "cardNumber": "Kartennummer",
+    "cardNumberPlaceholder": "4242 4242 4242 4242",
+    "expiry": "Ablaufdatum",
+    "expiryPlaceholder": "MM / JJ",
+    "cvc": "CVC",
+    "cvcPlaceholder": "123",
+    "nameOnCard": "Name auf der Karte",
+    "nameOnCardPlaceholder": "María García",
+    "redirect": "Du wirst zu {{provider}} weitergeleitet, um deine Zahlung abzuschließen."
+  },
+  "trust": {
+    "secure": "Sicherer Checkout",
+    "encrypted": "Verschlüsselte & sichere Zahlung",
+    "madeIn": "Hergestellt in Spanien · GOTS-zertifizierte Bio-Baumwolle"
+  },
+  "cta": {
+    "continue": "Weiter zur sicheren Kasse",
+    "redirecting": "Weiterleitung zur sicheren Kasse…",
+    "comingSoon": "Demnächst verfügbar",
+    "launching": "Start am 1. Oktober 2026."
+  },
+  "summary": {
+    "title": "Bestellübersicht",
+    "kit": "Dein Cycle Kit",
+    "qty": "Menge: {{count}}",
+    "items_one": "{{count}} Artikel",
+    "items_other": "{{count}} Artikel"
+  }
+}

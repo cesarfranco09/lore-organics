@@ -1,0 +1,95 @@
+{
+  "seo": {
+    "title": "Afrekenen — Lore Organics",
+    "description": "Veilig afrekenen voor je Lore Organics-bestelling. Plasticvrije biologische menstruatieproducten, bezorgd in Nederland en Duitsland."
+  },
+  "empty": {
+    "title": "Je winkelwagen is leeg",
+    "body": "Voeg eerst wat producten toe voordat je afrekent.",
+    "cta": "Bekijk producten"
+  },
+  "back": "Terug naar de shop",
+  "title": "Afrekenen",
+  "contact": {
+    "title": "Contactgegevens",
+    "email": "E-mailadres",
+    "emailPlaceholder": "jij@voorbeeld.com",
+    "phone": "Telefoonnummer",
+    "optional": "(optioneel)",
+    "phonePlaceholder": "+31 6 12345678"
+  },
+  "address": {
+    "title": "Verzendadres",
+    "firstName": "Voornaam",
+    "firstNamePlaceholder": "María",
+    "lastName": "Achternaam",
+    "lastNamePlaceholder": "García",
+    "address": "Adres",
+    "addressPlaceholder": "Voorbeeldstraat 12",
+    "apt": "Appartement / toevoeging",
+    "aptPlaceholder": "2B",
+    "city": "Plaats",
+    "cityPlaceholder": "Amsterdam",
+    "postal": "Postcode",
+    "postalPlaceholder": "1012 AB",
+    "country": "Land",
+    "countries": {
+      "spain": "Spanje",
+      "germany": "Duitsland",
+      "france": "Frankrijk",
+      "italy": "Italië",
+      "netherlands": "Nederland",
+      "belgium": "België",
+      "austria": "Oostenrijk",
+      "portugal": "Portugal",
+      "ireland": "Ierland",
+      "sweden": "Zweden",
+      "denmark": "Denemarken",
+      "finland": "Finland",
+      "norway": "Noorwegen",
+      "switzerland": "Zwitserland",
+      "unitedKingdom": "Verenigd Koninkrijk"
+    }
+  },
+  "shipping": {
+    "title": "Verzendmethode",
+    "standard": "Standaardverzending",
+    "standardTime": "5–7 werkdagen",
+    "express": "Expressverzending",
+    "expressTime": "1–3 werkdagen"
+  },
+  "payment": {
+    "title": "Betaalmethode",
+    "card": "Kaart",
+    "applePay": "Apple Pay",
+    "paypal": "PayPal",
+    "klarna": "Klarna",
+    "cardNumber": "Kaartnummer",
+    "cardNumberPlaceholder": "4242 4242 4242 4242",
+    "expiry": "Vervaldatum",
+    "expiryPlaceholder": "MM / JJ",
+    "cvc": "CVC",
+    "cvcPlaceholder": "123",
+    "nameOnCard": "Naam op kaart",
+    "nameOnCardPlaceholder": "María García",
+    "redirect": "Je wordt doorgestuurd naar {{provider}} om je betaling af te ronden."
+  },
+  "trust": {
+    "secure": "Veilig afrekenen",
+    "encrypted": "Versleutelde & veilige betaling",
+    "madeIn": "Gemaakt in Spanje · GOTS-gecertificeerd biologisch katoen"
+  },
+  "cta": {
+    "continue": "Verder naar veilig afrekenen",
+    "redirecting": "Doorsturen naar veilig afrekenen…",
+    "comingSoon": "Binnenkort beschikbaar",
+    "launching": "Lancering op 1 oktober 2026."
+  },
+  "summary": {
+    "title": "Besteloverzicht",
+    "kit": "Jouw Cycle Kit",
+    "qty": "Aantal: {{count}}",
+    "items_one": "{{count}} artikel",
+    "items_other": "{{count}} artikelen"
+  }
+}

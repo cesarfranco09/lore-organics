@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "Shop biologisch katoenen tampons, maandverband & inlegkruisjes — GOTS-gecertificeerd | Lore Organics",
+    "categoryTitle": "{{heading}} — GOTS-gecertificeerd biologisch katoen | Lore Organics",
+    "description": "Elk Lore-product is gemaakt van GOTS-gecertificeerd biologisch katoen, vrij van plastic, gifstoffen en synthetische geurstoffen."
+  },
+  "hero": {
+    "label": "Onze producten",
+    "heading": "Zuiver ontworpen.",
+    "description": "Elk Lore-product is gemaakt van GOTS-gecertificeerd biologisch katoen, vrij van plastic, gifstoffen en synthetische geurstoffen."
+  },
+  "categories": {
+    "pads": {
+      "label": "Maandverband",
+      "heading": "Biologisch katoenen maandverband",
+      "description": "Maandverband voor dag en nacht, gemaakt van GOTS-gecertificeerd biologisch katoen voor comfort en bescherming, de hele dag door."
+    },
+    "tampons": {
+      "label": "Tampons",
+      "heading": "Biologisch katoenen tampons",
+      "description": "Digitale tampons met Cottonlock™ 360°-veiligheidslaag, puur biologisch katoen, zonder synthetische materialen."
+    },
+    "panty-liners": {
+      "label": "Inlegkruisjes",
+      "heading": "Biologisch katoenen inlegkruisjes",
+      "description": "Ultradunne inlegkruisjes van biologisch katoen voor dagelijkse frisheid en ademend comfort."
+    }
+  },
+  "items": {
+    "day-pad": {
+      "title": "Dagverband van biologisch katoen",
+      "description": "Ultracomfortabel dagverband van biologisch katoen (240 mm) voor veilige, irritatievrije bescherming overdag.",
+      "variants": ["Dagverband"],
+      "materials": [
+        "100% GOTS-gecertificeerd biologisch katoen",
+        "Biologisch afbreekbare onderlaag",
+        "Geen plastic op je huid"
+      ]
+    },
+    "night-pad": {
+      "title": "Nachtverband van biologisch katoen",
+      "description": "Extra lang nachtverband van biologisch katoen (280 mm), ontworpen voor hevige menstruatie en een zorgeloze nacht.",
+      "variants": ["Nachtverband"],
+      "materials": [
+        "100% GOTS-gecertificeerd biologisch katoen",
+        "Biologisch afbreekbare onderlaag",
+        "Geen plastic op je huid"
+      ]
+    },
+    "regular-tampon": {
+      "title": "Regular tampons van biologisch katoen",
+      "description": "Digitale tampons voor lichte tot gemiddelde menstruatie, met 360° katoenen veiligheidslaag, zonder synthetische antipluislagen.",
+      "variants": ["Regular"],
+      "materials": [
+        "100% GOTS-gecertificeerd biologisch katoen",
+        "Cottonlock™ 360°-veiligheidslaag",
+        "Zonder synthetische viscose",
+        "Zonder plastic applicator"
+      ]
+    },
+    "super-tampon": {
+      "title": "Super tampons van biologisch katoen",
+      "description": "Extra absorberende digitale tampons voor gemiddelde tot hevige menstruatie, met 360° katoenen veiligheidslaag, zonder synthetische antipluislagen.",
+      "variants": ["Super"],
+      "materials": [
+        "100% GOTS-gecertificeerd biologisch katoen",
+        "Cottonlock™ 360°-veiligheidslaag",
+        "Zonder synthetische viscose",
+        "Zonder plastic applicator"
+      ]
+    },
+    "liner": {
+      "title": "Inlegkruisjes van biologisch katoen",
+      "description": "Ultradunne inlegkruisjes van biologisch katoen voor dagelijkse frisheid. Binnenkort beschikbaar.",
+      "variants": ["Inlegkruisje"],
+      "materials": [
+        "100% GOTS-gecertificeerd biologisch katoen",
+        "Ultradun ontwerp",
+        "Ademende opbouw",
+        "Biologisch afbreekbaar"
+      ]
+    }
+  },
+  "sections": {
+    "details": "Productdetails",
+    "materials": "Materialen & transparantie",
+    "certifications": "Certificeringen"
+  },
+  "buttons": {
+    "addToCart": "In winkelwagen",
+    "outOfStock": "Uitverkocht",
+    "comingSoon": "Binnenkort beschikbaar"
+  },
+  "cta": {
+    "heading": "Klaar om over te stappen?",
+    "body": "Sluit je aan bij duizenden vrouwen die kiezen voor gecertificeerde biologische menstruatiezorg.",
+    "button": "Stel je Cycle Box samen"
+  }
+}

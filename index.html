@@ -60,33 +60,43 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Defer all third-party marketing/analytics until after page load + idle
+      // --- Google Consent Mode v2: default-deny before anything else runs ---
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        wait_for_update: 2000
+      });
+      window.gtag("js", new Date());
+      // send_page_view: false — the SPA route tracker (AnalyticsTracker) owns page views.
+      var GA_ID = "%VITE_GA_MEASUREMENT_ID%";
+      if (!GA_ID || GA_ID.charAt(0) === "%") GA_ID = "G-RW6PTBGKVB"; // current property (swap via env var)
+      window.gtag("config", GA_ID, { send_page_view: false });
+
+      // --- iubenda Cookie Solution (consent banner, remote-configured embed) ---
+      // The widget below carries the banner + consent config from the iubenda
+      // dashboard. Marketing scripts (Meta Pixel, TikTok, Klaviyo) load from
+      // src/lib/martech.ts ONLY after the visitor grants marketing consent
+      // (src/lib/consent.ts watches iubenda's preference API). GA4 stays under
+      // Consent Mode above. Loaded eagerly — the banner must show immediately.
       (function () {
-        function loadThirdParty() {
-          // Klaviyo onsite proxy
-          window._klOnsite = window._klOnsite || [];
-          try {
-            window.klaviyo = new Proxy({}, { get: function (n, i) { return i === "push" ? function () { window._klOnsite.push.apply(window._klOnsite, arguments); } : function () { var o = [].slice.call(arguments), t = typeof o[o.length - 1] === "function" ? o.pop() : void 0; return new Promise(function (res) { window._klOnsite.push([i].concat(o, [function (v) { t && t(v); res(v); }])); }); }; } });
-          } catch (e) { window.klaviyo = window.klaviyo || []; window.klaviyo.push = function () { window._klOnsite.push.apply(window._klOnsite, arguments); }; }
-          var add = function (src, attrs) { var s = document.createElement("script"); s.src = src; s.async = true; if (attrs) Object.keys(attrs).forEach(function (k) { s.setAttribute(k, attrs[k]); }); document.head.appendChild(s); return s; };
-          // GA4
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = function () { window.dataLayer.push(arguments); };
-          window.gtag("js", new Date()); window.gtag("config", "G-RW6PTBGKVB");
-          add("https://www.googletagmanager.com/gtag/js?id=G-RW6PTBGKVB");
-          // Klaviyo
-          add("https://static.klaviyo.com/onsite/js/YiRTrJ/klaviyo.js?company_id=YiRTrJ");
-          // Iubenda cookie banner
-          add("https://cdn.iubenda.com/iubenda.js");
-          // TikTok Pixel
-          !function (w, d, t) {
-            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"]; ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat([].slice.call(arguments, 0))); }; }; for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) { for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]); return e; }; ttq.load = function (e, n) { var r = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq._i = ttq._i || {}; ttq._i[e] = []; ttq._i[e]._u = r; ttq._t = ttq._t || {}; ttq._t[e] = +new Date; ttq._o = ttq._o || {}; ttq._o[e] = n || {}; var s = d.createElement("script"); s.type = "text/javascript"; s.async = !0; s.src = r + "?sdkid=" + e + "&lib=" + t; var f = d.getElementsByTagName("script")[0]; f.parentNode.insertBefore(s, f); };
-            ttq.load("D8ASDMRC77UAEKHUG2Q0"); ttq.page();
-          }(window, document, "ttq");
-          // Embed widget (iubenda embeds)
-          add("https://embeds.iubenda.com/widgets/9a8ccbf8-2bae-4e9a-b58d-4ec0a93d1860.js");
+        var s = document.createElement("script");
+        s.src = "https://embeds.iubenda.com/widgets/9a8ccbf8-2bae-4e9a-b58d-4ec0a93d1860.js";
+        s.async = true;
+        document.head.appendChild(s);
+      })();
+
+      // --- Deferred, consent-exempt scripts (GA4 lib + iubenda policy links) ---
+      (function () {
+        function loadDeferred() {
+          var add = function (src) { var s = document.createElement("script"); s.src = src; s.async = true; document.head.appendChild(s); return s; };
+          add("https://www.googletagmanager.com/gtag/js?id=" + GA_ID);
+          add("https://cdn.iubenda.com/iubenda.js"); // policy-page embed links (footer)
         }
-        var schedule = function () { ("requestIdleCallback" in window) ? requestIdleCallback(loadThirdParty, { timeout: 3000 }) : setTimeout(loadThirdParty, 1500); };
+        var schedule = function () { ("requestIdleCallback" in window) ? requestIdleCallback(loadDeferred, { timeout: 3000 }) : setTimeout(loadDeferred, 1500); };
         if (document.readyState === "complete") schedule();
         else window.addEventListener("load", schedule, { once: true });
       })();

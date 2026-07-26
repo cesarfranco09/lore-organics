@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchProducts, isStoreLive, type ShopifyProduct } from "@/lib/shopify";
+import { useTranslation } from "react-i18next";
+import { fetchProducts, isStoreLive, type ShopifyProduct, type ShopifyLanguage } from "@/lib/shopify";
 
 /**
  * Fetches live Shopify products (only when the store is live) and returns them
@@ -13,10 +14,12 @@ import { fetchProducts, isStoreLive, type ShopifyProduct } from "@/lib/shopify";
  */
 export function useShopifyProducts() {
   const enabled = isStoreLive();
+  const { i18n } = useTranslation();
+  const language = (i18n.language?.toUpperCase() ?? "EN") as ShopifyLanguage;
 
   const query = useQuery({
-    queryKey: ["shopify-products"],
-    queryFn: () => fetchProducts(50),
+    queryKey: ["shopify-products", language],
+    queryFn: () => fetchProducts(50, language),
     enabled,
     staleTime: 5 * 60 * 1000,
   });

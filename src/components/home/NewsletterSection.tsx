@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState, FormEvent } from "react";
+import { useTranslation } from "react-i18next";
 
 const KLAVIYO_COMPANY_ID = "YiRTrJ";
 const KLAVIYO_LIST_ID = "XdjM7r";
 
 const NewsletterSection = () => {
+  const { t } = useTranslation("home");
   const formRef = useRef<HTMLDivElement>(null);
   const [klaviyoLoaded, setKlaviyoLoaded] = useState(false);
   const [email, setEmail] = useState("");
@@ -75,15 +77,15 @@ const NewsletterSection = () => {
   return (
     <section id="waitlist" className="section-padding bg-lore-sage/10 scroll-mt-24">
       <div className="max-w-xl mx-auto text-center">
-        <p className="text-label text-muted-foreground mb-4">Waitlist</p>
+        <p className="text-label text-muted-foreground mb-4">{t("newsletter.label")}</p>
         <div className="divider-botanical mx-auto mb-8" />
         {!klaviyoLoaded && (
           <>
             <h2 className="text-editorial-lg mb-6">
-              Be the first to know when we launch.
+              {t("newsletter.heading")}
             </h2>
             <p className="text-body text-muted-foreground mb-10">
-              Join the waitlist and get 10% off your first order, launching October 1st in the Netherlands and Germany.
+              {t("newsletter.body")}
             </p>
           </>
         )}
@@ -97,7 +99,7 @@ const NewsletterSection = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
+              placeholder={t("newsletter.placeholder")}
               className="flex-1 px-4 py-3 bg-background border border-lore-charcoal/20 text-lore-charcoal placeholder:text-muted-foreground focus:outline-none focus:border-lore-sage transition-colors"
               disabled={status === "loading" || status === "success"}
             />
@@ -106,13 +108,13 @@ const NewsletterSection = () => {
               disabled={status === "loading" || status === "success"}
               className="px-6 py-3 bg-lore-charcoal text-primary-foreground text-xs tracking-[0.2em] uppercase hover:bg-lore-charcoal/90 transition-colors disabled:opacity-60"
             >
-              {status === "loading" ? "Joining…" : status === "success" ? "You're on the list" : "Join the waitlist"}
+              {status === "loading" ? t("newsletter.joining") : status === "success" ? t("newsletter.onList") : t("newsletter.join")}
             </button>
           </form>
         )}
 
         {status === "success" && !klaviyoLoaded && (
-          <p className="text-sm text-lore-sage mt-4">Thank you, we'll be in touch soon.</p>
+          <p className="text-sm text-lore-sage mt-4">{t("newsletter.success")}</p>
         )}
         {status === "error" && !klaviyoLoaded && (
           <p className="text-sm text-destructive mt-4">{errorMsg}</p>

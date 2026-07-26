@@ -1,0 +1,54 @@
+{
+  "seo": {
+    "title": "Impact — Period Equity in the Netherlands & Germany | Lore Organics",
+    "description": "1% of revenue and a From One Woman to Another donation model. How every purchase of our GOTS certified organic cotton tampons and pads funds period equity across the Netherlands and Germany."
+  },
+  "hero": {
+    "titleLine1": "Period care is a right,",
+    "titleLine2": "not a privilege.",
+    "body": "From our very first sale, we give back. Built into every purchase, automatically."
+  },
+  "stat": {
+    "figure": "1 in 4",
+    "body1": "women in Germany say the monthly cost of their period is a financial burden.",
+    "body2": "In the Netherlands, 1 in 8 women couldn't afford the period products they needed in the past year and another 1 in 5 could only pay for them with difficulty.",
+    "body3": "Lack of access to safe period products impacts education, employment, health, and dignity. We believe every woman deserves access to clean, safe period care, regardless of circumstance. That belief is built into our business model from day one."
+  },
+  "cards": [
+    {
+      "title": "What We Donate",
+      "body": "GOTS-certified organic cotton pads and tampons. The same products you buy. We hold the same standard for every Lore product, because women who receive donations deserve the same quality as women who can afford to shop."
+    },
+    {
+      "title": "Community Partnerships",
+      "body": "We partner with local shelters, schools, and community centres to ensure donations reach the women who need them most. Our partner organisations are announced at launch. If you represent an organisation working on period poverty in the Netherlands or Germany, we would love to hear from you at"
+    },
+    {
+      "title": "Systemic Change",
+      "body": "Period poverty isn't solved by donations alone. It requires policy change around product transparency, affordability, and access. We're a small brand, but we believe every voice counts and ours will be used."
+    }
+  ],
+  "ways": {
+    "titleLine1": "Two ways",
+    "titleLine2": "we give back.",
+    "items": [
+      {
+        "label": "1% of revenue, automatic",
+        "body": "Giving is embedded in us. With every purchase, 1% of our proceeds goes towards donating our products to local women in need. We made this choice consciously because every woman deserves access to safe period care, but not every woman has that access. Join us in taking care of each other."
+      },
+      {
+        "label": "Split the difference",
+        "body": "Because giving should feel active. At checkout, add a pad at cost and we donate it, in full, to women's shelters and local organizations. We track every one, and we'll show you exactly where your impact goes."
+      }
+    ]
+  },
+  "quote": {
+    "love": "Love,",
+    "role": "Co-Founders of Lore Organics"
+  },
+  "cta": {
+    "title": "Every purchase makes a difference.",
+    "body": "Join the waitlist and be part of the movement from day one.",
+    "button": "Join the waitlist"
+  }
+}

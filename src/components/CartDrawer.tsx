@@ -1,11 +1,13 @@
 import { useCart } from "@/contexts/CartContext";
-import { Heart } from "lucide-react";
-import { X, Minus, Plus, ShoppingBag, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { X, Minus, Plus, ShoppingBag, ArrowRight, Heart } from "lucide-react";
 import { isStoreLive } from "@/lib/shopify";
+import { isDonationItem } from "@/lib/donations";
+import GiveOneSection from "@/components/donation/GiveOneSection";
 
 const CartDrawer = () => {
-  const { items, totalItems, subtotal, isOpen, closeCart, removeItem, updateQuantity, checkout, isCheckingOut } = useCart();
+  const { t } = useTranslation();
+  const { items, totalItems, subtotal, isOpen, closeCart, removeItem, updateQuantity, beginCheckout, isCheckingOut } = useCart();
   const storeLive = isStoreLive();
 
   return (
@@ -35,7 +37,7 @@ const CartDrawer = () => {
         <div className="flex items-center justify-between px-6 py-5 border-b border-border/40 shrink-0">
           <div className="flex items-center gap-3">
             <ShoppingBag size={18} strokeWidth={1.5} className="text-foreground" />
-            <span className="font-serif text-xl">Your Cart</span>
+            <span className="font-serif text-xl">{t("cart.title")}</span>
             {totalItems > 0 && (
               <span className="text-label text-muted-foreground text-xs">({totalItems})</span>
             )}
@@ -43,7 +45,7 @@ const CartDrawer = () => {
           <button
             onClick={closeCart}
             className="w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="Close cart"
+            aria-label={t("cart.close")}
           >
             <X size={18} strokeWidth={1.5} />
           </button>
@@ -60,13 +62,13 @@ const CartDrawer = () => {
                 <ShoppingBag size={24} strokeWidth={1} className="text-muted-foreground" style={{ opacity: 0.4 }} />
               </div>
               <p className="font-serif text-lg text-muted-foreground" style={{ opacity: 0.6 }}>
-                Your cart is empty
+                {t("cart.empty")}
               </p>
               <button
                 onClick={closeCart}
                 className="text-label text-lore-botanical hover:underline underline-offset-4 transition-all text-xs mt-2"
               >
-                Continue Shopping
+                {t("cart.continueShopping")}
               </button>
             </div>
           ) : (
@@ -86,6 +88,12 @@ const CartDrawer = () => {
                   <div className="flex-1 min-w-0 flex flex-col justify-between">
                     <div>
                       <p className="font-serif text-base leading-tight mb-0.5">{item.name}</p>
+                      {isDonationItem(item) && (
+                        <p className="flex items-center gap-1 text-[10px] font-sans text-[#4B2E38]">
+                          <Heart size={10} strokeWidth={1.5} fill="#C4967A" className="text-[#C4967A]" />
+                          {t("cart.donated", { region: item.attributes?.find((a) => a.key === "Donation partner")?.value })}
+                        </p>
+                      )}
                     </div>
 
                     <div className="flex items-center justify-between mt-2">
@@ -94,7 +102,7 @@ const CartDrawer = () => {
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
                           className="w-7 h-7 border border-border/60 rounded-full flex items-center justify-center text-foreground hover:bg-muted/50 transition-all active:scale-90"
-                          aria-label="Decrease"
+                          aria-label={t("cart.decrease")}
                         >
                           <Minus size={12} strokeWidth={1.5} />
                         </button>
@@ -102,7 +110,7 @@ const CartDrawer = () => {
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
                           className="w-7 h-7 border border-border/60 rounded-full flex items-center justify-center text-foreground hover:bg-muted/50 transition-all active:scale-90"
-                          aria-label="Increase"
+                          aria-label={t("cart.increase")}
                         >
                           <Plus size={12} strokeWidth={1.5} />
                         </button>
@@ -113,7 +121,7 @@ const CartDrawer = () => {
                         onClick={() => removeItem(item.id)}
                         className="text-label text-muted-foreground/60 hover:text-destructive transition-colors text-[0.6rem]"
                       >
-                        Remove
+                        {t("cart.remove")}
                       </button>
                     </div>
                   </div>
@@ -123,135 +131,7 @@ const CartDrawer = () => {
           )}
 
           {/* From One Woman to Another donation section */}
-          <div
-            style={{
-              backgroundColor: "#F7F5F1",
-              border: "1px solid #4B2E38",
-              borderRadius: "8px",
-              padding: "24px",
-              margin: "24px 0",
-            }}
-          >
-            <p
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontSize: "10px",
-                letterSpacing: "2px",
-                color: "#4B2E38",
-                textTransform: "uppercase",
-                marginBottom: "8px",
-              }}
-            >
-              Our Donation Model
-            </p>
-            <div className="flex items-center gap-2" style={{ marginBottom: "12px" }}>
-              <Heart size={16} strokeWidth={1.5} style={{ color: "#C4967A" }} fill="#C4967A" />
-              <h3
-                style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "22px",
-                  color: "#1A3528",
-                  fontWeight: 400,
-                  lineHeight: 1.2,
-                }}
-              >
-                From One Woman to Another
-              </h3>
-            </div>
-            <p
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontSize: "13px",
-                color: "#1A3528",
-                lineHeight: 1.6,
-                marginBottom: "20px",
-              }}
-            >
-              For every order, you can choose to add a pad or tampon box at a reduced price. It will not come to you, it goes directly to a woman who needs it, through our partner organisations in the Netherlands and Germany. No admin, no middleman. Just one woman helping another.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                { label: "Organic Cotton Pads" },
-                { label: "Organic Cotton Tampons" },
-              ].map((opt) => (
-                <div
-                  key={opt.label}
-                  style={{
-                    backgroundColor: "#FFFFFF",
-                    border: "1px solid rgba(75,46,56,0.15)",
-                    borderRadius: "6px",
-                    padding: "14px",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: "13px",
-                      color: "#1A3528",
-                      fontWeight: 500,
-                      marginBottom: "2px",
-                    }}
-                  >
-                    {opt.label}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: "11px",
-                      color: "#1A3528",
-                      opacity: 0.7,
-                      marginBottom: "4px",
-                    }}
-                  >
-                    Donated to a woman in need
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: "11px",
-                      color: "#4B2E38",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    Reduced price, coming at launch
-                  </p>
-                  <button
-                    type="button"
-                    disabled
-                    aria-disabled="true"
-                    style={{
-                      backgroundColor: "#9B9B9B",
-                      color: "#F7F5F1",
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: "12px",
-                      borderRadius: "4px",
-                      padding: "8px 12px",
-                      width: "100%",
-                      cursor: "not-allowed",
-                      opacity: 0.85,
-                    }}
-                  >
-                    Add to Donation
-                  </button>
-                </div>
-              ))}
-            </div>
-
-            <p
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontStyle: "italic",
-                fontSize: "11px",
-                color: "#9B9B9B",
-                textAlign: "center",
-                marginTop: "16px",
-                lineHeight: 1.5,
-              }}
-            >
-              Partner organisations in the Netherlands and Germany announced at launch. Every donated box goes directly to women in need.
-            </p>
-          </div>
+          <GiveOneSection variant="drawer" />
         </div>
 
         {/* Footer */}
@@ -261,7 +141,7 @@ const CartDrawer = () => {
             {/* Subtotal shown once the store is live (hidden during pricing review) */}
             {storeLive && (
               <div className="flex items-center justify-between mb-4">
-                <span className="text-label text-muted-foreground">Subtotal</span>
+                <span className="text-label text-muted-foreground">{t("cart.subtotal")}</span>
                 <span className="font-serif text-lg">€{subtotal.toFixed(2)}</span>
               </div>
             )}
@@ -270,11 +150,11 @@ const CartDrawer = () => {
             {storeLive ? (
               <button
                 type="button"
-                onClick={checkout}
+                onClick={beginCheckout}
                 disabled={isCheckingOut}
                 className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-label rounded-sm hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-wait"
               >
-                {isCheckingOut ? "Redirecting…" : "Checkout"}
+                {isCheckingOut ? t("cart.redirecting") : t("cart.checkout")}
                 {!isCheckingOut && <ArrowRight size={14} />}
               </button>
             ) : (
@@ -285,9 +165,9 @@ const CartDrawer = () => {
                   aria-disabled="true"
                   className="w-full inline-flex items-center justify-center gap-2 bg-muted text-muted-foreground px-8 py-3.5 text-label rounded-sm cursor-not-allowed opacity-70"
                 >
-                  Coming Soon
+                  {t("cart.comingSoon")}
                 </button>
-                <p className="text-xs text-muted-foreground text-center mt-2">Launching October 1st, 2026.</p>
+                <p className="text-xs text-muted-foreground text-center mt-2">{t("cart.launching")}</p>
               </>
             )}
 
@@ -296,7 +176,7 @@ const CartDrawer = () => {
               onClick={closeCart}
               className="w-full text-center text-label text-muted-foreground hover:text-foreground transition-colors mt-3 py-2 text-xs"
             >
-              Continue Shopping
+              {t("cart.continueShopping")}
             </button>
           </div>
         )}

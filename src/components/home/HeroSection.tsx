@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-main.webp";
 
 const LAUNCH_DATE = new Date("2026-10-01T00:00:00Z");
@@ -19,6 +20,7 @@ const scrollToWhyLore = () => {
 };
 
 const HeroSection = () => {
+  const { t } = useTranslation("home");
   return (
     <section className="relative min-h-screen flex items-end pb-24 md:pb-36">
       {/* Background Image */}
@@ -38,13 +40,13 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 px-6 md:px-12 lg:px-24 w-full max-w-4xl">
         <h1 className="text-editorial-xl mb-6 fade-in-up" style={{ animationDelay: "0.1s" }}>
-          Natural, Period.
+          {t("hero.title")}
         </h1>
         <p className="text-body-lg text-muted-foreground max-w-lg mb-6 fade-in-up" style={{ animationDelay: "0.2s" }}>
-          Organic cotton period care, because your vagina matters. Made in Europe, made to last less long than the stories about your ex boyfriend. Tested by yours truly.
+          {t("hero.body")}
         </p>
         <p className="text-body-lg text-muted-foreground max-w-lg mb-10 mt-6 fade-in-up" style={{ animationDelay: "0.25s" }}>
-          Love, Rachael & Geneviève.
+          {t("hero.signoff")}
         </p>
         <div className="flex gap-4 flex-wrap fade-in-up" style={{ animationDelay: "0.3s" }}>
           <button
@@ -52,14 +54,14 @@ const HeroSection = () => {
             className="inline-flex items-center justify-center px-8 py-3.5 text-label transition-all duration-300 hover:opacity-90 hover:translate-y-[-2px] active:translate-y-[1px]"
             style={{ backgroundColor: "#4B2E38", color: "#F7F5F1" }}
           >
-            Join the waitlist
+            {t("hero.ctaWaitlist")}
           </button>
           <button
             onClick={scrollToWhyLore}
             className="inline-flex items-center justify-center px-8 py-3.5 text-label bg-transparent transition-all duration-300 hover:translate-y-[-2px] active:translate-y-[1px]"
             style={{ border: "1px solid #4B2E38", color: "#4B2E38" }}
           >
-            Learn More
+            {t("hero.ctaLearn")}
           </button>
         </div>
       </div>

@@ -1,0 +1,63 @@
+{
+  "seo": {
+    "title": "Nachhaltige Periodenpflege — Plastikfreie, biologisch abbaubare Tampons & Binden | Lore Organics",
+    "description": "GOTS-zertifizierte Bio-Baumwolle, FSC-Verpackung und biologisch abbaubare Materialien. Nachhaltige, plastikfreie Periodenprodukte für Europa — Binden und Tampons, gemacht, um zur Erde zurückzukehren."
+  },
+  "hero": {
+    "label": "Nachhaltigkeit",
+    "titleLine1": "Gemacht, um zur Erde",
+    "titleLine2": "zurückzukehren.",
+    "body": "Nachhaltigkeit ist kein Extra, das wir hinzufügen. Sie ist die Art, wie wir von Anfang an gestalten."
+  },
+  "overview": {
+    "paragraphs": [
+      "Während du dich verändert und zu der Frau entwickelt hast, die du heute bist, ist die Binde aus deiner allerersten Periode wahrscheinlich dieselbe geblieben.",
+      "Herkömmliche Periodenprodukte bestehen zu bis zu 90 % aus Plastik und können 500 bis 800 Jahre brauchen, um sich zu zersetzen.",
+      "Genau deshalb haben wir Lore Organics gegründet.",
+      "Obermaterial und Kern aus 100 % GOTS-zertifizierter Bio-Baumwolle halten dich trocken. Eine pflanzenbasierte Biokunststoff-Unterschicht schützt dich vor dem Auslaufen. FSC-zertifizierte Verpackung.",
+      "Aber wie alle Menschen sind wir nicht perfekt. Noch nicht.",
+      "An unserem Klebstoff arbeiten wir noch, aber ansonsten sind wir fleißig dabei, uns biologisch abzubauen, Honey."
+    ]
+  },
+  "stats": [
+    { "stat": "100%", "label": "Bio-Baumwolle" },
+    { "stat": "FSC", "label": "Zertifizierte Verpackung" },
+    { "stat": "GOTS", "label": "Zertifizierte Materialien" }
+  ],
+  "pillarsSection": {
+    "label": "Unsere Versprechen",
+    "title": "Unsere Säulen der Nachhaltigkeit."
+  },
+  "pillars": [
+    {
+      "title": "Bezug von Bio-Baumwolle",
+      "description": "Unsere Baumwolle ist GOTS-zertifiziert biologisch, angebaut ohne synthetische Pestizide, Herbizide oder Gentechnik-Saatgut. Sie stammt von zertifizierten Farmen mit lückenloser Rückverfolgbarkeit vom Feld bis zum Produkt."
+    },
+    {
+      "title": "Volle Transparenz bei den Inhaltsstoffen",
+      "description": "EU-Recht verpflichtet Marken für Periodenprodukte nicht dazu, offenzulegen, was in ihren Produkten steckt. Wir tun es trotzdem. Jeder Inhaltsstoff, jedes Produkt, auf der Packung und auf dieser Website. Weil du ein Recht darauf hast, es zu wissen."
+    },
+    {
+      "title": "FSC-zertifizierte Verpackung",
+      "description": "Alle Verpackungen sind FSC-zertifiziert und stammen aus verantwortungsvoll bewirtschafteten Wäldern. Wir verwenden Kraftpapier, Druckfarben auf Sojabasis und ein minimalistisches Verpackungsdesign, um Abfall zu reduzieren."
+    },
+    {
+      "title": "CO₂-bewusste Lieferkette",
+      "description": "Wir optimieren unsere Logistik, um Emissionen zu minimieren, und setzen auf Materialien und Produktion innerhalb Europas, um Transportwege zu verkürzen."
+    },
+    {
+      "title": "Verantwortungsvoller Umgang mit Wasser",
+      "description": "Der Anbau von Bio-Baumwolle verbraucht deutlich weniger Wasser als konventionelle Methoden. Unsere Partner setzen auf Wasserrecycling und verantwortungsvolle Bewässerung."
+    }
+  ],
+  "lifecycle": {
+    "title": "Der Lebenszyklus unserer Produkte.",
+    "body": "Von zertifizierten Bio-Farmen bis zur natürlichen Zersetzung — jede Phase ist durchdacht.",
+    "steps": [
+      { "title": "Ursprung", "desc": "GOTS-zertifizierte Bio-Baumwolle von rückverfolgbaren Farmen" },
+      { "title": "Produktion", "desc": "Hergestellt in Europa. Kürzere Lieferketten, strengere Standards" },
+      { "title": "Lieferung", "desc": "FSC-Verpackung, optimierte Logistik, minimaler Abfall" },
+      { "title": "Rückkehr", "desc": "Biologisch abbaubare Materialien für die natürliche Zersetzung. Bis auf unseren Klebstoff — schließlich ist jeder von uns ein Work in Progress" }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "announcement": "Launch in {{days}} Tagen · 1. Oktober 2026",
+  "nav": {
+    "products": "Produkte",
+    "cycleBox": "Cycle Box",
+    "about": "Über uns",
+    "allProducts": "Alle Produkte",
+    "pads": "Binden",
+    "tampons": "Tampons",
+    "pantyLiners": "Slipeinlagen",
+    "ourStory": "Unsere Geschichte",
+    "ourStoryDesc": "Warum wir Lore gegründet haben – und welchen Standard Periodenpflege unserer Meinung nach verdient.",
+    "sustainability": "Nachhaltigkeit",
+    "sustainabilityDesc": "Bio-Baumwolle, biologisch abbaubare Materialien und FSC-zertifizierte Verpackung.",
+    "impact": "Impact",
+    "impactDesc": "Wie jeder Lore-Kauf durch Spenden und strukturellen Wandel etwas zurückgibt.",
+    "explore": "Entdecken",
+    "openCart": "Warenkorb öffnen",
+    "toggleMenu": "Menü umschalten"
+  },
+  "footer": {
+    "tagline": "Periodenpflege aus Bio-Baumwolle. Weil deine Vagina die Welt verdient. Und die Welt eine Zukunft verdient.",
+    "fromOneWoman": "von Frau zu Frau.",
+    "explore": "Entdecken",
+    "connect": "Kontakt",
+    "faq": "FAQ",
+    "terms": "AGB",
+    "privacy": "Datenschutzerklärung",
+    "cookie": "Cookie-Richtlinie",
+    "returnRefund": "Rückgabe- & Erstattungsrichtlinie"
+  },
+  "waitlist": {
+    "cta": "Sichere dir 10 % zum Launch. Trag dich ein"
+  },
+  "cart": {
+    "title": "Dein Warenkorb",
+    "close": "Warenkorb schließen",
+    "empty": "Dein Warenkorb ist leer",
+    "continueShopping": "Weiter einkaufen",
+    "decrease": "Weniger",
+    "increase": "Mehr",
+    "remove": "Entfernen",
+    "subtotal": "Zwischensumme",
+    "checkout": "Zur Kasse",
+    "redirecting": "Weiterleitung…",
+    "comingSoon": "Demnächst verfügbar",
+    "launching": "Launch am 1. Oktober 2026.",
+    "donated": "Gespendet — {{region}}"
+  },
+  "giveOne": {
+    "label": "Unser Spendenmodell",
+    "title": "Von Frau zu Frau",
+    "body": "Bei jeder Bestellung kannst du eine Box Binden oder Tampons zum reduzierten Preis hinzufügen. Sie kommt nicht zu dir, sondern geht direkt an eine Frau, die sie braucht – über unsere Partnerorganisationen in den Niederlanden und Deutschland. Keine Verwaltung, kein Zwischenhändler. Einfach eine Frau, die einer anderen hilft.",
+    "partnerLegend": "Wohin soll deine Spende gehen?",
+    "partnerNl": "Partnerorganisation — Niederlande (wird zum Launch bekannt gegeben)",
+    "partnerDe": "Partnerorganisation — Deutschland (wird zum Launch bekannt gegeben)",
+    "padsOption": "Bio-Baumwollbinden",
+    "tamponsOption": "Bio-Baumwolltampons",
+    "donatedToWoman": "Gespendet an eine Frau in Not",
+    "reducedPrice": "Reduzierter Preis, verfügbar zum Launch",
+    "atCost": "{{price}} — zum Selbstkostenpreis",
+    "addToDonation": "Als Spende hinzufügen",
+    "added": "Hinzugefügt — danke",
+    "footnote": "Die Partnerorganisationen in den Niederlanden und Deutschland werden zum Launch bekannt gegeben. Jede gespendete Box geht direkt an Frauen in Not.",
+    "interTitle": "Noch etwas — eine Box spenden?",
+    "interBody": "Füge eine Box zum Selbstkostenpreis hinzu und wir liefern sie über unsere Partnerorganisationen an eine Frau, die sie braucht. Keine Verwaltung, kein Zwischenhändler.",
+    "interAdd": "{{product}} hinzufügen",
+    "interAtCost": "{{price}} zum Selbstkostenpreis — gespendet, dann weiter",
+    "interDecline": "Nein danke, weiter zur Kasse"
+  }
+}

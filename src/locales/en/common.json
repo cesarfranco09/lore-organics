@@ -1,0 +1,71 @@
+{
+  "announcement": "Launching in {{days}} days · October 1st 2026",
+  "nav": {
+    "products": "Products",
+    "cycleBox": "Cycle Box",
+    "about": "About",
+    "allProducts": "All Products",
+    "pads": "Pads",
+    "tampons": "Tampons",
+    "pantyLiners": "Panty Liners",
+    "ourStory": "Our Story",
+    "ourStoryDesc": "Why we built Lore, and the standard we believe period care deserves.",
+    "sustainability": "Sustainability",
+    "sustainabilityDesc": "Organic cotton, biodegradable materials, and FSC-certified packaging.",
+    "impact": "Impact",
+    "impactDesc": "How every Lore purchase gives back through donations and systemic change.",
+    "explore": "Explore",
+    "openCart": "Open cart",
+    "toggleMenu": "Toggle menu"
+  },
+  "footer": {
+    "tagline": "Organic cotton period care. Because your vagina deserves the world. And the world deserves a future.",
+    "fromOneWoman": "from one woman to another.",
+    "explore": "Explore",
+    "connect": "Connect",
+    "faq": "FAQ",
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy",
+    "cookie": "Cookie Policy",
+    "returnRefund": "Return & Refund Policy"
+  },
+  "waitlist": {
+    "cta": "Get 10% off at launch. Join the waitlist"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "close": "Close cart",
+    "empty": "Your cart is empty",
+    "continueShopping": "Continue Shopping",
+    "decrease": "Decrease",
+    "increase": "Increase",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "redirecting": "Redirecting…",
+    "comingSoon": "Coming Soon",
+    "launching": "Launching October 1st, 2026.",
+    "donated": "Donated — {{region}}"
+  },
+  "giveOne": {
+    "label": "Our Donation Model",
+    "title": "From One Woman to Another",
+    "body": "For every order, you can choose to add a pad or tampon box at a reduced price. It will not come to you, it goes directly to a woman who needs it, through our partner organisations in the Netherlands and Germany. No admin, no middleman. Just one woman helping another.",
+    "partnerLegend": "Where should your donation go?",
+    "partnerNl": "Partner organisation — Netherlands (announced at launch)",
+    "partnerDe": "Partner organisation — Germany (announced at launch)",
+    "padsOption": "Organic Cotton Pads",
+    "tamponsOption": "Organic Cotton Tampons",
+    "donatedToWoman": "Donated to a woman in need",
+    "reducedPrice": "Reduced price, coming at launch",
+    "atCost": "{{price}} — at cost price",
+    "addToDonation": "Add to Donation",
+    "added": "Added — thank you",
+    "footnote": "Partner organisations in the Netherlands and Germany announced at launch. Every donated box goes directly to women in need.",
+    "interTitle": "One more thing — give one?",
+    "interBody": "Add a box at cost price and we deliver it to a woman who needs it, through our partner organisations. No admin, no middleman.",
+    "interAdd": "Add {{product}}",
+    "interAtCost": "{{price}} at cost — donated, then continue",
+    "interDecline": "No thanks, continue to checkout"
+  }
+}

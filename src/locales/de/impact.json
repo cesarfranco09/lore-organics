@@ -1,0 +1,54 @@
+{
+  "seo": {
+    "title": "Impact — Periodengerechtigkeit in den Niederlanden & Deutschland | Lore Organics",
+    "description": "1 % des Umsatzes und ein Spendenmodell von Frau zu Frau. Wie jeder Kauf unserer GOTS-zertifizierten Tampons und Binden aus Bio-Baumwolle Periodengerechtigkeit in den Niederlanden und Deutschland fördert."
+  },
+  "hero": {
+    "titleLine1": "Periodenpflege ist ein Recht,",
+    "titleLine2": "kein Privileg.",
+    "body": "Vom allerersten Verkauf an geben wir etwas zurück. In jedem Kauf eingebaut, automatisch."
+  },
+  "stat": {
+    "figure": "1 von 4",
+    "body1": "Frauen in Deutschland sagt, dass die monatlichen Kosten ihrer Periode eine finanzielle Belastung sind.",
+    "body2": "In den Niederlanden konnte sich im vergangenen Jahr 1 von 8 Frauen die Periodenprodukte, die sie brauchte, nicht leisten — und eine weitere von 5 konnte sie nur mit Mühe bezahlen.",
+    "body3": "Fehlender Zugang zu sicheren Periodenprodukten wirkt sich auf Bildung, Arbeit, Gesundheit und Würde aus. Wir glauben, dass jede Frau Zugang zu sauberer, sicherer Periodenpflege verdient — unabhängig von ihren Umständen. Diese Überzeugung ist von Tag eins an in unser Geschäftsmodell eingebaut."
+  },
+  "cards": [
+    {
+      "title": "Was wir spenden",
+      "body": "GOTS-zertifizierte Binden und Tampons aus Bio-Baumwolle. Dieselben Produkte, die du kaufst. Wir halten bei jedem Lore-Produkt denselben Standard, denn Frauen, die Spenden erhalten, verdienen dieselbe Qualität wie Frauen, die sie sich leisten können."
+    },
+    {
+      "title": "Partnerschaften vor Ort",
+      "body": "Wir arbeiten mit lokalen Frauenhäusern, Schulen und Nachbarschaftszentren zusammen, damit die Spenden die Frauen erreichen, die sie am dringendsten brauchen. Unsere Partnerorganisationen geben wir zum Launch bekannt. Wenn du eine Organisation vertrittst, die sich in den Niederlanden oder Deutschland gegen Periodenarmut einsetzt, freuen wir uns über deine Nachricht an"
+    },
+    {
+      "title": "Systemischer Wandel",
+      "body": "Periodenarmut lässt sich nicht allein durch Spenden lösen. Es braucht politische Veränderungen bei Produkttransparenz, Bezahlbarkeit und Zugang. Wir sind eine kleine Marke, aber wir glauben, dass jede Stimme zählt — und unsere werden wir nutzen."
+    }
+  ],
+  "ways": {
+    "titleLine1": "Zwei Wege,",
+    "titleLine2": "wie wir zurückgeben.",
+    "items": [
+      {
+        "label": "1 % des Umsatzes, automatisch",
+        "body": "Geben liegt in unserer Natur. Bei jedem Kauf fließt 1 % unseres Erlöses in die Spende unserer Produkte an Frauen vor Ort, die sie brauchen. Diese Entscheidung haben wir bewusst getroffen, denn jede Frau verdient Zugang zu sicherer Periodenpflege — aber nicht jede Frau hat ihn. Mach mit und lass uns aufeinander achtgeben."
+      },
+      {
+        "label": "Teile den Unterschied",
+        "body": "Weil Geben sich aktiv anfühlen darf. Füge beim Checkout eine Binde zum Selbstkostenpreis hinzu, und wir spenden sie — vollständig — an Frauenhäuser und lokale Organisationen. Wir erfassen jede einzelne Spende und zeigen dir genau, wo deine Wirkung ankommt."
+      }
+    ]
+  },
+  "quote": {
+    "love": "Alles Liebe,",
+    "role": "Mitgründerinnen von Lore Organics"
+  },
+  "cta": {
+    "title": "Jeder Kauf macht einen Unterschied.",
+    "body": "Trag dich auf die Warteliste ein und sei von Tag eins an Teil der Bewegung.",
+    "button": "Auf die Warteliste"
+  }
+}

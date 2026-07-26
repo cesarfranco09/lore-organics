@@ -1,0 +1,95 @@
+{
+  "seo": {
+    "title": "Checkout — Lore Organics",
+    "description": "Secure checkout for your Lore Organics order. Plastic-free organic period care delivered across the Netherlands and Germany."
+  },
+  "empty": {
+    "title": "Your cart is empty",
+    "body": "Add some products before checking out.",
+    "cta": "Browse Products"
+  },
+  "back": "Back to shop",
+  "title": "Checkout",
+  "contact": {
+    "title": "Contact Information",
+    "email": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "phone": "Phone number",
+    "optional": "(optional)",
+    "phonePlaceholder": "+34 600 000 000"
+  },
+  "address": {
+    "title": "Shipping Address",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "María",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "García",
+    "address": "Address",
+    "addressPlaceholder": "Calle de Ejemplo 12",
+    "apt": "Apartment / Suite",
+    "aptPlaceholder": "2ºB",
+    "city": "City",
+    "cityPlaceholder": "Barcelona",
+    "postal": "Postal Code",
+    "postalPlaceholder": "08001",
+    "country": "Country",
+    "countries": {
+      "spain": "Spain",
+      "germany": "Germany",
+      "france": "France",
+      "italy": "Italy",
+      "netherlands": "Netherlands",
+      "belgium": "Belgium",
+      "austria": "Austria",
+      "portugal": "Portugal",
+      "ireland": "Ireland",
+      "sweden": "Sweden",
+      "denmark": "Denmark",
+      "finland": "Finland",
+      "norway": "Norway",
+      "switzerland": "Switzerland",
+      "unitedKingdom": "United Kingdom"
+    }
+  },
+  "shipping": {
+    "title": "Shipping Method",
+    "standard": "Standard Shipping",
+    "standardTime": "5–7 business days",
+    "express": "Express Shipping",
+    "expressTime": "1–3 business days"
+  },
+  "payment": {
+    "title": "Payment Method",
+    "card": "Card",
+    "applePay": "Apple Pay",
+    "paypal": "PayPal",
+    "klarna": "Klarna",
+    "cardNumber": "Card Number",
+    "cardNumberPlaceholder": "4242 4242 4242 4242",
+    "expiry": "Expiration",
+    "expiryPlaceholder": "MM / YY",
+    "cvc": "CVC",
+    "cvcPlaceholder": "123",
+    "nameOnCard": "Name on Card",
+    "nameOnCardPlaceholder": "María García",
+    "redirect": "You will be redirected to {{provider}} to complete your payment."
+  },
+  "trust": {
+    "secure": "Secure checkout",
+    "encrypted": "Encrypted & secure payment",
+    "madeIn": "Made in Spain · GOTS-certified organic cotton"
+  },
+  "cta": {
+    "continue": "Continue to Secure Checkout",
+    "redirecting": "Redirecting to secure checkout…",
+    "comingSoon": "Coming Soon",
+    "launching": "Launching October 1st, 2026."
+  },
+  "summary": {
+    "title": "Order Summary",
+    "kit": "Your Cycle Kit",
+    "qty": "Qty: {{count}}",
+    "items_one": "{{count}} item",
+    "items_other": "{{count}} items"
+  }
+}

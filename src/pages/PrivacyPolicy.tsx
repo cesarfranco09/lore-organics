@@ -1,7 +1,10 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Seo from "@/components/Seo";
 
 const PrivacyPolicy = () => {
+  const { t } = useTranslation("policies");
+
   useEffect(() => {
     if (!document.querySelector('script[src="https://cdn.iubenda.com/iubenda.js"]')) {
       const s = document.createElement("script");
@@ -17,20 +20,23 @@ const PrivacyPolicy = () => {
   return (
     <main className="pt-32 pb-24 section-padding min-h-[60vh]">
       <Seo
-        title="Privacy Policy — Lore Organics"
-        description="How Lore Organics collects, uses and protects your personal data."
+        title={t("privacy.seo.title")}
+        description={t("privacy.seo.description")}
         path="/privacy-policy"
       />
       <div className="max-w-2xl mx-auto text-center">
-        <p className="text-label text-lore-botanical mb-4">Legal</p>
+        <p className="text-label text-lore-botanical mb-4">{t("legal")}</p>
         <div className="divider-botanical mx-auto mb-8" />
-        <h1 className="text-editorial-lg mb-8">Privacy Policy</h1>
+        <h1 className="text-editorial-lg mb-8">{t("privacy.title")}</h1>
+        {t("englishOnlyNote") && (
+          <p className="text-body text-muted-foreground italic mb-8">{t("englishOnlyNote")}</p>
+        )}
         <a
           href="https://www.iubenda.com/privacy-policy/78164954"
           className="iubenda-white iubenda-noiframe iubenda-embed"
-          title="Privacy Policy"
+          title={t("privacy.title")}
         >
-          Privacy Policy
+          {t("privacy.title")}
         </a>
       </div>
     </main>

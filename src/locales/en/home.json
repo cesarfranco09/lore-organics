@@ -1,0 +1,173 @@
+{
+  "seo": {
+    "title": "Organic Cotton Tampons & Pads — GOTS Certified | Lore Organics",
+    "description": "Premium organic period care for the Netherlands and Germany. GOTS certified organic cotton tampons, plastic free pads and biodegradable liners. Biologische tampons, biologisch maandverband en Bio Binden, launching October 2026."
+  },
+  "hero": {
+    "title": "Natural, Period.",
+    "body": "Organic cotton period care, because your vagina matters. Made in Europe, made to last less long than the stories about your ex boyfriend. Tested by yours truly.",
+    "signoff": "Love, Rachael & Geneviève.",
+    "ctaWaitlist": "Join the waitlist",
+    "ctaLearn": "Learn More"
+  },
+  "whyLore": {
+    "label": "Why Lore",
+    "heading1": "A new standard",
+    "heading2": "in period care.",
+    "features": {
+      "0": {
+        "title": "Engineered for Comfort",
+        "description": "Every tampon is wrapped in a 360° cotton safety veil to prevent shedding. No rayon, no polyester, no nasties. Our cotton pads are tested to minimize irritation and odor. Because your period is enough to deal with already."
+      },
+      "1": {
+        "title": "Clean by Design",
+        "description": "100% organic cotton. A corn-derived bio backing. Chemical free, the way it should be."
+      },
+      "2": {
+        "title": "GOTS-Certified, Field to Shelf",
+        "description": "Certified at every step. Fair wages. Safe working conditions. No child labor. Because all people are created equal but not all pads are."
+      },
+      "3": {
+        "title": "Transparent by Default",
+        "description": "Nothing hidden. Every ingredient disclosed. Every product we donate, documented. Because communication is key."
+      }
+    },
+    "tagline": "Safe. Certified. Transparent."
+  },
+  "productPreview": {
+    "label": "Our Products",
+    "heading": "Clean by design.",
+    "comingSoon": "Coming Soon",
+    "explore": "Explore",
+    "items": {
+      "0": {
+        "title": "Organic Cotton Day Pad",
+        "subtitle": "Day Pad",
+        "description": "GOTS-certified organic cotton. 240mm for everyday comfort."
+      },
+      "1": {
+        "title": "Organic Cotton Night Pad",
+        "subtitle": "Night Pad",
+        "description": "GOTS-certified organic cotton. 280mm for heavy flow protection."
+      },
+      "2": {
+        "title": "Regular Tampons",
+        "subtitle": "Regular",
+        "description": " 360° cotton safety veil, no synthetic anti-shedding layers. Light to Medium flow."
+      },
+      "3": {
+        "title": "Super Tampons",
+        "subtitle": "Super",
+        "description": "360° cotton safety veil, no synthetic anti-shedding layers. Medium to heavy flow."
+      },
+      "4": {
+        "title": "Organic Cotton Liner",
+        "subtitle": "Liner",
+        "description": "GOTS-certified organic cotton. Ultra-thin for everyday wear."
+      }
+    }
+  },
+  "editorial": {
+    "quote": "We manage one of our most natural processes with products designed decades ago by people who never had a period. Made with plastic. Made with petrochemicals. Made without us in mind.",
+    "cta": "See what we did differently"
+  },
+  "newsletter": {
+    "label": "Waitlist",
+    "heading": "Be the first to know when we launch.",
+    "body": "Join the waitlist and get 10% off your first order, launching October 1st in the Netherlands and Germany.",
+    "placeholder": "Your email address",
+    "join": "Join the waitlist",
+    "joining": "Joining…",
+    "onList": "You're on the list",
+    "success": "Thank you, we'll be in touch soon."
+  },
+  "problem": {
+    "label": "The Problem",
+    "heading1": "The period care industry",
+    "heading2": "is broken.",
+    "plasticHeading": "A Plastic Crisis Disguised as Hygiene",
+    "stats": {
+      "0": { "stat": "49B", "text": "products used annually in the EU alone" },
+      "1": { "stat": "90%", "text": "of conventional pads are made from plastic" },
+      "2": { "stat": "800yr", "text": "for a single pad to degrade in landfill" }
+    },
+    "chemicalsHeading": "Hidden Chemicals. Hidden Risks.",
+    "risks": {
+      "0": "Super-absorbent rayon linked to higher toxic shock syndrome risk",
+      "1": "Dioxins & PEGs raising hormone disruption concerns",
+      "2": "Titanium dioxide & synthetic dyes under carcinogen scrutiny",
+      "3": "Plastics & coatings causing irritation, allergic reactions & odors"
+    },
+    "quote": "Women manage a natural biological process with products designed decades ago, made of plastic and petrochemicals."
+  },
+  "founder": {
+    "label": "Our Founders",
+    "heading1": "Built by women",
+    "heading2": "who wanted better.",
+    "founders": {
+      "0": {
+        "name": "Geneviève Silvestra",
+        "role": "Co-Founder & Co-CEO, Brand, Product & Partnerships",
+        "bio": "Geneviève leads brand development, product strategy, and material standards. With a background in global modeling and brand collaborations, she brings a deep understanding of premium positioning and storytelling."
+      },
+      "1": {
+        "name": "Rachael Hoogkamer",
+        "role": "Co-Founder & Co-CEO, Operations & Finance",
+        "bio": "Rachael leads supply chain, logistics, packaging execution, and financial planning. With experience building and scaling multiple businesses, she brings the operational discipline required for sustainable growth."
+      }
+    }
+  },
+  "faq": {
+    "label": "Questions",
+    "heading": "Frequently Asked",
+    "items": {
+      "0": {
+        "q": "When do you launch?",
+        "a": "We launch October 1st 2026, starting in the Netherlands and Germany. Join the waitlist to be the first to know and receive 10% off your first order."
+      },
+      "1": {
+        "q": "Where do you deliver?",
+        "a": "At launch we deliver across the Netherlands and Germany. More European countries are planned throughout 2027 and beyond."
+      },
+      "2": {
+        "q": "What makes Lore different from other organic brands?",
+        "a": "Three things: our products are GOTS certified organic cotton, independently verified, not just a claim. We donate 1% of every sale to women's shelters and period poverty organisations from day one. And we tell you exactly where every product comes from and what is in it. No greenwashing, no vague claims."
+      },
+      "3": {
+        "q": "What does GOTS certified mean?",
+        "a": "GOTS stands for Global Organic Textile Standard. It means our cotton is grown without pesticides or toxic chemicals, processed without synthetic dyes or bleaching agents, and verified at every step of the supply chain by an independent certifier. It is the gold standard for organic textiles worldwide."
+      },
+      "4": {
+        "q": "What products will you offer at launch?",
+        "a": "We launch with five products: Organic Cotton Day Pad, Organic Cotton Night Pad, Tampon Regular and Tampon Super. All are individually wrapped and made from 100% GOTS certified organic cotton."
+      },
+      "5": {
+        "q": "Can I subscribe and customise my delivery?",
+        "a": "Yes, our Cycle Box lets you choose exactly which products you need and how often you want them delivered, every month, every two months, or every three months. Subscribers save 10% on every order and can pause, swap products, or cancel anytime."
+      },
+      "6": {
+        "q": "Are your products plastic free?",
+        "a": "Our tampon and pad products contain no plastic in the absorbent materials, they are made from organic cotton. Our pantyliner contains a biopolymer backing layer which is plant-based. We are fully transparent about all materials and publish a complete breakdown on our website."
+      },
+      "7": {
+        "q": "How does your 1% donation model work?",
+        "a": "From our very first sale, 1% of every order's net revenue goes directly to women's shelters and period poverty organisations in the Netherlands. You do not need to do anything, it is built into every purchase automatically."
+      },
+      "8": {
+        "q": "What is the From One Woman to Another donation option?",
+        "a": "At checkout you can choose to add a pad or tampon box at a reduced price. That box does not come to you, it goes directly to a woman who needs it through our partner organisations. Pads and tampons only. No admin, no middleman. Just one woman helping another."
+      },
+      "9": {
+        "q": "I have a question not answered here, how do I reach you?",
+        "a": "Email us at info@lore-organics.com and we will get back to you within 48 hours."
+      }
+    }
+  },
+  "donation": {
+    "label": "From One Woman To Another",
+    "heading1": "Period care is a right,",
+    "heading2": "not a privilege.",
+    "p1": "For every product purchased, Lore donates period care to women in underserved communities. Because no woman should go without.",
+    "p2": "We believe access to safe, dignified period care should be universal. Our \"From One Woman to Another\" model ensures that your purchase directly supports women who need it most."
+  }
+}

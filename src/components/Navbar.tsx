@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight, ShoppingBag } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useCart } from "@/contexts/CartContext";
-import cottonTexture from "@/assets/cotton-texture.webp";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
+import { stripLangPrefix } from "@/lib/i18n";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import sustainabilityHero from "@/assets/sustainability-hero.webp";
-
 import foundersImage from "@/assets/founders.webp";
 import impactHero from "@/assets/impact-hero.webp";
 
@@ -16,48 +18,51 @@ const daysUntilLaunch = () => {
   return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
 };
 
-const shopSubLinks = [
-  { label: "All Products", href: "/products" },
-  { label: "Pads", href: "/products/pads" },
-  { label: "Tampons", href: "/products/tampons" },
-  { label: "Panty Liners", href: "/products/panty-liners" },
-];
-
-const aboutMegaLinks = [
-  {
-    label: "Our Story",
-    href: "/about",
-    description: "Why we built Lore, and the standard we believe period care deserves.",
-    image: foundersImage,
-    alt: "Geneviève Silvestra and Rachael Hoogkamer, co-founders of Lore Organics organic period care brand — Our Story navigation preview",
-  },
-  {
-    label: "Sustainability",
-    href: "/sustainability",
-    description: "Organic cotton, biodegradable materials, and FSC-certified packaging.",
-    image: sustainabilityHero,
-    alt: "GOTS certified organic cotton field — sustainable, biodegradable period care from Lore Organics navigation preview",
-  },
-  {
-    label: "Impact",
-    href: "/impact",
-    description: "How every Lore purchase gives back through donations and systemic change.",
-    image: impactHero,
-    alt: "Lore Organics impact — period equity and community partnerships navigation preview",
-  },
-];
-
-const navLinks = [
-  { label: "Products", href: "/products", dropdown: "shop" as const },
-  { label: "Cycle Box", href: "/cycle-box" },
-  { label: "About", href: "/about", dropdown: "about" as const },
-];
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { totalItems, toggleCart } = useCart();
   const [cartBounce, setCartBounce] = useState(false);
+  const { t } = useTranslation();
+  const { localize } = useLocalizedPath();
+  const barePath = stripLangPrefix(location.pathname);
+
+  const shopSubLinks = [
+    { label: t("nav.allProducts"), href: "/products" },
+    { label: t("nav.pads"), href: "/products/pads" },
+    { label: t("nav.tampons"), href: "/products/tampons" },
+    { label: t("nav.pantyLiners"), href: "/products/panty-liners" },
+  ];
+
+  const aboutMegaLinks = [
+    {
+      label: t("nav.ourStory"),
+      href: "/about",
+      description: t("nav.ourStoryDesc"),
+      image: foundersImage,
+      alt: "Geneviève Silvestra and Rachael Hoogkamer, co-founders of Lore Organics organic period care brand — Our Story navigation preview",
+    },
+    {
+      label: t("nav.sustainability"),
+      href: "/sustainability",
+      description: t("nav.sustainabilityDesc"),
+      image: sustainabilityHero,
+      alt: "GOTS certified organic cotton field — sustainable, biodegradable period care from Lore Organics navigation preview",
+    },
+    {
+      label: t("nav.impact"),
+      href: "/impact",
+      description: t("nav.impactDesc"),
+      image: impactHero,
+      alt: "Lore Organics impact — period equity and community partnerships navigation preview",
+    },
+  ];
+
+  const navLinks = [
+    { label: t("nav.products"), href: "/products", dropdown: "shop" as const },
+    { label: t("nav.cycleBox"), href: "/cycle-box" },
+    { label: t("nav.about"), href: "/about", dropdown: "about" as const },
+  ];
 
   // Bounce the cart icon when items change
   useEffect(() => {
@@ -75,13 +80,13 @@ const Navbar = () => {
         style={{ backgroundColor: "#F7F5F1", color: "#1A3528" }}
       >
         <span className="text-center px-4">
-          Launching in {daysUntilLaunch()} days · October 1st 2026
+          {t("announcement", { days: daysUntilLaunch() })}
         </span>
       </div>
       <div className="bg-background/90 backdrop-blur-md border-b border-border/50">
       <div className="flex items-center justify-between px-6 md:px-12 lg:px-24 py-4">
         {/* Logo */}
-        <Link to="/" className="flex flex-col items-start">
+        <Link to={localize("/")} className="flex flex-col items-start">
           <span className="font-serif text-2xl md:text-3xl font-semibold tracking-[0.05em] text-foreground">
             LORE
           </span>
@@ -96,9 +101,9 @@ const Navbar = () => {
             link.dropdown ? (
               <div key={link.href} className="relative group">
                 <Link
-                  to={link.href}
+                  to={localize(link.href)}
                   className={`text-label transition-colors hover:text-lore-botanical ${
-                    location.pathname.startsWith(link.href)
+                    barePath.startsWith(link.href)
                       ? "text-foreground"
                       : "text-muted-foreground"
                   }`}
@@ -113,7 +118,7 @@ const Navbar = () => {
                       {shopSubLinks.map((sub) => (
                         <Link
                           key={sub.href}
-                          to={sub.href}
+                          to={localize(sub.href)}
                           className="block px-5 py-2 text-label text-muted-foreground hover:text-lore-botanical hover:bg-lore-sage/10 transition-colors"
                         >
                           {sub.label}
@@ -132,7 +137,7 @@ const Navbar = () => {
                           {aboutMegaLinks.map((item) => (
                             <Link
                               key={item.href}
-                              to={item.href}
+                              to={localize(item.href)}
                               className="group/card flex flex-col"
                             >
                               <div className="relative overflow-hidden mb-4 aspect-[16/10]">
@@ -150,7 +155,7 @@ const Navbar = () => {
                                 {item.description}
                               </p>
                               <span className="inline-flex items-center gap-2 text-label text-xs text-muted-foreground group-hover/card:text-lore-botanical group-hover/card:gap-3 transition-all duration-200">
-                                Explore <ArrowRight size={12} />
+                                {t("nav.explore")} <ArrowRight size={12} />
                               </span>
                             </Link>
                           ))}
@@ -163,9 +168,9 @@ const Navbar = () => {
             ) : (
               <Link
                 key={link.href}
-                to={link.href}
+                to={localize(link.href)}
                 className={`text-label transition-colors hover:text-lore-botanical ${
-                  location.pathname === link.href
+                  barePath === link.href
                     ? "text-foreground"
                     : "text-muted-foreground"
                 }`}
@@ -175,11 +180,13 @@ const Navbar = () => {
             )
           )}
 
+          <LanguageSwitcher />
+
           {/* Cart icon, desktop */}
           <button
             onClick={toggleCart}
             className="relative text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="Open cart"
+            aria-label={t("nav.openCart")}
             style={{
               transform: cartBounce ? "scale(1.2)" : "scale(1)",
               transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
@@ -211,7 +218,7 @@ const Navbar = () => {
           <button
             onClick={toggleCart}
             className="relative text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="Open cart"
+            aria-label={t("nav.openCart")}
             style={{
               transform: cartBounce ? "scale(1.2)" : "scale(1)",
               transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
@@ -240,7 +247,7 @@ const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-foreground"
-            aria-label="Toggle menu"
+            aria-label={t("nav.toggleMenu")}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -254,10 +261,10 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <div key={link.href}>
                 <Link
-                  to={link.href}
+                  to={localize(link.href)}
                   onClick={() => setIsOpen(false)}
                   className={`text-label transition-colors ${
-                    location.pathname === link.href
+                    barePath === link.href
                       ? "text-foreground"
                       : "text-muted-foreground"
                   }`}
@@ -269,7 +276,7 @@ const Navbar = () => {
                     {shopSubLinks.map((sub) => (
                       <Link
                         key={sub.href}
-                        to={sub.href}
+                        to={localize(sub.href)}
                         onClick={() => setIsOpen(false)}
                         className="text-label text-muted-foreground hover:text-lore-botanical transition-colors"
                       >
@@ -283,7 +290,7 @@ const Navbar = () => {
                     {aboutMegaLinks.map((item) => (
                       <Link
                         key={item.href}
-                        to={item.href}
+                        to={localize(item.href)}
                         onClick={() => setIsOpen(false)}
                         className="text-label text-muted-foreground hover:text-lore-botanical transition-colors"
                       >
@@ -294,6 +301,7 @@ const Navbar = () => {
                 )}
               </div>
             ))}
+            <LanguageSwitcher className="pt-2 border-t border-border/40" />
           </div>
         </div>
       )}

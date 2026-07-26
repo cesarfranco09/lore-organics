@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "Shop Organic Cotton Tampons, Pads & Liners — GOTS Certified | Lore Organics",
+    "categoryTitle": "{{heading}} — GOTS Certified Organic Cotton | Lore Organics",
+    "description": "Every Lore product is made from GOTS-certified organic cotton, free from plastics, toxins, and synthetic fragrances."
+  },
+  "hero": {
+    "label": "Our Products",
+    "heading": "Clean by design.",
+    "description": "Every Lore product is made from GOTS-certified organic cotton, free from plastics, toxins, and synthetic fragrances."
+  },
+  "categories": {
+    "pads": {
+      "label": "Pads",
+      "heading": "Organic Cotton Pads",
+      "description": "Day and night pads made from GOTS-certified organic cotton for all-day comfort and protection."
+    },
+    "tampons": {
+      "label": "Tampons",
+      "heading": "Organic Cotton Tampons",
+      "description": "Digital tampons with Cottonlock™ 360° safety veil, pure organic cotton, no synthetic materials."
+    },
+    "panty-liners": {
+      "label": "Panty Liners",
+      "heading": "Organic Cotton Panty Liners",
+      "description": "Ultra-thin organic cotton liners for everyday freshness and breathable comfort."
+    }
+  },
+  "items": {
+    "day-pad": {
+      "title": "Organic Cotton Day Pad",
+      "description": "Ultra-comfortable organic cotton day pad (240mm) for secure, irritation-free daytime protection.",
+      "variants": ["Day Pad"],
+      "materials": [
+        "100% GOTS-certified organic cotton",
+        "Biodegradable backsheet",
+        "No plastic touching skin"
+      ]
+    },
+    "night-pad": {
+      "title": "Organic Cotton Night Pad",
+      "description": "Extended-length organic cotton night pad (280mm) designed for heavy flow and overnight confidence.",
+      "variants": ["Night Pad"],
+      "materials": [
+        "100% GOTS-certified organic cotton",
+        "Biodegradable backsheet",
+        "No plastic touching skin"
+      ]
+    },
+    "regular-tampon": {
+      "title": "Organic Cotton Regular Tampons",
+      "description": "Digital tampons for light to medium flow, engineered with 360° cotton safety veil, no synthetic anti-shedding layers.",
+      "variants": ["Regular"],
+      "materials": [
+        "100% GOTS-certified organic cotton",
+        "Cottonlock™ 360° safety veil",
+        "No synthetic rayon",
+        "No plastic applicator"
+      ]
+    },
+    "super-tampon": {
+      "title": "Organic Cotton Super Tampons",
+      "description": "Higher-absorbency digital tampons for medium to heavy flow,, engineered with 360° cotton safety veil, no synthetic anti-shedding layers",
+      "variants": ["Super"],
+      "materials": [
+        "100% GOTS-certified organic cotton",
+        "Cottonlock™ 360° safety veil",
+        "No synthetic rayon",
+        "No plastic applicator"
+      ]
+    },
+    "liner": {
+      "title": "Organic Cotton Liners",
+      "description": "Ultra-thin organic cotton liners for everyday freshness. Coming soon.",
+      "variants": ["Liner"],
+      "materials": [
+        "100% GOTS-certified organic cotton",
+        "Ultra-thin design",
+        "Breathable construction",
+        "Biodegradable"
+      ]
+    }
+  },
+  "sections": {
+    "details": "Product Details",
+    "materials": "Materials & Transparency",
+    "certifications": "Certifications"
+  },
+  "buttons": {
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "comingSoon": "Coming Soon"
+  },
+  "cta": {
+    "heading": "Ready to make the switch?",
+    "body": "Join thousands of women choosing certified organic period care.",
+    "button": "Build Your Cycle Box"
+  }
+}

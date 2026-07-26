@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Footer = () => {
+  const { t } = useTranslation();
+  const { localize } = useLocalizedPath();
+
   return (
     <footer className="text-primary-foreground pb-20 md:pb-0" style={{ backgroundColor: "#4B2E38" }}>
       <div className="section-padding">
@@ -12,28 +18,25 @@ const Footer = () => {
               <br />
               <span className="text-xs font-sans tracking-[0.3em] opacity-60">ORGANICS</span>
             </div>
-            <p className="text-body opacity-70 max-w-sm">
-              Organic cotton period care. Because your vagina deserves the world. 
-              And the world deserves a future.
-            </p>
-            <p className="text-xs text-lore-sage mt-4 italic font-serif">from one woman to another.</p>
+            <p className="text-body opacity-70 max-w-sm">{t("footer.tagline")}</p>
+            <p className="text-xs text-lore-sage mt-4 italic font-serif">{t("footer.fromOneWoman")}</p>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="text-label mb-6 opacity-60">Explore</h4>
+            <h4 className="text-label mb-6 opacity-60">{t("footer.explore")}</h4>
             <div className="flex flex-col gap-3">
-              <Link to="/products" className="text-body opacity-70 hover:opacity-100 transition-opacity">Products</Link>
-              <Link to="/about" className="text-body opacity-70 hover:opacity-100 transition-opacity">Our Story</Link>
-              <Link to="/sustainability" className="text-body opacity-70 hover:opacity-100 transition-opacity">Sustainability</Link>
-              <Link to="/impact" className="text-body opacity-70 hover:opacity-100 transition-opacity">Impact</Link>
-              <Link to="/faq" className="text-body opacity-70 hover:opacity-100 transition-opacity">FAQ</Link>
+              <Link to={localize("/products")} className="text-body opacity-70 hover:opacity-100 transition-opacity">{t("nav.products")}</Link>
+              <Link to={localize("/about")} className="text-body opacity-70 hover:opacity-100 transition-opacity">{t("nav.ourStory")}</Link>
+              <Link to={localize("/sustainability")} className="text-body opacity-70 hover:opacity-100 transition-opacity">{t("nav.sustainability")}</Link>
+              <Link to={localize("/impact")} className="text-body opacity-70 hover:opacity-100 transition-opacity">{t("nav.impact")}</Link>
+              <Link to={localize("/faq")} className="text-body opacity-70 hover:opacity-100 transition-opacity">{t("footer.faq")}</Link>
             </div>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-label mb-6 opacity-60">Connect</h4>
+            <h4 className="text-label mb-6 opacity-60">{t("footer.connect")}</h4>
             <div className="flex flex-col gap-3">
               <a
                 href="https://www.instagram.com/lore.organics/"
@@ -55,6 +58,7 @@ const Footer = () => {
                 info@lore-organics.com
               </a>
               <span className="text-body opacity-70">Amsterdam, NL</span>
+              <LanguageSwitcher className="mt-2" />
             </div>
           </div>
         </div>
@@ -67,32 +71,32 @@ const Footer = () => {
             <a
               href="https://www.iubenda.com/terms-and-conditions/57601669"
               className="iubenda-white iubenda-noiframe iubenda-embed hover:opacity-100 transition-opacity"
-              title="Terms and Conditions"
+              title={t("footer.terms")}
             >
-              Terms and Conditions
+              {t("footer.terms")}
             </a>
             <span className="opacity-40">·</span>
             <a
               href="https://www.iubenda.com/privacy-policy/57601669"
               className="iubenda-white iubenda-noiframe iubenda-embed hover:opacity-100 transition-opacity"
-              title="Privacy Policy"
+              title={t("footer.privacy")}
             >
-              Privacy Policy
+              {t("footer.privacy")}
             </a>
             <span className="opacity-40">·</span>
             <a
               href="https://www.iubenda.com/privacy-policy/57601669/cookie-policy"
               className="iubenda-white iubenda-noiframe iubenda-embed hover:opacity-100 transition-opacity"
-              title="Cookie Policy"
+              title={t("footer.cookie")}
             >
-              Cookie Policy
+              {t("footer.cookie")}
             </a>
             <span className="opacity-40">·</span>
             <Link
-              to="/return-refund-policy"
+              to={localize("/return-refund-policy")}
               className="hover:opacity-100 transition-opacity"
             >
-              Return & Refund Policy
+              {t("footer.returnRefund")}
             </Link>
             <span className="opacity-40">·</span>
             <a

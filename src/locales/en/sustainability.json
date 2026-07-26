@@ -1,0 +1,63 @@
+{
+  "seo": {
+    "title": "Sustainable Period Care — Plastic Free, Biodegradable Tampons & Pads | Lore Organics",
+    "description": "GOTS certified organic cotton, FSC packaging and biodegradable materials. Sustainable, plastic free period care for Europe — duurzaam maandverband and nachhaltige Periodenprodukte, built to return to the earth."
+  },
+  "hero": {
+    "label": "Sustainability",
+    "titleLine1": "Designed to return",
+    "titleLine2": "to the earth.",
+    "body": "Sustainability isn't a feature we add. It's how we design from the start."
+  },
+  "overview": {
+    "paragraphs": [
+      "While you've been changing and evolving into the woman you are today, the pad from your very first period probably hasn't.",
+      "Mainstream period products are up to 90% plastic and can take 500–800 years to break down.",
+      "That's why we created Lore Organics.",
+      "100% GOTS-certified organic cotton top sheet & core to keep you dry. Plant-based bioplastic backing to keep you leak-free. FSC-certified packaging.",
+      "But like all humans, we're not perfect. Yet.",
+      "Our adhesive is still a work in progress, but other than that, we're biodegrading, honey."
+    ]
+  },
+  "stats": [
+    { "stat": "100%", "label": "Organic Cotton" },
+    { "stat": "FSC", "label": "Certified Packaging" },
+    { "stat": "GOTS", "label": "Certified Materials" }
+  ],
+  "pillarsSection": {
+    "label": "Our Commitments",
+    "title": "Sustainability pillars."
+  },
+  "pillars": [
+    {
+      "title": "Organic Cotton Sourcing",
+      "description": "Our cotton is GOTS-certified organic, grown without synthetic pesticides, herbicides, or GMO seeds. Sourced from certified farms with full traceability from field to product."
+    },
+    {
+      "title": "Full Ingredient Disclosure",
+      "description": "EU law doesn't require period care brands to list what's in their products. We do it anyway. Every ingredient, every SKU, on the pack and on this site. Because you have the right to know."
+    },
+    {
+      "title": "FSC-Certified Packaging",
+      "description": "All packaging is FSC-certified, sourced from responsibly managed forests. We use kraft paper, soy-based inks, and minimal packaging design to reduce waste."
+    },
+    {
+      "title": "Carbon-Conscious Supply Chain",
+      "description": "We optimize logistics to minimize emissions, sourcing materials and manufacturing within Europe to reduce transport distances."
+    },
+    {
+      "title": "Water Stewardship",
+      "description": "Organic cotton farming uses significantly less water than conventional methods. Our partners implement water recycling and responsible irrigation practices."
+    }
+  ],
+  "lifecycle": {
+    "title": "Product lifecycle.",
+    "body": "From certified organic farms to natural decomposition, every stage is considered.",
+    "steps": [
+      { "title": "Source", "desc": "GOTS-certified organic cotton from traceable farms" },
+      { "title": "Manufacture", "desc": "Manufactured in Europe. Shorter supply chains, stricter standards" },
+      { "title": "Deliver", "desc": "FSC packaging, optimized logistics, minimal waste" },
+      { "title": "Return", "desc": "Biodegradable materials designed for natural decomposition. Except for our adhesive, everyone is a work in progress after all" }
+    ]
+  }
+}

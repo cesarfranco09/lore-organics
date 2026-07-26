@@ -1,0 +1,71 @@
+{
+  "announcement": "Lancering over {{days}} dagen · 1 oktober 2026",
+  "nav": {
+    "products": "Producten",
+    "cycleBox": "Cycle Box",
+    "about": "Over ons",
+    "allProducts": "Alle producten",
+    "pads": "Maandverband",
+    "tampons": "Tampons",
+    "pantyLiners": "Inlegkruisjes",
+    "ourStory": "Ons verhaal",
+    "ourStoryDesc": "Waarom we Lore hebben opgericht, en de standaard die menstruatiezorg volgens ons verdient.",
+    "sustainability": "Duurzaamheid",
+    "sustainabilityDesc": "Biologisch katoen, biologisch afbreekbare materialen en FSC-gecertificeerde verpakking.",
+    "impact": "Impact",
+    "impactDesc": "Hoe elke Lore-aankoop iets teruggeeft via donaties en structurele verandering.",
+    "explore": "Ontdek",
+    "openCart": "Winkelwagen openen",
+    "toggleMenu": "Menu openen of sluiten"
+  },
+  "footer": {
+    "tagline": "Menstruatiezorg van biologisch katoen. Omdat je vagina de wereld verdient. En de wereld een toekomst verdient.",
+    "fromOneWoman": "van vrouw tot vrouw.",
+    "explore": "Ontdek",
+    "connect": "Contact",
+    "faq": "FAQ",
+    "terms": "Algemene voorwaarden",
+    "privacy": "Privacybeleid",
+    "cookie": "Cookiebeleid",
+    "returnRefund": "Retour- en terugbetalingsbeleid"
+  },
+  "waitlist": {
+    "cta": "Krijg 10% korting bij de lancering. Schrijf je in"
+  },
+  "cart": {
+    "title": "Jouw winkelwagen",
+    "close": "Winkelwagen sluiten",
+    "empty": "Je winkelwagen is leeg",
+    "continueShopping": "Verder winkelen",
+    "decrease": "Minder",
+    "increase": "Meer",
+    "remove": "Verwijderen",
+    "subtotal": "Subtotaal",
+    "checkout": "Afrekenen",
+    "redirecting": "Doorsturen…",
+    "comingSoon": "Binnenkort beschikbaar",
+    "launching": "Lancering op 1 oktober 2026.",
+    "donated": "Gedoneerd — {{region}}"
+  },
+  "giveOne": {
+    "label": "Ons donatiemodel",
+    "title": "Van vrouw tot vrouw",
+    "body": "Bij elke bestelling kun je een doos maandverband of tampons toevoegen tegen een gereduceerde prijs. Die komt niet naar jou, maar gaat rechtstreeks naar een vrouw die het nodig heeft, via onze partnerorganisaties in Nederland en Duitsland. Geen administratie, geen tussenpersoon. Gewoon de ene vrouw die de andere helpt.",
+    "partnerLegend": "Waar moet je donatie naartoe?",
+    "partnerNl": "Partnerorganisatie — Nederland (bekend bij lancering)",
+    "partnerDe": "Partnerorganisatie — Duitsland (bekend bij lancering)",
+    "padsOption": "Biologisch katoenen maandverband",
+    "tamponsOption": "Biologisch katoenen tampons",
+    "donatedToWoman": "Gedoneerd aan een vrouw die het nodig heeft",
+    "reducedPrice": "Gereduceerde prijs, beschikbaar bij lancering",
+    "atCost": "{{price}} — tegen kostprijs",
+    "addToDonation": "Toevoegen als donatie",
+    "added": "Toegevoegd — dank je wel",
+    "footnote": "Partnerorganisaties in Nederland en Duitsland worden bij de lancering bekendgemaakt. Elke gedoneerde doos gaat rechtstreeks naar vrouwen die het nodig hebben.",
+    "interTitle": "Nog één ding — geef er een?",
+    "interBody": "Voeg een doos toe tegen kostprijs en wij bezorgen deze via onze partnerorganisaties bij een vrouw die het nodig heeft. Geen administratie, geen tussenpersoon.",
+    "interAdd": "Voeg {{product}} toe",
+    "interAtCost": "{{price}} tegen kostprijs — gedoneerd, daarna verder",
+    "interDecline": "Nee bedankt, verder naar afrekenen"
+  }
+}

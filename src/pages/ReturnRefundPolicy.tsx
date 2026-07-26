@@ -1,21 +1,28 @@
+import { useTranslation } from "react-i18next";
 import Seo from "@/components/Seo";
 
 const ReturnRefundPolicy = () => {
+  const { t } = useTranslation("policies");
+
   return (
     <main className="pt-32 pb-24 section-padding min-h-[60vh] bg-background">
       <Seo
-        title="Return & Refund Policy — Lore Organics"
-        description="Our return and refund policy for organic cotton period care products."
+        title={t("returns.seo.title")}
+        description={t("returns.seo.description")}
         path="/return-refund-policy"
       />
       <div className="max-w-3xl mx-auto">
-        <p className="text-label text-lore-botanical mb-4 text-center">Legal</p>
+        <p className="text-label text-lore-botanical mb-4 text-center">{t("legal")}</p>
         <div className="divider-botanical mx-auto mb-8" />
-        <h1 className="text-editorial-lg mb-8 text-center">Return & Refund Policy</h1>
+        <h1 className="text-editorial-lg mb-8 text-center">{t("returns.title")}</h1>
 
         <p className="text-body text-muted-foreground mb-10 text-center">
-          Lore Organics B.V. — Last updated: June 2026
+          {t("returns.lastUpdated")}
         </p>
+
+        {t("englishOnlyNote") && (
+          <p className="text-body text-muted-foreground italic mb-10 text-center">{t("englishOnlyNote")}</p>
+        )}
 
         <div className="space-y-10 text-left">
           <section>

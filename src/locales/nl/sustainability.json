@@ -1,0 +1,63 @@
+{
+  "seo": {
+    "title": "Duurzame menstruatiezorg — Plasticvrije, biologisch afbreekbare tampons & maandverband | Lore Organics",
+    "description": "GOTS-gecertificeerd biologisch katoen, FSC-verpakking en biologisch afbreekbare materialen. Duurzame, plasticvrije menstruatiezorg voor Europa — duurzaam maandverband en duurzame tampons, gemaakt om terug te keren naar de aarde."
+  },
+  "hero": {
+    "label": "Duurzaamheid",
+    "titleLine1": "Ontworpen om terug te keren",
+    "titleLine2": "naar de aarde.",
+    "body": "Duurzaamheid is geen extraatje dat we toevoegen. Het is hoe we vanaf het begin ontwerpen."
+  },
+  "overview": {
+    "paragraphs": [
+      "Terwijl jij bent veranderd en gegroeid tot de vrouw die je nu bent, is het maandverband van je allereerste menstruatie waarschijnlijk hetzelfde gebleven.",
+      "Gangbare menstruatieproducten bestaan tot wel 90% uit plastic en kunnen er 500 tot 800 jaar over doen om af te breken.",
+      "Daarom hebben we Lore Organics opgericht.",
+      "Een toplaag en kern van 100% GOTS-gecertificeerd biologisch katoen houden je droog. Een plantaardige bioplastic onderlaag beschermt je tegen doorlekken. FSC-gecertificeerde verpakking.",
+      "Maar zoals alle mensen zijn we niet perfect. Nog niet.",
+      "Aan onze lijm wordt nog gewerkt, maar verder zijn we heerlijk biologisch aan het afbreken, honey."
+    ]
+  },
+  "stats": [
+    { "stat": "100%", "label": "Biologisch katoen" },
+    { "stat": "FSC", "label": "Gecertificeerde verpakking" },
+    { "stat": "GOTS", "label": "Gecertificeerde materialen" }
+  ],
+  "pillarsSection": {
+    "label": "Onze beloftes",
+    "title": "Pijlers van duurzaamheid."
+  },
+  "pillars": [
+    {
+      "title": "Inkoop van biologisch katoen",
+      "description": "Ons katoen is GOTS-gecertificeerd biologisch, geteeld zonder synthetische pesticiden, herbiciden of ggo-zaden. Afkomstig van gecertificeerde boerderijen, volledig traceerbaar van veld tot product."
+    },
+    {
+      "title": "Volledige openheid over ingrediënten",
+      "description": "EU-wetgeving verplicht merken voor menstruatiezorg niet om te vermelden wat er in hun producten zit. Wij doen het toch. Elk ingrediënt, elk product, op de verpakking en op deze site. Omdat je het recht hebt om het te weten."
+    },
+    {
+      "title": "FSC-gecertificeerde verpakking",
+      "description": "Al onze verpakkingen zijn FSC-gecertificeerd en afkomstig uit verantwoord beheerde bossen. We gebruiken kraftpapier, inkt op sojabasis en een minimalistisch verpakkingsontwerp om afval te beperken."
+    },
+    {
+      "title": "CO₂-bewuste keten",
+      "description": "We optimaliseren onze logistiek om uitstoot te minimaliseren, met materialen en productie binnen Europa om transportafstanden te verkleinen."
+    },
+    {
+      "title": "Zorgvuldig watergebruik",
+      "description": "De teelt van biologisch katoen verbruikt aanzienlijk minder water dan gangbare methoden. Onze partners passen waterrecycling en verantwoorde irrigatie toe."
+    }
+  ],
+  "lifecycle": {
+    "title": "De levenscyclus van ons product.",
+    "body": "Van gecertificeerde biologische boerderijen tot natuurlijke afbraak: over elke fase is nagedacht.",
+    "steps": [
+      { "title": "Herkomst", "desc": "GOTS-gecertificeerd biologisch katoen van traceerbare boerderijen" },
+      { "title": "Productie", "desc": "Gemaakt in Europa. Kortere ketens, strengere normen" },
+      { "title": "Levering", "desc": "FSC-verpakking, geoptimaliseerde logistiek, minimaal afval" },
+      { "title": "Terugkeer", "desc": "Biologisch afbreekbare materialen, ontworpen voor natuurlijke afbraak. Behalve onze lijm dan, iedereen is tenslotte een werk in uitvoering" }
+    ]
+  }
+}

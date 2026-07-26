@@ -52,6 +52,19 @@ export interface ShopifyVariant {
   price: Money;
 }
 
+export interface ShopifySellingPlan {
+  id: string;
+  name: string;
+  options: { name: string; value: string }[];
+  /** Percentage discount the plan applies (0 when none / non-percentage). */
+  percentageOff: number;
+}
+
+export interface ShopifySellingPlanGroup {
+  name: string;
+  sellingPlans: ShopifySellingPlan[];
+}
+
 export interface ShopifyProduct {
   id: string;
   handle: string;
@@ -61,6 +74,7 @@ export interface ShopifyProduct {
   featuredImage: { url: string; altText: string | null } | null;
   priceRange: { minVariantPrice: Money };
   variants: ShopifyVariant[];
+  sellingPlanGroups: ShopifySellingPlanGroup[];
 }
 
 export interface ShopifyCartLine {
@@ -97,6 +111,23 @@ const PRODUCT_FRAGMENT = `#graphql
     variants(first: 20) {
       nodes { id title availableForSale price { amount currencyCode } }
     }
+    sellingPlanGroups(first: 5) {
+      nodes {
+        name
+        sellingPlans(first: 10) {
+          nodes {
+            id
+            name
+            options { name value }
+            priceAdjustments {
+              adjustmentValue {
+                ... on SellingPlanPercentagePriceAdjustment { adjustmentPercentage }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -129,8 +160,15 @@ const CART_FRAGMENT = `#graphql
 
 /* ---- Normalizers: flatten Shopify's edges/nodes into plain arrays ---- */
 
-interface RawProduct extends Omit<ShopifyProduct, "variants"> {
+interface RawSellingPlan {
+  id: string;
+  name: string;
+  options: { name: string; value: string }[];
+  priceAdjustments: { adjustmentValue: { adjustmentPercentage?: number } }[];
+}
+interface RawProduct extends Omit<ShopifyProduct, "variants" | "sellingPlanGroups"> {
   variants: { nodes: ShopifyVariant[] };
+  sellingPlanGroups: { nodes: { name: string; sellingPlans: { nodes: RawSellingPlan[] } }[] };
 }
 interface RawCart extends Omit<ShopifyCart, "lines"> {
   lines: { nodes: ShopifyCartLine[] };
@@ -139,6 +177,15 @@ interface RawCart extends Omit<ShopifyCart, "lines"> {
 const normalizeProduct = (p: RawProduct): ShopifyProduct => ({
   ...p,
   variants: p.variants.nodes,
+  sellingPlanGroups: (p.sellingPlanGroups?.nodes ?? []).map((g) => ({
+    name: g.name,
+    sellingPlans: g.sellingPlans.nodes.map((sp) => ({
+      id: sp.id,
+      name: sp.name,
+      options: sp.options,
+      percentageOff: sp.priceAdjustments[0]?.adjustmentValue?.adjustmentPercentage ?? 0,
+    })),
+  })),
 });
 
 const normalizeCart = (c: RawCart): ShopifyCart => ({
@@ -148,37 +195,50 @@ const normalizeCart = (c: RawCart): ShopifyCart => ({
 
 /* --------------------------- Products --------------------------- */
 
-export async function fetchProducts(first = 20): Promise<ShopifyProduct[]> {
+/** Storefront LanguageCode for product titles/descriptions (needs Shopify
+ *  "Translate & Adapt" translations published for NL/DE). */
+export type ShopifyLanguage = "EN" | "NL" | "DE";
+
+export async function fetchProducts(first = 20, language: ShopifyLanguage = "EN"): Promise<ShopifyProduct[]> {
   const data = await request<{ products: { nodes: RawProduct[] } }>(
     `#graphql
       ${PRODUCT_FRAGMENT}
-      query Products($first: Int!) {
+      query Products($first: Int!, $language: LanguageCode!) @inContext(language: $language) {
         products(first: $first) { nodes { ...ProductFields } }
       }
     `,
-    { first }
+    { first, language }
   );
   return data ? data.products.nodes.map(normalizeProduct) : [];
 }
 
-export async function fetchProductByHandle(handle: string): Promise<ShopifyProduct | null> {
+export async function fetchProductByHandle(handle: string, language: ShopifyLanguage = "EN"): Promise<ShopifyProduct | null> {
   const data = await request<{ product: RawProduct | null }>(
     `#graphql
       ${PRODUCT_FRAGMENT}
-      query Product($handle: String!) {
+      query Product($handle: String!, $language: LanguageCode!) @inContext(language: $language) {
         product(handle: $handle) { ...ProductFields }
       }
     `,
-    { handle }
+    { handle, language }
   );
   return data?.product ? normalizeProduct(data.product) : null;
 }
 
 /* ----------------------------- Cart ----------------------------- */
 
+export interface CartLineAttribute {
+  key: string;
+  value: string;
+}
+
 export interface CartLineInput {
   merchandiseId: string;
   quantity: number;
+  /** Line item properties. Keys starting with "_" are hidden in checkout but visible in admin. */
+  attributes?: CartLineAttribute[];
+  /** Subscription selling plan (Appstle) — checkout then prices the recurring discount. */
+  sellingPlanId?: string;
 }
 
 export async function createCart(lines: CartLineInput[] = []): Promise<ShopifyCart | null> {

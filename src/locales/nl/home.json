@@ -1,0 +1,173 @@
+{
+  "seo": {
+    "title": "Biologisch katoenen tampons & maandverband — GOTS-gecertificeerd | Lore Organics",
+    "description": "Premium biologische menstruatiezorg voor Nederland en Duitsland. GOTS-gecertificeerde biologisch katoenen tampons, plasticvrij maandverband en biologisch afbreekbare inlegkruisjes. Lancering 1 oktober 2026."
+  },
+  "hero": {
+    "title": "Natuurlijk. Punt.",
+    "body": "Menstruatieproducten van biologisch katoen, omdat je vagina ertoe doet. Gemaakt in Europa, gemaakt om minder lang mee te gaan dan de verhalen over je ex. Persoonlijk door ons getest.",
+    "signoff": "Liefs, Rachael & Geneviève.",
+    "ctaWaitlist": "Zet je op de wachtlijst",
+    "ctaLearn": "Meer weten"
+  },
+  "whyLore": {
+    "label": "Waarom Lore",
+    "heading1": "Een nieuwe standaard",
+    "heading2": "in menstruatiezorg.",
+    "features": {
+      "0": {
+        "title": "Ontworpen voor comfort",
+        "description": "Elke tampon is omhuld met een 360° katoenen beschermlaag die pluizen voorkomt. Geen rayon, geen polyester, geen troep. Ons katoenen maandverband is getest om irritatie en geurtjes te minimaliseren. Want je menstruatie is al genoeg om mee te dealen."
+      },
+      "1": {
+        "title": "Bewust puur",
+        "description": "100% biologisch katoen. Een bio-onderlaag op basis van maïs. Vrij van chemicaliën, zoals het hoort."
+      },
+      "2": {
+        "title": "GOTS-gecertificeerd, van veld tot schap",
+        "description": "Gecertificeerd bij elke stap. Eerlijke lonen. Veilige werkomstandigheden. Geen kinderarbeid. Want alle mensen zijn gelijk, maar niet al het maandverband."
+      },
+      "3": {
+        "title": "Standaard transparant",
+        "description": "Niets verborgen. Elk ingrediënt openbaar. Elk product dat we doneren, gedocumenteerd. Want communicatie is alles."
+      }
+    },
+    "tagline": "Veilig. Gecertificeerd. Transparant."
+  },
+  "productPreview": {
+    "label": "Onze producten",
+    "heading": "Bewust puur.",
+    "comingSoon": "Binnenkort verkrijgbaar",
+    "explore": "Ontdek",
+    "items": {
+      "0": {
+        "title": "Dagverband van biologisch katoen",
+        "subtitle": "Dagverband",
+        "description": "GOTS-gecertificeerd biologisch katoen. 240 mm voor dagelijks comfort."
+      },
+      "1": {
+        "title": "Nachtverband van biologisch katoen",
+        "subtitle": "Nachtverband",
+        "description": "GOTS-gecertificeerd biologisch katoen. 280 mm voor bescherming bij hevige menstruatie."
+      },
+      "2": {
+        "title": "Tampons Regular",
+        "subtitle": "Regular",
+        "description": "360° katoenen beschermlaag, zonder synthetische antipluislagen. Voor lichte tot gemiddelde menstruatie."
+      },
+      "3": {
+        "title": "Tampons Super",
+        "subtitle": "Super",
+        "description": "360° katoenen beschermlaag, zonder synthetische antipluislagen. Voor gemiddelde tot hevige menstruatie."
+      },
+      "4": {
+        "title": "Inlegkruisje van biologisch katoen",
+        "subtitle": "Inlegkruisje",
+        "description": "GOTS-gecertificeerd biologisch katoen. Ultradun voor dagelijks gebruik."
+      }
+    }
+  },
+  "editorial": {
+    "quote": "We regelen een van onze meest natuurlijke processen met producten die tientallen jaren geleden zijn ontworpen door mensen die nooit ongesteld zijn geweest. Gemaakt met plastic. Gemaakt met petrochemicaliën. Gemaakt zonder aan ons te denken.",
+    "cta": "Kijk wat wij anders doen"
+  },
+  "newsletter": {
+    "label": "Wachtlijst",
+    "heading": "Hoor als eerste wanneer we lanceren.",
+    "body": "Zet je op de wachtlijst en krijg 10% korting op je eerste bestelling. We lanceren op 1 oktober in Nederland en Duitsland.",
+    "placeholder": "Je e-mailadres",
+    "join": "Zet je op de wachtlijst",
+    "joining": "Aanmelden…",
+    "onList": "Je staat op de lijst",
+    "success": "Dank je, we laten snel van ons horen."
+  },
+  "problem": {
+    "label": "Het probleem",
+    "heading1": "De menstruatie-industrie",
+    "heading2": "is kapot.",
+    "plasticHeading": "Een plasticcrisis vermomd als hygiëne",
+    "stats": {
+      "0": { "stat": "49 mld", "text": "producten per jaar alleen al in de EU" },
+      "1": { "stat": "90%", "text": "van het gangbare maandverband is gemaakt van plastic" },
+      "2": { "stat": "800 jr", "text": "voordat één verband op de vuilnisbelt is afgebroken" }
+    },
+    "chemicalsHeading": "Verborgen chemicaliën. Verborgen risico's.",
+    "risks": {
+      "0": "Superabsorberend rayon wordt gelinkt aan een hoger risico op toxischeshocksyndroom",
+      "1": "Dioxines & PEG's die zorgen oproepen over hormoonverstoring",
+      "2": "Titaniumdioxide & synthetische kleurstoffen onder de loep als mogelijk kankerverwekkend",
+      "3": "Plastic & coatings die irritatie, allergische reacties & geurtjes veroorzaken"
+    },
+    "quote": "Vrouwen regelen een natuurlijk biologisch proces met producten die tientallen jaren geleden zijn ontworpen, gemaakt van plastic en petrochemicaliën."
+  },
+  "founder": {
+    "label": "Onze oprichters",
+    "heading1": "Gebouwd door vrouwen",
+    "heading2": "die het beter wilden.",
+    "founders": {
+      "0": {
+        "name": "Geneviève Silvestra",
+        "role": "Medeoprichter & co-CEO, merk, product & partnerships",
+        "bio": "Geneviève leidt merkontwikkeling, productstrategie en materiaalstandaarden. Met een achtergrond in internationaal modellenwerk en merksamenwerkingen brengt ze een diep begrip van premium positionering en storytelling mee."
+      },
+      "1": {
+        "name": "Rachael Hoogkamer",
+        "role": "Medeoprichter & co-CEO, operations & financiën",
+        "bio": "Rachael leidt de supply chain, logistiek, verpakkingsuitvoering en financiële planning. Met ervaring in het opbouwen en opschalen van meerdere bedrijven brengt ze de operationele discipline mee die nodig is voor duurzame groei."
+      }
+    }
+  },
+  "faq": {
+    "label": "Vragen",
+    "heading": "Veelgestelde vragen",
+    "items": {
+      "0": {
+        "q": "Wanneer lanceren jullie?",
+        "a": "We lanceren op 1 oktober 2026, te beginnen in Nederland en Duitsland. Zet je op de wachtlijst om het als eerste te horen en 10% korting op je eerste bestelling te krijgen."
+      },
+      "1": {
+        "q": "Waar bezorgen jullie?",
+        "a": "Bij de lancering bezorgen we in heel Nederland en Duitsland. Meer Europese landen staan gepland voor 2027 en daarna."
+      },
+      "2": {
+        "q": "Wat maakt Lore anders dan andere biologische merken?",
+        "a": "Drie dingen: onze producten zijn van GOTS-gecertificeerd biologisch katoen, onafhankelijk geverifieerd, niet zomaar een claim. We doneren vanaf dag één 1% van elke verkoop aan vrouwenopvang en organisaties tegen menstruatiearmoede. En we vertellen je precies waar elk product vandaan komt en wat erin zit. Geen greenwashing, geen vage claims."
+      },
+      "3": {
+        "q": "Wat betekent GOTS-gecertificeerd?",
+        "a": "GOTS staat voor Global Organic Textile Standard. Het betekent dat ons katoen wordt geteeld zonder pesticiden of giftige chemicaliën, wordt verwerkt zonder synthetische kleurstoffen of bleekmiddelen, en bij elke stap van de keten wordt gecontroleerd door een onafhankelijke certificeerder. Het is wereldwijd dé gouden standaard voor biologisch textiel."
+      },
+      "4": {
+        "q": "Welke producten bieden jullie aan bij de lancering?",
+        "a": "We lanceren met vijf producten: dagverband van biologisch katoen, nachtverband van biologisch katoen, tampon Regular en tampon Super. Alles is per stuk verpakt en gemaakt van 100% GOTS-gecertificeerd biologisch katoen."
+      },
+      "5": {
+        "q": "Kan ik me abonneren en mijn levering zelf samenstellen?",
+        "a": "Ja, met onze Cycle Box kies je precies welke producten je nodig hebt en hoe vaak je ze geleverd wilt krijgen: elke maand, elke twee maanden of elke drie maanden. Abonnees besparen 10% op elke bestelling en kunnen op elk moment pauzeren, producten wisselen of opzeggen."
+      },
+      "6": {
+        "q": "Zijn jullie producten plasticvrij?",
+        "a": "Onze tampons en ons maandverband bevatten geen plastic in de absorberende materialen; ze zijn gemaakt van biologisch katoen. Ons inlegkruisje heeft een onderlaag van biopolymeer op plantaardige basis. We zijn volledig transparant over alle materialen en publiceren een compleet overzicht op onze website."
+      },
+      "7": {
+        "q": "Hoe werkt jullie 1%-donatiemodel?",
+        "a": "Vanaf onze allereerste verkoop gaat 1% van de netto-omzet van elke bestelling rechtstreeks naar vrouwenopvang en organisaties tegen menstruatiearmoede in Nederland. Je hoeft niets te doen; het zit automatisch in elke aankoop ingebouwd."
+      },
+      "8": {
+        "q": "Wat is de donatieoptie Van vrouw tot vrouw?",
+        "a": "Bij het afrekenen kun je een doos maandverband of tampons toevoegen tegen een gereduceerde prijs. Die doos komt niet naar jou, maar gaat via onze partnerorganisaties rechtstreeks naar een vrouw die hem nodig heeft. Alleen maandverband en tampons. Geen administratie, geen tussenpersoon. Gewoon de ene vrouw die de andere helpt."
+      },
+      "9": {
+        "q": "Ik heb een vraag die hier niet wordt beantwoord, hoe bereik ik jullie?",
+        "a": "Mail ons op info@lore-organics.com en we komen binnen 48 uur bij je terug."
+      }
+    }
+  },
+  "donation": {
+    "label": "Van vrouw tot vrouw",
+    "heading1": "Menstruatiezorg is een recht,",
+    "heading2": "geen privilege.",
+    "p1": "Voor elk gekocht product doneert Lore menstruatieproducten aan vrouwen in kwetsbare gemeenschappen. Want geen enkele vrouw zou het zonder moeten stellen.",
+    "p2": "Wij vinden dat toegang tot veilige, waardige menstruatiezorg vanzelfsprekend zou moeten zijn. Ons \"Van vrouw tot vrouw\"-model zorgt ervoor dat jouw aankoop rechtstreeks vrouwen steunt die het het hardst nodig hebben."
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "seo": {
+    "title": "Bio-Baumwoll-Tampons & Binden — GOTS-zertifiziert | Lore Organics",
+    "description": "Premium Bio-Periodenpflege für die Niederlande und Deutschland. GOTS-zertifizierte Tampons aus Bio-Baumwolle, plastikfreie Binden und biologisch abbaubare Slipeinlagen. Start am 1. Oktober 2026."
+  },
+  "hero": {
+    "title": "Natürlich. Punkt.",
+    "body": "Periodenprodukte aus Bio-Baumwolle, weil deine Vagina zählt. Hergestellt in Europa, gemacht, um kürzer zu halten als die Geschichten über deinen Ex. Höchstpersönlich von uns getestet.",
+    "signoff": "Alles Liebe, Rachael & Geneviève.",
+    "ctaWaitlist": "Auf die Warteliste",
+    "ctaLearn": "Mehr erfahren"
+  },
+  "whyLore": {
+    "label": "Warum Lore",
+    "heading1": "Ein neuer Standard",
+    "heading2": "in der Periodenpflege.",
+    "features": {
+      "0": {
+        "title": "Entwickelt für Komfort",
+        "description": "Jeder Tampon ist von einem 360°-Baumwollschutzvlies umhüllt, das Faserverlust verhindert. Keine Viskose, kein Polyester, kein Mist. Unsere Binden aus Baumwolle sind darauf getestet, Irritationen und Gerüche zu minimieren. Denn deine Periode ist schon genug, womit du klarkommen musst."
+      },
+      "1": {
+        "title": "Bewusst rein",
+        "description": "100 % Bio-Baumwolle. Eine Bio-Unterschicht auf Maisbasis. Frei von Chemikalien, so wie es sein sollte."
+      },
+      "2": {
+        "title": "GOTS-zertifiziert, vom Feld bis ins Regal",
+        "description": "Zertifiziert bei jedem Schritt. Faire Löhne. Sichere Arbeitsbedingungen. Keine Kinderarbeit. Denn alle Menschen sind gleich – aber nicht alle Binden."
+      },
+      "3": {
+        "title": "Transparent von Haus aus",
+        "description": "Nichts verborgen. Jede Zutat offengelegt. Jedes gespendete Produkt dokumentiert. Denn Kommunikation ist alles."
+      }
+    },
+    "tagline": "Sicher. Zertifiziert. Transparent."
+  },
+  "productPreview": {
+    "label": "Unsere Produkte",
+    "heading": "Bewusst rein.",
+    "comingSoon": "Bald erhältlich",
+    "explore": "Entdecken",
+    "items": {
+      "0": {
+        "title": "Tagesbinde aus Bio-Baumwolle",
+        "subtitle": "Tagesbinde",
+        "description": "GOTS-zertifizierte Bio-Baumwolle. 240 mm für alltäglichen Komfort."
+      },
+      "1": {
+        "title": "Nachtbinde aus Bio-Baumwolle",
+        "subtitle": "Nachtbinde",
+        "description": "GOTS-zertifizierte Bio-Baumwolle. 280 mm für Schutz bei starker Blutung."
+      },
+      "2": {
+        "title": "Tampons Regular",
+        "subtitle": "Regular",
+        "description": "360°-Baumwollschutzvlies, ohne synthetische Anti-Fussel-Schichten. Für leichte bis mittlere Blutung."
+      },
+      "3": {
+        "title": "Tampons Super",
+        "subtitle": "Super",
+        "description": "360°-Baumwollschutzvlies, ohne synthetische Anti-Fussel-Schichten. Für mittlere bis starke Blutung."
+      },
+      "4": {
+        "title": "Slipeinlage aus Bio-Baumwolle",
+        "subtitle": "Slipeinlage",
+        "description": "GOTS-zertifizierte Bio-Baumwolle. Ultradünn für jeden Tag."
+      }
+    }
+  },
+  "editorial": {
+    "quote": "Wir bewältigen einen unserer natürlichsten Prozesse mit Produkten, die vor Jahrzehnten von Menschen entworfen wurden, die nie ihre Periode hatten. Aus Plastik. Aus Petrochemikalien. Gemacht, ohne an uns zu denken.",
+    "cta": "Sieh, was wir anders machen"
+  },
+  "newsletter": {
+    "label": "Warteliste",
+    "heading": "Erfahre als Erste, wann wir starten.",
+    "body": "Trag dich auf die Warteliste ein und erhalte 10 % Rabatt auf deine erste Bestellung. Wir starten am 1. Oktober in den Niederlanden und Deutschland.",
+    "placeholder": "Deine E-Mail-Adresse",
+    "join": "Auf die Warteliste",
+    "joining": "Wird gesendet…",
+    "onList": "Du stehst auf der Liste",
+    "success": "Danke, wir melden uns bald."
+  },
+  "problem": {
+    "label": "Das Problem",
+    "heading1": "Die Periodenpflege-Industrie",
+    "heading2": "ist kaputt.",
+    "plasticHeading": "Eine Plastikkrise, getarnt als Hygiene",
+    "stats": {
+      "0": { "stat": "49 Mrd.", "text": "Produkte jährlich allein in der EU" },
+      "1": { "stat": "90 %", "text": "der herkömmlichen Binden bestehen aus Plastik" },
+      "2": { "stat": "800 J.", "text": "bis eine einzige Binde auf der Deponie abgebaut ist" }
+    },
+    "chemicalsHeading": "Versteckte Chemikalien. Versteckte Risiken.",
+    "risks": {
+      "0": "Superabsorbierende Viskose wird mit einem höheren Risiko für das Toxische Schocksyndrom in Verbindung gebracht",
+      "1": "Dioxine & PEGs, die Bedenken wegen Hormonstörungen wecken",
+      "2": "Titandioxid & synthetische Farbstoffe unter Krebsverdacht",
+      "3": "Kunststoffe & Beschichtungen, die Irritationen, allergische Reaktionen & Gerüche verursachen"
+    },
+    "quote": "Frauen bewältigen einen natürlichen biologischen Prozess mit Produkten, die vor Jahrzehnten entworfen wurden – aus Plastik und Petrochemikalien."
+  },
+  "founder": {
+    "label": "Unsere Gründerinnen",
+    "heading1": "Gegründet von Frauen,",
+    "heading2": "die es besser wollten.",
+    "founders": {
+      "0": {
+        "name": "Geneviève Silvestra",
+        "role": "Mitgründerin & Co-CEO, Marke, Produkt & Partnerschaften",
+        "bio": "Geneviève leitet Markenentwicklung, Produktstrategie und Materialstandards. Mit ihrem Hintergrund im internationalen Modelbusiness und in Markenkooperationen bringt sie ein tiefes Verständnis für Premium-Positionierung und Storytelling mit."
+      },
+      "1": {
+        "name": "Rachael Hoogkamer",
+        "role": "Mitgründerin & Co-CEO, Operations & Finanzen",
+        "bio": "Rachael leitet Lieferkette, Logistik, Verpackungsumsetzung und Finanzplanung. Mit ihrer Erfahrung im Aufbau und in der Skalierung mehrerer Unternehmen bringt sie die operative Disziplin mit, die nachhaltiges Wachstum erfordert."
+      }
+    }
+  },
+  "faq": {
+    "label": "Fragen",
+    "heading": "Häufig gestellte Fragen",
+    "items": {
+      "0": {
+        "q": "Wann startet ihr?",
+        "a": "Wir starten am 1. Oktober 2026, zunächst in den Niederlanden und Deutschland. Trag dich auf die Warteliste ein, um es als Erste zu erfahren und 10 % Rabatt auf deine erste Bestellung zu erhalten."
+      },
+      "1": {
+        "q": "Wohin liefert ihr?",
+        "a": "Zum Start liefern wir in die gesamten Niederlande und nach ganz Deutschland. Weitere europäische Länder sind ab 2027 geplant."
+      },
+      "2": {
+        "q": "Was unterscheidet Lore von anderen Bio-Marken?",
+        "a": "Drei Dinge: Unsere Produkte bestehen aus GOTS-zertifizierter Bio-Baumwolle, unabhängig geprüft, nicht nur eine Behauptung. Wir spenden vom ersten Tag an 1 % jedes Verkaufs an Frauenhäuser und Organisationen gegen Periodenarmut. Und wir sagen dir genau, woher jedes Produkt kommt und was drin ist. Kein Greenwashing, keine vagen Versprechen."
+      },
+      "3": {
+        "q": "Was bedeutet GOTS-zertifiziert?",
+        "a": "GOTS steht für Global Organic Textile Standard. Das bedeutet: Unsere Baumwolle wird ohne Pestizide oder giftige Chemikalien angebaut, ohne synthetische Farbstoffe oder Bleichmittel verarbeitet und bei jedem Schritt der Lieferkette von einer unabhängigen Zertifizierungsstelle geprüft. Es ist weltweit der Goldstandard für Bio-Textilien."
+      },
+      "4": {
+        "q": "Welche Produkte bietet ihr zum Start an?",
+        "a": "Wir starten mit fünf Produkten: Tagesbinde aus Bio-Baumwolle, Nachtbinde aus Bio-Baumwolle, Tampon Regular und Tampon Super. Alle sind einzeln verpackt und bestehen aus 100 % GOTS-zertifizierter Bio-Baumwolle."
+      },
+      "5": {
+        "q": "Kann ich ein Abo abschließen und meine Lieferung anpassen?",
+        "a": "Ja, mit unserer Cycle Box wählst du genau, welche Produkte du brauchst und wie oft sie geliefert werden sollen: jeden Monat, alle zwei Monate oder alle drei Monate. Abonnentinnen sparen 10 % bei jeder Bestellung und können jederzeit pausieren, Produkte tauschen oder kündigen."
+      },
+      "6": {
+        "q": "Sind eure Produkte plastikfrei?",
+        "a": "Unsere Tampons und Binden enthalten kein Plastik in den saugfähigen Materialien; sie bestehen aus Bio-Baumwolle. Unsere Slipeinlage hat eine Unterschicht aus pflanzenbasiertem Biopolymer. Wir sind bei allen Materialien vollständig transparent und veröffentlichen eine komplette Aufschlüsselung auf unserer Website."
+      },
+      "7": {
+        "q": "Wie funktioniert euer 1-%-Spendenmodell?",
+        "a": "Ab unserem allerersten Verkauf gehen 1 % des Nettoumsatzes jeder Bestellung direkt an Frauenhäuser und Organisationen gegen Periodenarmut in den Niederlanden. Du musst nichts tun – es ist automatisch in jeden Kauf integriert."
+      },
+      "8": {
+        "q": "Was ist die Spendenoption Von Frau zu Frau?",
+        "a": "Beim Checkout kannst du eine Packung Binden oder Tampons zu einem reduzierten Preis hinzufügen. Diese Packung kommt nicht zu dir, sondern geht über unsere Partnerorganisationen direkt an eine Frau, die sie braucht. Nur Binden und Tampons. Keine Verwaltung, kein Zwischenhändler. Einfach eine Frau, die einer anderen hilft."
+      },
+      "9": {
+        "q": "Ich habe eine Frage, die hier nicht beantwortet wird – wie erreiche ich euch?",
+        "a": "Schreib uns an info@lore-organics.com und wir melden uns innerhalb von 48 Stunden bei dir."
+      }
+    }
+  },
+  "donation": {
+    "label": "Von Frau zu Frau",
+    "heading1": "Periodenpflege ist ein Recht,",
+    "heading2": "kein Privileg.",
+    "p1": "Für jedes gekaufte Produkt spendet Lore Periodenprodukte an Frauen in unterversorgten Gemeinschaften. Denn keine Frau sollte darauf verzichten müssen.",
+    "p2": "Wir glauben, dass Zugang zu sicherer, würdevoller Periodenpflege selbstverständlich sein sollte. Unser \"Von Frau zu Frau\"-Modell stellt sicher, dass dein Kauf direkt Frauen unterstützt, die ihn am dringendsten brauchen."
+  }
+}
