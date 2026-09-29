@@ -1,3 +1,17 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "lore-organics.com" }],
+      "destination": "https://lore-organics-bv.myklpages.com/l/WNWexa",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.lore-organics.com" }],
+      "destination": "https://lore-organics-bv.myklpages.com/l/WNWexa",
+      "permanent": false
+    }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
