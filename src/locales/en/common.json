@@ -1,5 +1,6 @@
 {
   "announcement": "Launching in {{days}} days · October 1st 2026",
+  "announcementLive": "Now live in the Netherlands & Germany",
   "nav": {
     "products": "Products",
     "cycleBox": "Cycle Box",
@@ -27,7 +28,8 @@
     "terms": "Terms and Conditions",
     "privacy": "Privacy Policy",
     "cookie": "Cookie Policy",
-    "returnRefund": "Return & Refund Policy"
+    "returnRefund": "Return & Refund Policy",
+    "country": "Netherlands"
   },
   "waitlist": {
     "cta": "Get 10% off at launch. Join the waitlist"

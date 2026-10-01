@@ -1,8 +1,21 @@
 import { useTranslation } from "react-i18next";
 import Seo from "@/components/Seo";
 
+const EMAIL = "info@lore-organics.com";
+
+const MailLink = () => (
+  <a href={`mailto:${EMAIL}`} className="underline hover:opacity-70 transition-opacity">
+    {EMAIL}
+  </a>
+);
+
 const ReturnRefundPolicy = () => {
   const { t } = useTranslation("policies");
+  // Arrays come back as the key string until the namespace has loaded.
+  const list = (key: string): string[] => {
+    const value = t(key, { returnObjects: true });
+    return Array.isArray(value) ? (value as string[]) : [];
+  };
 
   return (
     <main className="pt-32 pb-24 section-padding min-h-[60vh] bg-background">
@@ -20,101 +33,70 @@ const ReturnRefundPolicy = () => {
           {t("returns.lastUpdated")}
         </p>
 
-        {t("englishOnlyNote") && (
-          <p className="text-body text-muted-foreground italic mb-10 text-center">{t("englishOnlyNote")}</p>
-        )}
-
         <div className="space-y-10 text-left">
           <section>
-            <h2 className="text-editorial-md mb-4">Our commitment</h2>
-            <p className="text-body-lg text-muted-foreground">
-              At Lore Organics we stand behind the quality of every product we make. If something isn't right with your order, we'll always make it right.
-            </p>
+            <h2 className="text-editorial-md mb-4">{t("returns.commitment.title")}</h2>
+            <p className="text-body-lg text-muted-foreground">{t("returns.commitment.body")}</p>
           </section>
 
           <section>
-            <h2 className="text-editorial-md mb-4">Returns</h2>
-            <p className="text-body-lg text-muted-foreground mb-4">
-              Because our products are intimate personal hygiene items, we're unable to accept returns or exchanges once a product's seal has been opened — even if you've only opened one. This is in accordance with EU consumer law (Directive 2011/83/EU, Article 16(e)), which exempts sealed hygiene products from the standard right of withdrawal once unsealed.
-            </p>
-            <p className="text-body-lg text-muted-foreground mb-4">
-              Unopened, sealed products may be returned within 14 days of delivery. Return shipping costs are covered by you, and we'll issue your refund once we've received the item back.
-            </p>
-            <p className="text-body-lg text-muted-foreground mb-4">
-              We'll always take full responsibility if:
-            </p>
+            <h2 className="text-editorial-md mb-4">{t("returns.returns.title")}</h2>
+            <p className="text-body-lg text-muted-foreground mb-4">{t("returns.returns.hygiene")}</p>
+            <p className="text-body-lg text-muted-foreground mb-4">{t("returns.returns.unopened")}</p>
+            <p className="text-body-lg text-muted-foreground mb-4">{t("returns.returns.responsibility")}</p>
             <ul className="list-disc list-inside text-body-lg text-muted-foreground space-y-2 ml-2">
-              <li>Your order arrives damaged</li>
-              <li>You receive the wrong product</li>
-              <li>Your order doesn't arrive at all</li>
+              {list("returns.returns.cases").map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
             <p className="text-body-lg text-muted-foreground mt-4">
-              In any of these cases, please contact us within 14 days of delivery at{" "}
-              <a href="mailto:info@lore-organics.com" className="underline hover:opacity-70 transition-opacity">
-                info@lore-organics.com
-              </a>{" "}
-              with your order number and a photo where applicable. We'll send a replacement or issue a full refund immediately — no questions asked.
+              {t("returns.returns.contactBefore")} <MailLink /> {t("returns.returns.contactAfter")}
             </p>
           </section>
 
           <section>
-            <h2 className="text-editorial-md mb-4">Refunds</h2>
+            <h2 className="text-editorial-md mb-4">{t("returns.refunds.title")}</h2>
+            <p className="text-body-lg text-muted-foreground">{t("returns.refunds.body")}</p>
+          </section>
+
+          <section>
+            <h2 className="text-editorial-md mb-4">{t("returns.subscriptions.title")}</h2>
             <p className="text-body-lg text-muted-foreground">
-              Once a refund is approved, it will be processed to your original payment method within 5 to 10 business days. If you haven't received your refund after 10 business days, please contact your bank or payment provider first, as processing times can vary.
+              {t("returns.subscriptions.before")} <MailLink /> {t("returns.subscriptions.after")}
             </p>
           </section>
 
           <section>
-            <h2 className="text-editorial-md mb-4">Subscription orders</h2>
-            <p className="text-body-lg text-muted-foreground">
-              You may cancel your subscription at any time before your next scheduled renewal. To cancel, contact us at{" "}
-              <a href="mailto:info@lore-organics.com" className="underline hover:opacity-70 transition-opacity">
-                info@lore-organics.com
-              </a>{" "}
-              or manage your subscription directly in your account. Cancellations take effect 14 days after we receive your request; any renewal already processed before then will ship as scheduled, with cancellation applying from the following cycle.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-editorial-md mb-4">Non-returnable items</h2>
-            <p className="text-body-lg text-muted-foreground mb-4">
-              We don't accept returns or offer refunds for:
-            </p>
+            <h2 className="text-editorial-md mb-4">{t("returns.nonReturnable.title")}</h2>
+            <p className="text-body-lg text-muted-foreground mb-4">{t("returns.nonReturnable.intro")}</p>
             <ul className="list-disc list-inside text-body-lg text-muted-foreground space-y-2 ml-2">
-              <li>Opened or used hygiene products</li>
-              <li>Products damaged due to misuse or improper storage</li>
-              <li>Change of mind (for opened or unsealed products)</li>
+              {list("returns.nonReturnable.items").map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </section>
 
           <section>
-            <h2 className="text-editorial-md mb-4">Lost or delayed orders</h2>
+            <h2 className="text-editorial-md mb-4">{t("returns.lost.title")}</h2>
             <p className="text-body-lg text-muted-foreground mb-4">
-              If your order hasn't arrived within the expected delivery timeframe, please contact us at{" "}
-              <a href="mailto:info@lore-organics.com" className="underline hover:opacity-70 transition-opacity">
-                info@lore-organics.com
-              </a>{" "}
-              and we'll investigate immediately with our logistics partner.
+              {t("returns.lost.before")} <MailLink /> {t("returns.lost.after")}
             </p>
             <ul className="list-disc list-inside text-body-lg text-muted-foreground space-y-2 ml-2">
-              <li>Netherlands: expected delivery within 1 to 2 business days.</li>
-              <li>Germany: expected delivery within 2 to 4 business days.</li>
+              {list("returns.lost.delivery").map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
-            <p className="text-body-lg text-muted-foreground mt-4">
-              This policy doesn't affect your statutory rights as a consumer under EU law.
-            </p>
+            <p className="text-body-lg text-muted-foreground mt-4">{t("returns.lost.statutory")}</p>
           </section>
 
           <section>
-            <h2 className="text-editorial-md mb-4">Contact us</h2>
+            <h2 className="text-editorial-md mb-4">{t("returns.contact.title")}</h2>
             <p className="text-body-lg text-muted-foreground">
-              Lore Organics B.V. · Schans 178, 1423CB Uithoorn, Nederland
+              Lore Organics B.V. · Schans 178, 1423CB Uithoorn, {t("returns.contact.country")}
               <br />
-              KVK: 42047169 · BTW: NL869464437B01
+              KVK: 42047169 · {t("returns.contact.vat")}: NL869464437B01
               <br />
-              <a href="mailto:info@lore-organics.com" className="underline hover:opacity-70 transition-opacity">
-                info@lore-organics.com
-              </a>
+              <MailLink />
               {" · "}
               <a href="https://www.lore-organics.com" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-70 transition-opacity">
                 www.lore-organics.com

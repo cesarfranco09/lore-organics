@@ -1,12 +1,12 @@
 {
   "legal": "Legal",
-  "englishOnlyNote": "",
   "privacy": {
     "seo": {
       "title": "Privacy Policy — Lore Organics",
       "description": "How Lore Organics collects, uses and protects your personal data."
     },
-    "title": "Privacy Policy"
+    "title": "Privacy Policy",
+    "englishOnlyNote": ""
   },
   "returns": {
     "seo": {
@@ -14,6 +14,56 @@
       "description": "Our return and refund policy for organic cotton period care products."
     },
     "title": "Return & Refund Policy",
-    "lastUpdated": "Lore Organics B.V. — Last updated: June 2026"
+    "lastUpdated": "Lore Organics B.V. — Last updated: June 2026",
+    "commitment": {
+      "title": "Our commitment",
+      "body": "At Lore Organics we stand behind the quality of every product we make. If something isn't right with your order, we'll always make it right."
+    },
+    "returns": {
+      "title": "Returns",
+      "hygiene": "Because our products are intimate personal hygiene items, we're unable to accept returns or exchanges once a product's seal has been opened — even if you've only opened one. This is in accordance with EU consumer law (Directive 2011/83/EU, Article 16(e)), which exempts sealed hygiene products from the standard right of withdrawal once unsealed.",
+      "unopened": "Unopened, sealed products may be returned within 14 days of delivery. Return shipping costs are covered by you, and we'll issue your refund once we've received the item back.",
+      "responsibility": "We'll always take full responsibility if:",
+      "cases": [
+        "Your order arrives damaged",
+        "You receive the wrong product",
+        "Your order doesn't arrive at all"
+      ],
+      "contactBefore": "In any of these cases, please contact us within 14 days of delivery at",
+      "contactAfter": "with your order number and a photo where applicable. We'll send a replacement or issue a full refund immediately — no questions asked."
+    },
+    "refunds": {
+      "title": "Refunds",
+      "body": "Once a refund is approved, it will be processed to your original payment method within 5 to 10 business days. If you haven't received your refund after 10 business days, please contact your bank or payment provider first, as processing times can vary."
+    },
+    "subscriptions": {
+      "title": "Subscription orders",
+      "before": "You may cancel your subscription at any time before your next scheduled renewal. To cancel, contact us at",
+      "after": "or manage your subscription directly in your account. Cancellations take effect 14 days after we receive your request; any renewal already processed before then will ship as scheduled, with cancellation applying from the following cycle."
+    },
+    "nonReturnable": {
+      "title": "Non-returnable items",
+      "intro": "We don't accept returns or offer refunds for:",
+      "items": [
+        "Opened or used hygiene products",
+        "Products damaged due to misuse or improper storage",
+        "Change of mind (for opened or unsealed products)"
+      ]
+    },
+    "lost": {
+      "title": "Lost or delayed orders",
+      "before": "If your order hasn't arrived within the expected delivery timeframe, please contact us at",
+      "after": "and we'll investigate immediately with our logistics partner.",
+      "delivery": [
+        "Netherlands: expected delivery within 1 to 2 business days.",
+        "Germany: expected delivery within 2 to 4 business days."
+      ],
+      "statutory": "This policy doesn't affect your statutory rights as a consumer under EU law."
+    },
+    "contact": {
+      "title": "Contact us",
+      "country": "the Netherlands",
+      "vat": "VAT"
+    }
   }
 }
