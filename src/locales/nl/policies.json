@@ -1,12 +1,12 @@
 {
   "legal": "Juridisch",
-  "englishOnlyNote": "Deze pagina is momenteel alleen in het Engels beschikbaar. Een Nederlandse versie volgt vóór de lancering.",
   "privacy": {
     "seo": {
       "title": "Privacybeleid — Lore Organics",
       "description": "Hoe Lore Organics je persoonsgegevens verzamelt, gebruikt en beschermt."
     },
-    "title": "Privacybeleid"
+    "title": "Privacybeleid",
+    "englishOnlyNote": "Ons privacybeleid is momenteel alleen in het Engels beschikbaar. Een Nederlandse versie volgt binnenkort."
   },
   "returns": {
     "seo": {
@@ -14,6 +14,56 @@
       "description": "Ons retour- en terugbetalingsbeleid voor menstruatieproducten van biologisch katoen."
     },
     "title": "Retour- & terugbetalingsbeleid",
-    "lastUpdated": "Lore Organics B.V. — Laatst bijgewerkt: juni 2026"
+    "lastUpdated": "Lore Organics B.V. — Laatst bijgewerkt: juni 2026",
+    "commitment": {
+      "title": "Onze belofte",
+      "body": "Bij Lore Organics staan we achter de kwaliteit van elk product dat we maken. Is er iets niet goed met je bestelling? Dan lossen we het altijd voor je op."
+    },
+    "returns": {
+      "title": "Retourneren",
+      "hygiene": "Omdat onze producten intieme hygiëneproducten zijn, kunnen we geen retouren of omruilingen accepteren zodra de verzegeling van een product is geopend — ook niet als je er maar één hebt geopend. Dit is in overeenstemming met het Europese consumentenrecht (Richtlijn 2011/83/EU, artikel 16, onder e), dat verzegelde hygiëneproducten na opening uitsluit van het herroepingsrecht.",
+      "unopened": "Ongeopende, verzegelde producten kun je binnen 14 dagen na levering retourneren. De retourverzendkosten zijn voor jouw rekening; we betalen je terug zodra we het product weer hebben ontvangen.",
+      "responsibility": "We nemen altijd de volledige verantwoordelijkheid als:",
+      "cases": [
+        "Je bestelling beschadigd aankomt",
+        "Je het verkeerde product ontvangt",
+        "Je bestelling helemaal niet aankomt"
+      ],
+      "contactBefore": "Neem in al deze gevallen binnen 14 dagen na levering contact met ons op via",
+      "contactAfter": "met je bestelnummer en, indien van toepassing, een foto. We sturen direct een vervangend product of betalen het volledige bedrag terug — zonder vragen."
+    },
+    "refunds": {
+      "title": "Terugbetalingen",
+      "body": "Zodra een terugbetaling is goedgekeurd, wordt deze binnen 5 tot 10 werkdagen verwerkt via je oorspronkelijke betaalmethode. Heb je na 10 werkdagen nog niets ontvangen? Neem dan eerst contact op met je bank of betaalprovider, want verwerkingstijden kunnen verschillen."
+    },
+    "subscriptions": {
+      "title": "Abonnementen",
+      "before": "Je kunt je abonnement op elk moment vóór de volgende geplande verlenging opzeggen. Neem hiervoor contact met ons op via",
+      "after": "of beheer je abonnement rechtstreeks in je account. Opzeggingen gaan in 14 dagen nadat we je verzoek hebben ontvangen; een verlenging die al vóór dat moment is verwerkt, wordt zoals gepland verzonden en de opzegging geldt vanaf de volgende cyclus."
+    },
+    "nonReturnable": {
+      "title": "Niet-retourneerbare artikelen",
+      "intro": "We accepteren geen retouren en geven geen terugbetaling voor:",
+      "items": [
+        "Geopende of gebruikte hygiëneproducten",
+        "Producten die beschadigd zijn door verkeerd gebruik of onjuiste opslag",
+        "Bedenktijd (bij geopende of onverzegelde producten)"
+      ]
+    },
+    "lost": {
+      "title": "Verloren of vertraagde bestellingen",
+      "before": "Is je bestelling niet binnen de verwachte levertijd aangekomen? Neem dan contact met ons op via",
+      "after": "en we zoeken het direct uit met onze logistieke partner.",
+      "delivery": [
+        "Nederland: verwachte levering binnen 1 tot 2 werkdagen.",
+        "Duitsland: verwachte levering binnen 2 tot 4 werkdagen."
+      ],
+      "statutory": "Dit beleid doet geen afbreuk aan je wettelijke rechten als consument onder het Europese recht."
+    },
+    "contact": {
+      "title": "Contact",
+      "country": "Nederland",
+      "vat": "Btw"
+    }
   }
 }

@@ -1,12 +1,12 @@
 {
   "legal": "Rechtliches",
-  "englishOnlyNote": "Diese Seite ist derzeit nur auf Englisch verfügbar. Eine deutsche Fassung folgt vor dem Launch.",
   "privacy": {
     "seo": {
       "title": "Datenschutzerklärung — Lore Organics",
       "description": "Wie Lore Organics deine personenbezogenen Daten erhebt, nutzt und schützt."
     },
-    "title": "Datenschutzerklärung"
+    "title": "Datenschutzerklärung",
+    "englishOnlyNote": "Unsere Datenschutzerklärung ist derzeit nur auf Englisch verfügbar. Eine deutsche Fassung folgt in Kürze."
   },
   "returns": {
     "seo": {
@@ -14,6 +14,56 @@
       "description": "Unsere Rückgabe- und Erstattungsrichtlinie für Periodenprodukte aus Bio-Baumwolle."
     },
     "title": "Rückgabe- & Erstattungsrichtlinie",
-    "lastUpdated": "Lore Organics B.V. — Zuletzt aktualisiert: Juni 2026"
+    "lastUpdated": "Lore Organics B.V. — Zuletzt aktualisiert: Juni 2026",
+    "commitment": {
+      "title": "Unser Versprechen",
+      "body": "Bei Lore Organics stehen wir hinter der Qualität jedes Produkts, das wir herstellen. Wenn mit deiner Bestellung etwas nicht stimmt, bringen wir es immer in Ordnung."
+    },
+    "returns": {
+      "title": "Rücksendungen",
+      "hygiene": "Da es sich bei unseren Produkten um intime Hygieneartikel handelt, können wir Rücksendungen oder Umtausch nicht annehmen, sobald die Versiegelung eines Produkts geöffnet wurde — auch wenn du nur eines geöffnet hast. Dies entspricht dem EU-Verbraucherrecht (Richtlinie 2011/83/EU, Artikel 16 Buchstabe e), das versiegelte Hygieneartikel nach dem Entsiegeln vom Widerrufsrecht ausnimmt.",
+      "unopened": "Ungeöffnete, versiegelte Produkte können innerhalb von 14 Tagen nach Lieferung zurückgesendet werden. Die Rücksendekosten trägst du; wir erstatten den Betrag, sobald wir den Artikel zurückerhalten haben.",
+      "responsibility": "Wir übernehmen immer die volle Verantwortung, wenn:",
+      "cases": [
+        "deine Bestellung beschädigt ankommt",
+        "du das falsche Produkt erhältst",
+        "deine Bestellung gar nicht ankommt"
+      ],
+      "contactBefore": "Kontaktiere uns in diesen Fällen bitte innerhalb von 14 Tagen nach Lieferung unter",
+      "contactAfter": "mit deiner Bestellnummer und gegebenenfalls einem Foto. Wir senden dir sofort Ersatz oder erstatten den vollen Betrag — ohne Wenn und Aber."
+    },
+    "refunds": {
+      "title": "Erstattungen",
+      "body": "Sobald eine Erstattung genehmigt ist, wird sie innerhalb von 5 bis 10 Werktagen über deine ursprüngliche Zahlungsmethode abgewickelt. Falls du deine Erstattung nach 10 Werktagen noch nicht erhalten hast, wende dich bitte zuerst an deine Bank oder deinen Zahlungsanbieter, da die Bearbeitungszeiten variieren können."
+    },
+    "subscriptions": {
+      "title": "Abonnements",
+      "before": "Du kannst dein Abonnement jederzeit vor der nächsten geplanten Verlängerung kündigen. Kontaktiere uns dazu unter",
+      "after": "oder verwalte dein Abonnement direkt in deinem Konto. Kündigungen werden 14 Tage nach Eingang deiner Anfrage wirksam; eine bereits zuvor verarbeitete Verlängerung wird wie geplant versendet, und die Kündigung gilt ab dem folgenden Zyklus."
+    },
+    "nonReturnable": {
+      "title": "Von der Rückgabe ausgeschlossene Artikel",
+      "intro": "Für folgende Artikel nehmen wir keine Rücksendungen an und leisten keine Erstattung:",
+      "items": [
+        "Geöffnete oder benutzte Hygieneprodukte",
+        "Produkte, die durch unsachgemäßen Gebrauch oder falsche Lagerung beschädigt wurden",
+        "Meinungsänderung (bei geöffneten oder entsiegelten Produkten)"
+      ]
+    },
+    "lost": {
+      "title": "Verlorene oder verspätete Bestellungen",
+      "before": "Wenn deine Bestellung nicht innerhalb der erwarteten Lieferzeit angekommen ist, kontaktiere uns bitte unter",
+      "after": "und wir klären es sofort mit unserem Logistikpartner.",
+      "delivery": [
+        "Niederlande: voraussichtliche Lieferung innerhalb von 1 bis 2 Werktagen.",
+        "Deutschland: voraussichtliche Lieferung innerhalb von 2 bis 4 Werktagen."
+      ],
+      "statutory": "Diese Richtlinie berührt nicht deine gesetzlichen Rechte als Verbraucher:in nach EU-Recht."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "country": "Niederlande",
+      "vat": "USt-IdNr."
+    }
   }
 }

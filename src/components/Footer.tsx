@@ -58,7 +58,7 @@ const Footer = () => {
                 info@lore-organics.com
               </a>
               <span className="text-body opacity-70">Amsterdam, NL</span>
-              <LanguageSwitcher className="mt-2" />
+              <LanguageSwitcher className="mt-2" inverted />
             </div>
           </div>
         </div>
@@ -123,7 +123,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="mt-6 text-[11px] opacity-50 text-center md:text-left leading-relaxed">
-          Lore Organics B.V. | Schans 178, 1423CB Uithoorn, Netherlands | KVK 42047169 | BTW NL869464437B01
+          Lore Organics B.V. | Schans 178, 1423CB Uithoorn, {t("footer.country")} | KVK 42047169 | BTW NL869464437B01
         </p>
       </div>
     </footer>

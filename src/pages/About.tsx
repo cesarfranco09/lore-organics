@@ -60,7 +60,7 @@ const About = () => {
           <div className="relative min-h-[50vh] lg:min-h-full shadow-[8px_0_30px_-10px_rgba(0,0,0,0.1)]">
             <img
               src="/lovable-uploads/1f7dba6d-beca-4ead-bc43-1c502b6f78cc.webp"
-              alt="Portrait of Lore Organics co-founders Geneviève Silvestra and Rachael Hoogkamer, founders of a transparent organic period care brand"
+              alt={t("story.imageAlt")}
               className="absolute inset-0 w-full h-full object-cover object-[center_35%] brightness-110"
               loading="lazy"
             />
@@ -105,7 +105,7 @@ const About = () => {
             className="inline-flex items-center justify-center px-8 py-3.5 text-label transition-all duration-300 hover:opacity-90 hover:translate-y-[-2px] active:translate-y-[1px]"
             style={{ backgroundColor: "#4B2E38", color: "#F7F5F1" }}
           >
-            Join the waitlist
+            {t("closing.button")}
           </Link>
         </div>
       </section>

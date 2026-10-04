@@ -28,8 +28,8 @@ const PrivacyPolicy = () => {
         <p className="text-label text-lore-botanical mb-4">{t("legal")}</p>
         <div className="divider-botanical mx-auto mb-8" />
         <h1 className="text-editorial-lg mb-8">{t("privacy.title")}</h1>
-        {t("englishOnlyNote") && (
-          <p className="text-body text-muted-foreground italic mb-8">{t("englishOnlyNote")}</p>
+        {t("privacy.englishOnlyNote") && (
+          <p className="text-body text-muted-foreground italic mb-8">{t("privacy.englishOnlyNote")}</p>
         )}
         <a
           href="https://www.iubenda.com/privacy-policy/78164954"

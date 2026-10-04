@@ -80,7 +80,9 @@ const Navbar = () => {
         style={{ backgroundColor: "#F7F5F1", color: "#1A3528" }}
       >
         <span className="text-center px-4">
-          {t("announcement", { days: daysUntilLaunch() })}
+          {daysUntilLaunch() > 0
+            ? t("announcement", { days: daysUntilLaunch() })
+            : t("announcementLive")}
         </span>
       </div>
       <div className="bg-background/90 backdrop-blur-md border-b border-border/50">

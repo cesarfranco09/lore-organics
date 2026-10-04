@@ -1,5 +1,6 @@
 {
   "announcement": "Launch in {{days}} Tagen · 1. Oktober 2026",
+  "announcementLive": "Jetzt erhältlich in den Niederlanden & Deutschland",
   "nav": {
     "products": "Produkte",
     "cycleBox": "Cycle Box",
@@ -27,7 +28,8 @@
     "terms": "AGB",
     "privacy": "Datenschutzerklärung",
     "cookie": "Cookie-Richtlinie",
-    "returnRefund": "Rückgabe- & Erstattungsrichtlinie"
+    "returnRefund": "Rückgabe- & Erstattungsrichtlinie",
+    "country": "Niederlande"
   },
   "waitlist": {
     "cta": "Sichere dir 10 % zum Launch. Trag dich ein"
