@@ -1,0 +1,15 @@
+{
+  "label": "Welkom bij Lore",
+  "title": "10% korting op je eerste bestelling",
+  "body": "Meld je aan met je e-mailadres en krijg 10% korting op je eerste bestelling.",
+  "emailLabel": "E-mailadres",
+  "placeholder": "Je e-mailadres",
+  "submit": "Ontvang 10% korting",
+  "submitting": "Even geduld…",
+  "consent": "Je hoort van ons over lanceringen en aanbiedingen. Afmelden kan altijd.",
+  "successTitle": "Je staat op de lijst",
+  "success": "Dank je. Je kortingscode van 10% is onderweg naar je inbox.",
+  "error": "Er ging iets mis. Probeer het zo nog eens.",
+  "close": "Sluiten",
+  "noThanks": "Nee, dank je"
+}

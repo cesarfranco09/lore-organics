@@ -1,19 +1,14 @@
 {
   "seo": {
     "title": "Cycle Box Abo — Individuelle Bio-Periodenpflege",
-    "description": "Stell dir deine eigene Cycle Box zusammen. Wähle Binden, Tampons und Lieferrhythmus. Nie wieder ohne, jederzeit anpassbar. Spare 5 % mit dem Quartalsplan, plus €4.95 Versandpauschale."
+    "description": "Stell dir deine eigene Cycle Box mit Binden und Tampons aus Bio-Baumwolle zusammen, geliefert alle 2, 3 oder 6 Monate. Spare bis zu 10 %, kostenloser Versand ab €50, jederzeit aussetzen, pausieren oder kündigen."
   },
   "hero": {
     "title1": "Stell dir deine",
     "title2": "Cycle Box zusammen",
     "tagline": "Nie wieder ohne, jederzeit anpassbar.",
     "subtitle": "Bio-Periodenpflege, diskret zu dir nach Hause geliefert.",
-    "cta": "Meine Box zusammenstellen",
-    "trust": {
-      "organic": "100 % Bio-Baumwolle",
-      "discreet": "Diskrete Lieferung",
-      "flexible": "Jederzeit aussetzen, wechseln oder kündigen"
-    }
+    "cta": "Meine Box zusammenstellen"
   },
   "bag": {
     "empty": "Dein Zyklusritual wartet auf dich",
@@ -23,29 +18,35 @@
     "label": "So einfach wie 1-2",
     "title": "So funktioniert's",
     "step1": {
-      "title": "Wähle deinen Lieferrhythmus",
-      "items": ["Alle 2 Monate", "Alle 3 Monate — spare 5 %"],
-      "desc": "Beide mit €4.95 Versandpauschale."
+      "title": "Wähle deine Lieferung",
+      "items": [
+        "Alle 2 Monate",
+        "Alle 3 Monate — spare 5 %",
+        "Alle 6 Monate — spare 10 %"
+      ],
+      "desc": "Kostenloser Versand für jede Lieferung ab €50."
     },
     "step2": {
       "title": "Stell deine Box zusammen",
-      "desc": "Kombiniere Produkte ganz nach deinem Zyklus. Tagesbinden, Nachtbinden, Tampons Regular oder Super, Slipeinlagen — du entscheidest."
+      "desc": "Kombiniere Produkte ganz nach deinem Zyklus. Tagesbinden, Nachtbinden, Tampons Regular oder Super — du entscheidest."
     }
   },
   "builder": {
     "label": "Zusammenstellen",
     "title": "Stell deine Cycle Box zusammen",
-    "step1Label": "Schritt 1: Wähle deinen Lieferrhythmus",
-    "step2Label": "Schritt 2: Stell deine Box zusammen",
-    "packsSelected_one": "Packung ausgewählt",
-    "packsSelected_other": "Packungen ausgewählt",
-    "suggestionsToggle": "Nicht sicher, wie viel du brauchst? Sieh dir unsere Vorschläge an",
-    "suggestionsHint": "Sanfte Startpunkte, passe sie nach oben oder unten an. Tampons kannst du nach Belieben zwischen Regular und Super aufteilen.",
-    "autofill": "Tippen zum Ausfüllen",
-    "maxPer": "Max. {{max}} {{frequency}}",
-    "clickToAdd": "Klicke, um es deinem Kit hinzuzufügen",
+    "step1Label": "Schritt 1 · Wähle deine Lieferung",
+    "step2Label": "Schritt 2 · Stell deine Box zusammen",
     "decrease": "{{name}} verringern",
-    "increase": "{{name}} erhöhen"
+    "increase": "{{name}} erhöhen",
+    "boxCount_one": "{{count}} Packung",
+    "boxCount_other": "{{count}} Packungen",
+    "recommendationLabel": "Wie viel brauchst du?",
+    "carbon": "Weniger Lieferungen bedeuten einen kleineren CO₂-Fußabdruck.",
+    "limits": "Mindestens {{min}} Packungen pro Lieferung, höchstens {{max}}.",
+    "fromPerPack": "Ab {{price}} pro Packung",
+    "perPack": "{{price}} pro Packung",
+    "maxReached": "Das ist das Maximum von {{max}} Packungen pro Lieferung.",
+    "comingSoon": "Bald verfügbar"
   },
   "selection": {
     "label": "Deine Auswahl"
@@ -53,74 +54,108 @@
   "summary": {
     "empty": "Füge Produkte hinzu, um deine Summe zu sehen.",
     "subtotal": "Zwischensumme",
-    "discount": "Abo-Rabatt ({{percent}} %)",
     "shipping": "Versand",
     "total": "Gesamt",
-    "billed": "Abgerechnet {{frequency}} · {{shipping}}",
     "start": "Mein Abo starten",
     "redirecting": "Weiterleiten…",
     "recurring": "Wiederkehrend {{frequency}} · jederzeit pausieren, wechseln oder kündigen.",
     "comingSoon": "Bald verfügbar",
     "launching": "Start am 1. Oktober 2026.",
-    "delivered": "Geliefert {{frequency}} · Diskrete Verpackung"
-  },
-  "frequencies": {
-    "bimonthly": {
-      "label": "Alle 2 Monate",
-      "labelLower": "alle 2 Monate",
-      "tag": "Kein Rabatt",
-      "shipping": "€4.95 Versandpauschale"
-    },
-    "quarterly": {
-      "label": "Alle 3 Monate",
-      "labelLower": "alle 3 Monate",
-      "tag": "Spare 5 %",
-      "shipping": "€4.95 Versandpauschale"
-    }
+    "delivered": "Geliefert {{frequency}} · Diskrete Verpackung",
+    "shippingFree": "Kostenlos",
+    "freeShippingHint": "Noch {{amount}} bis zum kostenlosen Versand",
+    "belowMin_one": "Füge noch {{count}} Packung hinzu, um das Minimum von {{min}} zu erreichen.",
+    "belowMin_other": "Füge noch {{count}} Packungen hinzu, um das Minimum von {{min}} zu erreichen.",
+    "firstBox": "Deine erste Box bekommt stattdessen 10 % mit deinem Willkommenscode. Der Lieferrabatt gilt ab deiner zweiten Lieferung."
   },
   "products": {
-    "day-pad": { "name": "Tagesbinden", "subtitle": "10 pro Packung" },
-    "night-pad": { "name": "Nachtbinden", "subtitle": "10 pro Packung" },
-    "regular-tampon": { "name": "Tampons Regular", "subtitle": "16 pro Packung" },
-    "super-tampon": { "name": "Tampons Super", "subtitle": "16 pro Packung" },
-    "liners": { "name": "Slipeinlagen", "subtitle": "24 pro Packung" }
-  },
-  "suggestions": {
-    "bimonthly": [
-      { "label": "Leichte Periode", "desc": "1 Tag · 1 Nacht · 1 Tampon · 1 Slipeinlage" },
-      { "label": "Mittlere Periode", "desc": "2 Tag · 1 Nacht · 2 Tampons · 1 Slipeinlage" },
-      { "label": "Starke Periode", "desc": "2 Tag · 2 Nacht · 2 Tampons · 2 Slipeinlagen" }
-    ],
-    "quarterly": [
-      { "label": "Leichte Periode", "desc": "2 Tag · 1 Nacht · 2 Tampons · 2 Slipeinlagen" },
-      { "label": "Mittlere Periode", "desc": "2 Tag · 2 Nacht · 2 Tampons · 2 Slipeinlagen" },
-      { "label": "Starke Periode", "desc": "3 Tag · 3 Nacht · 3 Tampons · 3 Slipeinlagen" }
-    ]
+    "day-pad": {
+      "name": "Tagesbinden",
+      "subtitle": "10 pro Packung"
+    },
+    "night-pad": {
+      "name": "Nachtbinden",
+      "subtitle": "10 pro Packung"
+    },
+    "regular-tampon": {
+      "name": "Tampons Regular",
+      "subtitle": "16 pro Packung"
+    },
+    "super-tampon": {
+      "name": "Tampons Super",
+      "subtitle": "16 pro Packung"
+    },
+    "liner": {
+      "name": "Slipeinlagen",
+      "subtitle": "24 pro Packung"
+    }
   },
   "benefits": {
     "label": "Warum ein Abo",
     "title": "Der Cycle Box Vorteil",
     "items": [
-      { "title": "Bio-Materialien", "desc": "Aus zertifizierter Bio-Baumwolle, für eine sicherere, natürlichere Periode." },
-      { "title": "Diskrete Lieferung", "desc": "Deine Cycle Box kommt in schlichter, diskreter Verpackung." },
-      { "title": "Flexibles Abo", "desc": "Setze einen Zyklus aus, wechsle Produkte oder kündige jederzeit." },
-      { "title": "Sparen mit dem Abo", "desc": "Abonnentinnen sparen mit dem Quartalsplan 5 %, bei jeder Bestellung." }
+      {
+        "title": "Bio-Materialien",
+        "desc": "Aus zertifizierter Bio-Baumwolle, für eine sicherere, natürlichere Periode."
+      },
+      {
+        "title": "Diskrete Lieferung",
+        "desc": "Deine Cycle Box kommt in schlichter, diskreter Verpackung."
+      },
+      {
+        "title": "Flexibles Abo",
+        "desc": "Jederzeit aussetzen, pausieren oder kündigen, oder tausche, was in deiner Box ist."
+      },
+      {
+        "title": "Spare bis zu 10 %",
+        "desc": "Spare 5 % alle 3 Monate oder 10 % alle 6 Monate, ab deiner zweiten Lieferung. Kostenloser Versand ab €50."
+      }
     ]
   },
   "faq": {
     "label": "Fragen",
     "title": "Häufig gestellte Fragen",
     "items": [
-      { "q": "Wann startet ihr?", "a": "Wir starten am 1. Oktober 2026, zunächst in den Niederlanden und Deutschland. Trag dich auf die Warteliste ein, um als Erste davon zu erfahren und 10 % Rabatt auf deine erste Bestellung zu erhalten." },
-      { "q": "Wohin liefert ihr?", "a": "Zum Start liefern wir in die Niederlande und nach Deutschland. Weitere europäische Länder sind ab 2027 geplant." },
-      { "q": "Was macht Lore anders als andere Bio-Marken?", "a": "Drei Dinge: Unsere Produkte bestehen aus GOTS-zertifizierter Bio-Baumwolle, unabhängig geprüft, nicht nur eine Behauptung. Wir spenden vom ersten Tag an 1 % jedes Verkaufs an Frauenhäuser und Organisationen gegen Periodenarmut. Und wir sagen dir genau, woher jedes Produkt kommt und was darin steckt. Kein Greenwashing, keine vagen Versprechen." },
-      { "q": "Was bedeutet GOTS-zertifiziert?", "a": "GOTS steht für Global Organic Textile Standard. Das bedeutet: Unsere Baumwolle wird ohne Pestizide oder giftige Chemikalien angebaut, ohne synthetische Farbstoffe oder Bleichmittel verarbeitet und in jedem Schritt der Lieferkette von einer unabhängigen Zertifizierungsstelle geprüft. Es ist weltweit der Goldstandard für Bio-Textilien." },
-      { "q": "Welche Produkte bietet ihr zum Start an?", "a": "Wir starten mit fünf Produkten: Tagesbinde aus Bio-Baumwolle, Nachtbinde aus Bio-Baumwolle, Tampon Regular, Tampon Super und ultradünne Slipeinlage. Alle sind einzeln verpackt und bestehen aus 100 % GOTS-zertifizierter Bio-Baumwolle." },
-      { "q": "Kann ich abonnieren und meine Lieferung anpassen?", "a": "Ja, mit unserer Cycle Box wählst du genau die Produkte, die du brauchst, und wie oft du sie geliefert bekommst: alle 2 Monate oder alle 3 Monate. Mit dem Quartalsplan sparst du 5 %, und beide Pläne haben €4.95 Versandpauschale. Du kannst jederzeit pausieren, Produkte wechseln oder kündigen." },
-      { "q": "Sind eure Produkte plastikfrei?", "a": "Unsere Tampons und Binden enthalten kein Plastik in den saugfähigen Materialien, sie bestehen aus Bio-Baumwolle. Unsere Slipeinlage hat eine Rückschicht aus Biopolymer, die pflanzenbasiert ist. Wir sind bei allen Materialien völlig transparent und veröffentlichen eine vollständige Übersicht auf unserer Website." },
-      { "q": "Wie funktioniert euer 1-%-Spendenmodell?", "a": "Ab unserem allerersten Verkauf geht 1 % des Nettoumsatzes jeder Bestellung direkt an Frauenhäuser und Organisationen gegen Periodenarmut in den Niederlanden. Du musst nichts tun, es ist automatisch in jedem Kauf enthalten." },
-      { "q": "Was ist die Spendenoption Von Frau zu Frau?", "a": "Beim Checkout kannst du eine Box Binden oder Tampons zu einem reduzierten Preis hinzufügen. Diese Box kommt nicht zu dir, sondern geht über unsere Partnerorganisationen direkt an eine Frau, die sie braucht. Nur Binden und Tampons. Keine Verwaltung, kein Zwischenhändler. Einfach eine Frau, die einer anderen hilft." },
-      { "q": "Ich habe eine Frage, die hier nicht beantwortet wird — wie erreiche ich euch?", "a": "Schreib uns an info@lore-organics.com und wir melden uns innerhalb von 48 Stunden." }
+      {
+        "q": "Wann startet ihr?",
+        "a": "Wir starten am 1. Oktober 2026, zunächst in den Niederlanden und Deutschland. Trag dich auf die Warteliste ein, um als Erste davon zu erfahren und 10 % Rabatt auf deine erste Bestellung zu erhalten."
+      },
+      {
+        "q": "Wohin liefert ihr?",
+        "a": "Zum Start liefern wir in die Niederlande und nach Deutschland. Weitere europäische Länder sind ab 2027 geplant."
+      },
+      {
+        "q": "Was macht Lore anders als andere Bio-Marken?",
+        "a": "Drei Dinge: Unsere Produkte bestehen aus GOTS-zertifizierter Bio-Baumwolle, unabhängig geprüft, nicht nur eine Behauptung. Wir spenden vom ersten Tag an 1 % jedes Verkaufs an Frauenhäuser und Organisationen gegen Periodenarmut. Und wir sagen dir genau, woher jedes Produkt kommt und was darin steckt. Kein Greenwashing, keine vagen Versprechen."
+      },
+      {
+        "q": "Was bedeutet GOTS-zertifiziert?",
+        "a": "GOTS steht für Global Organic Textile Standard. Das bedeutet: Unsere Baumwolle wird ohne Pestizide oder giftige Chemikalien angebaut, ohne synthetische Farbstoffe oder Bleichmittel verarbeitet und in jedem Schritt der Lieferkette von einer unabhängigen Zertifizierungsstelle geprüft. Es ist weltweit der Goldstandard für Bio-Textilien."
+      },
+      {
+        "q": "Welche Produkte bietet ihr zum Start an?",
+        "a": "Wir starten mit fünf Produkten: Tagesbinde aus Bio-Baumwolle, Nachtbinde aus Bio-Baumwolle, Tampon Regular, Tampon Super und ultradünne Slipeinlage. Alle sind einzeln verpackt und bestehen aus 100 % GOTS-zertifizierter Bio-Baumwolle."
+      },
+      {
+        "q": "Kann ich abonnieren und meine Lieferung anpassen?",
+        "a": "Ja, mit unserer Cycle Box wählst du genau die Produkte, die du brauchst, und wie oft du sie geliefert bekommst: alle 2, 3 oder 6 Monate. Alle 3 Monate sparst du 5 %, alle 6 Monate 10 %, ab deiner zweiten Lieferung, und ab €50 ist der Versand kostenlos. Du kannst jederzeit aussetzen, pausieren, Produkte wechseln oder kündigen."
+      },
+      {
+        "q": "Sind eure Produkte plastikfrei?",
+        "a": "Unsere Tampons und Binden enthalten kein Plastik in den saugfähigen Materialien, sie bestehen aus Bio-Baumwolle. Unsere Slipeinlage hat eine Rückschicht aus Biopolymer, die pflanzenbasiert ist. Wir sind bei allen Materialien völlig transparent und veröffentlichen eine vollständige Übersicht auf unserer Website."
+      },
+      {
+        "q": "Wie funktioniert euer 1-%-Spendenmodell?",
+        "a": "Ab unserem allerersten Verkauf geht 1 % des Nettoumsatzes jeder Bestellung direkt an Frauenhäuser und Organisationen gegen Periodenarmut in den Niederlanden. Du musst nichts tun, es ist automatisch in jedem Kauf enthalten."
+      },
+      {
+        "q": "Was ist die Spendenoption Von Frau zu Frau?",
+        "a": "Beim Checkout kannst du eine Box Binden oder Tampons zu einem reduzierten Preis hinzufügen. Diese Box kommt nicht zu dir, sondern geht über unsere Partnerorganisationen direkt an eine Frau, die sie braucht. Nur Binden und Tampons. Keine Verwaltung, kein Zwischenhändler. Einfach eine Frau, die einer anderen hilft."
+      },
+      {
+        "q": "Ich habe eine Frage, die hier nicht beantwortet wird — wie erreiche ich euch?",
+        "a": "Schreib uns an info@lore-organics.com und wir melden uns innerhalb von 48 Stunden."
+      }
     ]
   },
   "finalCta": {
@@ -128,5 +163,30 @@
     "title2": "jederzeit anpassbar.",
     "body": "Stell deine Cycle Box zusammen und erhalte Bio-Essentials genau dann, wenn du sie brauchst.",
     "cta": "Stell deine Cycle Box zusammen"
+  },
+  "perks": [
+    "Kostenloser Versand ab €50",
+    "Spare bis zu 10 %",
+    "Jederzeit aussetzen, pausieren oder kündigen"
+  ],
+  "cadences": {
+    "2m": {
+      "label": "Alle 2 Monate",
+      "labelLower": "alle 2 Monate",
+      "tag": "Normalpreis",
+      "recommendation": "Im Durchschnitt braucht eine Kundin {{tampons}} Packungen Tampons oder {{pads}} Packungen Binden."
+    },
+    "3m": {
+      "label": "Alle 3 Monate",
+      "labelLower": "alle 3 Monate",
+      "tag": "Spare 5 %",
+      "recommendation": "Im Durchschnitt braucht eine Kundin {{tampons}} Packungen Tampons oder {{pads}} Packungen Binden."
+    },
+    "6m": {
+      "label": "Alle 6 Monate",
+      "labelLower": "alle 6 Monate",
+      "tag": "Spare 10 %",
+      "recommendation": "Im Durchschnitt braucht eine Kundin {{tampons}} Packungen Tampons oder {{pads}} Packungen Binden."
+    }
   }
 }

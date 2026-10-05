@@ -170,6 +170,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       isDonationOfferable(byHandle[DONATION_HANDLES.tampons]);
 
     if (!hasDonation && !declined && offerable) {
+      // Close the drawer so the Give-One dialog isn't hidden behind it.
+      setIsOpen(false);
       setIsGiveOneOpen(true);
     } else {
       void checkout();

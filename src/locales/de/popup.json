@@ -1,0 +1,15 @@
+{
+  "label": "Willkommen bei Lore",
+  "title": "10 % Rabatt auf deine erste Bestellung",
+  "body": "Melde dich mit deiner E-Mail-Adresse an und erhalte 10 % Rabatt auf deine erste Bestellung.",
+  "emailLabel": "E-Mail-Adresse",
+  "placeholder": "Deine E-Mail-Adresse",
+  "submit": "10 % Rabatt erhalten",
+  "submitting": "Einen Moment…",
+  "consent": "Du hörst von uns zu Neuheiten und Angeboten. Abmelden kannst du dich jederzeit.",
+  "successTitle": "Du bist dabei",
+  "success": "Danke. Dein 10-%-Code ist auf dem Weg in dein Postfach.",
+  "error": "Etwas ist schiefgelaufen. Bitte versuche es gleich noch einmal.",
+  "close": "Schließen",
+  "noThanks": "Nein, danke"
+}

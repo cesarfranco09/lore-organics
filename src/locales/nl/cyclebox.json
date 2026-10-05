@@ -1,19 +1,14 @@
 {
   "seo": {
     "title": "Cycle Box Abonnement — Biologische Menstruatiezorg op Maat",
-    "description": "Stel je eigen Cycle Box samen. Kies maandverband, tampons en bezorgfrequentie. Nooit meer zonder, pas aan wanneer je wilt. Bespaar 5% met het kwartaalplan plus €4.95 vaste verzendkosten."
+    "description": "Stel je eigen Cycle Box samen met maandverband en tampons van biologisch katoen, elke 2, 3 of 6 maanden bezorgd. Bespaar tot 10%, gratis verzending vanaf €50, overslaan, pauzeren of opzeggen wanneer je wilt."
   },
   "hero": {
     "title1": "Stel je",
     "title2": "Cycle Box samen",
     "tagline": "Nooit meer zonder, pas aan wanneer je wilt.",
     "subtitle": "Biologische menstruatiezorg, discreet bij je thuisbezorgd.",
-    "cta": "Stel mijn box samen",
-    "trust": {
-      "organic": "100% biologisch katoen",
-      "discreet": "Discrete bezorging",
-      "flexible": "Overslaan, wisselen of opzeggen wanneer je wilt"
-    }
+    "cta": "Stel mijn box samen"
   },
   "bag": {
     "empty": "Jouw cyclusritueel wacht op je",
@@ -23,29 +18,35 @@
     "label": "Zo simpel als 1-2",
     "title": "Zo werkt het",
     "step1": {
-      "title": "Kies je bezorgfrequentie",
-      "items": ["Elke 2 maanden", "Elke 3 maanden — bespaar 5%"],
-      "desc": "Beide met €4.95 vaste verzendkosten."
+      "title": "Kies je bezorging",
+      "items": [
+        "Elke 2 maanden",
+        "Elke 3 maanden — bespaar 5%",
+        "Elke 6 maanden — bespaar 10%"
+      ],
+      "desc": "Gratis verzending op elke bezorging vanaf €50."
     },
     "step2": {
       "title": "Stel je box samen",
-      "desc": "Combineer producten op basis van jouw cyclus. Dagverband, nachtverband, regular of super tampons, inlegkruisjes — jij beslist."
+      "desc": "Combineer producten op basis van jouw cyclus. Dagverband, nachtverband, regular of super tampons — jij beslist."
     }
   },
   "builder": {
     "label": "Samenstellen",
     "title": "Stel je Cycle Box samen",
-    "step1Label": "Stap 1: Kies je bezorgfrequentie",
-    "step2Label": "Stap 2: Stel je box samen",
-    "packsSelected_one": "verpakking geselecteerd",
-    "packsSelected_other": "verpakkingen geselecteerd",
-    "suggestionsToggle": "Niet zeker hoeveel je nodig hebt? Bekijk onze suggesties",
-    "suggestionsHint": "Zachte startpunten, pas gerust naar boven of beneden aan. Tampons kun je naar wens verdelen tussen Regular en Super.",
-    "autofill": "Tik om in te vullen",
-    "maxPer": "Max {{max}} {{frequency}}",
-    "clickToAdd": "Klik om toe te voegen aan je kit",
+    "step1Label": "Stap 1 · Kies je bezorging",
+    "step2Label": "Stap 2 · Stel je box samen",
     "decrease": "Minder {{name}}",
-    "increase": "Meer {{name}}"
+    "increase": "Meer {{name}}",
+    "boxCount_one": "{{count}} doosje",
+    "boxCount_other": "{{count}} doosjes",
+    "recommendationLabel": "Hoeveel heb je nodig?",
+    "carbon": "Minder bezorgingen betekent een kleinere CO₂-voetafdruk.",
+    "limits": "Minimaal {{min}} doosjes per bezorging, maximaal {{max}}.",
+    "fromPerPack": "Vanaf {{price}} per pak",
+    "perPack": "{{price}} per pak",
+    "maxReached": "Dat is het maximum van {{max}} doosjes per bezorging.",
+    "comingSoon": "Binnenkort"
   },
   "selection": {
     "label": "Jouw selectie"
@@ -53,74 +54,108 @@
   "summary": {
     "empty": "Voeg producten toe om je totaal te zien.",
     "subtotal": "Subtotaal",
-    "discount": "Abonnementskorting ({{percent}}%)",
     "shipping": "Verzending",
     "total": "Totaal",
-    "billed": "Gefactureerd {{frequency}} · {{shipping}}",
     "start": "Start mijn abonnement",
     "redirecting": "Doorverwijzen…",
     "recurring": "Terugkerend {{frequency}} · pauzeer, wissel of zeg op wanneer je wilt.",
     "comingSoon": "Binnenkort beschikbaar",
     "launching": "Lancering op 1 oktober 2026.",
-    "delivered": "Bezorgd {{frequency}} · Discrete verpakking"
-  },
-  "frequencies": {
-    "bimonthly": {
-      "label": "Elke 2 maanden",
-      "labelLower": "elke 2 maanden",
-      "tag": "Geen korting",
-      "shipping": "€4.95 vaste verzendkosten"
-    },
-    "quarterly": {
-      "label": "Elke 3 maanden",
-      "labelLower": "elke 3 maanden",
-      "tag": "Bespaar 5%",
-      "shipping": "€4.95 vaste verzendkosten"
-    }
+    "delivered": "Bezorgd {{frequency}} · Discrete verpakking",
+    "shippingFree": "Gratis",
+    "freeShippingHint": "Nog {{amount}} tot gratis verzending",
+    "belowMin_one": "Voeg nog {{count}} doosje toe om het minimum van {{min}} te halen.",
+    "belowMin_other": "Voeg nog {{count}} doosjes toe om het minimum van {{min}} te halen.",
+    "firstBox": "Je eerste box krijgt in plaats daarvan 10% korting met je welkomstcode. De bezorgkorting gaat in vanaf je tweede bezorging."
   },
   "products": {
-    "day-pad": { "name": "Dagverband", "subtitle": "10 per verpakking" },
-    "night-pad": { "name": "Nachtverband", "subtitle": "10 per verpakking" },
-    "regular-tampon": { "name": "Tampons Regular", "subtitle": "16 per verpakking" },
-    "super-tampon": { "name": "Tampons Super", "subtitle": "16 per verpakking" },
-    "liners": { "name": "Inlegkruisjes", "subtitle": "24 per verpakking" }
-  },
-  "suggestions": {
-    "bimonthly": [
-      { "label": "Lichte menstruatie", "desc": "1 dag · 1 nacht · 1 tampon · 1 inlegkruisje" },
-      { "label": "Gemiddelde menstruatie", "desc": "2 dag · 1 nacht · 2 tampons · 1 inlegkruisje" },
-      { "label": "Hevige menstruatie", "desc": "2 dag · 2 nacht · 2 tampons · 2 inlegkruisjes" }
-    ],
-    "quarterly": [
-      { "label": "Lichte menstruatie", "desc": "2 dag · 1 nacht · 2 tampons · 2 inlegkruisjes" },
-      { "label": "Gemiddelde menstruatie", "desc": "2 dag · 2 nacht · 2 tampons · 2 inlegkruisjes" },
-      { "label": "Hevige menstruatie", "desc": "3 dag · 3 nacht · 3 tampons · 3 inlegkruisjes" }
-    ]
+    "day-pad": {
+      "name": "Dagverband",
+      "subtitle": "10 per verpakking"
+    },
+    "night-pad": {
+      "name": "Nachtverband",
+      "subtitle": "10 per verpakking"
+    },
+    "regular-tampon": {
+      "name": "Tampons Regular",
+      "subtitle": "16 per verpakking"
+    },
+    "super-tampon": {
+      "name": "Tampons Super",
+      "subtitle": "16 per verpakking"
+    },
+    "liner": {
+      "name": "Inlegkruisjes",
+      "subtitle": "24 per verpakking"
+    }
   },
   "benefits": {
     "label": "Waarom een abonnement",
     "title": "Het Cycle Box voordeel",
     "items": [
-      { "title": "Biologische materialen", "desc": "Gemaakt van gecertificeerd biologisch katoen, voor een veiligere, natuurlijkere menstruatie." },
-      { "title": "Discrete bezorging", "desc": "Je Cycle Box komt aan in eenvoudige, discrete verpakking." },
-      { "title": "Flexibel abonnement", "desc": "Sla een cyclus over, wissel producten of zeg op wanneer je wilt." },
-      { "title": "Bespaar met een abonnement", "desc": "Abonnees besparen 5% met het kwartaalplan, bij elke bestelling." }
+      {
+        "title": "Biologische materialen",
+        "desc": "Gemaakt van gecertificeerd biologisch katoen, voor een veiligere, natuurlijkere menstruatie."
+      },
+      {
+        "title": "Discrete bezorging",
+        "desc": "Je Cycle Box komt aan in eenvoudige, discrete verpakking."
+      },
+      {
+        "title": "Flexibel abonnement",
+        "desc": "Overslaan, pauzeren of opzeggen wanneer je wilt, of wissel wat er in je box zit."
+      },
+      {
+        "title": "Bespaar tot 10%",
+        "desc": "Bespaar 5% bij elke 3 maanden of 10% bij elke 6 maanden, vanaf je tweede bezorging. Gratis verzending vanaf €50."
+      }
     ]
   },
   "faq": {
     "label": "Vragen",
     "title": "Veelgestelde vragen",
     "items": [
-      { "q": "Wanneer lanceren jullie?", "a": "We lanceren op 1 oktober 2026, eerst in Nederland en Duitsland. Schrijf je in voor de wachtlijst om als eerste op de hoogte te zijn en 10% korting op je eerste bestelling te ontvangen." },
-      { "q": "Waar bezorgen jullie?", "a": "Bij de lancering bezorgen we in heel Nederland en Duitsland. Meer Europese landen staan gepland voor 2027 en daarna." },
-      { "q": "Wat maakt Lore anders dan andere biologische merken?", "a": "Drie dingen: onze producten zijn van GOTS-gecertificeerd biologisch katoen, onafhankelijk geverifieerd, niet zomaar een claim. We doneren vanaf dag één 1% van elke verkoop aan vrouwenopvang en organisaties die menstruatiearmoede bestrijden. En we vertellen je precies waar elk product vandaan komt en wat erin zit. Geen greenwashing, geen vage beloftes." },
-      { "q": "Wat betekent GOTS-gecertificeerd?", "a": "GOTS staat voor Global Organic Textile Standard. Het betekent dat ons katoen wordt geteeld zonder pesticiden of giftige chemicaliën, wordt verwerkt zonder synthetische kleurstoffen of bleekmiddelen, en in elke stap van de keten wordt gecontroleerd door een onafhankelijke certificeerder. Het is wereldwijd dé gouden standaard voor biologisch textiel." },
-      { "q": "Welke producten bieden jullie aan bij de lancering?", "a": "We lanceren met vijf producten: dagverband van biologisch katoen, nachtverband van biologisch katoen, tampon regular, tampon super en een ultradun inlegkruisje. Alles is individueel verpakt en gemaakt van 100% GOTS-gecertificeerd biologisch katoen." },
-      { "q": "Kan ik me abonneren en mijn levering aanpassen?", "a": "Ja, met onze Cycle Box kies je precies welke producten je nodig hebt en hoe vaak je ze wilt ontvangen: elke 2 maanden of elke 3 maanden. Met het kwartaalplan bespaar je 5%, en beide plannen hebben €4.95 vaste verzendkosten. Je kunt pauzeren, producten wisselen of opzeggen wanneer je wilt." },
-      { "q": "Zijn jullie producten plasticvrij?", "a": "Onze tampons en ons maandverband bevatten geen plastic in de absorberende materialen; ze zijn gemaakt van biologisch katoen. Ons inlegkruisje heeft een achterlaag van biopolymeer, die plantaardig is. We zijn volledig transparant over alle materialen en publiceren een compleet overzicht op onze website." },
-      { "q": "Hoe werkt jullie 1%-donatiemodel?", "a": "Vanaf onze allereerste verkoop gaat 1% van de netto-omzet van elke bestelling rechtstreeks naar vrouwenopvang en organisaties die menstruatiearmoede bestrijden in Nederland. Je hoeft niets te doen, het zit automatisch in elke aankoop." },
-      { "q": "Wat is de donatieoptie Van vrouw tot vrouw?", "a": "Bij het afrekenen kun je ervoor kiezen een doos maandverband of tampons toe te voegen tegen een gereduceerde prijs. Die doos komt niet naar jou, maar gaat via onze partnerorganisaties rechtstreeks naar een vrouw die hem nodig heeft. Alleen maandverband en tampons. Geen administratie, geen tussenpersoon. Gewoon de ene vrouw die de andere helpt." },
-      { "q": "Ik heb een vraag die hier niet beantwoord wordt, hoe bereik ik jullie?", "a": "Mail ons op info@lore-organics.com en we reageren binnen 48 uur." }
+      {
+        "q": "Wanneer lanceren jullie?",
+        "a": "We lanceren op 1 oktober 2026, eerst in Nederland en Duitsland. Schrijf je in voor de wachtlijst om als eerste op de hoogte te zijn en 10% korting op je eerste bestelling te ontvangen."
+      },
+      {
+        "q": "Waar bezorgen jullie?",
+        "a": "Bij de lancering bezorgen we in heel Nederland en Duitsland. Meer Europese landen staan gepland voor 2027 en daarna."
+      },
+      {
+        "q": "Wat maakt Lore anders dan andere biologische merken?",
+        "a": "Drie dingen: onze producten zijn van GOTS-gecertificeerd biologisch katoen, onafhankelijk geverifieerd, niet zomaar een claim. We doneren vanaf dag één 1% van elke verkoop aan vrouwenopvang en organisaties die menstruatiearmoede bestrijden. En we vertellen je precies waar elk product vandaan komt en wat erin zit. Geen greenwashing, geen vage beloftes."
+      },
+      {
+        "q": "Wat betekent GOTS-gecertificeerd?",
+        "a": "GOTS staat voor Global Organic Textile Standard. Het betekent dat ons katoen wordt geteeld zonder pesticiden of giftige chemicaliën, wordt verwerkt zonder synthetische kleurstoffen of bleekmiddelen, en in elke stap van de keten wordt gecontroleerd door een onafhankelijke certificeerder. Het is wereldwijd dé gouden standaard voor biologisch textiel."
+      },
+      {
+        "q": "Welke producten bieden jullie aan bij de lancering?",
+        "a": "We lanceren met vijf producten: dagverband van biologisch katoen, nachtverband van biologisch katoen, tampon regular, tampon super en een ultradun inlegkruisje. Alles is individueel verpakt en gemaakt van 100% GOTS-gecertificeerd biologisch katoen."
+      },
+      {
+        "q": "Kan ik me abonneren en mijn levering aanpassen?",
+        "a": "Ja, met onze Cycle Box kies je precies welke producten je nodig hebt en hoe vaak je ze wilt ontvangen: elke 2, 3 of 6 maanden. Bij elke 3 maanden bespaar je 5% en bij elke 6 maanden 10%, vanaf je tweede bezorging, en verzending is gratis vanaf €50. Je kunt overslaan, pauzeren, producten wisselen of opzeggen wanneer je wilt."
+      },
+      {
+        "q": "Zijn jullie producten plasticvrij?",
+        "a": "Onze tampons en ons maandverband bevatten geen plastic in de absorberende materialen; ze zijn gemaakt van biologisch katoen. Ons inlegkruisje heeft een achterlaag van biopolymeer, die plantaardig is. We zijn volledig transparant over alle materialen en publiceren een compleet overzicht op onze website."
+      },
+      {
+        "q": "Hoe werkt jullie 1%-donatiemodel?",
+        "a": "Vanaf onze allereerste verkoop gaat 1% van de netto-omzet van elke bestelling rechtstreeks naar vrouwenopvang en organisaties die menstruatiearmoede bestrijden in Nederland. Je hoeft niets te doen, het zit automatisch in elke aankoop."
+      },
+      {
+        "q": "Wat is de donatieoptie Van vrouw tot vrouw?",
+        "a": "Bij het afrekenen kun je ervoor kiezen een doos maandverband of tampons toe te voegen tegen een gereduceerde prijs. Die doos komt niet naar jou, maar gaat via onze partnerorganisaties rechtstreeks naar een vrouw die hem nodig heeft. Alleen maandverband en tampons. Geen administratie, geen tussenpersoon. Gewoon de ene vrouw die de andere helpt."
+      },
+      {
+        "q": "Ik heb een vraag die hier niet beantwoord wordt, hoe bereik ik jullie?",
+        "a": "Mail ons op info@lore-organics.com en we reageren binnen 48 uur."
+      }
     ]
   },
   "finalCta": {
@@ -128,5 +163,30 @@
     "title2": "pas aan wanneer je wilt.",
     "body": "Stel je Cycle Box samen en ontvang biologische essentials precies wanneer je ze nodig hebt.",
     "cta": "Stel je Cycle Box samen"
+  },
+  "perks": [
+    "Gratis verzending vanaf €50",
+    "Bespaar tot 10%",
+    "Overslaan, pauzeren of opzeggen wanneer je wilt"
+  ],
+  "cadences": {
+    "2m": {
+      "label": "Elke 2 maanden",
+      "labelLower": "elke 2 maanden",
+      "tag": "Standaardprijs",
+      "recommendation": "Gemiddeld gebruikt een klant {{tampons}} doosjes tampons of {{pads}} doosjes maandverband."
+    },
+    "3m": {
+      "label": "Elke 3 maanden",
+      "labelLower": "elke 3 maanden",
+      "tag": "Bespaar 5%",
+      "recommendation": "Gemiddeld gebruikt een klant {{tampons}} doosjes tampons of {{pads}} doosjes maandverband."
+    },
+    "6m": {
+      "label": "Elke 6 maanden",
+      "labelLower": "elke 6 maanden",
+      "tag": "Bespaar 10%",
+      "recommendation": "Gemiddeld gebruikt een klant {{tampons}} doosjes tampons of {{pads}} doosjes maandverband."
+    }
   }
 }

@@ -1,19 +1,14 @@
 {
   "seo": {
     "title": "Cycle Box Subscription — Custom Organic Period Care",
-    "description": "Build your custom Cycle Box. Choose pads, tampons and frequency. Never run out, adjust anytime. Save 5% with quarterly plus €4.95 flat shipping."
+    "description": "Build your own Cycle Box of organic cotton pads and tampons, delivered every 2, 3 or 6 months. Save up to 10%, free shipping over €50, skip, pause or cancel anytime."
   },
   "hero": {
     "title1": "Build Your",
     "title2": "Cycle Box",
     "tagline": "Never run out, adjust anytime.",
     "subtitle": "Organic period care delivered discreetly to your door.",
-    "cta": "Build My Box",
-    "trust": {
-      "organic": "100% organic cotton",
-      "discreet": "Discreet delivery",
-      "flexible": "Skip, swap, or cancel anytime"
-    }
+    "cta": "Build My Box"
   },
   "bag": {
     "empty": "Your cycle ritual awaits",
@@ -23,29 +18,35 @@
     "label": "Simple as 1-2",
     "title": "How it works",
     "step1": {
-      "title": "Choose Delivery Frequency",
-      "items": ["Every 2 months", "Every 3 months — save 5%"],
-      "desc": "Both with €4.95 flat shipping."
+      "title": "Choose your delivery",
+      "items": [
+        "Every 2 months",
+        "Every 3 months — save 5%",
+        "Every 6 months — save 10%"
+      ],
+      "desc": "Free shipping on every delivery over €50."
     },
     "step2": {
       "title": "Build Your Box",
-      "desc": "Mix and match products based on your flow. Day pads, night pads, regular or super tampons, liners, you decide."
+      "desc": "Mix and match products based on your flow. Day pads, night pads, regular or super tampons, you decide."
     }
   },
   "builder": {
     "label": "Customise",
     "title": "Build Your Cycle Box",
-    "step1Label": "Step 1: Choose Delivery Frequency",
-    "step2Label": "Step 2: Build Your Box",
-    "packsSelected_one": "pack selected",
-    "packsSelected_other": "packs selected",
-    "suggestionsToggle": "Not sure how much? See our suggestions",
-    "suggestionsHint": "Gentle starting points, adjust up or down. Tampons can be split between Regular and Super as you prefer.",
-    "autofill": "Tap to autofill",
-    "maxPer": "Max {{max}} per {{frequency}}",
-    "clickToAdd": "Click to add to your kit",
+    "step1Label": "Step 1 · Choose your delivery",
+    "step2Label": "Step 2 · Build your box",
     "decrease": "Decrease {{name}}",
-    "increase": "Increase {{name}}"
+    "increase": "Increase {{name}}",
+    "boxCount_one": "{{count}} box",
+    "boxCount_other": "{{count}} boxes",
+    "recommendationLabel": "How much do you need?",
+    "carbon": "Fewer deliveries means a smaller carbon footprint.",
+    "limits": "Minimum {{min}} boxes per delivery, up to {{max}}.",
+    "fromPerPack": "From {{price}} per pack",
+    "perPack": "{{price}} per pack",
+    "maxReached": "That's the maximum of {{max}} boxes per delivery.",
+    "comingSoon": "Coming soon"
   },
   "selection": {
     "label": "Your Selection"
@@ -53,74 +54,108 @@
   "summary": {
     "empty": "Add products to see your total.",
     "subtotal": "Subtotal",
-    "discount": "Subscription discount ({{percent}}%)",
     "shipping": "Shipping",
     "total": "Total",
-    "billed": "Billed {{frequency}} · {{shipping}}",
     "start": "Start My Subscription",
     "redirecting": "Redirecting…",
     "recurring": "Recurring {{frequency}} · pause, swap or cancel anytime.",
     "comingSoon": "Coming Soon",
     "launching": "Launching October 1st, 2026.",
-    "delivered": "Delivered {{frequency}} · Discreet packaging"
-  },
-  "frequencies": {
-    "bimonthly": {
-      "label": "Every 2 months",
-      "labelLower": "every 2 months",
-      "tag": "No discount",
-      "shipping": "€4.95 flat shipping"
-    },
-    "quarterly": {
-      "label": "Every 3 months",
-      "labelLower": "every 3 months",
-      "tag": "Save 5%",
-      "shipping": "€4.95 flat shipping"
-    }
+    "delivered": "Delivered {{frequency}} · Discreet packaging",
+    "shippingFree": "Free",
+    "freeShippingHint": "{{amount}} more for free shipping",
+    "belowMin_one": "Add {{count}} more box to reach the minimum of {{min}}.",
+    "belowMin_other": "Add {{count}} more boxes to reach the minimum of {{min}}.",
+    "firstBox": "Your first box gets 10% off with your welcome code instead. The delivery discount starts from your second delivery."
   },
   "products": {
-    "day-pad": { "name": "Day Pads", "subtitle": "10 per pack" },
-    "night-pad": { "name": "Night Pads", "subtitle": "10 per pack" },
-    "regular-tampon": { "name": "Tampons Regular", "subtitle": "16 per pack" },
-    "super-tampon": { "name": "Tampons Super", "subtitle": "16 per pack" },
-    "liners": { "name": "Liners", "subtitle": "24 per pack" }
-  },
-  "suggestions": {
-    "bimonthly": [
-      { "label": "Light flow", "desc": "1 Day · 1 Night · 1 Tampon · 1 Liner" },
-      { "label": "Medium flow", "desc": "2 Day · 1 Night · 2 Tampons · 1 Liner" },
-      { "label": "Heavy flow", "desc": "2 Day · 2 Night · 2 Tampons · 2 Liners" }
-    ],
-    "quarterly": [
-      { "label": "Light flow", "desc": "2 Day · 1 Night · 2 Tampons · 2 Liners" },
-      { "label": "Medium flow", "desc": "2 Day · 2 Night · 2 Tampons · 2 Liners" },
-      { "label": "Heavy flow", "desc": "3 Day · 3 Night · 3 Tampons · 3 Liners" }
-    ]
+    "day-pad": {
+      "name": "Day Pads",
+      "subtitle": "10 per pack"
+    },
+    "night-pad": {
+      "name": "Night Pads",
+      "subtitle": "10 per pack"
+    },
+    "regular-tampon": {
+      "name": "Tampons Regular",
+      "subtitle": "16 per pack"
+    },
+    "super-tampon": {
+      "name": "Tampons Super",
+      "subtitle": "16 per pack"
+    },
+    "liner": {
+      "name": "Liners",
+      "subtitle": "24 per pack"
+    }
   },
   "benefits": {
     "label": "Why subscribe",
     "title": "The Cycle Box advantage",
     "items": [
-      { "title": "Organic Materials", "desc": "Made with certified organic cotton for a safer, more natural period." },
-      { "title": "Discreet Delivery", "desc": "Your Cycle Box arrives in simple, private packaging." },
-      { "title": "Flexible Subscription", "desc": "Skip a cycle, swap products, or cancel anytime." },
-      { "title": "Save with Subscription", "desc": "Subscribers save 5% with the quarterly plan, every order." }
+      {
+        "title": "Organic Materials",
+        "desc": "Made with certified organic cotton for a safer, more natural period."
+      },
+      {
+        "title": "Discreet Delivery",
+        "desc": "Your Cycle Box arrives in simple, private packaging."
+      },
+      {
+        "title": "Flexible Subscription",
+        "desc": "Skip, pause or cancel anytime, or swap what's in your box."
+      },
+      {
+        "title": "Save up to 10%",
+        "desc": "Save 5% every 3 months or 10% every 6 months, from your second delivery. Free shipping over €50."
+      }
     ]
   },
   "faq": {
     "label": "Questions",
     "title": "Frequently Asked",
     "items": [
-      { "q": "When do you launch?", "a": "We launch October 1st 2026, starting in the Netherlands and Germany. Join the waitlist to be the first to know and receive 10% off your first order." },
-      { "q": "Where do you deliver?", "a": "At launch we deliver across the Netherlands and Germany. More European countries are planned throughout 2027 and beyond." },
-      { "q": "What makes Lore different from other organic brands?", "a": "Three things: our products are GOTS certified organic cotton, independently verified, not just a claim. We donate 1% of every sale to women's shelters and period poverty organisations from day one. And we tell you exactly where every product comes from and what is in it. No greenwashing, no vague claims." },
-      { "q": "What does GOTS certified mean?", "a": "GOTS stands for Global Organic Textile Standard. It means our cotton is grown without pesticides or toxic chemicals, processed without synthetic dyes or bleaching agents, and verified at every step of the supply chain by an independent certifier. It is the gold standard for organic textiles worldwide." },
-      { "q": "What products will you offer at launch?", "a": "We launch with five products: Organic Cotton Day Pad, Organic Cotton Night Pad, Tampon Regular, Tampon Super, and Pantyliner Ultra-thin. All are individually wrapped and made from 100% GOTS certified organic cotton." },
-      { "q": "Can I subscribe and customise my delivery?", "a": "Yes, our Cycle Box lets you choose exactly which products you need and how often you want them delivered, every 2 months or every 3 months. The quarterly plan saves you 5%, and both plans enjoy €4.95 flat shipping. You can pause, swap products, or cancel anytime." },
-      { "q": "Are your products plastic free?", "a": "Our tampon and pad products contain no plastic in the absorbent materials, they are made from organic cotton. Our pantyliner contains a biopolymer backing layer which is plant-based. We are fully transparent about all materials and publish a complete breakdown on our website." },
-      { "q": "How does your 1% donation model work?", "a": "From our very first sale, 1% of every order's net revenue goes directly to women's shelters and period poverty organisations in the Netherlands. You do not need to do anything, it is built into every purchase automatically." },
-      { "q": "What is the From One Woman to Another donation option?", "a": "At checkout you can choose to add a pad or tampon box at a reduced price. That box does not come to you, it goes directly to a woman who needs it through our partner organisations. Pads and tampons only. No admin, no middleman. Just one woman helping another." },
-      { "q": "I have a question not answered here, how do I reach you?", "a": "Email us at info@lore-organics.com and we will get back to you within 48 hours." }
+      {
+        "q": "When do you launch?",
+        "a": "We launch October 1st 2026, starting in the Netherlands and Germany. Join the waitlist to be the first to know and receive 10% off your first order."
+      },
+      {
+        "q": "Where do you deliver?",
+        "a": "At launch we deliver across the Netherlands and Germany. More European countries are planned throughout 2027 and beyond."
+      },
+      {
+        "q": "What makes Lore different from other organic brands?",
+        "a": "Three things: our products are GOTS certified organic cotton, independently verified, not just a claim. We donate 1% of every sale to women's shelters and period poverty organisations from day one. And we tell you exactly where every product comes from and what is in it. No greenwashing, no vague claims."
+      },
+      {
+        "q": "What does GOTS certified mean?",
+        "a": "GOTS stands for Global Organic Textile Standard. It means our cotton is grown without pesticides or toxic chemicals, processed without synthetic dyes or bleaching agents, and verified at every step of the supply chain by an independent certifier. It is the gold standard for organic textiles worldwide."
+      },
+      {
+        "q": "What products will you offer at launch?",
+        "a": "We launch with five products: Organic Cotton Day Pad, Organic Cotton Night Pad, Tampon Regular, Tampon Super, and Pantyliner Ultra-thin. All are individually wrapped and made from 100% GOTS certified organic cotton."
+      },
+      {
+        "q": "Can I subscribe and customise my delivery?",
+        "a": "Yes, our Cycle Box lets you choose exactly which products you need and how often you want them delivered: every 2, 3 or 6 months. You save 5% every 3 months and 10% every 6 months, starting from your second delivery, and shipping is free on deliveries over €50. You can skip, pause, swap products or cancel anytime."
+      },
+      {
+        "q": "Are your products plastic free?",
+        "a": "Our tampon and pad products contain no plastic in the absorbent materials, they are made from organic cotton. Our pantyliner contains a biopolymer backing layer which is plant-based. We are fully transparent about all materials and publish a complete breakdown on our website."
+      },
+      {
+        "q": "How does your 1% donation model work?",
+        "a": "From our very first sale, 1% of every order's net revenue goes directly to women's shelters and period poverty organisations in the Netherlands. You do not need to do anything, it is built into every purchase automatically."
+      },
+      {
+        "q": "What is the From One Woman to Another donation option?",
+        "a": "At checkout you can choose to add a pad or tampon box at a reduced price. That box does not come to you, it goes directly to a woman who needs it through our partner organisations. Pads and tampons only. No admin, no middleman. Just one woman helping another."
+      },
+      {
+        "q": "I have a question not answered here, how do I reach you?",
+        "a": "Email us at info@lore-organics.com and we will get back to you within 48 hours."
+      }
     ]
   },
   "finalCta": {
@@ -128,5 +163,30 @@
     "title2": "adjust anytime.",
     "body": "Build your Cycle Box and get organic essentials delivered when you need them.",
     "cta": "Build Your Cycle Box"
+  },
+  "perks": [
+    "Free shipping over €50",
+    "Save up to 10%",
+    "Skip, pause or cancel anytime"
+  ],
+  "cadences": {
+    "2m": {
+      "label": "Every 2 months",
+      "labelLower": "every 2 months",
+      "tag": "Standard price",
+      "recommendation": "The average customer uses {{tampons}} boxes of tampons or {{pads}} boxes of pads."
+    },
+    "3m": {
+      "label": "Every 3 months",
+      "labelLower": "every 3 months",
+      "tag": "Save 5%",
+      "recommendation": "The average customer uses {{tampons}} boxes of tampons or {{pads}} boxes of pads."
+    },
+    "6m": {
+      "label": "Every 6 months",
+      "labelLower": "every 6 months",
+      "tag": "Save 10%",
+      "recommendation": "The average customer uses {{tampons}} boxes of tampons or {{pads}} boxes of pads."
+    }
   }
 }
