@@ -30,7 +30,9 @@
     "day-pad": {
       "title": "Organic Cotton Day Pad",
       "description": "Ultra-comfortable organic cotton day pad (240mm) for secure, irritation-free daytime protection.",
-      "variants": ["Day Pad"],
+      "variants": [
+        "Day Pad"
+      ],
       "materials": [
         "100% GOTS-certified organic cotton",
         "Biodegradable backsheet",
@@ -40,7 +42,9 @@
     "night-pad": {
       "title": "Organic Cotton Night Pad",
       "description": "Extended-length organic cotton night pad (280mm) designed for heavy flow and overnight confidence.",
-      "variants": ["Night Pad"],
+      "variants": [
+        "Night Pad"
+      ],
       "materials": [
         "100% GOTS-certified organic cotton",
         "Biodegradable backsheet",
@@ -50,7 +54,9 @@
     "regular-tampon": {
       "title": "Organic Cotton Regular Tampons",
       "description": "Digital tampons for light to medium flow, engineered with 360° cotton safety veil, no synthetic anti-shedding layers.",
-      "variants": ["Regular"],
+      "variants": [
+        "Regular"
+      ],
       "materials": [
         "100% GOTS-certified organic cotton",
         "Cottonlock™ 360° safety veil",
@@ -61,7 +67,9 @@
     "super-tampon": {
       "title": "Organic Cotton Super Tampons",
       "description": "Higher-absorbency digital tampons for medium to heavy flow,, engineered with 360° cotton safety veil, no synthetic anti-shedding layers",
-      "variants": ["Super"],
+      "variants": [
+        "Super"
+      ],
       "materials": [
         "100% GOTS-certified organic cotton",
         "Cottonlock™ 360° safety veil",
@@ -72,7 +80,9 @@
     "liner": {
       "title": "Organic Cotton Liners",
       "description": "Ultra-thin organic cotton liners for everyday freshness. Coming soon.",
-      "variants": ["Liner"],
+      "variants": [
+        "Liner"
+      ],
       "materials": [
         "100% GOTS-certified organic cotton",
         "Ultra-thin design",
@@ -95,5 +105,6 @@
     "heading": "Ready to make the switch?",
     "body": "Join thousands of women choosing certified organic period care.",
     "button": "Build Your Cycle Box"
-  }
+  },
+  "dragToTurn": "Drag to turn"
 }

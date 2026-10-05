@@ -4,7 +4,7 @@
     "description": "Premium organic period care for the Netherlands and Germany. GOTS certified organic cotton tampons, plastic free pads and biodegradable liners. Biologische tampons, biologisch maandverband en Bio Binden, launching October 2026."
   },
   "hero": {
-    "title": "Natural, Period.",
+    "title": "Natural, period.",
     "body": "Organic cotton period care, because your vagina matters. Made in Europe, made to last less long than the stories about your ex boyfriend. Tested by yours truly.",
     "signoff": "Love, Rachael & Geneviève.",
     "ctaWaitlist": "Join the waitlist",
@@ -87,9 +87,18 @@
     "heading2": "is broken.",
     "plasticHeading": "A Plastic Crisis Disguised as Hygiene",
     "stats": {
-      "0": { "stat": "49B", "text": "products used annually in the EU alone" },
-      "1": { "stat": "90%", "text": "of conventional pads are made from plastic" },
-      "2": { "stat": "800yr", "text": "for a single pad to degrade in landfill" }
+      "0": {
+        "stat": "49B",
+        "text": "products used annually in the EU alone"
+      },
+      "1": {
+        "stat": "90%",
+        "text": "of conventional pads are made from plastic"
+      },
+      "2": {
+        "stat": "800yr",
+        "text": "for a single pad to degrade in landfill"
+      }
     },
     "chemicalsHeading": "Hidden Chemicals. Hidden Risks.",
     "risks": {
@@ -168,6 +177,39 @@
     "heading1": "Period care is a right,",
     "heading2": "not a privilege.",
     "p1": "For every product purchased, Lore donates period care to women in underserved communities. Because no woman should go without.",
-    "p2": "We believe access to safe, dignified period care should be universal. Our \"From One Woman to Another\" model ensures that your purchase directly supports women who need it most."
+    "p2": "We believe access to safe, dignified period care should be universal. Our \"From One Woman to Another\" model ensures that your purchase directly supports women who need it most.",
+    "cta": "How we give"
+  },
+  "dayNight": {
+    "day": "By day",
+    "night": "By night"
+  },
+  "flow": {
+    "label": "Shop",
+    "heading": "Choose your flow, rest in comfort.",
+    "chooseProduct": "Your product",
+    "chooseDelivery": "Your delivery",
+    "packOf": "pack of {{count}}",
+    "cadence": {
+      "once": "One-time",
+      "2m": "Every 2 months",
+      "3m": "Every 3 months",
+      "6m": "Every 6 months"
+    },
+    "perPack": "per pack",
+    "addToCart": "Add to cart",
+    "buildBox": "Build your Cycle Box",
+    "note": "Subscriptions: free shipping over €50 · save up to 10% · skip, pause or cancel anytime."
+  },
+  "materials": {
+    "label": "What's inside",
+    "cotton": {
+      "title": "Organic cotton",
+      "body": "100% GOTS-certified organic cotton."
+    },
+    "backing": {
+      "title": "Corn-derived backing",
+      "body": "A corn-derived bio backing."
+    }
   }
 }

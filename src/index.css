@@ -9,57 +9,70 @@
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Inter', system-ui, sans-serif;
 
-    /* Lore Organics Brand Palette */
+    /* Lore Organics palette — Website Style Guide (Oct 2026).
+       Every shade is a variable so pending choices can be swapped here only. */
     --background: 40 30% 96%; /* Birch Cream #F7F5F1 */
     --foreground: 16 18% 19%; /* Deep Charcoal Brown #3A2E29 */
 
-    --card: 42 28% 94%; /* Cloud Ivory #F4F1EA */
+    --card: 42 31% 94%; /* Cloud Ivory #F4F1EA */
     --card-foreground: 16 18% 19%;
 
     --popover: 40 30% 96%;
     --popover-foreground: 16 18% 19%;
 
-    --primary: 340 24% 24%; /* Deep Plum #4B2E38 */
+    --primary: 349 28% 26%; /* Night pad maroon #563037 — brand hero color */
     --primary-foreground: 40 30% 96%;
 
-    --secondary: 92 17% 76%; /* Sage Green #C1CBB8 */
-    --secondary-foreground: 91 12% 31%; /* Botanical Green #4F5A45 */
+    --secondary: 132 13% 78%; /* Tampon Regular sage */
+    --secondary-foreground: 116 10% 26%;
 
     --muted: 32 30% 91%; /* Linen Sand #EFE9E2 */
-    --muted-foreground: 27 27% 38%; /* Warm Brown #7A5E49 */
+    --muted-foreground: 18 12% 38%;
 
-    --accent: 92 17% 76%; /* Sage Green */
-    --accent-foreground: 91 12% 31%;
+    --accent: 132 13% 78%;
+    --accent-foreground: 116 10% 26%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 70% 45%;
     --destructive-foreground: 40 30% 96%;
 
-    --border: 32 20% 88%;
-    --input: 32 20% 88%;
-    --ring: 340 24% 24%;
+    --border: 32 20% 86%;
+    --input: 32 20% 86%;
+    --ring: 349 28% 26%;
 
     --radius: 0.25rem;
 
-    /* Brand-specific tokens */
+    /* Product families. Tampon shades are approximations of Pantone 5595 C /
+       4192 C — replace with Pantone's official web values when confirmed. */
+    --lore-regular: 132 13% 78%;     /* Tampons Regular #BFCEC2 (locked) */
+    --lore-super: 124 7% 56%;        /* Tampons Super #869687 (locked) */
+    --lore-superplus: 116 10% 26%;   /* Tampons Super Plus #3D4A3C (future) */
+    --lore-day: 349 28% 33%;         /* Pads Day #6D3D46 (preferred, not final) */
+    --lore-night: 349 28% 26%;       /* Pads Night #563037 (preferred, not final) */
+    --lore-extralong: 350 28% 16%;   /* Pads Extra-Long #341D21 (future) */
+    --lore-liner: 39 56% 92%;        /* Panty liner #F6EEDF (pending) */
+
+    /* Neutrals (locked) */
     --lore-charcoal: 16 18% 19%;
     --lore-birch: 40 30% 96%;
     --lore-linen: 32 30% 91%;
-    --lore-ivory: 42 28% 94%;
-    --lore-sage: 92 17% 76%;
-    --lore-plum: 340 24% 24%;
-    --lore-botanical: 91 12% 31%;
+    --lore-ivory: 42 31% 94%;
+
+    /* Legacy names, remapped onto the new palette */
+    --lore-sage: 132 13% 78%;
+    --lore-plum: 349 28% 26%;
+    --lore-botanical: 116 10% 26%;
     --lore-kraft: 35 39% 68%;
-    --lore-warm-brown: 27 27% 38%;
-    --lore-terracotta: 18 45% 55%;
+    --lore-warm-brown: 18 12% 38%;
+    --lore-terracotta: 349 28% 33%;
 
     --sidebar-background: 40 30% 96%;
     --sidebar-foreground: 16 18% 19%;
-    --sidebar-primary: 340 24% 24%;
+    --sidebar-primary: 349 28% 26%;
     --sidebar-primary-foreground: 40 30% 96%;
-    --sidebar-accent: 92 17% 76%;
-    --sidebar-accent-foreground: 91 12% 31%;
+    --sidebar-accent: 132 13% 78%;
+    --sidebar-accent-foreground: 116 10% 26%;
     --sidebar-border: 32 20% 88%;
-    --sidebar-ring: 340 24% 24%;
+    --sidebar-ring: 349 28% 26%;
   }
 }
 
@@ -86,14 +99,15 @@
     @apply px-6 md:px-12 lg:px-24 py-12 md:py-20;
   }
 
+  /* Headlines: Cormorant Garamond, large and light, room to breathe. */
   .text-editorial-xl {
     font-family: var(--font-serif);
-    @apply text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none;
+    @apply text-5xl md:text-7xl lg:text-8xl font-light tracking-[-0.01em] leading-[0.95];
   }
 
   .text-editorial-lg {
     font-family: var(--font-serif);
-    @apply text-3xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl font-light tracking-[-0.005em] leading-[1.05];
   }
 
   .text-editorial-md {
@@ -102,19 +116,36 @@
   }
 
   .text-body-lg {
-    @apply text-base md:text-lg font-light leading-relaxed tracking-wide;
+    @apply text-base md:text-lg font-normal leading-relaxed;
   }
 
   .text-body {
-    @apply text-sm md:text-base font-light leading-relaxed tracking-wide;
+    @apply text-sm md:text-base font-normal leading-relaxed;
   }
 
+  /* Labels, claims, nav, buttons: Inter Medium in spaced caps, like the box side panels. */
   .text-label {
-    @apply text-xs md:text-sm font-medium uppercase tracking-[0.2em];
+    font-family: var(--font-sans);
+    @apply text-[11px] md:text-xs font-medium uppercase tracking-[0.22em];
   }
 
   .divider-botanical {
-    @apply w-16 h-px bg-lore-sage;
+    @apply w-12 h-px bg-current opacity-30;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-3 rounded-full bg-primary px-8 py-3.5 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.6)] active:translate-y-0 disabled:pointer-events-none disabled:opacity-50;
+    @apply text-[11px] md:text-xs font-medium uppercase tracking-[0.22em];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-3 rounded-full border border-current px-8 py-3.5 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0;
+    @apply text-[11px] md:text-xs font-medium uppercase tracking-[0.22em];
+  }
+
+  .btn-cream {
+    @apply inline-flex items-center justify-center gap-3 rounded-full bg-lore-birch px-8 py-3.5 text-lore-night transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] active:translate-y-0;
+    @apply text-[11px] md:text-xs font-medium uppercase tracking-[0.22em];
   }
 }
 
@@ -124,12 +155,37 @@
   }
 
   .fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .slide-in {
     animation: slideIn 1s ease-out forwards;
   }
+
+  /* Scroll reveal (toggled by <Reveal>). */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .leaf-sway {
+    animation: leafSway var(--sway-duration, 14s) ease-in-out infinite alternate;
+    transform-origin: 30% 0%;
+    will-change: transform;
+  }
+
+  .float-slow {
+    animation: floatSlow 7s ease-in-out infinite;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
 }
 
 @keyframes fadeIn {
@@ -145,4 +201,21 @@
 @keyframes slideIn {
   from { opacity: 0; transform: translateX(-24px); }
   to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes leafSway {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1.04); }
+  50% { transform: translate3d(1.5%, 1%, 0) rotate(1.4deg) scale(1.06); }
+  100% { transform: translate3d(-1%, 2%, 0) rotate(-1deg) scale(1.05); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaf-sway, .float-slow, .fade-in-up, .fade-in, .slide-in { animation: none !important; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
 }

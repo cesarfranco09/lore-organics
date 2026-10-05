@@ -11,8 +11,7 @@ const WaitlistBar = () => {
   return (
     <button
       onClick={scrollToWaitlist}
-      className="md:hidden fixed bottom-0 inset-x-0 z-[80] w-full flex items-center justify-center gap-2 px-4 py-3.5 text-[13px] tracking-[0.12em] uppercase shadow-[0_-4px_20px_-6px_rgba(0,0,0,0.25)] active:opacity-90"
-      style={{ backgroundColor: "#1A3528", color: "#F7F5F1" }}
+      className="md:hidden fixed bottom-3 inset-x-3 z-[80] flex items-center justify-center gap-2 rounded-full bg-lore-night px-5 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-lore-birch shadow-[0_12px_30px_-10px_rgba(30,12,16,0.6)] active:opacity-90"
       aria-label={t("waitlist.cta")}
     >
       {t("waitlist.cta")} <ArrowRight size={14} />

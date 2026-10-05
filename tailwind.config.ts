@@ -62,6 +62,13 @@ export default {
           kraft: "hsl(var(--lore-kraft))",
           "warm-brown": "hsl(var(--lore-warm-brown))",
           terracotta: "hsl(var(--lore-terracotta))",
+          regular: "hsl(var(--lore-regular))",
+          super: "hsl(var(--lore-super))",
+          superplus: "hsl(var(--lore-superplus))",
+          day: "hsl(var(--lore-day))",
+          night: "hsl(var(--lore-night))",
+          extralong: "hsl(var(--lore-extralong))",
+          liner: "hsl(var(--lore-liner))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

@@ -69,5 +69,23 @@
     "interAdd": "Voeg {{product}} toe",
     "interAtCost": "{{price}} tegen kostprijs — gedoneerd, daarna verder",
     "interDecline": "Nee bedankt, verder naar afrekenen"
+  },
+  "claims": {
+    "dermatologicallyTested": "Dermatologisch getest",
+    "gynecologicallyTested": "Gynaecologisch getest",
+    "fragranceFree": "Zonder parfum",
+    "noChlorineBleaching": "Niet gebleekt met chloor",
+    "noPesticides": "Geteeld zonder pesticiden of herbiciden",
+    "madeInEurope": "Gemaakt in Europa",
+    "vegan": "Vegan",
+    "hypoallergenic": "Hypoallergeen"
+  },
+  "gots": {
+    "title": "GOTS-gecertificeerd",
+    "learn": "Wat GOTS inhoudt"
+  },
+  "freeShipping": {
+    "away": "Nog {{amount}} tot gratis verzending",
+    "unlocked": "Je bestelling wordt gratis verzonden"
   }
 }

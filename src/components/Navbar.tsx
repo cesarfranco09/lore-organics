@@ -6,6 +6,7 @@ import { useCart } from "@/contexts/CartContext";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import { stripLangPrefix } from "@/lib/i18n";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import Wordmark from "@/components/brand/Wordmark";
 import sustainabilityHero from "@/assets/sustainability-hero.webp";
 import foundersImage from "@/assets/founders.webp";
 import impactHero from "@/assets/impact-hero.webp";
@@ -76,8 +77,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div
-        className="flex items-center justify-center h-[40px] text-xs tracking-wide font-bold"
-        style={{ backgroundColor: "#F7F5F1", color: "#1A3528" }}
+        className="flex h-[36px] items-center justify-center bg-lore-night text-[10px] font-medium uppercase tracking-[0.24em] text-lore-birch md:text-[11px]"
       >
         <span className="text-center px-4">
           {daysUntilLaunch() > 0
@@ -85,16 +85,11 @@ const Navbar = () => {
             : t("announcementLive")}
         </span>
       </div>
-      <div className="bg-background/90 backdrop-blur-md border-b border-border/50">
-      <div className="flex items-center justify-between px-6 md:px-12 lg:px-24 py-4">
+      <div className="border-b border-lore-charcoal/5 bg-lore-birch/85 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-3 md:px-12 lg:px-20">
         {/* Logo */}
-        <Link to={localize("/")} className="flex flex-col items-start">
-          <span className="font-serif text-2xl md:text-3xl font-semibold tracking-[0.05em] text-foreground">
-            LORE
-          </span>
-          <span className="text-[10px] md:text-xs font-sans font-normal tracking-[0.3em] text-muted-foreground -mt-1">
-            ORGANICS
-          </span>
+        <Link to={localize("/")} className="text-lore-charcoal" aria-label="Lore Organics">
+          <Wordmark />
         </Link>
 
         {/* Desktop Nav */}
@@ -104,7 +99,7 @@ const Navbar = () => {
               <div key={link.href} className="relative group">
                 <Link
                   to={localize(link.href)}
-                  className={`text-label transition-colors hover:text-lore-botanical ${
+                  className={`text-label transition-colors hover:text-lore-night ${
                     barePath.startsWith(link.href)
                       ? "text-foreground"
                       : "text-muted-foreground"
@@ -116,12 +111,12 @@ const Navbar = () => {
                 {/* Shop dropdown */}
                 {link.dropdown === "shop" && (
                   <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="bg-background border border-border/50 shadow-lg py-2 min-w-[140px]">
+                    <div className="min-w-[170px] overflow-hidden rounded-2xl border border-lore-charcoal/5 bg-lore-birch py-2 shadow-[0_20px_50px_-20px_rgba(58,46,41,0.35)]">
                       {shopSubLinks.map((sub) => (
                         <Link
                           key={sub.href}
                           to={localize(sub.href)}
-                          className="block px-5 py-2 text-label text-muted-foreground hover:text-lore-botanical hover:bg-lore-sage/10 transition-colors"
+                          className="block px-5 py-2 text-label text-muted-foreground hover:text-lore-night hover:bg-lore-linen transition-colors"
                         >
                           {sub.label}
                         </Link>
@@ -132,7 +127,7 @@ const Navbar = () => {
 
                 {/* About mega dropdown */}
                 {link.dropdown === "about" && (
-                  <div className="fixed left-0 right-0 top-[112px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                  <div className="fixed left-0 right-0 top-[98px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                     <div className="bg-background border-b border-border/50 shadow-xl">
                       <div className="px-6 md:px-12 lg:px-24 py-10">
                         <div className="grid grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -150,13 +145,13 @@ const Navbar = () => {
                                 />
                                 <div className="absolute inset-0 bg-foreground/0 group-hover/card:bg-foreground/5 transition-colors duration-300" />
                               </div>
-                              <h3 className="font-serif text-lg font-medium mb-1 group-hover/card:text-lore-botanical transition-colors duration-200">
+                              <h3 className="font-serif text-lg font-medium mb-1 group-hover/card:text-lore-night transition-colors duration-200">
                                 {item.label}
                               </h3>
                               <p className="text-body text-muted-foreground text-sm leading-relaxed mb-3">
                                 {item.description}
                               </p>
-                              <span className="inline-flex items-center gap-2 text-label text-xs text-muted-foreground group-hover/card:text-lore-botanical group-hover/card:gap-3 transition-all duration-200">
+                              <span className="inline-flex items-center gap-2 text-label text-xs text-muted-foreground group-hover/card:text-lore-night group-hover/card:gap-3 transition-all duration-200">
                                 {t("nav.explore")} <ArrowRight size={12} />
                               </span>
                             </Link>
@@ -171,7 +166,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={localize(link.href)}
-                className={`text-label transition-colors hover:text-lore-botanical ${
+                className={`text-label transition-colors hover:text-lore-night ${
                   barePath === link.href
                     ? "text-foreground"
                     : "text-muted-foreground"
@@ -202,7 +197,7 @@ const Navbar = () => {
                   width: 16,
                   height: 16,
                   borderRadius: "50%",
-                  background: "hsl(var(--lore-botanical))",
+                  background: "hsl(var(--lore-night))",
                   color: "hsl(var(--primary-foreground))",
                   fontSize: "0.55rem",
                   lineHeight: 1,
@@ -234,7 +229,7 @@ const Navbar = () => {
                   width: 16,
                   height: 16,
                   borderRadius: "50%",
-                  background: "hsl(var(--lore-botanical))",
+                  background: "hsl(var(--lore-night))",
                   color: "hsl(var(--primary-foreground))",
                   fontSize: "0.55rem",
                   lineHeight: 1,
@@ -258,7 +253,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-background border-t border-border/50 px-6 py-8 fade-in">
+        <div className="md:hidden max-h-[calc(100svh-100px)] overflow-y-auto bg-lore-birch border-t border-lore-charcoal/5 px-6 py-8 fade-in">
           <div className="flex flex-col gap-6">
             {navLinks.map((link) => (
               <div key={link.href}>
@@ -280,7 +275,7 @@ const Navbar = () => {
                         key={sub.href}
                         to={localize(sub.href)}
                         onClick={() => setIsOpen(false)}
-                        className="text-label text-muted-foreground hover:text-lore-botanical transition-colors"
+                        className="text-label text-muted-foreground hover:text-lore-night transition-colors"
                       >
                         {sub.label}
                       </Link>
@@ -294,7 +289,7 @@ const Navbar = () => {
                         key={item.href}
                         to={localize(item.href)}
                         onClick={() => setIsOpen(false)}
-                        className="text-label text-muted-foreground hover:text-lore-botanical transition-colors"
+                        className="text-label text-muted-foreground hover:text-lore-night transition-colors"
                       >
                         {item.label}
                       </Link>

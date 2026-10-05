@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, FormEvent } from "react";
 import { useTranslation } from "react-i18next";
+import LeafShadow from "@/components/brand/LeafShadow";
 
 const KLAVIYO_COMPANY_ID = "YiRTrJ";
 const KLAVIYO_LIST_ID = "XdjM7r";
@@ -75,49 +76,48 @@ const NewsletterSection = () => {
 
 
   return (
-    <section id="waitlist" className="section-padding bg-lore-sage/10 scroll-mt-24">
-      <div className="max-w-xl mx-auto text-center">
-        <p className="text-label text-muted-foreground mb-4">{t("newsletter.label")}</p>
-        <div className="divider-botanical mx-auto mb-8" />
+    <section id="waitlist" className="relative isolate overflow-hidden bg-lore-regular scroll-mt-24 text-lore-charcoal">
+      <LeafShadow color="rgb(35, 48, 36)" opacity={0.22} seed={19} blur={16} />
+      <div className="relative z-10 mx-auto max-w-2xl px-6 py-24 text-center md:py-36">
+        <p className="text-label mb-6 text-lore-superplus">{t("newsletter.label")}</p>
         {!klaviyoLoaded && (
           <>
-            <h2 className="text-editorial-lg mb-6">
-              {t("newsletter.heading")}
-            </h2>
-            <p className="text-body text-muted-foreground mb-10">
-              {t("newsletter.body")}
-            </p>
+            <h2 className="text-editorial-lg mb-6">{t("newsletter.heading")}</h2>
+            <p className="text-body-lg mx-auto mb-10 max-w-lg opacity-80">{t("newsletter.body")}</p>
           </>
         )}
 
         <div ref={formRef} className="klaviyo-form-VYubWT" />
 
         {!klaviyoLoaded && (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mt-4">
+          <form
+            onSubmit={handleSubmit}
+            className="mx-auto mt-4 flex max-w-md flex-col gap-2 rounded-[28px] bg-lore-birch/80 p-2 shadow-[0_20px_50px_-30px_rgba(30,40,30,0.6)] backdrop-blur sm:flex-row sm:rounded-full"
+          >
+            <label htmlFor="waitlist-email" className="sr-only">
+              {t("newsletter.placeholder")}
+            </label>
             <input
+              id="waitlist-email"
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t("newsletter.placeholder")}
-              className="flex-1 px-4 py-3 bg-background border border-lore-charcoal/20 text-lore-charcoal placeholder:text-muted-foreground focus:outline-none focus:border-lore-sage transition-colors"
+              className="min-w-0 flex-1 rounded-full bg-transparent px-5 py-3 text-lore-charcoal placeholder:text-muted-foreground focus:outline-none"
               disabled={status === "loading" || status === "success"}
             />
-            <button
-              type="submit"
-              disabled={status === "loading" || status === "success"}
-              className="px-6 py-3 bg-lore-charcoal text-primary-foreground text-xs tracking-[0.2em] uppercase hover:bg-lore-charcoal/90 transition-colors disabled:opacity-60"
-            >
+            <button type="submit" disabled={status === "loading" || status === "success"} className="btn-primary">
               {status === "loading" ? t("newsletter.joining") : status === "success" ? t("newsletter.onList") : t("newsletter.join")}
             </button>
           </form>
         )}
 
         {status === "success" && !klaviyoLoaded && (
-          <p className="text-sm text-lore-sage mt-4">{t("newsletter.success")}</p>
+          <p className="mt-5 text-sm text-lore-superplus" role="status">{t("newsletter.success")}</p>
         )}
         {status === "error" && !klaviyoLoaded && (
-          <p className="text-sm text-destructive mt-4">{errorMsg}</p>
+          <p className="mt-5 text-sm text-destructive" role="alert">{errorMsg}</p>
         )}
       </div>
     </section>

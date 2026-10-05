@@ -30,7 +30,9 @@
     "day-pad": {
       "title": "Dagverband van biologisch katoen",
       "description": "Ultracomfortabel dagverband van biologisch katoen (240 mm) voor veilige, irritatievrije bescherming overdag.",
-      "variants": ["Dagverband"],
+      "variants": [
+        "Dagverband"
+      ],
       "materials": [
         "100% GOTS-gecertificeerd biologisch katoen",
         "Biologisch afbreekbare onderlaag",
@@ -40,7 +42,9 @@
     "night-pad": {
       "title": "Nachtverband van biologisch katoen",
       "description": "Extra lang nachtverband van biologisch katoen (280 mm), ontworpen voor hevige menstruatie en een zorgeloze nacht.",
-      "variants": ["Nachtverband"],
+      "variants": [
+        "Nachtverband"
+      ],
       "materials": [
         "100% GOTS-gecertificeerd biologisch katoen",
         "Biologisch afbreekbare onderlaag",
@@ -50,7 +54,9 @@
     "regular-tampon": {
       "title": "Regular tampons van biologisch katoen",
       "description": "Digitale tampons voor lichte tot gemiddelde menstruatie, met 360° katoenen veiligheidslaag, zonder synthetische antipluislagen.",
-      "variants": ["Regular"],
+      "variants": [
+        "Regular"
+      ],
       "materials": [
         "100% GOTS-gecertificeerd biologisch katoen",
         "Cottonlock™ 360°-veiligheidslaag",
@@ -61,7 +67,9 @@
     "super-tampon": {
       "title": "Super tampons van biologisch katoen",
       "description": "Extra absorberende digitale tampons voor gemiddelde tot hevige menstruatie, met 360° katoenen veiligheidslaag, zonder synthetische antipluislagen.",
-      "variants": ["Super"],
+      "variants": [
+        "Super"
+      ],
       "materials": [
         "100% GOTS-gecertificeerd biologisch katoen",
         "Cottonlock™ 360°-veiligheidslaag",
@@ -72,7 +80,9 @@
     "liner": {
       "title": "Inlegkruisjes van biologisch katoen",
       "description": "Ultradunne inlegkruisjes van biologisch katoen voor dagelijkse frisheid. Binnenkort beschikbaar.",
-      "variants": ["Inlegkruisje"],
+      "variants": [
+        "Inlegkruisje"
+      ],
       "materials": [
         "100% GOTS-gecertificeerd biologisch katoen",
         "Ultradun ontwerp",
@@ -95,5 +105,6 @@
     "heading": "Klaar om over te stappen?",
     "body": "Sluit je aan bij duizenden vrouwen die kiezen voor gecertificeerde biologische menstruatiezorg.",
     "button": "Stel je Cycle Box samen"
-  }
+  },
+  "dragToTurn": "Sleep om te draaien"
 }

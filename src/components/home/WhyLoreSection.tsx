@@ -1,48 +1,53 @@
-import { Leaf, Shield, Eye, Heart } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import Reveal from "@/components/brand/Reveal";
+import GotsBadge from "@/components/brand/GotsBadge";
+import { ClaimGrid } from "@/components/brand/ClaimIcon";
+import LeafShadow from "@/components/brand/LeafShadow";
+import { CLAIM_KEYS } from "@/lib/catalog";
 
-const features = [
-  { icon: Leaf, key: "0" },
-  { icon: Shield, key: "1" },
-  { icon: Eye, key: "2" },
-  { icon: Heart, key: "3" },
-];
+const FEATURES = ["0", "1", "2", "3"] as const;
+/** "GOTS-Certified, Field to Shelf" carries the certifier badges. */
+const GOTS_FEATURE = "2";
 
 const WhyLoreSection = () => {
   const { t } = useTranslation("home");
   return (
-    <section id="why-lore" className="section-padding bg-card">
-      <div className="max-w-5xl mx-auto">
-        <div>
-          <p className="text-label text-muted-foreground mb-4">{t("whyLore.label")}</p>
-          <div className="divider-botanical mb-8" />
-          <h2 className="text-editorial-lg mb-12">
-            {t("whyLore.heading1")}<br />{t("whyLore.heading2")}
-          </h2>
+    <section id="why-lore" className="relative overflow-hidden bg-lore-ivory scroll-mt-20">
+      <LeafShadow color="rgb(58, 46, 41)" opacity={0.08} seed={5} blur={18} sunlight={false} />
+      <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:px-12 md:py-36 lg:px-20">
+        <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <Reveal className="lg:sticky lg:top-32 lg:self-start">
+            <p className="text-label mb-6 text-lore-night/70">{t("whyLore.label")}</p>
+            <h2 className="text-editorial-lg">
+              {t("whyLore.heading1")}
+              <br />
+              <em className="font-light">{t("whyLore.heading2")}</em>
+            </h2>
+            <p className="mt-8 font-serif text-xl italic text-muted-foreground">{t("whyLore.tagline")}</p>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {features.map((feature) => (
-              <div
-                key={feature.key}
-                className="group p-5 -m-5 rounded-sm transition-all duration-300 hover:bg-lore-sage/15 hover:shadow-[0_4px_20px_-4px_hsl(var(--lore-sage)/0.2)]"
-              >
-                <div className="w-12 h-12 rounded-full bg-lore-sage/20 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-lore-sage/35 group-hover:scale-110">
-                  <feature.icon
-                    size={22}
-                    className="text-lore-botanical transition-transform duration-300"
-                    strokeWidth={1.5}
-                  />
-                </div>
-                <h3 className="font-serif text-xl font-medium mb-2">{t(`whyLore.features.${feature.key}.title`)}</h3>
-                <p className="text-body text-muted-foreground">{t(`whyLore.features.${feature.key}.description`)}</p>
-              </div>
+          <div className="grid gap-px overflow-hidden rounded-3xl bg-lore-charcoal/10 sm:grid-cols-2">
+            {FEATURES.map((key, i) => (
+              <Reveal key={key} delay={i * 90} className="group bg-lore-ivory p-8 transition-colors duration-500 hover:bg-lore-birch md:p-10">
+                <span className="mb-8 block font-serif text-sm italic text-lore-night/60">0{i + 1}</span>
+                <h3 className="mb-3 font-serif text-2xl font-normal transition-colors group-hover:text-lore-night md:text-[28px]">
+                  {t(`whyLore.features.${key}.title`)}
+                </h3>
+                <p className="text-body text-muted-foreground">{t(`whyLore.features.${key}.description`)}</p>
+                {key === GOTS_FEATURE && (
+                  <div className="mt-6 flex flex-wrap gap-3 text-lore-charcoal">
+                    <GotsBadge family="pads" />
+                    <GotsBadge family="tampons" />
+                  </div>
+                )}
+              </Reveal>
             ))}
           </div>
-
-          <p className="font-serif italic text-center text-muted-foreground mt-12">
-            {t("whyLore.tagline")}
-          </p>
         </div>
+
+        <Reveal className="mt-24 border-t border-lore-charcoal/10 pt-16 text-lore-night md:mt-32">
+          <ClaimGrid claims={CLAIM_KEYS} className="mx-auto max-w-4xl" />
+        </Reveal>
       </div>
     </section>
   );

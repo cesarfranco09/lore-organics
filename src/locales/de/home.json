@@ -87,9 +87,18 @@
     "heading2": "ist kaputt.",
     "plasticHeading": "Eine Plastikkrise, getarnt als Hygiene",
     "stats": {
-      "0": { "stat": "49 Mrd.", "text": "Produkte jährlich allein in der EU" },
-      "1": { "stat": "90 %", "text": "der herkömmlichen Binden bestehen aus Plastik" },
-      "2": { "stat": "800 J.", "text": "bis eine einzige Binde auf der Deponie abgebaut ist" }
+      "0": {
+        "stat": "49 Mrd.",
+        "text": "Produkte jährlich allein in der EU"
+      },
+      "1": {
+        "stat": "90 %",
+        "text": "der herkömmlichen Binden bestehen aus Plastik"
+      },
+      "2": {
+        "stat": "800 J.",
+        "text": "bis eine einzige Binde auf der Deponie abgebaut ist"
+      }
     },
     "chemicalsHeading": "Versteckte Chemikalien. Versteckte Risiken.",
     "risks": {
@@ -168,6 +177,39 @@
     "heading1": "Periodenpflege ist ein Recht,",
     "heading2": "kein Privileg.",
     "p1": "Für jedes gekaufte Produkt spendet Lore Periodenprodukte an Frauen in unterversorgten Gemeinschaften. Denn keine Frau sollte darauf verzichten müssen.",
-    "p2": "Wir glauben, dass Zugang zu sicherer, würdevoller Periodenpflege selbstverständlich sein sollte. Unser \"Von Frau zu Frau\"-Modell stellt sicher, dass dein Kauf direkt Frauen unterstützt, die ihn am dringendsten brauchen."
+    "p2": "Wir glauben, dass Zugang zu sicherer, würdevoller Periodenpflege selbstverständlich sein sollte. Unser \"Von Frau zu Frau\"-Modell stellt sicher, dass dein Kauf direkt Frauen unterstützt, die ihn am dringendsten brauchen.",
+    "cta": "Wie wir geben"
+  },
+  "dayNight": {
+    "day": "Am Tag",
+    "night": "In der Nacht"
+  },
+  "flow": {
+    "label": "Shop",
+    "heading": "Wähle deinen Flow, ruhe in Komfort.",
+    "chooseProduct": "Dein Produkt",
+    "chooseDelivery": "Deine Lieferung",
+    "packOf": "Packung mit {{count}}",
+    "cadence": {
+      "once": "Einmalig",
+      "2m": "Alle 2 Monate",
+      "3m": "Alle 3 Monate",
+      "6m": "Alle 6 Monate"
+    },
+    "perPack": "pro Packung",
+    "addToCart": "In den Warenkorb",
+    "buildBox": "Stell deine Cycle Box zusammen",
+    "note": "Abos: kostenloser Versand ab 50 € · bis zu 10 % sparen · jederzeit aussetzen, pausieren oder kündigen."
+  },
+  "materials": {
+    "label": "Was drin ist",
+    "cotton": {
+      "title": "Bio-Baumwolle",
+      "body": "100 % GOTS-zertifizierte Bio-Baumwolle."
+    },
+    "backing": {
+      "title": "Rückseite auf Maisbasis",
+      "body": "Eine Bio-Rückseite auf Maisbasis."
+    }
   }
 }

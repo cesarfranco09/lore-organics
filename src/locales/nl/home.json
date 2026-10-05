@@ -87,9 +87,18 @@
     "heading2": "is kapot.",
     "plasticHeading": "Een plasticcrisis vermomd als hygiëne",
     "stats": {
-      "0": { "stat": "49 mld", "text": "producten per jaar alleen al in de EU" },
-      "1": { "stat": "90%", "text": "van het gangbare maandverband is gemaakt van plastic" },
-      "2": { "stat": "800 jr", "text": "voordat één verband op de vuilnisbelt is afgebroken" }
+      "0": {
+        "stat": "49 mld",
+        "text": "producten per jaar alleen al in de EU"
+      },
+      "1": {
+        "stat": "90%",
+        "text": "van het gangbare maandverband is gemaakt van plastic"
+      },
+      "2": {
+        "stat": "800 jr",
+        "text": "voordat één verband op de vuilnisbelt is afgebroken"
+      }
     },
     "chemicalsHeading": "Verborgen chemicaliën. Verborgen risico's.",
     "risks": {
@@ -168,6 +177,39 @@
     "heading1": "Menstruatiezorg is een recht,",
     "heading2": "geen privilege.",
     "p1": "Voor elk gekocht product doneert Lore menstruatieproducten aan vrouwen in kwetsbare gemeenschappen. Want geen enkele vrouw zou het zonder moeten stellen.",
-    "p2": "Wij vinden dat toegang tot veilige, waardige menstruatiezorg vanzelfsprekend zou moeten zijn. Ons \"Van vrouw tot vrouw\"-model zorgt ervoor dat jouw aankoop rechtstreeks vrouwen steunt die het het hardst nodig hebben."
+    "p2": "Wij vinden dat toegang tot veilige, waardige menstruatiezorg vanzelfsprekend zou moeten zijn. Ons \"Van vrouw tot vrouw\"-model zorgt ervoor dat jouw aankoop rechtstreeks vrouwen steunt die het het hardst nodig hebben.",
+    "cta": "Hoe we geven"
+  },
+  "dayNight": {
+    "day": "Overdag",
+    "night": "'s Nachts"
+  },
+  "flow": {
+    "label": "Shop",
+    "heading": "Kies je flow, rust in comfort.",
+    "chooseProduct": "Je product",
+    "chooseDelivery": "Je levering",
+    "packOf": "verpakking van {{count}}",
+    "cadence": {
+      "once": "Eenmalig",
+      "2m": "Elke 2 maanden",
+      "3m": "Elke 3 maanden",
+      "6m": "Elke 6 maanden"
+    },
+    "perPack": "per verpakking",
+    "addToCart": "In winkelmand",
+    "buildBox": "Stel je Cycle Box samen",
+    "note": "Abonnementen: gratis verzending vanaf €50 · bespaar tot 10% · overslaan, pauzeren of opzeggen wanneer je wilt."
+  },
+  "materials": {
+    "label": "Wat erin zit",
+    "cotton": {
+      "title": "Biologisch katoen",
+      "body": "100% GOTS-gecertificeerd biologisch katoen."
+    },
+    "backing": {
+      "title": "Onderlaag op basis van maïs",
+      "body": "Een bio-onderlaag op basis van maïs."
+    }
   }
 }

@@ -30,7 +30,9 @@
     "day-pad": {
       "title": "Bio-Baumwoll-Tagesbinde",
       "description": "Ultrakomfortable Tagesbinde aus Bio-Baumwolle (240 mm) für sicheren, reizfreien Schutz am Tag.",
-      "variants": ["Tagesbinde"],
+      "variants": [
+        "Tagesbinde"
+      ],
       "materials": [
         "100 % GOTS-zertifizierte Bio-Baumwolle",
         "Biologisch abbaubare Unterschicht",
@@ -40,7 +42,9 @@
     "night-pad": {
       "title": "Bio-Baumwoll-Nachtbinde",
       "description": "Extra lange Nachtbinde aus Bio-Baumwolle (280 mm) – für starke Tage und ein sicheres Gefühl die ganze Nacht.",
-      "variants": ["Nachtbinde"],
+      "variants": [
+        "Nachtbinde"
+      ],
       "materials": [
         "100 % GOTS-zertifizierte Bio-Baumwolle",
         "Biologisch abbaubare Unterschicht",
@@ -50,7 +54,9 @@
     "regular-tampon": {
       "title": "Bio-Baumwoll-Tampons Regular",
       "description": "Digitale Tampons für leichte bis mittlere Tage, mit 360°-Schutzschleier aus Baumwolle, ohne synthetische Anti-Faser-Schichten.",
-      "variants": ["Regular"],
+      "variants": [
+        "Regular"
+      ],
       "materials": [
         "100 % GOTS-zertifizierte Bio-Baumwolle",
         "Cottonlock™ 360°-Schutzschleier",
@@ -61,7 +67,9 @@
     "super-tampon": {
       "title": "Bio-Baumwoll-Tampons Super",
       "description": "Besonders saugstarke digitale Tampons für mittlere bis starke Tage, mit 360°-Schutzschleier aus Baumwolle, ohne synthetische Anti-Faser-Schichten.",
-      "variants": ["Super"],
+      "variants": [
+        "Super"
+      ],
       "materials": [
         "100 % GOTS-zertifizierte Bio-Baumwolle",
         "Cottonlock™ 360°-Schutzschleier",
@@ -72,7 +80,9 @@
     "liner": {
       "title": "Bio-Baumwoll-Slipeinlagen",
       "description": "Hauchdünne Slipeinlagen aus Bio-Baumwolle für tägliche Frische. Demnächst verfügbar.",
-      "variants": ["Slipeinlage"],
+      "variants": [
+        "Slipeinlage"
+      ],
       "materials": [
         "100 % GOTS-zertifizierte Bio-Baumwolle",
         "Hauchdünnes Design",
@@ -95,5 +105,6 @@
     "heading": "Bereit für den Wechsel?",
     "body": "Schließ dich Tausenden Frauen an, die sich für zertifizierte Bio-Periodenpflege entscheiden.",
     "button": "Stell deine Cycle Box zusammen"
-  }
+  },
+  "dragToTurn": "Zum Drehen ziehen"
 }

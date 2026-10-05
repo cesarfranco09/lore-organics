@@ -2,24 +2,23 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import LeafShadow from "@/components/brand/LeafShadow";
+import Wordmark from "@/components/brand/Wordmark";
 
 const Footer = () => {
   const { t } = useTranslation();
   const { localize } = useLocalizedPath();
 
   return (
-    <footer className="text-primary-foreground pb-20 md:pb-0" style={{ backgroundColor: "#4B2E38" }}>
-      <div className="section-padding">
+    <footer className="relative isolate overflow-hidden bg-lore-night pb-20 text-lore-birch md:pb-0">
+      <LeafShadow color="rgb(15, 6, 8)" opacity={0.35} seed={91} blur={18} sunlight={false} />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-28 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="mb-6">
-              <span className="font-serif text-3xl font-semibold tracking-[0.05em]">LORE</span>
-              <br />
-              <span className="text-xs font-sans tracking-[0.3em] opacity-60">ORGANICS</span>
-            </div>
+            <Wordmark size="lg" className="mb-8" />
             <p className="text-body opacity-70 max-w-sm">{t("footer.tagline")}</p>
-            <p className="text-xs text-lore-sage mt-4 italic font-serif">{t("footer.fromOneWoman")}</p>
+            <p className="mt-4 font-serif text-lg italic opacity-80">{t("footer.fromOneWoman")}</p>
           </div>
 
           {/* Links */}

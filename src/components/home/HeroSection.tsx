@@ -1,70 +1,86 @@
 import { useTranslation } from "react-i18next";
-import heroImage from "@/assets/hero-main.webp";
+import { ArrowDown } from "lucide-react";
+import LeafShadow from "@/components/brand/LeafShadow";
+import ProductBox from "@/components/brand/ProductBox";
+import { getProduct } from "@/lib/catalog";
+import { useIsMobile } from "@/hooks/use-mobile";
 
-const LAUNCH_DATE = new Date("2026-10-01T00:00:00Z");
-
-const daysUntilLaunch = () => {
-  const now = new Date();
-  const diff = LAUNCH_DATE.getTime() - now.getTime();
-  return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
-};
-
-const scrollToWaitlist = () => {
-  const el = document.getElementById("waitlist");
+const scrollTo = (id: string) => {
+  const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-const scrollToWhyLore = () => {
-  const el = document.getElementById("why-lore");
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+/** "Natural, period." — the second half is set in italic, as on the box. */
+const Tagline = ({ text }: { text: string }) => {
+  const match = text.match(/^(.*?[,.])\s+(.*)$/);
+  if (!match) return <>{text}</>;
+  return (
+    <>
+      {match[1]} <em className="font-light italic">{match[2]}</em>
+    </>
+  );
 };
 
 const HeroSection = () => {
   const { t } = useTranslation("home");
-  return (
-    <section className="relative min-h-screen flex items-end pb-24 md:pb-36">
-      {/* Background Image */}
-      <div className="absolute inset-0 overflow-hidden">
-        <img
-          src={heroImage}
-          alt="GOTS certified organic cotton period care on natural linen — Lore Organics tampons and pads"
-          className="w-full h-full object-cover object-center md:object-center [object-position:60%_center] md:[object-position:center]"
-          width={1920}
-          height={1080}
-          loading="eager"
-          {...({ fetchpriority: "high" } as any)}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent" />
-      </div>
+  const isMobile = useIsMobile();
+  const w = isMobile ? 120 : 190;
 
-      {/* Content */}
-      <div className="relative z-10 px-6 md:px-12 lg:px-24 w-full max-w-4xl">
-        <h1 className="text-editorial-xl mb-6 fade-in-up" style={{ animationDelay: "0.1s" }}>
-          {t("hero.title")}
-        </h1>
-        <p className="text-body-lg text-muted-foreground max-w-lg mb-6 fade-in-up" style={{ animationDelay: "0.2s" }}>
-          {t("hero.body")}
-        </p>
-        <p className="text-body-lg text-muted-foreground max-w-lg mb-10 mt-6 fade-in-up" style={{ animationDelay: "0.25s" }}>
-          {t("hero.signoff")}
-        </p>
-        <div className="flex gap-4 flex-wrap fade-in-up" style={{ animationDelay: "0.3s" }}>
-          <button
-            onClick={scrollToWaitlist}
-            className="inline-flex items-center justify-center px-8 py-3.5 text-label transition-all duration-300 hover:opacity-90 hover:translate-y-[-2px] active:translate-y-[1px]"
-            style={{ backgroundColor: "#4B2E38", color: "#F7F5F1" }}
+  return (
+    <section className="relative isolate min-h-[100svh] overflow-hidden bg-lore-night text-lore-birch">
+      <LeafShadow color="rgb(18, 6, 9)" opacity={0.55} seed={11} blur={16} />
+      {/* soft vignette so the type always reads */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_70%_at_20%_80%,rgba(30,12,16,0.55),transparent_60%)]" />
+
+      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-[1400px] grid-cols-1 items-center gap-6 px-6 pb-16 pt-32 md:px-12 lg:grid-cols-[1.05fr_1fr] lg:px-20 lg:pb-24">
+        <div className="max-w-xl">
+          <h1
+            className="mb-8 font-sans text-[56px] font-light leading-[0.98] tracking-[-0.03em] md:text-[88px] lg:text-[104px] fade-in-up"
+            style={{ animationDelay: "0.1s" }}
           >
-            {t("hero.ctaWaitlist")}
-          </button>
-          <button
-            onClick={scrollToWhyLore}
-            className="inline-flex items-center justify-center px-8 py-3.5 text-label bg-transparent transition-all duration-300 hover:translate-y-[-2px] active:translate-y-[1px]"
-            style={{ border: "1px solid #4B2E38", color: "#4B2E38" }}
-          >
-            {t("hero.ctaLearn")}
-          </button>
+            <Tagline text={t("hero.title")} />
+          </h1>
+          <p className="text-body-lg mb-5 max-w-md opacity-85 fade-in-up" style={{ animationDelay: "0.2s" }}>
+            {t("hero.body")}
+          </p>
+          <p className="mb-10 font-serif text-xl italic opacity-80 fade-in-up" style={{ animationDelay: "0.25s" }}>
+            {t("hero.signoff")}
+          </p>
+          <div className="flex flex-wrap gap-3 fade-in-up" style={{ animationDelay: "0.3s" }}>
+            <button type="button" onClick={() => scrollTo("waitlist")} className="btn-cream">
+              {t("hero.ctaWaitlist")}
+            </button>
+            <button type="button" onClick={() => scrollTo("why-lore")} className="btn-ghost text-lore-birch">
+              {t("hero.ctaLearn")}
+            </button>
+          </div>
+        </div>
+
+        {/* Floating range: drag or hover a box to turn it */}
+        <div
+          className="relative mx-auto flex h-[300px] w-full max-w-[560px] items-center justify-center md:h-[460px] lg:h-[560px] fade-in"
+          style={{ animationDelay: "0.35s" }}
+        >
+          <div className="absolute left-[2%] top-[18%] z-10" style={{ animationDelay: "1s" }}>
+            <ProductBox product={getProduct("regular-tampon")} width={w * 0.82} turn={28} float />
+          </div>
+          <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
+            <ProductBox product={getProduct("night-pad")} width={w} turn={-22} float />
+          </div>
+          <div className="absolute right-[0%] top-[46%] z-30">
+            <ProductBox product={getProduct("day-pad")} width={w * 0.78} turn={-40} float />
+          </div>
         </div>
       </div>
+
+      <button
+        type="button"
+        onClick={() => scrollTo("day-night")}
+        aria-label={t("hero.ctaLearn")}
+        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 rounded-full p-3 opacity-70 transition-opacity hover:opacity-100"
+      >
+        <ArrowDown size={18} strokeWidth={1.25} className="animate-bounce" />
+      </button>
     </section>
   );
 };

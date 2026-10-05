@@ -69,5 +69,23 @@
     "interAdd": "Add {{product}}",
     "interAtCost": "{{price}} at cost — donated, then continue",
     "interDecline": "No thanks, continue to checkout"
+  },
+  "claims": {
+    "dermatologicallyTested": "Dermatologically tested",
+    "gynecologicallyTested": "Gynecologically tested",
+    "fragranceFree": "Fragrance free",
+    "noChlorineBleaching": "No chlorine bleaching",
+    "noPesticides": "Grown without pesticides or herbicides",
+    "madeInEurope": "Made in Europe",
+    "vegan": "Vegan",
+    "hypoallergenic": "Hypoallergenic"
+  },
+  "gots": {
+    "title": "GOTS certified",
+    "learn": "What GOTS covers"
+  },
+  "freeShipping": {
+    "away": "You're {{amount}} away from free shipping",
+    "unlocked": "You've unlocked free shipping"
   }
 }

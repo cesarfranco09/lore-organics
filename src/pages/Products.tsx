@@ -1,174 +1,225 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Leaf, Droplets, Award, ArrowRight, ShoppingBag } from "lucide-react";
+import { ArrowRight, ShoppingBag, Move3d } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCart } from "@/contexts/CartContext";
 import { useShopifyProducts } from "@/hooks/useShopifyProducts";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { isStoreLive } from "@/lib/shopify";
 import { trackViewContent } from "@/lib/analytics";
+import { CATALOG, familyColor, onFamilyColor, type CatalogProduct, type ProductFamily } from "@/lib/catalog";
+import { CADENCE_DISCOUNT, formatEuro, priceFor, type Cadence } from "@/lib/pricing";
 import Seo from "@/components/Seo";
+import LeafShadow from "@/components/brand/LeafShadow";
+import ProductBox from "@/components/brand/ProductBox";
+import Droplets from "@/components/brand/Droplets";
+import Reveal from "@/components/brand/Reveal";
+import GotsBadge from "@/components/brand/GotsBadge";
+import { ClaimIcon } from "@/components/brand/ClaimIcon";
 
+/** URL category → catalog family. */
+const CATEGORY_FAMILY: Record<string, ProductFamily> = {
+  pads: "pads",
+  tampons: "tampons",
+  "panty-liners": "liners",
+};
+const KNOWN_CATEGORIES = Object.keys(CATEGORY_FAMILY);
+const CADENCES: Cadence[] = ["once", "2m", "3m", "6m"];
 
-type ProductCategory = "pads" | "tampons" | "panty-liners";
+/** One product, on its own family color field. */
+const ProductPanel = ({ product, index }: { product: CatalogProduct; index: number }) => {
+  const { t, i18n } = useTranslation("products");
+  const { t: tc } = useTranslation();
+  const { t: th } = useTranslation("home");
+  const { localize } = useLocalizedPath();
+  const { addItem } = useCart();
+  const { byHandle } = useShopifyProducts();
+  const isMobile = useIsMobile();
+  const [cadence, setCadence] = useState<Cadence>("once");
 
-interface Variant {
-  name: string;
-  size?: string;
-  absorbency: number;
-  color?: string;
-}
+  const live = byHandle[product.shopifyHandle];
+  const liveBase = live ? parseFloat(live.priceRange.minVariantPrice.amount) : undefined;
+  const storeLive = isStoreLive();
+  const purchasable = storeLive && !product.comingSoon && live?.availableForSale && Boolean(live.variants[0]);
+  // In Shopify but not sellable (e.g. inventory at 0) → "Out of Stock".
+  const outOfStock = storeLive && !product.comingSoon && live && !live.availableForSale;
+  const lang = i18n.language;
+  const fg = onFamilyColor(product);
+  const reversed = index % 2 === 1;
 
-interface Product {
-  id: string;
-  image: string;
-  title: string;
-  price: number;
-  variants: Variant[];
-  materials: string[];
-  certifications: string[];
-  description: string;
-  category: ProductCategory;
-  comingSoon?: boolean;
-  alt?: string;
-  /** Handle of the matching product in Shopify (admin → Products → the URL slug). */
-  shopifyHandle?: string;
-}
+  // Materials come back as an array once the namespace has loaded.
+  const translatedMaterials = t(`items.${product.id}.materials`, { returnObjects: true });
+  const materials = Array.isArray(translatedMaterials) ? (translatedMaterials as string[]) : [];
 
-const products: Product[] = [
-  {
-    id: "day-pad",
-    shopifyHandle: "organic-cotton-day-pad",
-    image: "/lovable-uploads/day-pads-sage.webp",
-    title: "Organic Cotton Day Pad",
-    price: 6.90,
-    category: "pads",
-    variants: [{ name: "Day Pad", size: "240mm", absorbency: 2, color: "Sage Green" }],
-    materials: ["100% GOTS-certified organic cotton", "Biodegradable backsheet", "No plastic touching skin"],
-    certifications: ["GOTS", "FSC", "ICEA"],
-    description: "Ultra-comfortable organic cotton day pad (240mm) for secure, irritation-free daytime protection.",
-    alt: "Lore Organics organic cotton day pad in sage green packaging, 240mm GOTS certified plastic free period care",
-  },
-  {
-    id: "night-pad",
-    // NOTE: current handle in Shopify has a stray "-by" (title typo). If you fix the
-    // handle in Shopify admin, update it here too.
-    shopifyHandle: "organic-cotton-night-pad-by",
-    image: "/lovable-uploads/6cf4ee2b-9d53-4707-a40f-661d9359f9ad.webp",
-    title: "Organic Cotton Night Pad",
-    price: 7.90,
-    category: "pads",
-    variants: [{ name: "Night Pad", size: "280mm", absorbency: 3, color: "Deep Plum" }],
-    materials: ["100% GOTS-certified organic cotton", "Biodegradable backsheet", "No plastic touching skin"],
-    certifications: ["GOTS", "FSC", "ICEA"],
-    description: "Extended-length organic cotton night pad (280mm) designed for heavy flow and overnight confidence.",
-    alt: "Lore Organics organic cotton night pad in deep plum packaging, 280mm biodegradable sustainable period care for heavy flow",
-  },
-  {
-    id: "regular-tampon",
-    shopifyHandle: "organic-cotton-tampons-regular",
-    image: "/lovable-uploads/tampons-box.webp",
-    title: "Organic Cotton Regular Tampons",
-    price: 5.90,
-    category: "tampons",
-    variants: [{ name: "Regular", absorbency: 2 }],
-    materials: ["100% GOTS-certified organic cotton", "Cottonlock™ 360° safety veil", "No synthetic rayon", "No plastic applicator"],
-    certifications: ["GOTS", "FSC", "ICEA"],
-    description: "Digital tampons for light to medium flow, engineered with 360° cotton safety veil, no synthetic anti-shedding layers.",
-    alt: "Lore Organics GOTS certified organic cotton regular tampons box, digital tampons with Cottonlock 360° safety veil and no plastic applicator",
-  },
-  {
-    id: "super-tampon",
-    shopifyHandle: "organic-cotton-tampons-super",
-    image: "/lovable-uploads/tampons-box-super.webp",
-    title: "Organic Cotton Super Tampons",
-    price: 5.90,
-    category: "tampons",
-    variants: [{ name: "Super", absorbency: 3 }],
-    materials: ["100% GOTS-certified organic cotton", "Cottonlock™ 360° safety veil", "No synthetic rayon", "No plastic applicator"],
-    certifications: ["GOTS", "FSC", "ICEA"],
-    description: "Higher-absorbency digital tampons for medium to heavy flow,, engineered with 360° cotton safety veil, no synthetic anti-shedding layers",
-    alt: "Lore Organics organic cotton super tampons for heavier flow, GOTS certified organic tampons with no synthetic rayon",
-  },
-  {
-    id: "liner",
-    shopifyHandle: "organic-cotton-panty-liners",
-    image: "/lovable-uploads/daae0592-f7db-4ec4-99be-058364328e9a.webp",
-    title: "Organic Cotton Liners",
-    price: 4.90,
-    category: "panty-liners",
-    variants: [{ name: "Liner", absorbency: 1 }],
-    materials: ["100% GOTS-certified organic cotton", "Ultra-thin design", "Breathable construction", "Biodegradable"],
-    certifications: ["GOTS", "FSC"],
-    description: "Ultra-thin organic cotton liners for everyday freshness. Coming soon.",
-    alt: "Lore Organics organic cotton pantyliner, ultra-thin biodegradable everyday period care",
-    comingSoon: true,
-  },
-];
+  const addToCart = () => {
+    if (!purchasable || !live) return;
+    addItem({
+      id: product.id,
+      name: product.name,
+      image: product.image,
+      price: priceFor(product.id, "once", liveBase),
+      variantId: live.variants[0].id,
+    });
+  };
 
-/**
- * Categories with translated hero copy in src/locales/{lng}/products.json
- * (categories.<key>.label/heading/description).
- *
- * NOTE: the English strings kept in `products` above stay the source of truth
- * for analytics (trackViewContent), the cart line name, and the JSON-LD block;
- * user-visible copy is looked up per-render via the "products" i18n namespace
- * using the stable `id` values (items.<id>.title etc.).
- */
-const KNOWN_CATEGORIES = ["pads", "tampons", "panty-liners"] as const;
+  const showPrice = !product.comingSoon;
 
-const DropletIcons = ({ count }: { count: number }) => (
-  <div className="flex gap-1">
-    {[1, 2, 3].map((i) => (
-      <Droplets
-        key={i}
-        size={14}
-        className={i <= count ? "text-lore-botanical" : "text-border"}
-        strokeWidth={1.5}
+  return (
+    <section
+      id={product.id}
+      className="relative isolate overflow-hidden scroll-mt-24"
+      style={{ background: familyColor(product), color: fg }}
+    >
+      <LeafShadow
+        color={product.lightText ? "rgb(15, 6, 8)" : "rgb(40, 50, 40)"}
+        opacity={product.lightText ? 0.4 : 0.18}
+        seed={index * 13 + 3}
+        blur={16}
       />
-    ))}
-  </div>
-);
+      <div
+        className={`relative z-10 mx-auto grid max-w-[1400px] items-center gap-10 px-6 py-20 md:px-12 md:py-28 lg:grid-cols-2 lg:gap-16 lg:px-20 ${
+          reversed ? "lg:[&>*:first-child]:order-2" : ""
+        }`}
+      >
+        <Reveal className="flex flex-col items-center">
+          <ProductBox product={product} width={isMobile ? 180 : 280} turn={reversed ? 24 : -24} />
+          <p className="mt-2 flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] opacity-60">
+            <Move3d size={13} strokeWidth={1.25} /> {t("dragToTurn")}
+          </p>
+        </Reveal>
+
+        <Reveal delay={120}>
+          {product.comingSoon && (
+            <span
+              className="mb-5 inline-block rounded-full px-4 py-1 text-[10px] font-medium uppercase tracking-[0.22em]"
+              style={{ background: "color-mix(in srgb, currentColor 12%, transparent)" }}
+            >
+              {t("buttons.comingSoon")}
+            </span>
+          )}
+          <h2 className="text-editorial-lg mb-5">{t(`items.${product.id}.title`)}</h2>
+          <p className="text-body-lg mb-6 max-w-lg opacity-85">{t(`items.${product.id}.description`)}</p>
+
+          <div className="mb-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm opacity-85">
+            <span className="flex items-center gap-2">
+              <Droplets count={product.absorbency} size={10} />
+              {t(`items.${product.id}.variants.0`)}
+            </span>
+            {product.size && <span>{product.size}</span>}
+            <span>{th("flow.packOf", { count: product.packCount })}</span>
+          </div>
+
+          {showPrice && (
+            <div className="mb-6 grid max-w-xl grid-cols-2 gap-2 sm:grid-cols-4" role="radiogroup" aria-label={th("flow.chooseDelivery")}>
+              {CADENCES.map((c) => {
+                const active = c === cadence;
+                return (
+                  <button
+                    key={c}
+                    type="button"
+                    role="radio"
+                    aria-checked={active}
+                    onClick={() => setCadence(c)}
+                    className="relative rounded-2xl border px-3 py-3 text-left transition-all duration-300"
+                    style={{
+                      borderColor: active ? "currentColor" : "color-mix(in srgb, currentColor 22%, transparent)",
+                      background: active ? "color-mix(in srgb, currentColor 10%, transparent)" : "transparent",
+                    }}
+                  >
+                    <span className="block text-[11px] font-medium uppercase tracking-[0.16em]">{th(`flow.cadence.${c}`)}</span>
+                    <span className="mt-1 block text-sm opacity-80">{formatEuro(priceFor(product.id, c, liveBase), lang)}</span>
+                    {CADENCE_DISCOUNT[c] > 0 && (
+                      <span className="absolute -top-2 right-2 rounded-full bg-lore-birch px-2 py-0.5 text-[10px] font-medium text-lore-night">
+                        −{CADENCE_DISCOUNT[c]}%
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          <div className="mb-14 flex flex-wrap items-center gap-4">
+            {showPrice && (
+              <span className="mr-2 font-serif text-4xl">{formatEuro(priceFor(product.id, cadence, liveBase), lang)}</span>
+            )}
+            {cadence === "once" || product.comingSoon ? (
+              <button
+                type="button"
+                onClick={addToCart}
+                disabled={!purchasable}
+                className={product.lightText ? "btn-cream" : "btn-primary"}
+              >
+                <ShoppingBag size={15} strokeWidth={1.5} />
+                {purchasable ? t("buttons.addToCart") : outOfStock ? t("buttons.outOfStock") : t("buttons.comingSoon")}
+              </button>
+            ) : (
+              <Link
+                to={`${localize("/cycle-box")}?cadence=${cadence}&add=${product.id}`}
+                className={product.lightText ? "btn-cream" : "btn-primary"}
+              >
+                {th("flow.buildBox")} <ArrowRight size={14} />
+              </Link>
+            )}
+          </div>
+
+          <div className="grid gap-10 border-t pt-10 md:grid-cols-2" style={{ borderColor: "color-mix(in srgb, currentColor 20%, transparent)" }}>
+            <div>
+              <h3 className="text-label mb-4 opacity-70">{t("sections.materials")}</h3>
+              <ul className="space-y-2">
+                {materials.map((m) => (
+                  <li key={m} className="flex items-start gap-3 text-sm leading-relaxed">
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-current opacity-60" />
+                    {m}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-label mb-4 opacity-70">{t("sections.certifications")}</h3>
+              <GotsBadge family={product.family} />
+            </div>
+          </div>
+
+          {product.claims.length > 0 && (
+            <ul className="mt-10 grid max-w-xl grid-cols-3 gap-x-6 gap-y-8">
+              {product.claims.map((c) => (
+                <li key={c} className="flex flex-col items-center gap-2 text-center">
+                  <ClaimIcon claim={c} size={40} />
+                  <span className="max-w-[16ch] text-[10px] font-medium uppercase leading-snug tracking-[0.14em]">{tc(`claims.${c}`)}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </Reveal>
+      </div>
+    </section>
+  );
+};
 
 const Products = () => {
   const { category } = useParams<{ category?: string }>();
   const { t } = useTranslation("products");
   const { localize } = useLocalizedPath();
-  const { addItem } = useCart();
-  const { byHandle } = useShopifyProducts();
-  const storeLive = isStoreLive();
 
-  const filteredProducts = category
-    ? products.filter((p) => p.category === category)
-    : products;
+  const family = category ? CATEGORY_FAMILY[category] : undefined;
+  const filteredProducts = family ? CATALOG.filter((p) => p.family === family) : CATALOG;
 
   // Meta ViewContent + GA4 view_item_list, once per category view.
   useEffect(() => {
-    const visible = category ? products.filter((p) => p.category === category) : products;
+    const fam = category ? CATEGORY_FAMILY[category] : undefined;
+    const visible = fam ? CATALOG.filter((p) => p.family === fam) : CATALOG;
     trackViewContent(
-      visible.map((p) => ({ id: p.shopifyHandle ?? p.id, name: p.title, price: p.price })),
+      visible.map((p) => ({ id: p.shopifyHandle, name: p.name, price: priceFor(p.id, "once") })),
       category ?? "all-products"
     );
   }, [category]);
 
-  const knownCategory =
-    category && (KNOWN_CATEGORIES as readonly string[]).includes(category) ? category : undefined;
+  const knownCategory = category && KNOWN_CATEGORIES.includes(category) ? category : undefined;
   const heroLabel = knownCategory ? t(`categories.${knownCategory}.label`) : t("hero.label");
   const heroHeading = knownCategory ? t(`categories.${knownCategory}.heading`) : t("hero.heading");
-  const heroDescription = knownCategory
-    ? t(`categories.${knownCategory}.description`)
-    : t("hero.description");
-
-  const handleAddToCart = (product: Product) => {
-    const live = product.shopifyHandle ? byHandle[product.shopifyHandle] : undefined;
-    addItem({
-      id: product.id,
-      name: product.title,
-      image: product.image,
-      price: live ? parseFloat(live.priceRange.minVariantPrice.amount) : product.price,
-      variantId: live?.variants[0]?.id,
-    });
-  };
+  const heroDescription = knownCategory ? t(`categories.${knownCategory}.description`) : t("hero.description");
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -177,167 +228,72 @@ const Products = () => {
     description: heroDescription,
     hasPart: filteredProducts.map((p) => ({
       "@type": "Product",
-      name: p.title,
-      description: p.description,
-      image: p.image.startsWith("http") ? p.image : `https://www.lore-organics.com${p.image}`,
+      name: p.name,
+      description: t(`items.${p.id}.description`),
+      image: `https://www.lore-organics.com${p.image}`,
       brand: { "@type": "Brand", name: "Lore Organics" },
       offers: {
         "@type": "Offer",
-        price: p.price.toFixed(2),
+        price: priceFor(p.id, "once").toFixed(2),
         priceCurrency: "EUR",
-        availability: p.comingSoon
-          ? "https://schema.org/PreOrder"
-          : "https://schema.org/InStock",
+        availability: p.comingSoon ? "https://schema.org/PreOrder" : "https://schema.org/InStock",
       },
     })),
   };
 
-  const seoTitle = knownCategory
-    ? t("seo.categoryTitle", { heading: heroHeading })
-    : t("seo.title");
+  const seoTitle = knownCategory ? t("seo.categoryTitle", { heading: heroHeading }) : t("seo.title");
   const seoDescription = knownCategory ? heroDescription : t("seo.description");
   const seoPath = category ? `/products/${category}` : "/products";
 
+  const filters = [
+    { href: "/products", label: t("hero.label"), active: !category },
+    ...KNOWN_CATEGORIES.map((c) => ({ href: `/products/${c}`, label: t(`categories.${c}.label`), active: category === c })),
+  ];
+
   return (
-    <main className="pt-20">
+    <main>
       <Seo title={seoTitle} description={seoDescription} path={seoPath} jsonLd={productJsonLd} />
-      {/* Hero */}
-      <section className="section-padding text-center">
-        <p className="text-label text-lore-botanical mb-4">{heroLabel}</p>
-        <div className="divider-botanical mx-auto mb-8" />
-        <h1 className="text-editorial-xl mb-6">{heroHeading}</h1>
-        <p className="text-body-lg text-muted-foreground max-w-xl mx-auto">
-          {heroDescription}
-        </p>
+
+      <section className="relative overflow-hidden bg-lore-ivory px-6 pb-16 pt-40 text-center md:pb-20 md:pt-48">
+        <LeafShadow color="rgb(58, 46, 41)" opacity={0.12} seed={2} blur={16} sunlight={false} />
+        <div className="relative">
+          <p className="text-label mb-6 text-lore-night/70 fade-in-up">{heroLabel}</p>
+          <h1 className="text-editorial-xl mb-6 fade-in-up" style={{ animationDelay: "0.1s" }}>
+            {heroHeading}
+          </h1>
+          <p className="text-body-lg mx-auto mb-10 max-w-xl text-muted-foreground fade-in-up" style={{ animationDelay: "0.2s" }}>
+            {heroDescription}
+          </p>
+          <nav className="inline-flex flex-wrap justify-center gap-2 fade-in-up" style={{ animationDelay: "0.3s" }}>
+            {filters.map((f) => (
+              <Link
+                key={f.href}
+                to={localize(f.href)}
+                className={`rounded-full border px-5 py-2 text-[11px] font-medium uppercase tracking-[0.2em] transition-colors ${
+                  f.active
+                    ? "border-lore-night bg-lore-night text-lore-birch"
+                    : "border-lore-charcoal/15 text-lore-charcoal/70 hover:border-lore-night hover:text-lore-night"
+                }`}
+              >
+                {f.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </section>
 
-      {/* Product Details */}
-      {filteredProducts.map((product, index) => {
-        const live = product.shopifyHandle ? byHandle[product.shopifyHandle] : undefined;
-        const purchasable = storeLive && !product.comingSoon && live?.availableForSale && Boolean(live.variants[0]);
-        // In Shopify but not sellable (e.g. inventory at 0) → "Out of Stock".
-        // Not in Shopify at all (or store not live) → "Coming Soon".
-        const outOfStock = storeLive && !product.comingSoon && live && !live.availableForSale;
-        // Materials come back as an array once the namespace has loaded;
-        // fall back to the English list in the interim.
-        const translatedMaterials = t(`items.${product.id}.materials`, { returnObjects: true });
-        const materials = Array.isArray(translatedMaterials)
-          ? (translatedMaterials as string[])
-          : product.materials;
-        return (
-        <section
-          key={product.title}
-          className={`section-padding ${index % 2 === 0 ? "bg-card" : ""}`}
-        >
-          <div className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-start ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}>
-            <div className="w-full lg:w-1/2">
-              <div className="sticky top-28">
-                <img
-                  src={product.image}
-                  alt={product.alt ?? product.title}
-                  className="w-full aspect-square object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+      {filteredProducts.map((product, index) => (
+        <ProductPanel key={product.id} product={product} index={index} />
+      ))}
 
-            <div className="w-full lg:w-1/2">
-              {product.comingSoon && (
-                <span className="inline-block text-label text-lore-botanical bg-lore-sage/30 px-3 py-1 mb-4">{t("buttons.comingSoon")}</span>
-              )}
-              <h2 className="text-editorial-md mb-4">{t(`items.${product.id}.title`)}</h2>
-              <p className="text-body-lg text-muted-foreground mb-4">{t(`items.${product.id}.description`)}</p>
-
-              {/* Price shown only once the store is live (hidden during pricing review) */}
-              {purchasable && live && (
-                <p className="font-serif text-2xl mb-6">
-                  €{parseFloat(live.priceRange.minVariantPrice.amount).toFixed(2)}
-                </p>
-              )}
-
-              {/* Buy button: live Add to Cart once the store launches, Coming Soon until then */}
-              <div className="mb-10">
-                {purchasable ? (
-                  <button
-                    type="button"
-                    onClick={() => handleAddToCart(product)}
-                    className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-3.5 text-label rounded-sm hover:opacity-90 transition-opacity"
-                  >
-                    <ShoppingBag size={16} strokeWidth={1.5} />
-                    {t("buttons.addToCart")}
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    disabled
-                    aria-disabled="true"
-                    className="inline-flex items-center gap-3 bg-muted text-muted-foreground px-8 py-3.5 text-label rounded-sm cursor-not-allowed opacity-70"
-                  >
-                    <ShoppingBag size={16} strokeWidth={1.5} />
-                    {outOfStock ? t("buttons.outOfStock") : t("buttons.comingSoon")}
-                  </button>
-                )}
-              </div>
-
-              {/* Variants */}
-              <div className="mb-10">
-                <h3 className="text-label text-muted-foreground mb-4">{t("sections.details")}</h3>
-                <div className="space-y-3">
-                  {product.variants.map((v, i) => (
-                    <div key={v.name} className="flex items-center justify-between py-3 border-b border-border/50">
-                      <div>
-                        <span className="font-serif text-lg">{t(`items.${product.id}.variants.${i}`)}</span>
-                        {v.size && <span className="text-body text-muted-foreground ml-3">{v.size}</span>}
-                      </div>
-                      <DropletIcons count={v.absorbency} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Materials */}
-              <div className="mb-10">
-                <h3 className="text-label text-muted-foreground mb-4">{t("sections.materials")}</h3>
-                <ul className="space-y-2">
-                  {materials.map((m) => (
-                    <li key={m} className="text-body text-muted-foreground flex items-start gap-3">
-                      <Leaf size={14} className="text-lore-botanical mt-1 shrink-0" strokeWidth={1.5} />
-                      {m}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Certifications */}
-              <div>
-                <h3 className="text-label text-muted-foreground mb-4">{t("sections.certifications")}</h3>
-                <div className="flex gap-3">
-                  {product.certifications.map((cert) => (
-                    <div key={cert} className="flex items-center gap-2 bg-lore-sage/20 px-4 py-2">
-                      <Award size={16} className="text-lore-botanical" strokeWidth={1.5} />
-                      <span className="text-label text-secondary-foreground">{cert}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        );
-      })}
-
-      {/* CTA */}
-      <section className="section-padding bg-lore-sage/20 text-center">
-        <h2 className="text-editorial-md mb-6">{t("cta.heading")}</h2>
-        <p className="text-body text-muted-foreground mb-8 max-w-md mx-auto">
-          {t("cta.body")}
-        </p>
-        <Link
-          to={localize("/cycle-box")}
-          className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 text-label hover:opacity-90 transition-opacity"
-        >
-          {t("cta.button")} <ArrowRight size={14} />
-        </Link>
+      <section className="bg-lore-ivory px-6 py-24 text-center md:py-32">
+        <Reveal>
+          <h2 className="text-editorial-lg mb-6">{t("cta.heading")}</h2>
+          <p className="text-body mx-auto mb-10 max-w-md text-muted-foreground">{t("cta.body")}</p>
+          <Link to={localize("/cycle-box")} className="btn-primary">
+            {t("cta.button")} <ArrowRight size={14} />
+          </Link>
+        </Reveal>
       </section>
     </main>
   );
