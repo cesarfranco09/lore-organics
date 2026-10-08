@@ -10,6 +10,10 @@ import Droplets from "./Droplets";
  * the new packaging are supplied: swap in a photo via `ProductVisual` then.
  */
 
+/** Warm light from the upper right, falling off to the lower left (matches the hero footage). */
+const SIDE_LIGHT =
+  "linear-gradient(225deg, rgba(255,226,196,0.22) 0%, rgba(255,226,196,0.06) 40%, rgba(10,3,5,0.18) 100%)";
+
 interface ProductBoxProps {
   product: CatalogProduct;
   /** Front face width in px; height and depth scale from it. */
@@ -18,6 +22,12 @@ interface ProductBoxProps {
   turn?: number;
   interactive?: boolean;
   float?: boolean;
+  /**
+   * Scene mode for photographic backgrounds: the box rests on an implied
+   * surface (contact + ambient shadow at its base, no floating) and moving
+   * leaf shadows and warm side light fall across its faces.
+   */
+  grounded?: boolean;
   className?: string;
 }
 
@@ -27,10 +37,14 @@ const ProductBox = ({
   turn = -24,
   interactive = true,
   float = false,
+  grounded = false,
   className = "",
 }: ProductBoxProps) => {
   const h = width * 1.06;
   const d = width * 0.42;
+  /** Space below a grounded box for its shadows. Perspective pushes the
+   *  front edge ~0.3·depth below the box's layout bottom, hence the offsets. */
+  const baseGap = d * 0.75;
   const bg = familyColor(product);
   const fg = onFamilyColor(product);
   const [tilt, setTilt] = useState({ x: -8, y: 0 });
@@ -71,12 +85,61 @@ const ProductBox = ({
       onPointerUp={onUp}
       onPointerCancel={onUp}
     >
-      {/* floor shadow */}
+      {grounded ? (
+        <>
+          {/* ambient occlusion: wide, soft, offset away from the light (upper right) */}
+          <div
+            className="absolute rounded-[50%]"
+            style={{
+              bottom: baseGap - d * 0.95,
+              left: "50%",
+              width: width * 1.75,
+              height: d * 1.1,
+              transform: "translateX(-60%)",
+              background: "radial-gradient(closest-side, rgba(10,3,5,0.62), rgba(10,3,5,0))",
+              filter: "blur(8px)",
+            }}
+          />
+          {/* cast shadow stretching left, away from the light */}
+          <div
+            className="absolute"
+            style={{
+              bottom: baseGap - d * 0.4,
+              left: width * 0.25 - width * 0.55,
+              width: width * 0.75,
+              height: d * 0.42,
+              transform: "skewX(-38deg)",
+              transformOrigin: "100% 100%",
+              background: "linear-gradient(to left, rgba(8,2,4,0.6), rgba(8,2,4,0))",
+              filter: "blur(7px)",
+              borderRadius: "40% 0 0 40%",
+            }}
+          />
+          {/* contact shadow: tight and dark along the base edge */}
+          <div
+            className="absolute rounded-[50%]"
+            style={{
+              bottom: baseGap - d * 0.46,
+              left: "50%",
+              width: width * 1.1,
+              height: d * 0.34,
+              transform: "translateX(-51%)",
+              background: "radial-gradient(closest-side, rgba(6,1,3,0.92), rgba(6,1,3,0))",
+              filter: "blur(2px)",
+            }}
+          />
+        </>
+      ) : (
+        /* floor shadow */
+        <div
+          className="absolute left-1/2 -translate-x-1/2 rounded-[50%] blur-xl"
+          style={{ bottom: h * 0.06, width: width * 1.25, height: d * 0.55, background: "rgba(30,15,18,0.28)" }}
+        />
+      )}
       <div
-        className="absolute left-1/2 -translate-x-1/2 rounded-[50%] blur-xl"
-        style={{ bottom: h * 0.06, width: width * 1.25, height: d * 0.55, background: "rgba(30,15,18,0.28)" }}
-      />
-      <div className={`absolute inset-0 flex items-center justify-center ${float ? "float-slow" : ""}`}>
+        className={`absolute inset-0 flex justify-center ${grounded ? "items-end" : "items-center"} ${float && !grounded ? "float-slow" : ""}`}
+        style={grounded ? { paddingBottom: baseGap } : undefined}
+      >
         <div
           style={{
             width,
@@ -89,7 +152,20 @@ const ProductBox = ({
         >
           {/* front */}
           <div className={face} style={{ background: bg, color: fg, transform: `translateZ(${d / 2}px)` }}>
-            <LeafShadow still opacity={product.lightText ? 0.22 : 0.12} seed={product.packCount + product.absorbency} blur={6} />
+            {grounded ? (
+              <>
+                <LeafShadow
+                  color="rgb(10, 3, 5)"
+                  opacity={product.lightText ? 0.5 : 0.32}
+                  seed={product.packCount * 3 + product.absorbency}
+                  blur={4}
+                  sunlight={false}
+                />
+                <div className="pointer-events-none absolute inset-0" style={{ background: SIDE_LIGHT }} />
+              </>
+            ) : (
+              <LeafShadow still opacity={product.lightText ? 0.22 : 0.12} seed={product.packCount + product.absorbency} blur={6} />
+            )}
             <div className="relative flex h-full flex-col items-center justify-between py-[12%] text-center">
               <div>
                 <div className="font-serif font-light leading-none" style={{ fontSize: width * 0.2, letterSpacing: "0.08em" }}>
@@ -129,11 +205,14 @@ const ProductBox = ({
               background: bg,
               color: fg,
               transform: `rotateY(90deg) translateZ(${width / 2}px)`,
-              filter: "brightness(0.82)",
+              filter: grounded ? "brightness(0.96)" : "brightness(0.82)",
             }}
           >
+            {grounded && (
+              <LeafShadow color="rgb(10, 3, 5)" opacity={0.45} seed={product.packCount * 5} blur={3} sunlight={false} />
+            )}
             <div
-              className="flex h-full items-center justify-center font-sans font-medium"
+              className="relative flex h-full items-center justify-center font-sans font-medium"
               style={{ writingMode: "vertical-rl", fontSize: width * 0.04, letterSpacing: "0.4em" }}
             >
               100% ORGANIC COTTON
@@ -148,7 +227,7 @@ const ProductBox = ({
               left: (width - d) / 2,
               background: bg,
               transform: `rotateY(-90deg) translateZ(${width / 2}px)`,
-              filter: "brightness(0.82)",
+              filter: grounded ? "brightness(0.62)" : "brightness(0.82)",
             }}
           />
           {/* top */}

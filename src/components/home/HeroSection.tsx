@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { ArrowDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowDown, ArrowRight } from "lucide-react";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import HeroBackdrop from "@/components/brand/HeroBackdrop";
 import ProductBox from "@/components/brand/ProductBox";
 import { getProduct } from "@/lib/catalog";
@@ -23,12 +25,15 @@ const Tagline = ({ text }: { text: string }) => {
 
 const HeroSection = () => {
   const { t } = useTranslation("home");
+  const { localize } = useLocalizedPath();
   const isMobile = useIsMobile();
-  const w = isMobile ? 120 : 190;
+  const w = isMobile ? 132 : 225;
 
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden bg-lore-night text-lore-birch">
       <HeroBackdrop />
+      {/* darker top edge so the transparent header always reads */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[rgba(20,8,10,0.55)] to-transparent" />
       {/* soft vignette so the type always reads */}
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(30,12,16,0.35),rgba(30,12,16,0.6))] md:hidden" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_70%_at_20%_80%,rgba(30,12,16,0.55),transparent_60%)]" />
@@ -51,25 +56,27 @@ const HeroSection = () => {
             <button type="button" onClick={() => scrollTo("waitlist")} className="btn-cream">
               {t("hero.ctaWaitlist")}
             </button>
-            <button type="button" onClick={() => scrollTo("why-lore")} className="btn-ghost text-lore-birch">
-              {t("hero.ctaLearn")}
-            </button>
+            <Link to={localize("/products")} className="btn-ghost text-lore-birch">
+              {t("hero.ctaProducts")} <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
 
-        {/* Floating range: drag or hover a box to turn it */}
+        {/* The range, resting together in the leaf light: drag or hover a box to turn it */}
         <div
-          className="relative mx-auto flex h-[300px] w-full max-w-[560px] items-center justify-center md:h-[460px] lg:h-[560px] fade-in"
+          className="relative mx-auto flex w-full max-w-[640px] items-end justify-center pt-4 fade-in lg:pt-24"
           style={{ animationDelay: "0.35s" }}
         >
-          <div className="absolute left-[2%] top-[18%] z-10" style={{ animationDelay: "1s" }}>
-            <ProductBox product={getProduct("regular-tampon")} width={w * 0.82} turn={28} float />
+          {/* back: sits a little higher, as if further along the ledge */}
+          <div className="relative z-10 -mr-[13%] -translate-y-[6%]">
+            <ProductBox product={getProduct("regular-tampon")} width={w * 0.82} turn={28} grounded />
           </div>
-          <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
-            <ProductBox product={getProduct("night-pad")} width={w} turn={-22} float />
+          <div className="relative z-20">
+            <ProductBox product={getProduct("night-pad")} width={w} turn={-22} grounded />
           </div>
-          <div className="absolute right-[0%] top-[46%] z-30">
-            <ProductBox product={getProduct("day-pad")} width={w * 0.78} turn={-40} float />
+          {/* front: a touch lower and closer */}
+          <div className="relative z-30 -ml-[15%] translate-y-[5%]">
+            <ProductBox product={getProduct("day-pad")} width={w * 0.8} turn={-38} grounded />
           </div>
         </div>
       </div>

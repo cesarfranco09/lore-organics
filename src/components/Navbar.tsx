@@ -27,6 +27,21 @@ const Navbar = () => {
   const { t } = useTranslation();
   const { localize } = useLocalizedPath();
   const barePath = stripLangPrefix(location.pathname);
+  const [scrolled, setScrolled] = useState(() => typeof window !== "undefined" && window.scrollY > 24);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [barePath]);
+
+  // Over the home hero the header is see-through and cream; it takes on its
+  // solid colors once the page scrolls, on other pages, and with the menu open.
+  const overHero = barePath === "/" && !scrolled && !isOpen;
+  const linkIdle = overHero ? "text-lore-birch/80 hover:text-lore-birch" : "text-muted-foreground hover:text-lore-night";
+  const linkActive = overHero ? "text-lore-birch" : "text-foreground";
+  const iconColor = overHero ? "text-lore-birch/85 hover:text-lore-birch" : "text-muted-foreground hover:text-foreground";
 
   const shopSubLinks = [
     { label: t("nav.allProducts"), href: "/products" },
@@ -77,7 +92,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div
-        className="flex h-[36px] items-center justify-center bg-lore-night text-[10px] font-medium uppercase tracking-[0.24em] text-lore-birch md:text-[11px]"
+        className={`flex h-[36px] items-center justify-center border-b text-[10px] font-medium uppercase tracking-[0.24em] text-lore-birch transition-colors duration-500 md:text-[11px] ${
+          overHero ? "border-lore-birch/10 bg-transparent" : "border-transparent bg-lore-night"
+        }`}
       >
         <span className="text-center px-4">
           {daysUntilLaunch() > 0
@@ -85,10 +102,18 @@ const Navbar = () => {
             : t("announcementLive")}
         </span>
       </div>
-      <div className="border-b border-lore-charcoal/5 bg-lore-birch/85 backdrop-blur-xl">
+      <div
+        className={`border-b transition-[background-color,border-color,backdrop-filter] duration-500 ${
+          overHero ? "border-transparent bg-transparent" : "border-lore-charcoal/5 bg-lore-birch/85 backdrop-blur-xl"
+        }`}
+      >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-3 md:px-12 lg:px-20">
         {/* Logo */}
-        <Link to={localize("/")} className="text-lore-charcoal" aria-label="Lore Organics">
+        <Link
+          to={localize("/")}
+          className={`transition-colors duration-500 ${overHero ? "text-lore-birch" : "text-lore-charcoal"}`}
+          aria-label="Lore Organics"
+        >
           <Wordmark />
         </Link>
 
@@ -99,10 +124,8 @@ const Navbar = () => {
               <div key={link.href} className="relative group">
                 <Link
                   to={localize(link.href)}
-                  className={`text-label transition-colors hover:text-lore-night ${
-                    barePath.startsWith(link.href)
-                      ? "text-foreground"
-                      : "text-muted-foreground"
+                  className={`text-label transition-colors duration-300 ${
+                    barePath.startsWith(link.href) ? linkActive : linkIdle
                   }`}
                 >
                   {link.label}
@@ -166,10 +189,8 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={localize(link.href)}
-                className={`text-label transition-colors hover:text-lore-night ${
-                  barePath === link.href
-                    ? "text-foreground"
-                    : "text-muted-foreground"
+                className={`text-label transition-colors duration-300 ${
+                  barePath === link.href ? linkActive : linkIdle
                 }`}
               >
                 {link.label}
@@ -177,12 +198,12 @@ const Navbar = () => {
             )
           )}
 
-          <LanguageSwitcher />
+          <LanguageSwitcher inverted={overHero} className={overHero ? "text-lore-birch" : ""} />
 
           {/* Cart icon, desktop */}
           <button
             onClick={toggleCart}
-            className="relative text-muted-foreground hover:text-foreground transition-colors"
+            className={`relative transition-colors duration-300 ${iconColor}`}
             aria-label={t("nav.openCart")}
             style={{
               transform: cartBounce ? "scale(1.2)" : "scale(1)",
@@ -214,7 +235,7 @@ const Navbar = () => {
           {/* Cart icon, mobile */}
           <button
             onClick={toggleCart}
-            className="relative text-muted-foreground hover:text-foreground transition-colors"
+            className={`relative transition-colors duration-300 ${iconColor}`}
             aria-label={t("nav.openCart")}
             style={{
               transform: cartBounce ? "scale(1.2)" : "scale(1)",
@@ -243,7 +264,7 @@ const Navbar = () => {
           {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-foreground"
+            className={`transition-colors duration-500 ${overHero ? "text-lore-birch" : "text-foreground"}`}
             aria-label={t("nav.toggleMenu")}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
