@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { ArrowDown } from "lucide-react";
-import LeafShadow from "@/components/brand/LeafShadow";
+import HeroBackdrop from "@/components/brand/HeroBackdrop";
 import ProductBox from "@/components/brand/ProductBox";
 import { getProduct } from "@/lib/catalog";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -28,8 +28,9 @@ const HeroSection = () => {
 
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden bg-lore-night text-lore-birch">
-      <LeafShadow color="rgb(18, 6, 9)" opacity={0.55} seed={11} blur={16} />
+      <HeroBackdrop />
       {/* soft vignette so the type always reads */}
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(30,12,16,0.35),rgba(30,12,16,0.6))] md:hidden" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_70%_at_20%_80%,rgba(30,12,16,0.55),transparent_60%)]" />
 
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-[1400px] grid-cols-1 items-center gap-6 px-6 pb-16 pt-32 md:px-12 lg:grid-cols-[1.05fr_1fr] lg:px-20 lg:pb-24">
