@@ -19,6 +19,9 @@ const daysUntilLaunch = () => {
   return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
 };
 
+/** Pages whose first section is a dark hero that starts behind the header. */
+const DARK_HERO_PATHS = ["/", "/cycle-box"];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -36,9 +39,10 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [barePath]);
 
-  // Over the home hero the header is see-through and cream; it takes on its
-  // solid colors once the page scrolls, on other pages, and with the menu open.
-  const overHero = barePath === "/" && !scrolled && !isOpen;
+  // Over a dark full-bleed hero (home, Cycle Box) the header is see-through and
+  // cream; it takes on its solid colors once the page scrolls, on other pages,
+  // and with the menu open.
+  const overHero = DARK_HERO_PATHS.includes(barePath) && !scrolled && !isOpen;
   const linkIdle = overHero ? "text-lore-birch/80 hover:text-lore-birch" : "text-muted-foreground hover:text-lore-night";
   const linkActive = overHero ? "text-lore-birch" : "text-foreground";
   const iconColor = overHero ? "text-lore-birch/85 hover:text-lore-birch" : "text-muted-foreground hover:text-foreground";

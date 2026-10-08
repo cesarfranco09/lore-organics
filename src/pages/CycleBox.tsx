@@ -216,14 +216,16 @@ const CycleBox = () => {
   const stackSlots = Math.max(totalSelected, limits.min);
 
   return (
-    <main className="pt-20 overflow-x-hidden">
+    <main className="overflow-x-hidden">
       <Seo title={t("seo.title")} description={t("seo.description")} path="/cycle-box" />
       <style>{PAGE_STYLES}</style>
 
       {/* ════════ HERO ════════ */}
       <section className="relative overflow-hidden bg-lore-night text-lore-birch">
         <LeafShadow color="rgba(18, 6, 9, 1)" opacity={0.42} seed={11} blur={16} />
-        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:px-12 md:py-28 lg:grid-cols-12 lg:gap-6">
+        {/* darker top edge so the see-through header reads (it sits over this hero) */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[rgba(20,8,10,0.5)] to-transparent" />
+        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-6 pb-20 pt-40 md:px-12 md:pb-28 md:pt-48 lg:grid-cols-12 lg:gap-6">
           <div className="text-center lg:col-span-7 lg:text-left">
             <p className="text-label mb-6 text-lore-birch/70 fade-in-up">Cycle Box</p>
             <h1 className="text-editorial-xl mb-6 fade-in-up">
