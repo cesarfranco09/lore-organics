@@ -188,6 +188,17 @@
   .no-scrollbar { scrollbar-width: none; }
 }
 
+/* Logo strip: the track holds two identical copies, so moving it by -50% loops seamlessly. */
+.logo-marquee-track {
+  animation: logoMarquee 45s linear infinite;
+  will-change: transform;
+}
+
+@keyframes logoMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -217,5 +228,9 @@
 @media (prefers-reduced-motion: reduce) {
   .leaf-sway, .float-slow, .fade-in-up, .fade-in, .slide-in { animation: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .logo-marquee { mask-image: none; }
+  .logo-marquee-track { animation: none; width: auto; justify-content: center; }
+  .logo-marquee-track > div { flex-wrap: wrap; justify-content: center; row-gap: 1.5rem; padding: 0 1.5rem; }
+  .logo-marquee-track > div + div { display: none; }
   html { scroll-behavior: auto; }
 }

@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import HeroSection from "@/components/home/HeroSection";
+import LogoStrip from "@/components/home/LogoStrip";
 import DayNightSection from "@/components/home/DayNightSection";
 import ChooseFlowSection from "@/components/home/ChooseFlowSection";
 import WhyLoreSection from "@/components/home/WhyLoreSection";
@@ -16,6 +17,7 @@ const Index = () => {
       <Seo title={t("seo.title")} description={t("seo.description")} path="/" />
       <main>
         <HeroSection />
+        <LogoStrip />
         <DayNightSection />
         <ChooseFlowSection />
         <WhyLoreSection />
