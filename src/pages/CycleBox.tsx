@@ -232,24 +232,24 @@ const CycleBox = () => {
         {/* darker top edge so the see-through header reads, and a soft vignette behind the copy */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[rgba(20,8,10,0.5)] to-transparent" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_15%_60%,rgba(30,12,16,0.55),transparent_65%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(30,12,16,0.3),rgba(30,12,16,0.55))] lg:hidden" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(30,12,16,0.3),rgba(30,12,16,0.55))] xl:hidden" />
 
-        <div className="relative z-10 mx-auto grid max-w-[1400px] items-center gap-12 px-6 pb-20 pt-40 md:px-12 md:pb-28 md:pt-48 lg:grid-cols-[1.15fr_1fr] lg:gap-8 lg:px-20">
-          <div className="text-center lg:text-left">
+        <div className="relative z-10 mx-auto grid max-w-[1400px] items-center gap-12 px-6 pb-20 pt-40 md:px-12 md:pb-28 md:pt-48 xl:grid-cols-[1.15fr_1fr] xl:gap-8 lg:px-20">
+          <div className="text-center xl:text-left">
             <p className="text-label mb-6 text-lore-birch/80 fade-in-up">{t("hero.eyebrow")}</p>
-            <h1 className="text-editorial-xl mb-6 fade-in-up">
+            <h1 className="mb-6 font-serif font-light leading-[0.98] tracking-[-0.01em] text-[clamp(3rem,6.2vw,6rem)] fade-in-up">
               {t("hero.title1")}
               <br />
               <em className="font-light">{t("hero.title2")}</em>
             </h1>
-            <p className="mx-auto mb-10 max-w-xl font-serif text-xl font-light text-lore-birch sm:text-2xl lg:mx-0 fade-in-up">
+            <p className="mx-auto mb-10 max-w-xl font-serif text-xl font-light text-lore-birch sm:text-2xl xl:mx-0 fade-in-up">
               {t("hero.tagline")}
             </p>
 
             {/* Pick a delivery rhythm right here: selects it and jumps into the builder */}
             <p className="text-label mb-4 text-lore-birch/80 fade-in-up">{t("hero.pick")}</p>
             <div
-              className="mx-auto mb-8 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-3 lg:mx-0 fade-in-up"
+              className="mx-auto mb-8 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-3 xl:mx-0 fade-in-up"
               role="group"
               aria-label={t("hero.pick")}
             >
@@ -279,7 +279,7 @@ const CycleBox = () => {
               ))}
             </div>
 
-            <ul className="mx-auto grid max-w-lg grid-cols-1 justify-items-center gap-x-8 gap-y-2 text-sm text-lore-birch/90 sm:grid-cols-2 sm:justify-items-start lg:mx-0 fade-in-up">
+            <ul className="mx-auto grid max-w-lg grid-cols-1 justify-items-center gap-x-8 gap-y-2 text-left text-sm text-lore-birch/90 sm:grid-cols-2 sm:justify-items-start xl:mx-0 fade-in-up">
               {[0, 1, 2].map((i) => (
                 <li key={i} className="flex items-center gap-2">
                   <Check size={14} strokeWidth={1.5} className="text-lore-birch/70" />
@@ -343,11 +343,11 @@ const CycleBox = () => {
                             : "border-border bg-lore-birch hover:-translate-y-0.5 hover:border-lore-night/40"
                         }`}
                       >
-                        <span className="block whitespace-nowrap font-serif text-xl font-light leading-tight">
+                        <span className="block font-serif text-xl font-light leading-tight">
                           {t(`cadences.${c}.label`)}
                         </span>
                         <span className="block text-right sm:mt-3 sm:text-left">
-                          <span className={`text-label block ${active ? "text-lore-birch/80" : "text-lore-night/70"}`}>
+                          <span className={`block text-[10px] font-medium uppercase tracking-[0.06em] xl:text-[11px] xl:tracking-[0.12em] ${active ? "text-lore-birch/80" : "text-lore-night/70"}`}>
                             {t(`cadences.${c}.tag`)}
                           </span>
                           <span className={`mt-1 block text-xs ${active ? "text-lore-birch/70" : "text-muted-foreground"}`}>

@@ -127,7 +127,7 @@ const ProductPanel = ({ product, index }: { product: CatalogProduct; index: numb
                       background: active ? "color-mix(in srgb, currentColor 10%, transparent)" : "transparent",
                     }}
                   >
-                    <span className="block text-[11px] font-medium uppercase tracking-[0.16em]">{th(`flow.cadence.${c}`)}</span>
+                    <span className="block text-[11px] font-medium uppercase tracking-[0.1em]">{th(`flow.cadence.${c}`)}</span>
                     <span className="mt-1 block text-sm opacity-80">{formatEuro(priceFor(product.id, c, liveBase), lang)}</span>
                     {CADENCE_DISCOUNT[c] > 0 && (
                       <span className="absolute -top-2 right-2 rounded-full bg-lore-birch px-2 py-0.5 text-[10px] font-medium text-lore-night">
@@ -187,7 +187,7 @@ const ProductPanel = ({ product, index }: { product: CatalogProduct; index: numb
               {product.claims.map((c) => (
                 <li key={c} className="flex flex-col items-center gap-2 text-center">
                   <ClaimIcon claim={c} size={40} />
-                  <span className="max-w-[16ch] text-[10px] font-medium uppercase leading-snug tracking-[0.14em]">{tc(`claims.${c}`)}</span>
+                  <span className="max-w-full text-[10px] font-medium uppercase leading-snug tracking-[0.12em] [overflow-wrap:anywhere]">{tc(`claims.${c}`)}</span>
                 </li>
               ))}
             </ul>

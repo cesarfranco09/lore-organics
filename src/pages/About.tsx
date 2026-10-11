@@ -23,10 +23,10 @@ const About = () => {
           <p className="text-label text-lore-botanical mb-6">{t("mission.label")}</p>
           <div className="h-px w-20 bg-gradient-to-r from-transparent via-lore-sage to-transparent mb-12" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-            <div className="lg:col-span-4">
-              <h1 className="text-editorial-xl sticky top-28">
-                {t("mission.titleLine1")}<br />{t("mission.titleLine2")}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-x-20 lg:gap-y-14">
+            <div className="lg:col-span-12">
+              <h1 className="font-serif font-light tracking-[-0.01em] leading-[0.98] text-[clamp(2.6rem,7vw,6.25rem)]">
+                {t("mission.titleLine1")}<br /><em className="font-light">{t("mission.titleLine2")}</em>
               </h1>
             </div>
 

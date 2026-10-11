@@ -28,7 +28,7 @@ const Sustainability = () => {
         <div className="relative z-10 px-6 md:px-12 lg:px-24 max-w-3xl">
           <p className="text-label text-lore-botanical mb-4">{t("hero.label")}</p>
           <div className="divider-botanical mb-8" />
-          <h1 className="text-editorial-xl mb-6">{t("hero.titleLine1")}<br />{t("hero.titleLine2")}</h1>
+          <h1 className="mb-6 font-serif font-light tracking-[-0.01em] leading-[1] text-[clamp(2.6rem,6.5vw,5.25rem)]">{t("hero.titleLine1")}<br />{t("hero.titleLine2")}</h1>
           <p className="text-body-lg text-muted-foreground max-w-lg">
             {t("hero.body")}
           </p>
@@ -46,7 +46,7 @@ const Sustainability = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-8 max-w-4xl mx-auto mb-20">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-8 max-w-4xl mx-auto mb-20">
           {Array.from({ length: 3 }, (_, i) => ({
             stat: t(`stats.${i}.stat`),
             label: t(`stats.${i}.label`),

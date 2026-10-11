@@ -87,6 +87,8 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
+    /* Long Dutch/German compounds wrap inside their box instead of spilling out. */
+    overflow-wrap: break-word;
   }
 }
 

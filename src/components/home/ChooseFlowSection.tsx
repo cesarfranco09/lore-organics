@@ -147,7 +147,7 @@ const ChooseFlowSection = () => {
                       background: active ? "color-mix(in srgb, currentColor 10%, transparent)" : "transparent",
                     }}
                   >
-                    <span className="block text-[11px] font-medium uppercase tracking-[0.16em]">{t(`flow.cadence.${c}`)}</span>
+                    <span className="block text-[11px] font-medium uppercase tracking-[0.1em]">{t(`flow.cadence.${c}`)}</span>
                     <span className="mt-1 block text-sm opacity-80">{formatEuro(priceFor(product.id, c, liveBase), lang)}</span>
                     {CADENCE_DISCOUNT[c] > 0 && (
                       <span className="absolute -top-2 right-2 rounded-full bg-lore-birch px-2 py-0.5 text-[10px] font-medium text-lore-night">

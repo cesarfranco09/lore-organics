@@ -40,7 +40,7 @@ function useAutoCycle<T>(values: readonly T[], initial: T, ms: number) {
 
 const Card = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <div
-    className={`relative isolate flex aspect-[5/4] w-full items-center justify-center overflow-hidden rounded-3xl bg-lore-birch shadow-[0_24px_50px_-34px_rgba(58,46,41,0.55)] ${className}`}
+    className={`relative isolate flex min-h-[15rem] w-full items-center justify-center overflow-hidden rounded-3xl py-6 bg-lore-birch shadow-[0_24px_50px_-34px_rgba(58,46,41,0.55)] ${className}`}
   >
     <LeafShadow color="rgb(58, 46, 41)" opacity={0.07} seed={8} blur={10} still sunlight={false} />
     <div className="relative w-full px-5">{children}</div>
@@ -172,18 +172,18 @@ const Adjust = () => {
 
   return (
     <Card>
-      <div className="mx-auto max-w-[220px] rounded-2xl bg-lore-linen/70 p-4">
+      <div className="mx-auto max-w-[260px] rounded-2xl bg-lore-linen/70 p-4">
         <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.2em] text-lore-charcoal/60">
           {t("howItWorks.adjust.title")}
         </p>
-        <div className="mb-3 grid grid-cols-3 gap-1.5">
+        <div className="mb-3 flex flex-wrap gap-1.5">
           {ACTIONS.map((a) => (
             <button
               key={a}
               type="button"
               aria-pressed={a === action}
               onClick={() => choose(a)}
-              className={`rounded-full py-1.5 text-[11px] font-medium transition-colors duration-300 ${
+              className={`rounded-full px-3 py-1.5 text-[11px] font-medium transition-colors duration-300 ${
                 a === action ? "bg-lore-night text-lore-birch" : "bg-lore-birch text-lore-charcoal/70 hover:text-lore-night"
               }`}
             >
@@ -222,9 +222,9 @@ const HowItWorks = () => {
           <h2 className="text-editorial-lg">{t("howItWorks.title")}</h2>
         </Reveal>
 
-        <ol className="relative grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <ol className="relative grid grid-cols-1 gap-14 md:grid-cols-2 xl:grid-cols-4 xl:gap-8">
           {/* connecting line: horizontal on desktop, vertical on phones */}
-          <div className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-5 hidden h-px bg-lore-charcoal/10 lg:block" aria-hidden="true">
+          <div className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-5 hidden h-px bg-lore-charcoal/10 xl:block" aria-hidden="true">
             <div className="h-full origin-left bg-lore-night/60" style={{ transform: `scaleX(${line})` }} />
           </div>
           <div className="pointer-events-none absolute bottom-0 left-5 top-5 w-px bg-lore-charcoal/10 md:hidden" aria-hidden="true">
@@ -233,7 +233,7 @@ const HowItWorks = () => {
 
           {steps.map((s, i) => (
             <Reveal as="li" key={i} delay={i * 110} className="relative pl-14 md:pl-0">
-              <div className="mb-6 flex items-center md:justify-start lg:justify-center">
+              <div className="mb-6 flex items-center md:justify-start xl:justify-center">
                 <span
                   className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full border font-sans text-sm font-medium transition-colors duration-500 md:static"
                   style={{
@@ -246,8 +246,8 @@ const HowItWorks = () => {
                 </span>
               </div>
               {s.visual}
-              <h3 className="mb-2 mt-6 font-serif text-2xl font-light lg:text-center">{s.title}</h3>
-              <p className="text-body text-muted-foreground lg:text-center">{s.body}</p>
+              <h3 className="mb-2 mt-6 font-serif text-2xl font-light xl:text-center">{s.title}</h3>
+              <p className="text-body text-muted-foreground xl:text-center">{s.body}</p>
             </Reveal>
           ))}
         </ol>
