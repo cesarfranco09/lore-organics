@@ -10,6 +10,7 @@ import { resolveSellingPlan } from "@/lib/subscriptions";
 import { CATALOG, getProduct, familyColor, type CatalogProduct, type ProductId } from "@/lib/catalog";
 import {
   SUBSCRIPTION_CADENCES,
+  CADENCE_DISCOUNT,
   BOX_LIMITS,
   RECOMMENDATIONS,
   SHIPPING,
@@ -18,7 +19,9 @@ import {
   type SubscriptionCadence,
 } from "@/lib/pricing";
 import ProductBox from "@/components/brand/ProductBox";
+import { useIsMobile } from "@/hooks/use-mobile";
 import LeafShadow from "@/components/brand/LeafShadow";
+import HeroBackdrop from "@/components/brand/HeroBackdrop";
 import Reveal from "@/components/brand/Reveal";
 import Droplets from "@/components/brand/Droplets";
 
@@ -110,6 +113,8 @@ const CycleBox = () => {
   const [quantities, setQuantities] = useState<Quantities>(EMPTY);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  const isMobile = useIsMobile();
+  const boxW = isMobile ? 130 : 210;
   const { checkoutLines, isCheckingOut } = useCart();
   const { byHandle } = useShopifyProducts();
   const storeLive = isStoreLive();
@@ -222,47 +227,84 @@ const CycleBox = () => {
 
       {/* ════════ HERO ════════ */}
       <section className="relative overflow-hidden bg-lore-night text-lore-birch">
-        <LeafShadow color="rgba(18, 6, 9, 1)" opacity={0.42} seed={11} blur={16} />
-        {/* darker top edge so the see-through header reads (it sits over this hero) */}
+        <HeroBackdrop clip="cyclebox" />
+        {/* darker top edge so the see-through header reads, and a soft vignette behind the copy */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[rgba(20,8,10,0.5)] to-transparent" />
-        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-6 pb-20 pt-40 md:px-12 md:pb-28 md:pt-48 lg:grid-cols-12 lg:gap-6">
-          <div className="text-center lg:col-span-7 lg:text-left">
-            <p className="text-label mb-6 text-lore-birch/70 fade-in-up">Cycle Box</p>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_15%_60%,rgba(30,12,16,0.55),transparent_65%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(30,12,16,0.3),rgba(30,12,16,0.55))] lg:hidden" />
+
+        <div className="relative z-10 mx-auto grid max-w-[1400px] items-center gap-12 px-6 pb-20 pt-40 md:px-12 md:pb-28 md:pt-48 lg:grid-cols-[1.15fr_1fr] lg:gap-8 lg:px-20">
+          <div className="text-center lg:text-left">
+            <p className="text-label mb-6 text-lore-birch/80 fade-in-up">{t("hero.eyebrow")}</p>
             <h1 className="text-editorial-xl mb-6 fade-in-up">
               {t("hero.title1")}
               <br />
               <em className="font-light">{t("hero.title2")}</em>
             </h1>
-            <p className="mx-auto mb-3 max-w-xl font-serif text-xl font-light text-lore-birch/90 sm:text-2xl lg:mx-0 fade-in-up">
+            <p className="mx-auto mb-10 max-w-xl font-serif text-xl font-light text-lore-birch sm:text-2xl lg:mx-0 fade-in-up">
               {t("hero.tagline")}
             </p>
-            <p className="text-body-lg mx-auto mb-10 max-w-md text-lore-birch/70 lg:mx-0 fade-in-up">
-              {t("hero.subtitle")}
-            </p>
-            <div className="mb-10 fade-in-up">
-              <button onClick={scrollToBuilder} className="btn-cream">
-                {t("hero.cta")} <ArrowRight size={14} />
-              </button>
+
+            {/* Pick a delivery rhythm right here: selects it and jumps into the builder */}
+            <p className="text-label mb-4 text-lore-birch/80 fade-in-up">{t("hero.pick")}</p>
+            <div
+              className="mx-auto mb-8 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-3 lg:mx-0 fade-in-up"
+              role="group"
+              aria-label={t("hero.pick")}
+            >
+              {SUBSCRIPTION_CADENCES.map((c) => (
+                <button
+                  key={c}
+                  type="button"
+                  onClick={() => {
+                    chooseCadence(c);
+                    scrollToBuilder();
+                  }}
+                  className="group relative flex items-center justify-between gap-3 rounded-2xl border border-lore-birch/25 bg-lore-birch/[0.06] px-4 py-3 text-left backdrop-blur-sm sm:block sm:py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-lore-birch/70 hover:bg-lore-birch/[0.12]"
+                >
+                  {CADENCE_DISCOUNT[c] > 0 && (
+                    <span className="absolute -top-2.5 right-3 rounded-full bg-lore-birch px-2.5 py-0.5 text-[10px] font-medium text-lore-night">
+                      −{CADENCE_DISCOUNT[c]}%
+                    </span>
+                  )}
+                  <span className="block font-serif text-lg sm:text-xl">{t(`cadences.${c}.label`)}</span>
+                  <span className="block text-sm text-lore-birch/85 sm:mt-1">
+                    {t("builder.fromPerPack", { price: formatEuro(fromPrice(c), lang) })}
+                  </span>
+                  <span className="mt-3 hidden items-center gap-1.5 text-[10px] sm:inline-flex font-medium uppercase tracking-[0.2em] text-lore-birch/75 transition-colors group-hover:text-lore-birch">
+                    {t("hero.choose")} <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </button>
+              ))}
             </div>
-            <ul className="flex flex-col items-center gap-3 text-sm text-lore-birch/80 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-7 lg:justify-start fade-in-up">
+
+            <ul className="mx-auto grid max-w-lg grid-cols-1 justify-items-center gap-x-8 gap-y-2 text-sm text-lore-birch/90 sm:grid-cols-2 sm:justify-items-start lg:mx-0 fade-in-up">
               {[0, 1, 2].map((i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <Check size={14} strokeWidth={1.5} className="text-lore-birch/60" />
+                  <Check size={14} strokeWidth={1.5} className="text-lore-birch/70" />
                   {t(`perks.${i}`)}
                 </li>
               ))}
+              <li className="flex items-center gap-2">
+                <Check size={14} strokeWidth={1.5} className="text-lore-birch/70" />
+                {t("hero.discreet")}
+              </li>
             </ul>
           </div>
-          <div className="relative hidden h-[420px] lg:col-span-5 lg:block" aria-hidden="true">
-            <div className="absolute right-6 top-0">
-              <ProductBox product={getProduct("night-pad")} width={200} turn={-26} float />
+
+          {/* A delivery, resting in the leaf light: night pads on day pads, tampons beside */}
+          <div className="flex items-end justify-center fade-in" style={{ animationDelay: "0.35s" }}>
+            <div className="relative z-10 -mr-[9%]">
+              <ProductBox product={getProduct("regular-tampon")} width={boxW * 0.78} turn={30} grounded />
             </div>
-            <div className="absolute bottom-0 left-0">
-              <ProductBox product={getProduct("super-tampon")} width={140} turn={22} />
+            <div className="relative z-20 flex flex-col items-center">
+              <div className="relative z-20" style={{ marginBottom: -(boxW * 0.27) }}>
+                <ProductBox product={getProduct("night-pad")} width={boxW * 0.9} turn={-16} grounded />
+              </div>
+              <div className="relative z-10">
+                <ProductBox product={getProduct("day-pad")} width={boxW} turn={-24} grounded />
+              </div>
             </div>
-          </div>
-          <div className="flex justify-center lg:hidden" aria-hidden="true">
-            <ProductBox product={getProduct("night-pad")} width={130} turn={-24} interactive={false} float />
           </div>
         </div>
       </section>

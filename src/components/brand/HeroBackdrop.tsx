@@ -9,11 +9,16 @@ import { useEffect, useState } from "react";
  * Background only, no product, so nothing in it can misrepresent the packaging.
  */
 
-const POSTER = "/media/hero-leaves-poster.webp";
-const SOURCES = [
-  { src: "/media/hero-leaves.webm", type: "video/webm" },
-  { src: "/media/hero-leaves.mp4", type: "video/mp4" },
-];
+/** Loops in /public/media: "hero" (softer, home page) and "cyclebox" (crisper leaves). */
+export type BackdropClip = "hero" | "cyclebox";
+
+const media = (clip: BackdropClip) => ({
+  poster: `/media/${clip}-leaves-poster.webp`,
+  sources: [
+    { src: `/media/${clip}-leaves.webm`, type: "video/webm" },
+    { src: `/media/${clip}-leaves.mp4`, type: "video/mp4" },
+  ],
+});
 
 const shouldPlayVideo = () => {
   if (typeof window === "undefined") return false;
@@ -22,7 +27,8 @@ const shouldPlayVideo = () => {
   return !reduced && !saveData;
 };
 
-const HeroBackdrop = ({ className = "" }: { className?: string }) => {
+const HeroBackdrop = ({ className = "", clip = "hero" }: { className?: string; clip?: BackdropClip }) => {
+  const { poster, sources } = media(clip);
   const [playVideo, setPlayVideo] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -33,7 +39,7 @@ const HeroBackdrop = ({ className = "" }: { className?: string }) => {
   return (
     <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden="true">
       <img
-        src={POSTER}
+        src={poster}
         alt=""
         className="absolute inset-0 h-full w-full object-cover object-[70%_center]"
         {...({ fetchpriority: "high" } as Record<string, string>)}
@@ -49,10 +55,10 @@ const HeroBackdrop = ({ className = "" }: { className?: string }) => {
           loop
           playsInline
           preload="auto"
-          poster={POSTER}
+          poster={poster}
           onCanPlay={() => setReady(true)}
         >
-          {SOURCES.map((s) => (
+          {sources.map((s) => (
             <source key={s.src} src={s.src} type={s.type} />
           ))}
         </video>
