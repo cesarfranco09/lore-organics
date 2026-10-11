@@ -22,6 +22,7 @@ import ProductBox from "@/components/brand/ProductBox";
 import { useIsMobile } from "@/hooks/use-mobile";
 import LeafShadow from "@/components/brand/LeafShadow";
 import HeroBackdrop from "@/components/brand/HeroBackdrop";
+import HowItWorks from "@/components/cyclebox/HowItWorks";
 import Reveal from "@/components/brand/Reveal";
 import Droplets from "@/components/brand/Droplets";
 
@@ -310,33 +311,7 @@ const CycleBox = () => {
       </section>
 
       {/* ════════ HOW IT WORKS ════════ */}
-      <section id="how-it-works" className="section-padding bg-lore-ivory">
-        <div className="mx-auto max-w-5xl">
-          <Reveal>
-            <p className="text-label mb-4 text-center text-muted-foreground">{t("howItWorks.label")}</p>
-            <h2 className="text-editorial-md mb-16 text-center">{t("howItWorks.title")}</h2>
-          </Reveal>
-          <div className="grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-20">
-            <Reveal className="text-center md:text-left">
-              <span className="mb-4 block font-serif text-5xl font-light text-lore-night/40">01</span>
-              <h3 className="mb-4 font-serif text-2xl font-light">{t("howItWorks.step1.title")}</h3>
-              <ul className="mb-3 space-y-1">
-                {[0, 1, 2].map((i) => (
-                  <li key={i} className="text-body text-muted-foreground">
-                    {t(`howItWorks.step1.items.${i}`)}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-body text-muted-foreground">{t("howItWorks.step1.desc")}</p>
-            </Reveal>
-            <Reveal delay={120} className="text-center md:text-left">
-              <span className="mb-4 block font-serif text-5xl font-light text-lore-night/40">02</span>
-              <h3 className="mb-4 font-serif text-2xl font-light">{t("howItWorks.step2.title")}</h3>
-              <p className="text-body text-muted-foreground">{t("howItWorks.step2.desc")}</p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+      <HowItWorks />
 
       {/* ════════ BOX BUILDER ════════ */}
       <section ref={builderRef} className="section-padding scroll-mt-20">

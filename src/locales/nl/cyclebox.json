@@ -17,20 +17,34 @@
     "kitLabel": "Jouw Cycle Kit"
   },
   "howItWorks": {
-    "label": "Zo simpel als 1-2",
+    "label": "Zo simpel als 1-2-3-4",
     "title": "Zo werkt het",
     "step1": {
       "title": "Kies je bezorging",
-      "items": [
-        "Elke 2 maanden",
-        "Elke 3 maanden — bespaar 5%",
-        "Elke 6 maanden — bespaar 10%"
-      ],
       "desc": "Gratis verzending op elke bezorging vanaf €50."
     },
     "step2": {
       "title": "Stel je box samen",
       "desc": "Combineer producten op basis van jouw cyclus. Dagverband, nachtverband, regular of super tampons — jij beslist."
+    },
+    "months_one": "{{count}} maand",
+    "months_other": "{{count}} maanden",
+    "perYear_one": "{{count}} bezorging per jaar",
+    "perYear_other": "{{count}} bezorgingen per jaar",
+    "step3": {
+      "title": "Het wordt bezorgd"
+    },
+    "step4": {
+      "title": "Pas aan wanneer je wilt"
+    },
+    "adjust": {
+      "title": "Je volgende bezorging",
+      "skip": "Overslaan",
+      "pause": "Pauzeren",
+      "cancel": "Opzeggen",
+      "skipped": "Overgeslagen. De volgende komt op {{date}}.",
+      "paused": "Gepauzeerd tot je er klaar voor bent.",
+      "cancelled": "Opgezegd. Zonder vragen."
     }
   },
   "builder": {

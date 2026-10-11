@@ -17,20 +17,34 @@
     "kitLabel": "Your Cycle Kit"
   },
   "howItWorks": {
-    "label": "Simple as 1-2",
+    "label": "Simple as 1-2-3-4",
     "title": "How it works",
     "step1": {
       "title": "Choose your delivery",
-      "items": [
-        "Every 2 months",
-        "Every 3 months — save 5%",
-        "Every 6 months — save 10%"
-      ],
       "desc": "Free shipping on every delivery over €50."
     },
     "step2": {
       "title": "Build Your Box",
       "desc": "Mix and match products based on your flow. Day pads, night pads, regular or super tampons, you decide."
+    },
+    "months_one": "{{count}} month",
+    "months_other": "{{count}} months",
+    "perYear_one": "{{count}} delivery a year",
+    "perYear_other": "{{count}} deliveries a year",
+    "step3": {
+      "title": "It arrives"
+    },
+    "step4": {
+      "title": "Adjust anytime"
+    },
+    "adjust": {
+      "title": "Your next delivery",
+      "skip": "Skip",
+      "pause": "Pause",
+      "cancel": "Cancel",
+      "skipped": "Skipped. Next one arrives {{date}}.",
+      "paused": "Paused until you’re ready.",
+      "cancelled": "Cancelled. No questions asked."
     }
   },
   "builder": {

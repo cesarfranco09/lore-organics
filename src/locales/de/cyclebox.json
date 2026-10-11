@@ -17,20 +17,34 @@
     "kitLabel": "Dein Cycle Kit"
   },
   "howItWorks": {
-    "label": "So einfach wie 1-2",
+    "label": "So einfach wie 1-2-3-4",
     "title": "So funktioniert's",
     "step1": {
       "title": "Wähle deine Lieferung",
-      "items": [
-        "Alle 2 Monate",
-        "Alle 3 Monate — spare 5 %",
-        "Alle 6 Monate — spare 10 %"
-      ],
       "desc": "Kostenloser Versand für jede Lieferung ab €50."
     },
     "step2": {
       "title": "Stell deine Box zusammen",
       "desc": "Kombiniere Produkte ganz nach deinem Zyklus. Tagesbinden, Nachtbinden, Tampons Regular oder Super — du entscheidest."
+    },
+    "months_one": "{{count}} Monat",
+    "months_other": "{{count}} Monate",
+    "perYear_one": "{{count}} Lieferung im Jahr",
+    "perYear_other": "{{count}} Lieferungen im Jahr",
+    "step3": {
+      "title": "Es kommt an"
+    },
+    "step4": {
+      "title": "Jederzeit anpassen"
+    },
+    "adjust": {
+      "title": "Deine nächste Lieferung",
+      "skip": "Aussetzen",
+      "pause": "Pausieren",
+      "cancel": "Kündigen",
+      "skipped": "Ausgesetzt. Die nächste kommt am {{date}}.",
+      "paused": "Pausiert, bis du bereit bist.",
+      "cancelled": "Gekündigt. Ohne Wenn und Aber."
     }
   },
   "builder": {
