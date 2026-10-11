@@ -90,14 +90,24 @@ export const ClaimIcon = ({ claim, size = 48 }: { claim: ClaimKey; size?: number
   </svg>
 );
 
-/** 4 × 2 on desktop, 2 × 4 on mobile (style guide). */
-export const ClaimGrid = ({ claims, className = "" }: { claims: readonly ClaimKey[]; className?: string }) => {
+/** 4 × 2 on desktop, 2 × 4 on mobile (style guide). `columns={2}` keeps two columns, for narrow panels. */
+export const ClaimGrid = ({
+  claims,
+  className = "",
+  columns = 4,
+  iconSize = 48,
+}: {
+  claims: readonly ClaimKey[];
+  className?: string;
+  columns?: 2 | 4;
+  iconSize?: number;
+}) => {
   const { t } = useTranslation();
   return (
-    <ul className={`grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 ${className}`}>
+    <ul className={`grid grid-cols-2 gap-x-6 gap-y-8 ${columns === 4 ? "md:grid-cols-4" : ""} ${className}`}>
       {claims.map((c) => (
         <li key={c} className="flex flex-col items-center gap-3 text-center">
-          <ClaimIcon claim={c} />
+          <ClaimIcon claim={c} size={iconSize} />
           <span className="max-w-[20ch] text-[10px] font-medium uppercase leading-relaxed tracking-[0.16em] md:text-[11px]">{t(`claims.${c}`)}</span>
         </li>
       ))}
