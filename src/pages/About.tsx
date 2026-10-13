@@ -93,23 +93,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* ═══ CLOSING CTA, WAITLIST ═══ */}
-      <section className="section-padding">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-editorial-lg mb-6">{t("closing.title")}</h2>
-          <p className="text-body-lg text-muted-foreground mb-10">
-            {t("closing.body")}
-          </p>
-          <Link
-            to={localize("/") + "#waitlist"}
-            className="inline-flex items-center justify-center px-8 py-3.5 text-label transition-all duration-300 hover:opacity-90 hover:translate-y-[-2px] active:translate-y-[1px]"
-            style={{ backgroundColor: "#4B2E38", color: "#F7F5F1" }}
-          >
-            {t("closing.button")}
-          </Link>
-        </div>
-      </section>
-
     </main>
   );
 };

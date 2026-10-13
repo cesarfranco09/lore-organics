@@ -13,7 +13,6 @@ import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import GiveOneInterstitial from "@/components/donation/GiveOneInterstitial";
 import Index from "./pages/Index";
-import WaitlistBar from "@/components/WaitlistBar";
 import SignupPopup from "@/components/SignupPopup";
 
 // Code-split secondary routes so the home page loads only what it needs
@@ -79,7 +78,6 @@ const App = () => (
             </Routes>
           </Suspense>
           <Footer />
-          <WaitlistBar />
           <SignupPopup />
         </BrowserRouter>
       </CartProvider>

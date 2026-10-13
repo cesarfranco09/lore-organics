@@ -149,27 +149,6 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* SECTION 6, CTA */}
-      <section
-        className="px-6 md:px-12 lg:px-24 py-24 md:py-32 text-center"
-        style={{ backgroundColor: IVORY }}
-      >
-        <div className="max-w-2xl mx-auto">
-          <h2 className="font-serif text-4xl md:text-5xl mb-6" style={{ color: FOREST }}>
-            {t("cta.title")}
-          </h2>
-          <p className="font-sans text-lg mb-10" style={{ color: FOREST }}>
-            {t("cta.body")}
-          </p>
-          <Link
-            to={localize("/") + "#waitlist"}
-            className="inline-block px-10 py-4 font-sans text-sm tracking-[0.15em] uppercase transition-opacity hover:opacity-90"
-            style={{ backgroundColor: FOREST, color: IVORY }}
-          >
-            {t("cta.button")}
-          </Link>
-        </div>
-      </section>
     </main>
   );
 };

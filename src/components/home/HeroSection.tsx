@@ -53,11 +53,11 @@ const HeroSection = () => {
             {t("hero.signoff")}
           </p>
           <div className="flex flex-wrap gap-3 fade-in-up" style={{ animationDelay: "0.3s" }}>
-            <button type="button" onClick={() => scrollTo("waitlist")} className="btn-cream">
-              {t("hero.ctaWaitlist")}
-            </button>
-            <Link to={localize("/products")} className="btn-ghost text-lore-birch">
+            <Link to={localize("/products")} className="btn-cream">
               {t("hero.ctaProducts")} <ArrowRight size={14} />
+            </Link>
+            <Link to={localize("/cycle-box")} className="btn-ghost text-lore-birch">
+              {t("flow.buildBox")}
             </Link>
           </div>
         </div>

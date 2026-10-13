@@ -7,7 +7,6 @@
     "title": "Natürlich. Punkt.",
     "body": "Periodenprodukte aus Bio-Baumwolle, weil deine Vagina zählt. Hergestellt in Europa, gemacht, um kürzer zu halten als die Geschichten über deinen Ex. Höchstpersönlich von uns getestet.",
     "signoff": "Alles Liebe, Rachael & Geneviève.",
-    "ctaWaitlist": "Auf die Warteliste",
     "ctaLearn": "Mehr erfahren",
     "ctaProducts": "Zu den Produkten"
   },
@@ -71,16 +70,6 @@
   "editorial": {
     "quote": "Wir bewältigen einen unserer natürlichsten Prozesse mit Produkten, die vor Jahrzehnten von Menschen entworfen wurden, die nie ihre Periode hatten. Aus Plastik. Aus Petrochemikalien. Gemacht, ohne an uns zu denken.",
     "cta": "Sieh, was wir anders machen"
-  },
-  "newsletter": {
-    "label": "Warteliste",
-    "heading": "Erfahre als Erste, wann wir starten.",
-    "body": "Trag dich auf die Warteliste ein und erhalte 10 % Rabatt auf deine erste Bestellung. Wir starten am 1. Oktober in den Niederlanden und Deutschland.",
-    "placeholder": "Deine E-Mail-Adresse",
-    "join": "Auf die Warteliste",
-    "joining": "Wird gesendet…",
-    "onList": "Du stehst auf der Liste",
-    "success": "Danke, wir melden uns bald."
   },
   "problem": {
     "label": "Das Problem",

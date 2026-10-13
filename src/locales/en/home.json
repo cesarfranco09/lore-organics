@@ -7,7 +7,6 @@
     "title": "Natural, period.",
     "body": "Organic cotton period care, because your vagina matters. Made in Europe, made to last less long than the stories about your ex boyfriend. Tested by yours truly.",
     "signoff": "Love, Rachael & Geneviève.",
-    "ctaWaitlist": "Join the waitlist",
     "ctaLearn": "Learn More",
     "ctaProducts": "See the products"
   },
@@ -71,16 +70,6 @@
   "editorial": {
     "quote": "We manage one of our most natural processes with products designed decades ago by people who never had a period. Made with plastic. Made with petrochemicals. Made without us in mind.",
     "cta": "See what we did differently"
-  },
-  "newsletter": {
-    "label": "Waitlist",
-    "heading": "Be the first to know when we launch.",
-    "body": "Join the waitlist and get 10% off your first order, launching October 1st in the Netherlands and Germany.",
-    "placeholder": "Your email address",
-    "join": "Join the waitlist",
-    "joining": "Joining…",
-    "onList": "You're on the list",
-    "success": "Thank you, we'll be in touch soon."
   },
   "problem": {
     "label": "The Problem",

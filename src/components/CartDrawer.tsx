@@ -43,7 +43,7 @@ const CartDrawer = () => {
 
   return (
     <>
-      {/* Backdrop. Above the mobile WaitlistBar (z-80) so it can't cover the checkout button. */}
+      {/* Backdrop. Kept high (z-85) so nothing fixed can cover the checkout button. */}
       <div
         className={`fixed inset-0 z-[85] bg-lore-charcoal/30 backdrop-blur-[3px] transition-opacity duration-300 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"

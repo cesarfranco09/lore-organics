@@ -7,7 +7,6 @@ import WhyLoreSection from "@/components/home/WhyLoreSection";
 import MaterialsSection from "@/components/home/MaterialsSection";
 import EditorialPauseSection from "@/components/home/EditorialPauseSection";
 import DonationSection from "@/components/home/DonationSection";
-import NewsletterSection from "@/components/home/NewsletterSection";
 import Seo from "@/components/Seo";
 
 const Index = () => {
@@ -24,7 +23,6 @@ const Index = () => {
         <MaterialsSection />
         <EditorialPauseSection />
         <DonationSection />
-        <NewsletterSection />
       </main>
     </>
   );
