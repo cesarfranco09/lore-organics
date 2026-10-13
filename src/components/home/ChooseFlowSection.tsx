@@ -37,7 +37,7 @@ const ChooseFlowSection = () => {
   const isMobile = useIsMobile();
   const { addItem } = useCart();
   const { byHandle } = useShopifyProducts();
-  const [selected, setSelected] = useState<ProductId>("night-pad");
+  const [selected, setSelected] = useState<ProductId>("liner");
   const [cadence, setCadence] = useState<Cadence>("3m");
 
   const product = CATALOG.find((p) => p.id === selected)!;
