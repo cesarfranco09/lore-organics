@@ -74,14 +74,14 @@ const ChooseFlowSection = () => {
 
       <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-8 px-6 py-20 md:px-12 md:py-28 lg:grid-cols-2 lg:gap-16 lg:px-20">
         {/* Visual */}
-        <div className="order-2 flex justify-center lg:order-1">
+        <div className="flex justify-center">
           <div key={product.id} className="fade-in-up">
             <ProductBox product={product} width={isMobile ? 170 : 260} turn={-26} float />
           </div>
         </div>
 
         {/* Picker */}
-        <div className="order-1 lg:order-2">
+        <div>
           <Reveal>
             <p className="text-label mb-5 opacity-75">{t("flow.label")}</p>
             <h2 className="text-editorial-lg mb-10 max-w-md">{t("flow.heading")}</h2>

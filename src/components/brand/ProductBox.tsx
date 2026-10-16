@@ -28,6 +28,8 @@ interface ProductBoxProps {
    * leaf shadows and warm side light fall across its faces.
    */
   grounded?: boolean;
+  /** Skip the leaf-shadow textures on the faces: much cheaper to paint (phones, scroll scenes). */
+  lite?: boolean;
   className?: string;
 }
 
@@ -38,6 +40,7 @@ const ProductBox = ({
   interactive = true,
   float = false,
   grounded = false,
+  lite = false,
   className = "",
 }: ProductBoxProps) => {
   const h = width * 1.06;
@@ -164,7 +167,7 @@ const ProductBox = ({
                 <div className="pointer-events-none absolute inset-0" style={{ background: SIDE_LIGHT }} />
               </>
             ) : (
-              <LeafShadow still opacity={product.lightText ? 0.22 : 0.12} seed={product.packCount + product.absorbency} blur={6} />
+              !lite && <LeafShadow still opacity={product.lightText ? 0.22 : 0.12} seed={product.packCount + product.absorbency} blur={6} />
             )}
             <div className="relative flex h-full flex-col items-center justify-between py-[12%] text-center">
               <div>

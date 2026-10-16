@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useMemo } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
 import LeafShadow from "@/components/brand/LeafShadow";
 import ProductBox from "@/components/brand/ProductBox";
 import Droplets from "@/components/brand/Droplets";
 import { CATALOG, type CatalogProduct } from "@/lib/catalog";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
-import { useScrollProgress, segment } from "@/hooks/useScrollProgress";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 /**
@@ -29,24 +28,24 @@ const COPY_INDEX: Record<string, string> = {
 const DAY = CATALOG.filter((p) => !p.night);
 const NIGHT = CATALOG.filter((p) => p.night);
 
-const mix = (a: string, b: string, t: number) =>
-  `color-mix(in srgb, ${a} ${Math.round((1 - t) * 100)}%, ${b})`;
-
-const ProductTile = ({
+/** Memoized: the section re-renders on every scroll frame, the tiles don't need to. */
+const ProductTile = memo(function ProductTile({
   product,
   width,
   light,
+  lite,
 }: {
   product: CatalogProduct;
   width: number;
   light: boolean;
-}) => {
+  lite: boolean;
+}) {
   const { t } = useTranslation("home");
   const { localize } = useLocalizedPath();
   const i = COPY_INDEX[product.id];
   return (
     <div className="flex flex-col items-center text-center">
-      <ProductBox product={product} width={width} turn={-20} />
+      <ProductBox product={product} width={width} turn={-20} lite={lite} interactive={!lite} />
       <div className="-mt-2 max-w-[230px]">
         <p className="text-label mb-1 flex items-center justify-center gap-2 opacity-75">
           {t(`productPreview.items.${i}.subtitle`)}
@@ -71,19 +70,97 @@ const ProductTile = ({
       </div>
     </div>
   );
-};
+});
+
+const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
+const segment = (p: number, start: number, end: number) => clamp01((p - start) / (end - start));
+const mixColor = (n: number) => `color-mix(in srgb, #3A2E29 ${Math.round((1 - n) * 100)}%, #F7F5F1)`;
+
+type Els = Record<
+  "stage" | "dusk" | "night" | "sun" | "moon" | "stars" | "leaves" | "dayLabel" | "nightLabel" | "dayGroup" | "nightGroup" | "dot",
+  HTMLElement | null
+>;
+
+/**
+ * Drives the scene straight from the scroll position: each moving element
+ * gets its own opacity/transform written directly (cheap for the browser, and
+ * no React render per frame). React only re-renders when one of the few
+ * discrete states flips (which group is clickable, light/dark captions).
+ */
+function useDayNightScroll(sectionRef: React.RefObject<HTMLElement>, els: React.MutableRefObject<Els>) {
+  const [phase, setPhase] = useState({ dayActive: true, nightActive: false, light: false });
+  useEffect(() => {
+    let frame = 0;
+    let colorStep = -1;
+    const update = () => {
+      frame = 0;
+      const sec = sectionRef.current;
+      const e = els.current;
+      if (!sec || !e.stage) return;
+      const r = sec.getBoundingClientRect();
+      const p = clamp01(-r.top / Math.max(1, r.height - window.innerHeight));
+      const n = segment(p, 0.34, 0.66);
+      const dayOut = segment(p, 0.3, 0.5);
+      const nightIn = segment(p, 0.5, 0.72);
+      const dl = segment(p, 0.4, 0.5);
+      const nl = segment(p, 0.5, 0.6);
+      const vh = window.innerHeight;
+      const set = (el: HTMLElement | null, opacity: number, transform?: string) => {
+        if (!el) return;
+        el.style.opacity = opacity.toFixed(3);
+        if (transform !== undefined) el.style.transform = transform;
+      };
+      set(e.dusk, Math.sin(Math.PI * n));
+      set(e.night, n);
+      set(e.sun, 1 - n * 0.9, `translate3d(0, ${(n * 0.85 * vh).toFixed(1)}px, 0)`);
+      // On phones the moon stops a little lower so it clears the "By night" label.
+      const moonRise = window.innerWidth < 768 ? 0.58 : 0.72;
+      set(e.moon, nightIn, `translate3d(0, ${(-nightIn * moonRise * vh).toFixed(1)}px, 0)`);
+      set(e.stars, nightIn);
+      set(e.leaves, 1 - n);
+      set(e.dayLabel, 1 - dl, `translate3d(0, ${(-dl * 20).toFixed(1)}px, 0)`);
+      set(e.nightLabel, nl, `translate3d(0, ${((1 - nl) * 20).toFixed(1)}px, 0)`);
+      set(e.dayGroup, 1 - dayOut, `translate3d(0, ${(-dayOut * 60).toFixed(1)}px, 0)`);
+      set(e.nightGroup, nightIn, `translate3d(0, ${((1 - nightIn) * 80).toFixed(1)}px, 0)`);
+      if (e.dot) e.dot.style.left = `${(p * 100).toFixed(2)}%`;
+      // Text color: inherited by everything below, so change it in 10 steps, not every frame.
+      const step = Math.round(n * 10);
+      if (step !== colorStep) {
+        colorStep = step;
+        e.stage.style.color = mixColor(step / 10);
+      }
+      const next = { dayActive: p < 0.4, nightActive: p > 0.61, light: p > 0.52 };
+      setPhase((cur) =>
+        cur.dayActive === next.dayActive && cur.nightActive === next.nightActive && cur.light === next.light ? cur : next
+      );
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [sectionRef, els]);
+  return phase;
+}
 
 const DayNightSection = () => {
   const { t } = useTranslation("home");
   const isMobile = useIsMobile();
-  const [ref, p] = useScrollProgress<HTMLDivElement>("sticky");
-
-  // n: 0 = full day, 1 = full night
-  const n = segment(p, 0.34, 0.66);
-  const dusk = Math.sin(Math.PI * n);
-  const dayOut = segment(p, 0.3, 0.5);
-  const nightIn = segment(p, 0.5, 0.72);
-  const light = n > 0.55;
+  const sectionRef = useRef<HTMLElement>(null);
+  const els = useRef<Els>({
+    stage: null, dusk: null, night: null, sun: null, moon: null, stars: null, leaves: null,
+    dayLabel: null, nightLabel: null, dayGroup: null, nightGroup: null, dot: null,
+  });
+  const bind = (key: keyof Els) => (el: HTMLElement | null) => {
+    els.current[key] = el;
+  };
+  const { dayActive, nightActive, light } = useDayNightScroll(sectionRef, els);
 
   const stars = useMemo(
     () =>
@@ -98,61 +175,73 @@ const DayNightSection = () => {
 
   const boxW = isMobile ? 92 : 150;
 
+  const starField = useMemo(
+    () =>
+      (isMobile ? stars.slice(0, 28) : stars).map((s, i) => (
+        <span
+          key={i}
+          className={`absolute rounded-full bg-lore-birch ${isMobile ? "" : "animate-pulse"}`}
+          style={{
+            left: `${s.x}%`,
+            top: `${s.y}%`,
+            width: s.s,
+            height: s.s,
+            opacity: 0.35 + (i % 4) * 0.15,
+            animationDelay: `${s.d}s`,
+            animationDuration: `${3 + (i % 5)}s`,
+          }}
+        />
+      )),
+    [stars, isMobile]
+  );
+
+  // Moving layers get their own compositing layer.
+  const layer = { willChange: "opacity, transform" } as const;
+
   return (
-    <section id="day-night" ref={ref} className="relative" style={{ height: "340vh" }}>
-      <div
-        className="sticky top-0 h-[100svh] overflow-hidden"
-        style={{ color: mix("#3A2E29", "#F7F5F1", n) }}
-      >
+    <section id="day-night" ref={sectionRef} className="relative" style={{ height: isMobile ? "230vh" : "340vh" }}>
+      <div ref={bind("stage")} className="sticky top-0 h-[100svh] overflow-hidden" style={{ color: mixColor(0) }}>
         {/* Sky layers */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, #F6EEDF 0%, #EFE9E2 70%, #E9DFD2 100%)" }} />
         <div
           className="absolute inset-0"
-          style={{ opacity: dusk, background: "linear-gradient(180deg, #8E5A63 0%, #C88F84 55%, #E7B99A 100%)" }}
+          ref={bind("dusk")}
+          style={{
+            ...layer,
+            opacity: 0,
+            background: "linear-gradient(180deg, #8E5A63 0%, #C88F84 55%, #E7B99A 100%)",
+          }}
         />
         <div
           className="absolute inset-0"
-          style={{ opacity: n, background: "linear-gradient(180deg, #1E1013 0%, #341D21 45%, #563037 100%)" }}
+          ref={bind("night")}
+          style={{ ...layer, opacity: 0, background: "linear-gradient(180deg, #1E1013 0%, #341D21 45%, #563037 100%)" }}
         />
 
-        {/* Sun sets, moon rises */}
+        {/* Sun sets, moon rises (moved with transforms: no layout work per frame) */}
         <div
-          className="absolute left-[72%] h-28 w-28 rounded-full md:h-40 md:w-40"
+          className="absolute left-[72%] top-[10%] h-28 w-28 rounded-full md:h-40 md:w-40"
+          ref={bind("sun")}
           style={{
-            top: `${10 + n * 85}%`,
-            opacity: 1 - n * 0.9,
+            ...layer,
             background: "radial-gradient(circle, #FFF6E3 0%, #FBE3C0 45%, rgba(251,227,192,0) 70%)",
-            filter: "blur(2px)",
           }}
         />
         <div
-          className="absolute right-[14%] h-16 w-16 rounded-full md:right-[22%] md:h-24 md:w-24"
+          className="absolute right-[14%] top-full h-16 w-16 rounded-full md:right-[22%] md:h-24 md:w-24"
+          ref={bind("moon")}
           style={{
-            top: `${100 - nightIn * 72}%`,
-            opacity: nightIn,
+            ...layer,
+            opacity: 0,
             boxShadow: "inset -14px 8px 0 0 #F7F5F1, 0 0 60px 6px rgba(247,245,241,0.15)",
           }}
         />
-        <div className="absolute inset-0" style={{ opacity: nightIn }} aria-hidden="true">
-          {stars.map((s, i) => (
-            <span
-              key={i}
-              className="absolute rounded-full bg-lore-birch animate-pulse"
-              style={{
-                left: `${s.x}%`,
-                top: `${s.y}%`,
-                width: s.s,
-                height: s.s,
-                opacity: 0.35 + (i % 4) * 0.15,
-                animationDelay: `${s.d}s`,
-                animationDuration: `${3 + (i % 5)}s`,
-              }}
-            />
-          ))}
+        <div ref={bind("stars")} className="absolute inset-0" style={{ ...layer, opacity: 0 }} aria-hidden="true">
+          {starField}
         </div>
 
-        <div style={{ opacity: 1 - n }} className="absolute inset-0">
-          <LeafShadow color="rgb(58, 46, 41)" opacity={0.2} seed={23} blur={14} sunlight={false} />
+        <div ref={bind("leaves")} className="absolute inset-0" style={layer}>
+          <LeafShadow color="rgb(58, 46, 41)" opacity={0.2} seed={23} blur={14} sunlight={false} still={isMobile} />
         </div>
 
         {/* Copy */}
@@ -165,13 +254,14 @@ const DayNightSection = () => {
             <div className="relative h-14 min-w-[8rem] shrink-0 whitespace-nowrap text-right md:h-20 md:min-w-[16rem]">
               <span
                 className="absolute right-0 top-0 font-serif text-4xl font-light italic md:text-6xl"
-                style={{ opacity: 1 - segment(p, 0.4, 0.5), transform: `translateY(${-segment(p, 0.4, 0.5) * 20}px)` }}
+                ref={bind("dayLabel")}
               >
                 {t("dayNight.day")}
               </span>
               <span
                 className="absolute right-0 top-0 font-serif text-4xl font-light italic md:text-6xl"
-                style={{ opacity: segment(p, 0.5, 0.6), transform: `translateY(${(1 - segment(p, 0.5, 0.6)) * 20}px)` }}
+                ref={bind("nightLabel")}
+                style={{ opacity: 0 }}
               >
                 {t("dayNight.night")}
               </span>
@@ -182,26 +272,22 @@ const DayNightSection = () => {
           <div className="relative flex-1">
             <div
               className="absolute inset-0 grid grid-cols-2 content-center justify-items-center gap-x-2 gap-y-4 md:grid-cols-4 md:gap-6"
-              style={{
-                opacity: 1 - dayOut,
-                transform: `translateY(${-dayOut * 60}px)`,
-                pointerEvents: dayOut > 0.5 ? "none" : "auto",
-              }}
+              ref={bind("dayGroup")}
+              style={{ ...layer, pointerEvents: dayActive ? "auto" : "none" }}
+              aria-hidden={!dayActive}
             >
               {DAY.map((prod) => (
-                <ProductTile key={prod.id} product={prod} width={boxW} light={false} />
+                <ProductTile key={prod.id} product={prod} width={boxW} light={false} lite={isMobile} />
               ))}
             </div>
             <div
               className="absolute inset-0 flex items-center justify-center"
-              style={{
-                opacity: nightIn,
-                transform: `translateY(${(1 - nightIn) * 80}px)`,
-                pointerEvents: nightIn > 0.5 ? "auto" : "none",
-              }}
+              ref={bind("nightGroup")}
+              style={{ ...layer, opacity: 0, pointerEvents: nightActive ? "auto" : "none" }}
+              aria-hidden={!nightActive}
             >
               {NIGHT.map((prod) => (
-                <ProductTile key={prod.id} product={prod} width={boxW * 1.45} light={light} />
+                <ProductTile key={prod.id} product={prod} width={boxW * 1.45} light={light} lite={isMobile} />
               ))}
             </div>
           </div>
@@ -213,7 +299,7 @@ const DayNightSection = () => {
               <div className="absolute inset-0 bg-current opacity-25" />
               <div
                 className="absolute top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current"
-                style={{ left: `${p * 100}%` }}
+                ref={bind("dot")}
               />
             </div>
             <span className="text-[10px] uppercase tracking-[0.3em] opacity-60">{t("dayNight.night")}</span>

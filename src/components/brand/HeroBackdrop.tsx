@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Hero background: a short, silent, looping video of sunlight through leaves
@@ -15,7 +15,7 @@ export type BackdropClip = "hero" | "cyclebox";
 const media = (clip: BackdropClip) => ({
   poster: `/media/${clip}-leaves-poster.webp`,
   sources: [
-    { src: `/media/${clip}-leaves.webm`, type: "video/webm" },
+    { src: `/media/${clip}-leaves.webm`, type: 'video/webm; codecs="vp9"' },
     { src: `/media/${clip}-leaves.mp4`, type: "video/mp4" },
   ],
 });
@@ -31,10 +31,28 @@ const HeroBackdrop = ({ className = "", clip = "hero" }: { className?: string; c
   const { poster, sources } = media(clip);
   const [playVideo, setPlayVideo] = useState(false);
   const [ready, setReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setPlayVideo(shouldPlayVideo());
   }, []);
+
+  // iOS only autoplays when the `muted` *attribute* is present, and React only
+  // sets the property. Set both, start playback ourselves, and keep the video
+  // invisible until frames are actually playing, so iOS never shows its play
+  // button. If autoplay is refused (e.g. Low Power Mode), drop the video and
+  // the poster image stays.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!playVideo || !v) return;
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute("muted", "");
+    v.setAttribute("playsinline", "");
+    v.setAttribute("webkit-playsinline", "");
+    const attempt = v.play();
+    if (attempt) attempt.catch(() => setPlayVideo(false));
+  }, [playVideo]);
 
   return (
     <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden="true">
@@ -50,13 +68,16 @@ const HeroBackdrop = ({ className = "", clip = "hero" }: { className?: string; c
           className={`absolute inset-0 h-full w-full object-cover object-[70%_center] transition-opacity duration-1000 ${
             ready ? "opacity-100" : "opacity-0"
           }`}
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
+          disablePictureInPicture
+          controls={false}
           preload="auto"
           poster={poster}
-          onCanPlay={() => setReady(true)}
+          onPlaying={() => setReady(true)}
         >
           {sources.map((s) => (
             <source key={s.src} src={s.src} type={s.type} />
