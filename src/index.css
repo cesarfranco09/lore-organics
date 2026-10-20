@@ -9,70 +9,73 @@
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Inter', system-ui, sans-serif;
 
-    /* Lore Organics palette — Website Style Guide (Oct 2026).
-       Every shade is a variable so pending choices can be swapped here only. */
-    --background: 40 30% 96%; /* Birch Cream #F7F5F1 */
-    --foreground: 16 18% 19%; /* Deep Charcoal Brown #3A2E29 */
+    /* Lore Organics — calm palette (design brief, Oct 19 2026):
+       cream everywhere, sage as the only accent, warm charcoal type.
+       Product colors live only on the products (photos, swatch dots). */
+    --background: 36 33% 97%; /* Cream #FAF8F5 — every section, hero included */
+    --foreground: 108 5% 19%; /* Warm charcoal #2F332E — all type */
 
-    --card: 42 31% 94%; /* Cloud Ivory #F4F1EA */
-    --card-foreground: 16 18% 19%;
+    --card: 39 56% 92%; /* Panel #F6EEDF — cards, accordions, popup, box summary */
+    --card-foreground: 108 5% 19%;
 
-    --popover: 40 30% 96%;
-    --popover-foreground: 16 18% 19%;
+    --popover: 36 33% 97%;
+    --popover-foreground: 108 5% 19%;
 
-    --primary: 349 28% 26%; /* Night pad maroon #563037 — brand hero color */
-    --primary-foreground: 40 30% 96%;
+    --primary: 116 10% 26%; /* Deep sage #3D4A3C — buttons, links, announcement bar */
+    --primary-foreground: 36 33% 97%;
 
-    --secondary: 132 13% 78%; /* Tampon Regular sage */
+    --secondary: 92 15% 76%; /* Light sage #C1CBB8 — claims band, giving panel, selected states */
     --secondary-foreground: 116 10% 26%;
 
-    --muted: 32 30% 91%; /* Linen Sand #EFE9E2 */
-    --muted-foreground: 18 12% 38%;
+    --muted: 39 56% 92%;
+    --muted-foreground: 108 4% 36%; /* secondary text, ~6.5:1 on cream */
 
-    --accent: 132 13% 78%;
+    --accent: 92 15% 76%;
     --accent-foreground: 116 10% 26%;
 
-    --destructive: 0 70% 45%;
-    --destructive-foreground: 40 30% 96%;
+    --destructive: 0 62% 42%;
+    --destructive-foreground: 36 33% 97%;
 
-    --border: 32 20% 86%;
-    --input: 32 20% 86%;
-    --ring: 349 28% 26%;
+    --border: 33 15% 86%; /* Hairlines #E0DBD5 */
+    --input: 33 15% 86%;
+    --ring: 116 10% 26%;
 
-    --radius: 0.25rem;
+    --radius: 0.75rem;
 
-    /* Product families. Tampon shades are approximations of Pantone 5595 C /
-       4192 C — replace with Pantone's official web values when confirmed. */
-    --lore-regular: 132 13% 78%;     /* Tampons Regular #BFCEC2 (locked) */
-    --lore-super: 124 7% 56%;        /* Tampons Super #869687 (locked) */
-    --lore-superplus: 116 10% 26%;   /* Tampons Super Plus #3D4A3C (future) */
-    --lore-day: 349 28% 33%;         /* Pads Day #6D3D46 (preferred, not final) */
-    --lore-night: 349 28% 26%;       /* Pads Night #563037 (preferred, not final) */
-    --lore-extralong: 350 28% 16%;   /* Pads Extra-Long #341D21 (future) */
-    --lore-liner: 39 56% 92%;        /* Panty liner #F6EEDF (pending) */
+    /* Sage scale */
+    --sage-light: 92 15% 76%; /* #C1CBB8 */
+    --sage-mid: 107 7% 51%;   /* #7E8C7A — icons, droplets, hairlines; never small text */
+    --sage-deep: 116 10% 26%; /* #3D4A3C */
 
-    /* Neutrals (locked) */
-    --lore-charcoal: 16 18% 19%;
-    --lore-birch: 40 30% 96%;
-    --lore-linen: 32 30% 91%;
-    --lore-ivory: 42 31% 94%;
+    /* Product families — only on product imagery and swatch dots. */
+    --lore-regular: 132 13% 78%;     /* Tampons light to medium #BFCEC2 */
+    --lore-super: 124 7% 56%;        /* Tampons medium to heavy #869687 */
+    --lore-superplus: 116 10% 26%;
+    --lore-day: 349 28% 33%;         /* Pads medium flow #6D3D46 */
+    --lore-night: 349 28% 26%;       /* Pads heavy flow #563037 */
+    --lore-extralong: 350 28% 16%;
+    --lore-liner: 39 56% 92%;        /* Panty liner #F6EEDF */
 
-    /* Legacy names, remapped onto the new palette */
-    --lore-sage: 132 13% 78%;
+    /* Legacy names kept for older components, remapped onto the calm palette. */
+    --lore-charcoal: 108 5% 19%;
+    --lore-birch: 36 33% 97%;
+    --lore-linen: 39 56% 92%;
+    --lore-ivory: 39 56% 92%;
+    --lore-sage: 92 15% 76%;
     --lore-plum: 349 28% 26%;
     --lore-botanical: 116 10% 26%;
     --lore-kraft: 35 39% 68%;
-    --lore-warm-brown: 18 12% 38%;
+    --lore-warm-brown: 108 4% 36%;
     --lore-terracotta: 349 28% 33%;
 
-    --sidebar-background: 40 30% 96%;
-    --sidebar-foreground: 16 18% 19%;
-    --sidebar-primary: 349 28% 26%;
-    --sidebar-primary-foreground: 40 30% 96%;
-    --sidebar-accent: 132 13% 78%;
+    --sidebar-background: 36 33% 97%;
+    --sidebar-foreground: 108 5% 19%;
+    --sidebar-primary: 116 10% 26%;
+    --sidebar-primary-foreground: 36 33% 97%;
+    --sidebar-accent: 92 15% 76%;
     --sidebar-accent-foreground: 116 10% 26%;
-    --sidebar-border: 32 20% 88%;
-    --sidebar-ring: 349 28% 26%;
+    --sidebar-border: 33 15% 86%;
+    --sidebar-ring: 116 10% 26%;
   }
 }
 
@@ -93,61 +96,89 @@
 }
 
 @layer components {
+  /* Layout: 8px grid, 1200px content, 16px gutter on phones. */
+  .container-lore {
+    @apply mx-auto w-full max-w-[1264px] px-4 md:px-8;
+  }
+  .section {
+    @apply py-[72px] md:py-[120px];
+  }
+  /* Older pages: same rhythm. */
   .section-padding {
-    @apply px-6 md:px-12 lg:px-24 py-20 md:py-32;
+    @apply px-4 md:px-8 py-[72px] md:py-[120px];
   }
-
   .section-padding-sm {
-    @apply px-6 md:px-12 lg:px-24 py-12 md:py-20;
+    @apply px-4 md:px-8 py-12 md:py-20;
   }
 
-  /* Headlines: Cormorant Garamond, large and light, room to breathe. */
-  .text-editorial-xl {
+  /* Type scale (brief §4): two families, max three sizes per section, 640px measure. */
+  .t-tagline {
     font-family: var(--font-serif);
-    @apply text-5xl md:text-7xl lg:text-8xl font-light tracking-[-0.01em] leading-[0.95];
+    @apply text-[52px] leading-[56px] font-light tracking-[-0.01em] md:text-[88px] md:leading-[92px];
   }
-
-  .text-editorial-lg {
+  .t-h1 {
     font-family: var(--font-serif);
-    @apply text-4xl md:text-5xl lg:text-6xl font-light tracking-[-0.005em] leading-[1.05];
+    @apply text-[36px] leading-[44px] font-light md:text-[56px] md:leading-[64px];
   }
-
-  .text-editorial-md {
+  .t-h2 {
     font-family: var(--font-serif);
-    @apply text-2xl md:text-3xl lg:text-4xl font-light leading-snug;
+    @apply text-[28px] leading-[36px] font-light md:text-[40px] md:leading-[48px];
+  }
+  .t-h3 {
+    font-family: var(--font-serif);
+    @apply text-[20px] leading-[28px] font-normal md:text-[24px] md:leading-[32px];
+  }
+  .t-lead {
+    font-family: var(--font-serif);
+    @apply text-[18px] leading-[28px] font-normal md:text-[20px] md:leading-[32px];
+  }
+  .t-body {
+    @apply font-sans text-[16px] leading-[26px] font-normal;
+  }
+  .t-small {
+    @apply font-sans text-[13px] leading-[20px] font-normal;
+  }
+  .measure {
+    max-width: 640px;
   }
 
-  .text-body-lg {
-    @apply text-base md:text-lg font-normal leading-relaxed;
-  }
+  /* Legacy names mapped onto the scale. */
+  .text-editorial-xl { @apply t-h1; }
+  .text-editorial-lg { @apply t-h2; }
+  .text-editorial-md { @apply t-h3; }
+  .text-body-lg { @apply t-body; }
+  .text-body { @apply t-body; }
 
-  .text-body {
-    @apply text-sm md:text-base font-normal leading-relaxed;
-  }
-
-  /* Labels, claims, nav, buttons: Inter Medium in spaced caps, like the box side panels. */
+  /* Labels, claims, nav: Inter Medium, caps, 0.14em. */
   .text-label {
     font-family: var(--font-sans);
-    @apply text-[11px] md:text-xs font-medium uppercase tracking-[0.22em];
+    @apply text-[11px] font-medium uppercase tracking-[0.14em];
   }
 
   .divider-botanical {
     @apply w-12 h-px bg-current opacity-30;
   }
 
+  /* Two button styles only: deep sage fill, deep sage outline. 48px, pill, 12px caps. */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-3 rounded-full bg-primary px-8 py-3.5 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.6)] active:translate-y-0 disabled:pointer-events-none disabled:opacity-50;
-    @apply text-[11px] md:text-xs font-medium uppercase tracking-[0.22em];
+    @apply inline-flex h-12 items-center justify-center gap-2.5 whitespace-nowrap rounded-full border border-primary bg-primary px-7 text-primary-foreground transition-opacity duration-200 hover:opacity-85 disabled:pointer-events-none disabled:opacity-45;
+    @apply text-[12px] font-medium uppercase tracking-[0.14em];
+  }
+  .btn-secondary {
+    @apply inline-flex h-12 items-center justify-center gap-2.5 whitespace-nowrap rounded-full border border-primary bg-transparent px-7 text-primary transition-opacity duration-200 hover:opacity-70 disabled:pointer-events-none disabled:opacity-45;
+    @apply text-[12px] font-medium uppercase tracking-[0.14em];
+  }
+  /* Legacy aliases. */
+  .btn-ghost { @apply btn-secondary; }
+  .btn-cream { @apply btn-primary; }
+
+  /* Tertiary: caps text link with a small arrow. */
+  .link-arrow {
+    @apply inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-primary transition-opacity duration-200 hover:opacity-70;
   }
 
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-3 rounded-full border border-current px-8 py-3.5 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0;
-    @apply text-[11px] md:text-xs font-medium uppercase tracking-[0.22em];
-  }
-
-  .btn-cream {
-    @apply inline-flex items-center justify-center gap-3 rounded-full bg-lore-birch px-8 py-3.5 text-lore-night transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] active:translate-y-0;
-    @apply text-[11px] md:text-xs font-medium uppercase tracking-[0.22em];
+  .hairline {
+    @apply border-border;
   }
 }
 
@@ -157,7 +188,7 @@
   }
 
   .fade-in-up {
-    animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: fadeInUp 0.5s ease-out both;
   }
 
   .slide-in {
@@ -167,8 +198,8 @@
   /* Scroll reveal (toggled by <Reveal>). */
   .reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(12px);
+    transition: opacity 400ms ease-out, transform 400ms ease-out;
     transition-delay: var(--reveal-delay, 0ms);
   }
   .reveal.is-visible {
@@ -176,8 +207,9 @@
     transform: none;
   }
 
+  /* Slow sunlight: one 20-second loop, transform only. */
   .leaf-sway {
-    animation: leafSway var(--sway-duration, 14s) ease-in-out infinite alternate;
+    animation: leafSway var(--sway-duration, 20s) ease-in-out infinite alternate;
     transform-origin: 30% 0%;
     will-change: transform;
   }
@@ -198,7 +230,14 @@ video::-webkit-media-controls-overlay-play-button {
   -webkit-appearance: none;
 }
 
-/* Logo strip: the track holds two identical copies, so moving it by -50% loops seamlessly. */
+/* Claim labels: never split a word (DERMATOLOGIC / ALLY). */
+.claim-label {
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: manual;
+}
+
+/* Claims strip: the track holds two identical copies, so moving it by -50% loops seamlessly (one loop per 45s). */
 .logo-marquee-track {
   animation: logoMarquee 45s linear infinite;
   will-change: transform;
@@ -215,7 +254,7 @@ video::-webkit-media-controls-overlay-play-button {
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -226,8 +265,8 @@ video::-webkit-media-controls-overlay-play-button {
 
 @keyframes leafSway {
   0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1.04); }
-  50% { transform: translate3d(1.5%, 1%, 0) rotate(1.4deg) scale(1.06); }
-  100% { transform: translate3d(-1%, 2%, 0) rotate(-1deg) scale(1.05); }
+  50% { transform: translate3d(0.8%, 0.6%, 0) rotate(0.6deg) scale(1.05); }
+  100% { transform: translate3d(-0.6%, 1.2%, 0) rotate(-0.5deg) scale(1.045); }
 }
 
 @keyframes floatSlow {
@@ -240,7 +279,7 @@ video::-webkit-media-controls-overlay-play-button {
   .reveal { opacity: 1; transform: none; transition: none; }
   .logo-marquee { mask-image: none; }
   .logo-marquee-track { animation: none; width: auto; justify-content: center; }
-  .logo-marquee-track > div { flex-wrap: wrap; justify-content: center; row-gap: 1.5rem; padding: 0 1.5rem; }
+  .logo-marquee-track > div { flex-wrap: wrap; flex-shrink: 1; justify-content: center; row-gap: 0.5rem; padding: 0 1rem; }
   .logo-marquee-track > div + div { display: none; }
   html { scroll-behavior: auto; }
 }

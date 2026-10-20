@@ -1,0 +1,197 @@
+{
+  "seo": {
+    "title": "Shop biologisch katoenen maandverband, tampons & inlegkruisjes | Lore Organics",
+    "categoryTitle": "{{heading}} — GOTS-gecertificeerd biologisch katoen | Lore Organics",
+    "description": "Elk Lore-product is gemaakt van GOTS-gecertificeerd biologisch katoen. Zonder parfum. Gemaakt in Europa."
+  },
+  "heading": "Het assortiment.",
+  "intro": "Elk Lore-product is gemaakt van GOTS-gecertificeerd biologisch katoen. Zonder parfum. Gemaakt in Europa.",
+  "filters": {
+    "all": "Alles",
+    "pads": "Maandverband",
+    "tampons": "Tampons",
+    "panty-liners": "Inlegkruisjes"
+  },
+  "categories": {
+    "pads": {
+      "heading": "Maandverband"
+    },
+    "tampons": {
+      "heading": "Tampons"
+    },
+    "panty-liners": {
+      "heading": "Inlegkruisjes"
+    }
+  },
+  "comingSoon": "Binnenkort",
+  "priceLine": "{{price}} · vanaf {{box}} in je Cycle Box",
+  "priceNote": "Alle prijzen incl. btw, plus",
+  "shippingLink": "verzendkosten",
+  "items": {
+    "day-pad": {
+      "name": "Maandverband gemiddelde flow",
+      "fullName": "Biologisch katoenen maandverband, gemiddelde flow",
+      "spec": "240 mm · 10 per pak",
+      "description": "Maandverband van biologisch katoen voor een gemiddelde flow. 240 mm, 10 per pak.",
+      "materials": [
+        {
+          "label": "Toplaag",
+          "value": "GOTS-gecertificeerd biologisch katoen"
+        },
+        {
+          "label": "Kern",
+          "value": "GOTS-gecertificeerd biologisch katoen"
+        },
+        {
+          "label": "Onderlaag",
+          "value": ""
+        },
+        {
+          "label": "Plakstrip",
+          "value": ""
+        }
+      ],
+      "howToUse": "Trek het beschermpapiertje los, leg het verband midden in je ondergoed en vouw de vleugels eromheen. Vervang het om de paar uur, of vaker op drukkere dagen. Rol het gebruikte verband op in het wikkeltje en gooi het in de prullenbak, nooit door de wc."
+    },
+    "night-pad": {
+      "name": "Maandverband hevige flow",
+      "fullName": "Biologisch katoenen maandverband, hevige flow",
+      "spec": "280 mm · 10 per pak",
+      "description": "Langer maandverband van biologisch katoen voor een hevige flow en voor 's nachts. 280 mm, 10 per pak.",
+      "materials": [
+        {
+          "label": "Toplaag",
+          "value": "GOTS-gecertificeerd biologisch katoen"
+        },
+        {
+          "label": "Kern",
+          "value": "GOTS-gecertificeerd biologisch katoen"
+        },
+        {
+          "label": "Onderlaag",
+          "value": ""
+        },
+        {
+          "label": "Plakstrip",
+          "value": ""
+        }
+      ],
+      "howToUse": "Trek het beschermpapiertje los, leg het verband midden in je ondergoed en vouw de vleugels eromheen. Vervang het om de paar uur, of vaker op drukkere dagen. Rol het gebruikte verband op in het wikkeltje en gooi het in de prullenbak, nooit door de wc."
+    },
+    "regular-tampon": {
+      "name": "Tampons lichte tot gemiddelde flow",
+      "fullName": "Biologisch katoenen tampons, lichte tot gemiddelde flow",
+      "spec": "16 per pak",
+      "description": "Tampons van biologisch katoen zonder applicator, voor een lichte tot gemiddelde flow. 16 per pak.",
+      "materials": [
+        {
+          "label": "Absorberend deel",
+          "value": "GOTS-gecertificeerd biologisch katoen"
+        },
+        {
+          "label": "Koordje",
+          "value": ""
+        },
+        {
+          "label": "Wikkel",
+          "value": ""
+        }
+      ],
+      "howToUse": "De stapsgewijze instructies uit de bijsluiter in elk doosje volgen hier binnenkort."
+    },
+    "super-tampon": {
+      "name": "Tampons gemiddelde tot hevige flow",
+      "fullName": "Biologisch katoenen tampons, gemiddelde tot hevige flow",
+      "spec": "16 per pak",
+      "description": "Tampons van biologisch katoen zonder applicator, voor een gemiddelde tot hevige flow. 16 per pak.",
+      "materials": [
+        {
+          "label": "Absorberend deel",
+          "value": "GOTS-gecertificeerd biologisch katoen"
+        },
+        {
+          "label": "Koordje",
+          "value": ""
+        },
+        {
+          "label": "Wikkel",
+          "value": ""
+        }
+      ],
+      "howToUse": "De stapsgewijze instructies uit de bijsluiter in elk doosje volgen hier binnenkort."
+    },
+    "liner": {
+      "name": "Inlegkruisjes",
+      "fullName": "Biologisch katoenen inlegkruisjes",
+      "spec": "24 per pak",
+      "description": "Ultradunne inlegkruisjes van biologisch katoen voor elke dag. 24 per pak. Binnenkort beschikbaar.",
+      "materials": [
+        {
+          "label": "Toplaag",
+          "value": "GOTS-gecertificeerd biologisch katoen"
+        },
+        {
+          "label": "Kern",
+          "value": "GOTS-gecertificeerd biologisch katoen"
+        },
+        {
+          "label": "Onderlaag",
+          "value": ""
+        }
+      ],
+      "howToUse": "Trek het beschermpapiertje los en leg het inlegkruisje midden in je ondergoed. Vervang het wanneer je maar wilt."
+    }
+  },
+  "product": {
+    "breadcrumb": "Shop",
+    "gallery": {
+      "front": "Voorkant doosje",
+      "product": "Het product",
+      "side": "Zijkant doosje",
+      "lifestyle": "Op de plank",
+      "photoSoon": "Foto volgt binnenkort",
+      "show": "Toon afbeelding {{n}}"
+    },
+    "purchase": {
+      "label": "Hoe wil je het hebben?",
+      "box": "Cycle Box, bespaar tot 10%",
+      "boxHint": "Bezorgd wanneer het jou uitkomt. Overslaan, pauzeren of opzeggen wanneer je wilt.",
+      "once": "Eenmalig",
+      "every": "Elke",
+      "cadence": {
+        "2m": "2 maanden",
+        "3m": "3 maanden",
+        "6m": "6 maanden"
+      },
+      "save": "Bespaar {{pct}}%",
+      "perPack": "per pak",
+      "inclVat": "incl. btw, plus",
+      "shipping": "verzendkosten",
+      "addToBox": "Toevoegen aan Cycle Box",
+      "addToBag": "In je tas",
+      "added": "Toegevoegd aan je tas",
+      "outOfStock": "Uitverkocht",
+      "comingSoon": "Binnenkort",
+      "firstBox": "Voor je eerste box gebruik je je welkomstcode van 10%. De bezorgkorting gaat in vanaf je tweede box."
+    },
+    "icons": {
+      "cotton": "Gemaakt van GOTS-gecertificeerd biologisch katoen",
+      "schedule": "Bezorgd wanneer het jou uitkomt",
+      "flexible": "Overslaan, pauzeren of opzeggen wanneer je wilt"
+    },
+    "accordion": {
+      "materials": "Materialen",
+      "certification": "Certificering",
+      "howToUse": "Gebruik",
+      "safety": "Veiligheidsinformatie",
+      "specSoon": "Specificatie volgt binnenkort",
+      "certificationBody": "Ons katoen is gecertificeerd volgens de Global Organic Textile Standard (GOTS), die gaat over hoe het wordt geteeld en verwerkt, inclusief eerlijke lonen, veilige werkomstandigheden en geen kinderarbeid.",
+      "grade": "Niveau",
+      "certifier": "Certificeerder",
+      "license": "Licentie",
+      "safetyBody": "De volledige veiligheidsinformatie uit de bijsluiter in elk doosje volgt hier binnenkort. Lees altijd eerst de bijsluiter voor gebruik."
+    },
+    "related": "Meer uit het assortiment",
+    "notFound": "We konden dat product niet vinden."
+  }
+}

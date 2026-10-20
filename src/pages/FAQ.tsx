@@ -20,10 +20,10 @@ const FAQ = () => {
         description={t("seo.description")}
         path="/faq"
       />
-      <section className="section-padding bg-card">
+      <section className="section-padding">
         <div className="max-w-2xl mx-auto">
           <p className="text-label text-muted-foreground text-center mb-4">{t("label")}</p>
-          <h2 className="text-editorial-md text-center mb-12">{t("heading")}</h2>
+          <h1 className="t-h1 text-center mb-12">{t("heading")}</h1>
           <div className="space-y-0">
             {faqs.map((faq, i) => {
               const isOpen = open === i;
@@ -33,7 +33,7 @@ const FAQ = () => {
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="w-full flex items-center justify-between py-6 text-left"
                   >
-                    <span className="font-serif text-lg pr-4">{faq.q}</span>
+                    <span className="t-h3 pr-4">{faq.q}</span>
                     {isOpen ? (
                       <ChevronUp size={18} className="text-muted-foreground shrink-0" strokeWidth={1.5} />
                     ) : (

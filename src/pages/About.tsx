@@ -1,98 +1,56 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Seo from "@/components/Seo";
+import Reveal from "@/components/brand/Reveal";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
-
-const scrollTop = () => window.scrollTo(0, 0);
+import foundersPhoto from "@/assets/founders.webp";
 
 const About = () => {
   const { t } = useTranslation("about");
   const { localize } = useLocalizedPath();
+  const paragraphs = t("story.paragraphs", { returnObjects: true });
+
   return (
-    <main className="pt-20">
-      <Seo
-        title={t("seo.title")}
-        description={t("seo.description")}
-        path="/about"
-      />
+    <main>
+      <Seo title={t("seo.title")} description={t("seo.description")} path="/about" />
 
-      {/* ═══ SECTION 1, OUR MISSION ═══ */}
-      <section className="section-padding">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-label text-lore-botanical mb-6">{t("mission.label")}</p>
-          <div className="h-px w-20 bg-gradient-to-r from-transparent via-lore-sage to-transparent mb-12" />
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-x-20 lg:gap-y-14">
-            <div className="lg:col-span-12">
-              <h1 className="font-serif font-light tracking-[-0.01em] leading-[0.98] text-[clamp(2.6rem,7vw,6.25rem)]">
-                {t("mission.titleLine1")}<br /><em className="font-light">{t("mission.titleLine2")}</em>
-              </h1>
-            </div>
-
-            <div className="lg:col-span-7 lg:col-start-6">
-              <div className="bg-card rounded-sm p-8 md:p-12 shadow-[inset_0_2px_12px_-4px_rgba(0,0,0,0.04)] border border-border/40">
-                <div className="space-y-6">
-                  <p className="text-body-lg text-muted-foreground">
-                    {t("mission.body")}
-                  </p>
-                </div>
-              </div>
-
-              <Link
-                to={localize("/products")}
-                onClick={scrollTop}
-                className="inline-flex items-center gap-3 mt-10 text-label text-foreground group"
-              >
-                {t("mission.cta")}
-                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-2" />
-              </Link>
-            </div>
-          </div>
+      <section className="section">
+        <div className="container-lore">
+          <Reveal>
+            <p className="text-label mb-6 text-muted-foreground">{t("mission.label")}</p>
+            <h1 className="t-h1 mb-10">
+              {t("mission.titleLine1")} <em className="font-light italic">{t("mission.titleLine2")}</em>
+            </h1>
+            <p className="t-lead measure mb-10">{t("mission.body")}</p>
+            <Link to={localize("/products")} className="btn-primary">
+              {t("mission.cta")}
+            </Link>
+          </Reveal>
         </div>
       </section>
 
-
-
-      {/* ═══ SECTION 4, GET TO KNOW US ═══ */}
-      <section className="bg-card shadow-[inset_0_2px_12px_-4px_rgba(0,0,0,0.04)]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
-          <div className="relative min-h-[50vh] lg:min-h-full shadow-[8px_0_30px_-10px_rgba(0,0,0,0.1)]">
+      <section className="section border-t border-border">
+        <div className="container-lore grid items-start gap-10 md:grid-cols-[5fr_6fr] md:gap-16 lg:gap-24">
+          <Reveal className="md:sticky md:top-32">
             <img
-              src="/lovable-uploads/1f7dba6d-beca-4ead-bc43-1c502b6f78cc.webp"
+              src={foundersPhoto}
               alt={t("story.imageAlt")}
-              className="absolute inset-0 w-full h-full object-cover object-[center_35%] brightness-110"
               loading="lazy"
+              className="aspect-[4/5] w-full rounded-xl object-cover object-[center_35%]"
             />
-          </div>
-
-          <div className="flex items-center px-8 md:px-16 lg:px-20 py-20 md:py-28">
-            <div>
-              <p className="text-label text-lore-botanical mb-4">{t("story.label")}</p>
-              <div className="h-px w-20 bg-gradient-to-r from-transparent via-lore-sage to-transparent mb-10" />
-
-              <div className="space-y-6">
-                {Array.from({ length: 6 }, (_, i) => (
-                  <p key={i} className="text-body-lg text-muted-foreground">
-                    {t(`story.paragraphs.${i}`)}
-                  </p>
-                ))}
-              </div>
-
-
-              <Link
-                to={localize("/products")}
-                onClick={scrollTop}
-                className="inline-flex items-center gap-3 mt-12 text-label text-foreground group"
-              >
-                {t("story.cta")}
-                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-2" />
-              </Link>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="text-label mb-6 text-muted-foreground">{t("story.label")}</p>
+            <div className="t-body measure space-y-5 text-foreground/85">
+              {Array.isArray(paragraphs) && (paragraphs as string[]).map((p) => <p key={p}>{p}</p>)}
             </div>
-          </div>
+            <p className="t-lead mt-8 italic">{t("story.signoff")}</p>
+            <Link to={localize("/products")} className="btn-secondary mt-10">
+              {t("story.cta")}
+            </Link>
+          </Reveal>
         </div>
       </section>
-
     </main>
   );
 };

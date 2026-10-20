@@ -1,26 +1,24 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+/** New page → top. With a #hash, scroll to that section once it has rendered (lazy pages need a moment). */
 export const useScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (hash) {
-      // Defer to allow target to render
-      const id = hash.replace("#", "");
-      requestAnimationFrame(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-          return;
-        }
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: "auto" });
       return;
     }
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    const id = decodeURIComponent(hash.slice(1));
+    let tries = 0;
+    const timer = window.setInterval(() => {
+      const el = document.getElementById(id);
+      if (el || ++tries > 30) {
+        window.clearInterval(timer);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+    return () => window.clearInterval(timer);
   }, [pathname, hash]);
 };

@@ -1,0 +1,197 @@
+{
+  "seo": {
+    "title": "Binden, Tampons & Slipeinlagen aus Bio-Baumwolle kaufen | Lore Organics",
+    "categoryTitle": "{{heading}} — GOTS-zertifizierte Bio-Baumwolle | Lore Organics",
+    "description": "Jedes Lore-Produkt besteht aus GOTS-zertifizierter Bio-Baumwolle. Ohne Duftstoffe. Hergestellt in Europa."
+  },
+  "heading": "Das Sortiment.",
+  "intro": "Jedes Lore-Produkt besteht aus GOTS-zertifizierter Bio-Baumwolle. Ohne Duftstoffe. Hergestellt in Europa.",
+  "filters": {
+    "all": "Alle",
+    "pads": "Binden",
+    "tampons": "Tampons",
+    "panty-liners": "Slipeinlagen"
+  },
+  "categories": {
+    "pads": {
+      "heading": "Binden"
+    },
+    "tampons": {
+      "heading": "Tampons"
+    },
+    "panty-liners": {
+      "heading": "Slipeinlagen"
+    }
+  },
+  "comingSoon": "Demnächst verfügbar",
+  "priceLine": "{{price}} · ab {{box}} in deiner Cycle Box",
+  "priceNote": "Alle Preise inkl. MwSt., zzgl.",
+  "shippingLink": "Versand",
+  "items": {
+    "day-pad": {
+      "name": "Binden für mittlere Blutung",
+      "fullName": "Bio-Baumwollbinden, mittlere Blutung",
+      "spec": "240 mm · 10 pro Packung",
+      "description": "Binden aus Bio-Baumwolle für mittlere Blutung. 240 mm, 10 pro Packung.",
+      "materials": [
+        {
+          "label": "Obermaterial",
+          "value": "GOTS-zertifizierte Bio-Baumwolle"
+        },
+        {
+          "label": "Kern",
+          "value": "GOTS-zertifizierte Bio-Baumwolle"
+        },
+        {
+          "label": "Unterschicht",
+          "value": ""
+        },
+        {
+          "label": "Klebestreifen",
+          "value": ""
+        }
+      ],
+      "howToUse": "Zieh das Schutzpapier ab, leg die Binde mittig in deinen Slip und schlag die Flügel um. Wechsle sie alle paar Stunden, an stärkeren Tagen auch öfter. Wickle die benutzte Binde in ihre Hülle und wirf sie in den Mülleimer, niemals in die Toilette."
+    },
+    "night-pad": {
+      "name": "Binden für starke Blutung",
+      "fullName": "Bio-Baumwollbinden, starke Blutung",
+      "spec": "280 mm · 10 pro Packung",
+      "description": "Längere Binden aus Bio-Baumwolle für starke Blutung und die Nacht. 280 mm, 10 pro Packung.",
+      "materials": [
+        {
+          "label": "Obermaterial",
+          "value": "GOTS-zertifizierte Bio-Baumwolle"
+        },
+        {
+          "label": "Kern",
+          "value": "GOTS-zertifizierte Bio-Baumwolle"
+        },
+        {
+          "label": "Unterschicht",
+          "value": ""
+        },
+        {
+          "label": "Klebestreifen",
+          "value": ""
+        }
+      ],
+      "howToUse": "Zieh das Schutzpapier ab, leg die Binde mittig in deinen Slip und schlag die Flügel um. Wechsle sie alle paar Stunden, an stärkeren Tagen auch öfter. Wickle die benutzte Binde in ihre Hülle und wirf sie in den Mülleimer, niemals in die Toilette."
+    },
+    "regular-tampon": {
+      "name": "Tampons leicht bis mittel",
+      "fullName": "Bio-Baumwolltampons, leichte bis mittlere Blutung",
+      "spec": "16 pro Packung",
+      "description": "Tampons aus Bio-Baumwolle ohne Applikator, für leichte bis mittlere Blutung. 16 pro Packung.",
+      "materials": [
+        {
+          "label": "Saugkörper",
+          "value": "GOTS-zertifizierte Bio-Baumwolle"
+        },
+        {
+          "label": "Rückholband",
+          "value": ""
+        },
+        {
+          "label": "Hülle",
+          "value": ""
+        }
+      ],
+      "howToUse": "Hier ergänzen wir die Schritt-für-Schritt-Anleitung aus der Packungsbeilage jeder Box."
+    },
+    "super-tampon": {
+      "name": "Tampons mittel bis stark",
+      "fullName": "Bio-Baumwolltampons, mittlere bis starke Blutung",
+      "spec": "16 pro Packung",
+      "description": "Tampons aus Bio-Baumwolle ohne Applikator, für mittlere bis starke Blutung. 16 pro Packung.",
+      "materials": [
+        {
+          "label": "Saugkörper",
+          "value": "GOTS-zertifizierte Bio-Baumwolle"
+        },
+        {
+          "label": "Rückholband",
+          "value": ""
+        },
+        {
+          "label": "Hülle",
+          "value": ""
+        }
+      ],
+      "howToUse": "Hier ergänzen wir die Schritt-für-Schritt-Anleitung aus der Packungsbeilage jeder Box."
+    },
+    "liner": {
+      "name": "Slipeinlagen",
+      "fullName": "Bio-Baumwoll-Slipeinlagen",
+      "spec": "24 pro Packung",
+      "description": "Hauchdünne Slipeinlagen aus Bio-Baumwolle für jeden Tag. 24 pro Packung. Demnächst verfügbar.",
+      "materials": [
+        {
+          "label": "Obermaterial",
+          "value": "GOTS-zertifizierte Bio-Baumwolle"
+        },
+        {
+          "label": "Kern",
+          "value": "GOTS-zertifizierte Bio-Baumwolle"
+        },
+        {
+          "label": "Unterschicht",
+          "value": ""
+        }
+      ],
+      "howToUse": "Zieh das Schutzpapier ab und leg die Slipeinlage mittig in deinen Slip. Wechsle sie, wann immer du möchtest."
+    }
+  },
+  "product": {
+    "breadcrumb": "Shop",
+    "gallery": {
+      "front": "Vorderseite der Packung",
+      "product": "Das Produkt",
+      "side": "Seitenansicht der Packung",
+      "lifestyle": "Im Regal",
+      "photoSoon": "Foto folgt",
+      "show": "Bild {{n}} anzeigen"
+    },
+    "purchase": {
+      "label": "Wie hättest du's gern?",
+      "box": "Cycle Box, bis zu 10 % sparen",
+      "boxHint": "Geliefert, wann es dir passt. Jederzeit aussetzen, pausieren oder kündigen.",
+      "once": "Einmalig",
+      "every": "Lieferrhythmus",
+      "cadence": {
+        "2m": "2 Monate",
+        "3m": "3 Monate",
+        "6m": "6 Monate"
+      },
+      "save": "Spare {{pct}} %",
+      "perPack": "pro Packung",
+      "inclVat": "inkl. MwSt., zzgl.",
+      "shipping": "Versand",
+      "addToBox": "Zur Cycle Box",
+      "addToBag": "In den Warenkorb",
+      "added": "Im Warenkorb",
+      "outOfStock": "Ausverkauft",
+      "comingSoon": "Demnächst verfügbar",
+      "firstBox": "Für deine erste Box gilt dein 10-%-Willkommenscode. Dein Lieferrabatt gilt ab deiner zweiten Box."
+    },
+    "icons": {
+      "cotton": "Aus GOTS-zertifizierter Bio-Baumwolle",
+      "schedule": "Geliefert, wann es dir passt",
+      "flexible": "Jederzeit aussetzen, pausieren oder kündigen"
+    },
+    "accordion": {
+      "materials": "Materialien",
+      "certification": "Zertifizierung",
+      "howToUse": "Anwendung",
+      "safety": "Sicherheitshinweise",
+      "specSoon": "Angabe folgt",
+      "certificationBody": "Unsere Baumwolle ist nach dem Global Organic Textile Standard (GOTS) zertifiziert. Er regelt, wie sie angebaut und verarbeitet wird, einschließlich fairer Löhne, sicherer Arbeitsbedingungen und ohne Kinderarbeit.",
+      "grade": "Stufe",
+      "certifier": "Zertifizierungsstelle",
+      "license": "Lizenz",
+      "safetyBody": "Hier ergänzen wir die vollständigen Sicherheitshinweise aus der Packungsbeilage jeder Box. Lies vor der Anwendung immer die Packungsbeilage."
+    },
+    "related": "Mehr aus dem Sortiment",
+    "notFound": "Dieses Produkt konnten wir leider nicht finden."
+  }
+}

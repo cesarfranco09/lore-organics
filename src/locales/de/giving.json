@@ -1,0 +1,39 @@
+{
+  "seo": {
+    "title": "Wir geben zurück — Periodenpflege ist ein Recht | Lore Organics",
+    "description": "1 % von allem, was wir verkaufen, geht als Produktspende an Armoedefonds, für Frauen in den Niederlanden, die sich Periodenprodukte nicht leisten können."
+  },
+  "hero": {
+    "title": "Periodenpflege ist ein Recht, kein Privileg.",
+    "body": "Vom allerersten Verkauf an geben wir etwas zurück."
+  },
+  "stat": {
+    "figure": "1 von 4",
+    "body1": "Frauen in Deutschland sagt, dass die monatlichen Kosten ihrer Periode eine finanzielle Belastung sind.",
+    "body2": "In den Niederlanden konnte sich im vergangenen Jahr 1 von 8 Frauen die Periodenprodukte, die sie brauchte, nicht leisten — und eine weitere von 5 konnte sie nur mit Mühe bezahlen.",
+    "body3": "Fehlender Zugang zu sicheren Periodenprodukten wirkt sich auf Bildung, Arbeit, Gesundheit und Würde aus. Wir glauben, dass jede Frau Zugang zu sauberer, sicherer Periodenpflege verdient — unabhängig von ihren Umständen. Diese Überzeugung ist von Tag eins an in unser Geschäftsmodell eingebaut."
+  },
+  "sources": "Quellen",
+  "howWeGive": {
+    "title": "Wie wir geben",
+    "body": "1 % von allem, was wir verkaufen, geht als Produktspende an Armoedefonds. Von dort gelangt es zu Frauen in den Niederlanden, die sich Periodenprodukte nicht leisten können.",
+    "addOn": "Weil Geben sich aktiv anfühlen darf: Füge beim Checkout eine Binde zum Selbstkostenpreis hinzu, und wir spenden sie — vollständig."
+  },
+  "cards": [
+    {
+      "title": "Was wir spenden",
+      "body": "GOTS-zertifizierte Binden und Tampons aus Bio-Baumwolle. Dieselben Produkte, die du kaufst. Wir halten bei jedem Lore-Produkt denselben Standard, denn Frauen, die Spenden erhalten, verdienen dieselbe Qualität wie Frauen, die sie sich leisten können."
+    },
+    {
+      "title": "Partnerschaften vor Ort",
+      "body": "Unser Spendenpartner ist Armoedefonds. Wenn du dich in den Niederlanden oder Deutschland gegen Periodenarmut einsetzt, schreib uns an"
+    },
+    {
+      "title": "Systemischer Wandel",
+      "body": "Periodenarmut lässt sich nicht allein durch Spenden lösen. Es braucht politische Veränderungen bei Produkttransparenz, Bezahlbarkeit und Zugang. Wir sind eine kleine Marke, aber wir glauben, dass jede Stimme zählt — und unsere werden wir nutzen."
+    }
+  ],
+  "imageAlt": "Rachael und Geneviève, Gründerinnen von Lore Organics",
+  "love": "Alles Liebe,",
+  "role": "Mitgründerinnen von Lore Organics"
+}

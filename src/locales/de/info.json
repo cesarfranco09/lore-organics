@@ -1,0 +1,68 @@
+{
+  "shipping": {
+    "seo": {
+      "title": "Versand | Lore Organics",
+      "description": "Versandkosten und Lieferzeiten für die Niederlande und Deutschland."
+    },
+    "heading": "Versand.",
+    "intro": "Wir liefern in die Niederlande und nach Deutschland.",
+    "costsTitle": "Kosten",
+    "oneTime": "Einzelbestellung",
+    "cycleBox": "Cycle Box Lieferung",
+    "freeOver": "Bestellungen ab {{amount}}",
+    "free": "Kostenlos",
+    "timesTitle": "Lieferzeiten",
+    "countries": {
+      "nl": "Niederlande",
+      "de": "Deutschland"
+    },
+    "timeTbc": "[Lieferzeit wird noch bestätigt]",
+    "note": "Alle Preise inkl. MwSt. Der Versand wird an der Kasse hinzugerechnet."
+  },
+  "impressum": {
+    "seo": {
+      "title": "Impressum | Lore Organics",
+      "description": "Angaben zum Unternehmen Lore Organics B.V."
+    },
+    "heading": "Impressum.",
+    "company": "Unternehmen",
+    "address": "Anschrift",
+    "directors": "Geschäftsführung",
+    "registry": "Handelsregister (KvK)",
+    "vat": "USt-IdNr.",
+    "contact": "Kontakt"
+  },
+  "withdrawal": {
+    "seo": {
+      "title": "Vertrag widerrufen | Lore Organics",
+      "description": "Widerrufe deinen Kauf online, innerhalb von 14 Tagen."
+    },
+    "heading": "Vertrag widerrufen.",
+    "intro": "Du kannst deinen Kauf innerhalb von 14 Tagen nach Erhalt ohne Angabe von Gründen widerrufen. Füll das Formular aus und bestätige. Versiegelte Hygieneprodukte können nicht zurückgegeben werden, wenn das Siegel geöffnet wurde.",
+    "name": "Vollständiger Name",
+    "email": "E-Mail-Adresse",
+    "order": "Bestellnummer",
+    "items": "Welche Produkte? (optional)",
+    "received": "Erhalten am",
+    "confirm": "Widerruf bestätigen",
+    "doneTitle": "Danke. Wir haben deinen Widerruf erhalten.",
+    "doneBody": "Dein E-Mail-Programm hat sich mit deinem Widerruf geöffnet. Schick ihn ab, und wir bestätigen ihn innerhalb von 2 Werktagen per E-Mail. Hat sich nichts geöffnet? Schreib uns an info@lore-organics.com.",
+    "subject": "Widerruf des Vertrags — Bestellung {{order}}"
+  },
+  "cancel": {
+    "seo": {
+      "title": "Abo kündigen | Lore Organics",
+      "description": "Kündige dein Cycle Box Abo online, ganz ohne Login."
+    },
+    "heading": "Abo kündigen.",
+    "germanLabel": "Verträge hier kündigen",
+    "intro": "Kündige deine Cycle Box hier, ganz ohne Login. Füll das Formular aus und bestätige; wir bestätigen dir die Kündigung per E-Mail.",
+    "name": "Vollständiger Name",
+    "email": "E-Mail-Adresse",
+    "order": "Abo- oder Bestellnummer (falls zur Hand)",
+    "confirm": "Jetzt kündigen",
+    "doneTitle": "Danke. Wir haben deine Kündigung erhalten.",
+    "doneBody": "Dein E-Mail-Programm hat sich mit deiner Kündigung geöffnet. Schick sie ab, und wir bestätigen sie per E-Mail. Hat sich nichts geöffnet? Schreib uns an info@lore-organics.com.",
+    "subject": "Kündigung des Abos — {{name}}"
+  }
+}

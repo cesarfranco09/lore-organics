@@ -1,129 +1,193 @@
-import { Link } from "react-router-dom";
+import { useState, type FormEvent } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import LeafShadow from "@/components/brand/LeafShadow";
+import { stripLangPrefix } from "@/lib/i18n";
+import { subscribeEmail } from "@/lib/klaviyo";
 import Wordmark from "@/components/brand/Wordmark";
+
+const IUBENDA = {
+  terms: "https://www.iubenda.com/terms-and-conditions/57601669",
+  privacy: "https://www.iubenda.com/privacy-policy/57601669",
+  cookies: "https://www.iubenda.com/privacy-policy/57601669/cookie-policy",
+};
+
+type Status = "idle" | "loading" | "success" | "error";
+
+const Newsletter = () => {
+  const { t, i18n } = useTranslation();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+
+  const submit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!email || status === "loading") return;
+    setStatus("loading");
+    try {
+      await subscribeEmail(email.trim(), "Website Footer", i18n.language);
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <div className="grid gap-6 md:grid-cols-[1fr_minmax(0,420px)] md:items-end md:gap-12">
+      <div>
+        <h2 className="t-h2 mb-2">{t("footer.newsletter.title")}</h2>
+        <p className="t-body text-muted-foreground">{t("footer.newsletter.body")}</p>
+      </div>
+      {status === "success" ? (
+        <p className="t-body" role="status">
+          {t("footer.newsletter.success")}
+        </p>
+      ) : (
+        <form onSubmit={submit} className="w-full">
+          <div className="flex gap-2">
+            <label htmlFor="footer-email" className="sr-only">
+              {t("footer.newsletter.label")}
+            </label>
+            <input
+              id="footer-email"
+              type="email"
+              required
+              autoComplete="email"
+              inputMode="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (status === "error") setStatus("idle");
+              }}
+              placeholder={t("footer.newsletter.placeholder")}
+              aria-describedby="footer-consent"
+              className="h-12 min-w-0 flex-1 rounded-full border border-border bg-background px-5 text-[15px] placeholder:text-muted-foreground/80 focus:border-primary focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="btn-primary shrink-0 px-5"
+              aria-label={t("footer.newsletter.submit")}
+              aria-disabled={status === "loading" || undefined}
+            >
+              <span className="hidden sm:inline">{t("footer.newsletter.submit")}</span>
+              <ArrowRight size={14} aria-hidden="true" />
+            </button>
+          </div>
+          {status === "error" && (
+            <p role="alert" className="t-small mt-2 text-destructive">
+              {t("footer.newsletter.error")}
+            </p>
+          )}
+          <p id="footer-consent" className="t-small mt-3 text-muted-foreground">
+            {t("footer.newsletter.consent")}{" "}
+            <a href={IUBENDA.privacy} className="underline underline-offset-2 hover:opacity-70">
+              {t("footer.privacy")}
+            </a>
+            .
+          </p>
+        </form>
+      )}
+    </div>
+  );
+};
 
 const Footer = () => {
   const { t } = useTranslation();
   const { localize } = useLocalizedPath();
+  // The Cycle Box page keeps a bar fixed to the bottom on phones: leave room for it.
+  const roomForBar = stripLangPrefix(useLocation().pathname) === "/cycle-box";
+
+  const columns: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
+    {
+      title: t("footer.cols.shop"),
+      links: [
+        { label: t("nav.pads"), href: "/products/pads" },
+        { label: t("nav.tampons"), href: "/products/tampons" },
+        { label: t("nav.liners"), href: "/products/panty-liners" },
+        { label: t("nav.cycleBox"), href: "/cycle-box" },
+      ],
+    },
+    {
+      title: t("footer.cols.about"),
+      links: [
+        { label: t("nav.ourStory"), href: "/about" },
+        { label: t("nav.materials"), href: "/materials" },
+        { label: t("nav.giving"), href: "/giving" },
+        { label: t("nav.theLore"), href: "/the-lore" },
+      ],
+    },
+    {
+      title: t("footer.cols.help"),
+      links: [
+        { label: t("footer.faq"), href: "/faq" },
+        { label: t("footer.shipping"), href: "/shipping" },
+        { label: t("footer.returns"), href: "/return-refund-policy" },
+        { label: t("footer.contact"), href: "mailto:info@lore-organics.com", external: true },
+      ],
+    },
+    {
+      title: t("footer.cols.legal"),
+      links: [
+        { label: t("footer.terms"), href: IUBENDA.terms, external: true },
+        { label: t("footer.privacy"), href: IUBENDA.privacy, external: true },
+        { label: t("footer.cookie"), href: IUBENDA.cookies, external: true },
+        { label: t("footer.impressum"), href: "/impressum" },
+      ],
+    },
+  ];
 
   return (
-    <footer className="relative isolate overflow-hidden bg-lore-night pb-20 text-lore-birch md:pb-0">
-      <LeafShadow color="rgb(15, 6, 8)" opacity={0.35} seed={91} blur={18} sunlight={false} />
-      <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-28 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <Wordmark size="lg" className="mb-8" />
-            <p className="text-body opacity-70 max-w-sm">{t("footer.tagline")}</p>
-            <p className="mt-4 font-serif text-lg italic opacity-80">{t("footer.fromOneWoman")}</p>
-          </div>
+    <footer className={`border-t border-sage-light bg-background ${roomForBar ? "pb-20 lg:pb-0" : ""}`}>
+      <div className="container-lore py-[72px] md:py-[96px]">
+        <Newsletter />
 
-          {/* Links */}
-          <div>
-            <h4 className="text-label mb-6 opacity-60">{t("footer.explore")}</h4>
-            <div className="flex flex-col gap-3">
-              <Link to={localize("/products")} className="text-body opacity-70 hover:opacity-100 transition-opacity">{t("nav.products")}</Link>
-              <Link to={localize("/about")} className="text-body opacity-70 hover:opacity-100 transition-opacity">{t("nav.ourStory")}</Link>
-              <Link to={localize("/sustainability")} className="text-body opacity-70 hover:opacity-100 transition-opacity">{t("nav.sustainability")}</Link>
-              <Link to={localize("/impact")} className="text-body opacity-70 hover:opacity-100 transition-opacity">{t("nav.impact")}</Link>
-              <Link to={localize("/faq")} className="text-body opacity-70 hover:opacity-100 transition-opacity">{t("footer.faq")}</Link>
-            </div>
-          </div>
+        <div className="mt-16 border-t border-border pt-12 md:mt-20">
+          <Wordmark className="text-foreground" />
+          <p className="t-body mt-5 max-w-md text-muted-foreground">{t("footer.tagline")}</p>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-label mb-6 opacity-60">{t("footer.connect")}</h4>
-            <div className="flex flex-col gap-3">
-              <a
-                href="https://www.instagram.com/lore.organics/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-body opacity-70 hover:opacity-100 transition-opacity"
-              >
-                Instagram · @lore.organics
-              </a>
-              <a
-                href="https://tiktok.com/@lore.organics"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-body opacity-70 hover:opacity-100 transition-opacity"
-              >
-                TikTok · @lore.organics
-              </a>
-              <a href="mailto:info@lore-organics.com" className="text-body opacity-70 hover:opacity-100 transition-opacity">
-                info@lore-organics.com
-              </a>
-              <span className="text-body opacity-70">Amsterdam, NL</span>
-              <LanguageSwitcher className="mt-2" inverted />
-            </div>
+          <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
+            {columns.map((col) => (
+              <div key={col.title}>
+                <h3 className="text-label mb-4 text-foreground">{col.title}</h3>
+                <ul className="flex flex-col gap-3">
+                  {col.links.map((l) => (
+                    <li key={l.href}>
+                      {l.external ? (
+                        <a href={l.href} className="t-small text-muted-foreground transition-opacity duration-200 hover:opacity-70">
+                          {l.label}
+                        </a>
+                      ) : (
+                        <Link to={localize(l.href)} className="t-small text-muted-foreground transition-opacity duration-200 hover:opacity-70">
+                          {l.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-20 pt-8 border-t border-primary-foreground/10 flex flex-wrap justify-center md:justify-between items-center gap-3 text-xs opacity-60">
-          <p className="opacity-80">© 2026 Lore Organics B.V.</p>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 justify-center">
-            <span className="opacity-40">·</span>
-            <a
-              href="https://www.iubenda.com/terms-and-conditions/57601669"
-              className="iubenda-white iubenda-noiframe iubenda-embed hover:opacity-100 transition-opacity"
-              title={t("footer.terms")}
-            >
-              {t("footer.terms")}
-            </a>
-            <span className="opacity-40">·</span>
-            <a
-              href="https://www.iubenda.com/privacy-policy/57601669"
-              className="iubenda-white iubenda-noiframe iubenda-embed hover:opacity-100 transition-opacity"
-              title={t("footer.privacy")}
-            >
-              {t("footer.privacy")}
-            </a>
-            <span className="opacity-40">·</span>
-            <a
-              href="https://www.iubenda.com/privacy-policy/57601669/cookie-policy"
-              className="iubenda-white iubenda-noiframe iubenda-embed hover:opacity-100 transition-opacity"
-              title={t("footer.cookie")}
-            >
-              {t("footer.cookie")}
-            </a>
-            <span className="opacity-40">·</span>
-            <Link
-              to={localize("/return-refund-policy")}
-              className="hover:opacity-100 transition-opacity"
-            >
-              {t("footer.returnRefund")}
+        <div className="mt-14 flex flex-col gap-5 border-t border-border pt-8 lg:flex-row lg:items-center lg:justify-between">
+          <p className="t-small text-muted-foreground">
+            © 2026 Lore Organics B.V. · Schans 178, 1423CB Uithoorn, {t("footer.country")} · KvK 42047169 · BTW NL869464437B01
+          </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 lg:shrink-0 lg:flex-nowrap">
+            <Link to={localize("/withdrawal")} className="link-arrow">
+              {t("footer.withdraw")}
             </Link>
-            <span className="opacity-40">·</span>
-            <a
-              href="https://www.instagram.com/lore.organics/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-100 transition-opacity"
-            >
+            <Link to={localize("/cancel-subscription")} className="t-small text-muted-foreground hover:opacity-70">
+              {t("footer.cancelSubscription")}
+            </Link>
+            <a href="https://www.instagram.com/lore.organics/" target="_blank" rel="noopener noreferrer" className="t-small text-muted-foreground hover:opacity-70">
               Instagram
             </a>
-            <span className="opacity-40">·</span>
-            <a
-              href="https://tiktok.com/@lore.organics"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-100 transition-opacity"
-            >
+            <a href="https://tiktok.com/@lore.organics" target="_blank" rel="noopener noreferrer" className="t-small text-muted-foreground hover:opacity-70">
               TikTok
-            </a>
-            <span className="opacity-40">·</span>
-            <a href="mailto:info@lore-organics.com" className="hover:opacity-100 transition-opacity">
-              info@lore-organics.com
             </a>
           </div>
         </div>
-        <p className="mt-6 text-[11px] opacity-50 text-center md:text-left leading-relaxed">
-          Lore Organics B.V. | Schans 178, 1423CB Uithoorn, {t("footer.country")} | KVK 42047169 | BTW NL869464437B01
-        </p>
       </div>
     </footer>
   );

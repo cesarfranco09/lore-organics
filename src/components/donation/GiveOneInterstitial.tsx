@@ -51,21 +51,21 @@ const GiveOneInterstitial = () => {
 
   return (
     <Dialog open={isGiveOneOpen} onOpenChange={(open) => !open && closeGiveOne()}>
-      <DialogContent className="max-w-md bg-[#F7F5F1] border-[#4B2E38]">
+      <DialogContent className="max-w-md bg-[#FAF8F5] border-[#3D4A3C]">
         <DialogHeader>
           <div className="flex items-center gap-2">
-            <Heart size={18} strokeWidth={1.5} className="text-[#C4967A]" fill="#C4967A" />
-            <DialogTitle className="font-serif text-2xl font-normal text-[#1A3528]">
+            <Heart size={18} strokeWidth={1.5} className="text-[#7E8C7A]" fill="#7E8C7A" />
+            <DialogTitle className="font-serif text-2xl font-normal text-[#2F332E]">
               {t("giveOne.interTitle")}
             </DialogTitle>
           </div>
-          <DialogDescription className="font-sans text-[13px] leading-[1.6] text-[#1A3528]">
+          <DialogDescription className="font-sans text-[13px] leading-[1.6] text-[#2F332E]">
             {t("giveOne.interBody")}
           </DialogDescription>
         </DialogHeader>
 
         <fieldset>
-          <legend className="font-sans text-[11px] text-[#4B2E38] mb-2">
+          <legend className="font-sans text-[11px] text-[#3D4A3C] mb-2">
             {t("giveOne.partnerLegend")}
           </legend>
           <div className="flex flex-col gap-1.5">
@@ -77,9 +77,9 @@ const GiveOneInterstitial = () => {
                   value={p.id}
                   checked={partnerId === p.id}
                   onChange={() => setPartnerId(p.id)}
-                  className="accent-[#4B2E38]"
+                  className="accent-[#3D4A3C]"
                 />
-                <span className="font-sans text-[12px] text-[#1A3528]">{t(p.id === "nl" ? "giveOne.partnerNl" : "giveOne.partnerDe")}</span>
+                <span className="font-sans text-[12px] text-[#2F332E]">{t(p.id === "nl" ? "giveOne.partnerNl" : "giveOne.partnerDe")}</span>
               </label>
             ))}
           </div>
@@ -92,17 +92,17 @@ const GiveOneInterstitial = () => {
               type="button"
               disabled={isCheckingOut}
               onClick={() => addAndContinue(opt.key)}
-              className="w-full flex items-center justify-between rounded-md border border-[#4B2E38]/20 bg-white px-4 py-3 text-left hover:border-[#4B2E38] transition-colors disabled:opacity-60"
+              className="w-full flex items-center justify-between rounded-md border border-[#3D4A3C]/20 bg-white px-4 py-3 text-left hover:border-[#3D4A3C] transition-colors disabled:opacity-60"
             >
               <span>
-                <span className="block font-sans text-[13px] font-medium text-[#1A3528]">
+                <span className="block font-sans text-[13px] font-medium text-[#2F332E]">
                   {t("giveOne.interAdd", { product: t(`giveOne.${opt.key}Option`) })}
                 </span>
-                <span className="block font-sans text-[11px] text-[#4B2E38]">
+                <span className="block font-sans text-[11px] text-[#3D4A3C]">
                   {t("giveOne.interAtCost", { price: `€${parseFloat(opt.product.priceRange.minVariantPrice.amount).toFixed(2)}` })}
                 </span>
               </span>
-              <ArrowRight size={14} className="text-[#4B2E38] shrink-0" />
+              <ArrowRight size={14} className="text-[#3D4A3C] shrink-0" />
             </button>
           ))}
         </div>
@@ -111,7 +111,7 @@ const GiveOneInterstitial = () => {
           type="button"
           disabled={isCheckingOut}
           onClick={declineAndContinue}
-          className="w-full text-center font-sans text-[12px] text-[#9B9B9B] hover:text-[#4B2E38] transition-colors py-1 disabled:opacity-60"
+          className="w-full text-center font-sans text-[12px] text-[#9B9B9B] hover:text-[#3D4A3C] transition-colors py-1 disabled:opacity-60"
         >
           {isCheckingOut ? t("cart.redirecting") : t("giveOne.interDecline")}
         </button>

@@ -94,7 +94,7 @@ const Checkout = () => {
 
   if (items.length === 0) {
     return (
-      <main className="pt-20 min-h-screen flex items-center justify-center">
+      <main className="min-h-[70vh] flex items-center justify-center">
         <div className="text-center px-6">
           <h1 className="text-editorial-md mb-4">{t("empty.title")}</h1>
           <p className="text-body text-muted-foreground mb-8">{t("empty.body")}</p>
@@ -110,7 +110,7 @@ const Checkout = () => {
   }
 
   return (
-    <main className="pt-20 min-h-screen bg-background">
+    <main className="min-h-[70vh] bg-background">
       <Seo
         title={t("seo.title")}
         description={t("seo.description")}
@@ -293,15 +293,15 @@ const Checkout = () => {
             {/* Trust Indicators */}
             <div className="flex flex-wrap gap-6 py-6 border-t border-border">
               <div className="flex items-center gap-2 text-muted-foreground">
-                <ShieldCheck size={18} strokeWidth={1.5} className="text-lore-botanical" />
+                <ShieldCheck size={18} strokeWidth={1.5} className="text-primary" />
                 <span className="text-sm">{t("trust.secure")}</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Lock size={18} strokeWidth={1.5} className="text-lore-botanical" />
+                <Lock size={18} strokeWidth={1.5} className="text-primary" />
                 <span className="text-sm">{t("trust.encrypted")}</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Leaf size={18} strokeWidth={1.5} className="text-lore-botanical" />
+                <Leaf size={18} strokeWidth={1.5} className="text-primary" />
                 <span className="text-sm">{t("trust.madeIn")}</span>
               </div>
             </div>

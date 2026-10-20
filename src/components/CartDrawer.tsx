@@ -6,6 +6,8 @@ import { isDonationItem } from "@/lib/donations";
 import { SHIPPING, formatEuro } from "@/lib/pricing";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import GiveOneSection from "@/components/donation/GiveOneSection";
+import ProductBox from "@/components/brand/ProductBox";
+import { CATALOG } from "@/lib/catalog";
 
 /** Progress toward free shipping on the cart subtotal (threshold from the brief). */
 const FreeShippingProgress = ({ subtotal, lang }: { subtotal: number; lang: string }) => {
@@ -16,18 +18,18 @@ const FreeShippingProgress = ({ subtotal, lang }: { subtotal: number; lang: stri
 
   return (
     <div className="mb-4">
-      <p className="flex items-center gap-2 text-[13px] leading-snug text-lore-night" aria-live="polite">
+      <p className="flex items-center gap-2 text-[13px] leading-snug text-primary" aria-live="polite">
         <Truck size={14} strokeWidth={1.5} className="shrink-0" aria-hidden="true" />
         {unlocked
           ? t("freeShipping.unlocked")
           : t("freeShipping.away", { amount: formatEuro(remaining, lang) })}
       </p>
       <div
-        className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full bg-lore-night/10"
+        className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full bg-primary/10"
         aria-hidden="true"
       >
         <div
-          className="h-full origin-left rounded-full bg-lore-night transition-transform duration-700 ease-out motion-reduce:transition-none"
+          className="h-full origin-left rounded-full bg-primary transition-transform duration-700 ease-out motion-reduce:transition-none"
           style={{ transform: `scaleX(${progress})` }}
         />
       </div>
@@ -64,59 +66,69 @@ const CartDrawer = () => {
       >
         {/* Grab handle (mobile) */}
         <div className="flex justify-center pt-3 md:hidden" aria-hidden="true">
-          <span className="h-1 w-10 rounded-full bg-lore-night/15" />
+          <span className="h-1 w-10 rounded-full bg-primary/15" />
         </div>
 
         {/* Header */}
         <div className="flex shrink-0 items-center justify-between px-6 pb-4 pt-3 md:px-8 md:pb-5 md:pt-7">
           <div className="flex items-baseline gap-3">
-            <span className="font-serif text-[28px] font-light leading-none text-lore-night">{t("cart.title")}</span>
+            <span className="font-serif text-[28px] font-light leading-none text-foreground">{t("cart.title")}</span>
             {totalItems > 0 && (
-              <span className="text-label text-lore-night/60">({totalItems})</span>
+              <span className="text-label text-primary/60">({totalItems})</span>
             )}
           </div>
           <button
             onClick={closeCart}
-            className="-mr-2 flex h-10 w-10 items-center justify-center rounded-full text-lore-night/70 transition-colors hover:bg-lore-night/5 hover:text-lore-night"
+            className="-mr-2 flex h-10 w-10 items-center justify-center rounded-full text-primary/70 transition-colors hover:bg-primary/5 hover:text-primary"
             aria-label={t("cart.close")}
           >
             <X size={18} strokeWidth={1.5} />
           </button>
         </div>
-        <div className="mx-6 h-px shrink-0 bg-lore-night/10 md:mx-8" />
+        <div className="mx-6 h-px shrink-0 bg-primary/10 md:mx-8" />
 
         {/* Items */}
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-5 md:px-8">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center gap-5 py-14 text-center">
-              <p className="font-serif text-2xl font-light text-lore-night/70">{t("cart.empty")}</p>
-              <button onClick={closeCart} className="btn-ghost px-7 py-3 text-lore-night">
+              <p className="font-serif text-2xl font-light text-primary/70">{t("cart.empty")}</p>
+              <button onClick={closeCart} className="btn-ghost px-7 py-3 text-primary">
                 {t("cart.continueShopping")}
               </button>
             </div>
           ) : (
-            <ul className="divide-y divide-lore-night/10">
+            <ul className="divide-y divide-border">
               {items.map((item) => (
                 <li key={item.id} className="flex gap-4 py-5 first:pt-0">
                   {/* Image */}
-                  <div className="h-24 w-20 shrink-0 overflow-hidden rounded-2xl bg-lore-linen">
-                    <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+                  <div className="flex h-24 w-20 shrink-0 items-end justify-center overflow-hidden rounded-xl bg-card">
+                    {(() => {
+                      // Catalog products show their correct-color box; anything else its own image.
+                      const product = CATALOG.find((p) => p.id === item.id || p.shopifyHandle === item.id);
+                      return product ? (
+                        <div className="-mb-1" aria-hidden="true">
+                          <ProductBox product={product} width={40} turn={-20} />
+                        </div>
+                      ) : (
+                        <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+                      );
+                    })()}
                   </div>
 
                   {/* Details */}
                   <div className="flex min-w-0 flex-1 flex-col justify-between">
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0">
-                        <p className="font-serif text-[19px] font-normal leading-tight text-lore-night">{item.name}</p>
+                        <p className="font-serif text-[19px] font-normal leading-tight text-foreground">{item.name}</p>
                         {isDonationItem(item) && (
-                          <p className="mt-1 flex items-center gap-1 font-sans text-[11px] text-lore-night/80">
+                          <p className="mt-1 flex items-center gap-1 font-sans text-[11px] text-primary/80">
                             <Heart size={10} strokeWidth={1.5} fill="currentColor" />
                             {t("cart.donated", { region: item.attributes?.find((a) => a.key === "Donation partner")?.value })}
                           </p>
                         )}
                       </div>
                       {storeLive && (
-                        <span className="shrink-0 font-serif text-[17px] text-lore-night">
+                        <span className="shrink-0 font-serif text-[17px] text-foreground">
                           {formatEuro(item.price * item.quantity, lang)}
                         </span>
                       )}
@@ -124,10 +136,10 @@ const CartDrawer = () => {
 
                     <div className="mt-3 flex items-center justify-between">
                       {/* Qty controls */}
-                      <div className="flex items-center rounded-full border border-lore-night/20">
+                      <div className="flex items-center rounded-full border border-primary/20">
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="flex h-8 w-8 items-center justify-center rounded-full text-lore-night transition-colors hover:bg-lore-night/5 active:scale-90"
+                          className="flex h-8 w-8 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary/5 active:scale-90"
                           aria-label={t("cart.decrease")}
                         >
                           <Minus size={12} strokeWidth={1.5} />
@@ -137,7 +149,7 @@ const CartDrawer = () => {
                         </span>
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="flex h-8 w-8 items-center justify-center rounded-full text-lore-night transition-colors hover:bg-lore-night/5 active:scale-90"
+                          className="flex h-8 w-8 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary/5 active:scale-90"
                           aria-label={t("cart.increase")}
                         >
                           <Plus size={12} strokeWidth={1.5} />
@@ -147,7 +159,7 @@ const CartDrawer = () => {
                       {/* Remove */}
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="text-[10px] font-medium uppercase tracking-[0.22em] text-lore-night/50 underline-offset-4 transition-colors hover:text-lore-night hover:underline"
+                        className="text-[10px] font-medium uppercase tracking-[0.22em] text-primary/50 underline-offset-4 transition-colors hover:text-primary hover:underline"
                       >
                         {t("cart.remove")}
                       </button>
@@ -164,14 +176,14 @@ const CartDrawer = () => {
 
         {/* Footer: shrink-0 keeps checkout visible on every viewport */}
         {items.length > 0 && (
-          <div className="shrink-0 border-t border-lore-night/10 bg-lore-ivory px-6 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-5 md:px-8 md:pb-7">
+          <div className="shrink-0 border-t border-primary/10 bg-lore-ivory px-6 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-5 md:px-8 md:pb-7">
             {/* Shipping progress + subtotal once the store is live (hidden during pricing review) */}
             {storeLive && (
               <>
                 <FreeShippingProgress subtotal={subtotal} lang={lang} />
                 <div className="mb-4 flex items-baseline justify-between">
-                  <span className="text-label text-lore-night/70">{t("cart.subtotal")}</span>
-                  <span className="font-serif text-2xl font-light text-lore-night">{formatEuro(subtotal, lang)}</span>
+                  <span className="text-label text-primary/70">{t("cart.subtotal")}</span>
+                  <span className="font-serif text-2xl font-light text-primary">{formatEuro(subtotal, lang)}</span>
                 </div>
               </>
             )}
@@ -193,18 +205,18 @@ const CartDrawer = () => {
                   type="button"
                   disabled
                   aria-disabled="true"
-                  className="inline-flex w-full cursor-not-allowed items-center justify-center rounded-full bg-lore-night/10 px-8 py-3.5 text-label text-lore-night/60"
+                  className="inline-flex w-full cursor-not-allowed items-center justify-center rounded-full bg-primary/10 px-8 py-3.5 text-label text-primary/60"
                 >
                   {t("cart.comingSoon")}
                 </button>
-                <p className="mt-2 text-center text-xs text-lore-night/60">{t("cart.launching")}</p>
+                <p className="mt-2 text-center text-xs text-primary/60">{t("cart.launching")}</p>
               </>
             )}
 
             {/* Continue */}
             <button
               onClick={closeCart}
-              className="mt-2 w-full py-2 text-center text-[10px] font-medium uppercase tracking-[0.22em] text-lore-night/60 transition-colors hover:text-lore-night"
+              className="mt-2 w-full py-2 text-center text-[10px] font-medium uppercase tracking-[0.22em] text-primary/60 transition-colors hover:text-primary"
             >
               {t("cart.continueShopping")}
             </button>

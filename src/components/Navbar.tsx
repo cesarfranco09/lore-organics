@@ -1,334 +1,201 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, ShoppingBag } from "lucide-react";
+import { Menu, X, ShoppingBag, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCart } from "@/contexts/CartContext";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import { stripLangPrefix } from "@/lib/i18n";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Wordmark from "@/components/brand/Wordmark";
-import sustainabilityHero from "@/assets/sustainability-hero.webp";
-import foundersImage from "@/assets/founders.webp";
-import impactHero from "@/assets/impact-hero.webp";
 
-const LAUNCH_DATE = new Date("2026-10-01T00:00:00Z");
+/**
+ * Thin deep-sage announcement bar over a cream header (brief §3, Homepage 1–2).
+ * Nav: Shop · Cycle Box · The Lore · About · EN NL DE · bag.
+ */
 
-const daysUntilLaunch = () => {
-  const now = new Date();
-  const diff = LAUNCH_DATE.getTime() - now.getTime();
-  return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+interface NavItem {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}
+
+const CartButton = ({ bounce }: { bounce: boolean }) => {
+  const { totalItems, toggleCart } = useCart();
+  const { t } = useTranslation();
+  return (
+    <button
+      type="button"
+      onClick={toggleCart}
+      className="relative flex h-10 w-10 items-center justify-center text-foreground transition-opacity duration-200 hover:opacity-70"
+      aria-label={t("nav.openCart")}
+      style={{
+        transform: bounce ? "scale(1.15)" : "scale(1)",
+        transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
+      }}
+    >
+      <ShoppingBag size={20} strokeWidth={1.25} />
+      {totalItems > 0 && (
+        <span className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-medium leading-none text-primary-foreground">
+          {totalItems}
+        </span>
+      )}
+    </button>
+  );
 };
-
-/** Pages whose first section is a dark hero that starts behind the header. */
-const DARK_HERO_PATHS = ["/", "/cycle-box"];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { totalItems, toggleCart } = useCart();
+  const { totalItems } = useCart();
   const [cartBounce, setCartBounce] = useState(false);
   const { t } = useTranslation();
   const { localize } = useLocalizedPath();
   const barePath = stripLangPrefix(location.pathname);
-  const [scrolled, setScrolled] = useState(() => typeof window !== "undefined" && window.scrollY > 24);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [barePath]);
-
-  // Over a dark full-bleed hero (home, Cycle Box) the header is see-through and
-  // cream; it takes on its solid colors once the page scrolls, on other pages,
-  // and with the menu open.
-  const overHero = DARK_HERO_PATHS.includes(barePath) && !scrolled && !isOpen;
-  const linkIdle = overHero ? "text-lore-birch/80 hover:text-lore-birch" : "text-muted-foreground hover:text-lore-night";
-  const linkActive = overHero ? "text-lore-birch" : "text-foreground";
-  const iconColor = overHero ? "text-lore-birch/85 hover:text-lore-birch" : "text-muted-foreground hover:text-foreground";
-
-  const shopSubLinks = [
-    { label: t("nav.allProducts"), href: "/products" },
-    { label: t("nav.pads"), href: "/products/pads" },
-    { label: t("nav.tampons"), href: "/products/tampons" },
-    { label: t("nav.pantyLiners"), href: "/products/panty-liners" },
-  ];
-
-  const aboutMegaLinks = [
+  const items: NavItem[] = [
     {
-      label: t("nav.ourStory"),
-      href: "/about",
-      description: t("nav.ourStoryDesc"),
-      image: foundersImage,
-      alt: "Geneviève Silvestra and Rachael Hoogkamer, co-founders of Lore Organics organic period care brand — Our Story navigation preview",
+      label: t("nav.shop"),
+      href: "/products",
+      children: [
+        { label: t("nav.pads"), href: "/products/pads" },
+        { label: t("nav.tampons"), href: "/products/tampons" },
+        { label: t("nav.liners"), href: "/products/panty-liners" },
+        { label: t("nav.howCycleBoxWorks"), href: "/cycle-box#how-it-works" },
+      ],
     },
-    {
-      label: t("nav.sustainability"),
-      href: "/sustainability",
-      description: t("nav.sustainabilityDesc"),
-      image: sustainabilityHero,
-      alt: "GOTS certified organic cotton field — sustainable, biodegradable period care from Lore Organics navigation preview",
-    },
-    {
-      label: t("nav.impact"),
-      href: "/impact",
-      description: t("nav.impactDesc"),
-      image: impactHero,
-      alt: "Lore Organics impact — period equity and community partnerships navigation preview",
-    },
-  ];
-
-  const navLinks = [
-    { label: t("nav.products"), href: "/products", dropdown: "shop" as const },
     { label: t("nav.cycleBox"), href: "/cycle-box" },
-    { label: t("nav.about"), href: "/about", dropdown: "about" as const },
+    { label: t("nav.theLore"), href: "/the-lore" },
+    {
+      label: t("nav.about"),
+      href: "/about",
+      children: [
+        { label: t("nav.ourStory"), href: "/about" },
+        { label: t("nav.materials"), href: "/materials" },
+        { label: t("nav.giving"), href: "/giving" },
+      ],
+    },
   ];
 
-  // Bounce the cart icon when items change
+  const isActive = (item: NavItem) =>
+    barePath === item.href ||
+    barePath.startsWith(`${item.href}/`) ||
+    !!item.children?.some((c) => barePath === c.href.split("#")[0]);
+
+  // Close the mobile menu on navigation.
+  useEffect(() => setIsOpen(false), [location.pathname]);
+
   useEffect(() => {
     if (totalItems > 0) {
       setCartBounce(true);
-      const t = setTimeout(() => setCartBounce(false), 400);
-      return () => clearTimeout(t);
+      const timer = setTimeout(() => setCartBounce(false), 400);
+      return () => clearTimeout(timer);
     }
   }, [totalItems]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
-      <div
-        className={`flex h-[36px] items-center justify-center border-b text-[10px] font-medium uppercase tracking-[0.24em] text-lore-birch transition-colors duration-500 md:text-[11px] ${
-          overHero ? "border-lore-birch/10 bg-transparent" : "border-transparent bg-lore-night"
-        }`}
-      >
-        <span className="text-center px-4">
-          {daysUntilLaunch() > 0
-            ? t("announcement", { days: daysUntilLaunch() })
-            : t("announcementLive")}
-        </span>
+    <header className="sticky top-0 z-50">
+      <div className="flex min-h-8 items-center justify-center bg-primary px-4 py-1.5 text-center text-[10px] font-medium uppercase leading-[14px] tracking-[0.1em] text-primary-foreground md:text-[11px] md:tracking-[0.14em]">
+        <span>{t("announcement")}</span>
       </div>
-      <div
-        className={`border-b transition-[background-color,border-color,backdrop-filter] duration-500 ${
-          overHero ? "border-transparent bg-transparent" : "border-lore-charcoal/5 bg-lore-birch/85 backdrop-blur-xl"
-        }`}
-      >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-3 md:px-12 lg:px-20">
-        {/* Logo */}
-        <Link
-          to={localize("/")}
-          className={`transition-colors duration-500 ${overHero ? "text-lore-birch" : "text-lore-charcoal"}`}
-          aria-label="Lore Organics"
-        >
-          <Wordmark />
-        </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) =>
-            link.dropdown ? (
-              <div key={link.href} className="relative group">
-                <Link
-                  to={localize(link.href)}
-                  className={`text-label transition-colors duration-300 ${
-                    barePath.startsWith(link.href) ? linkActive : linkIdle
-                  }`}
-                >
-                  {link.label}
-                </Link>
+      <div className="border-b border-border bg-background">
+        <div className="container-lore flex h-16 items-center justify-between gap-6 md:h-[76px]">
+          <Link to={localize("/")} className="shrink-0 text-foreground" aria-label="Lore Organics">
+            <Wordmark />
+          </Link>
 
-                {/* Shop dropdown */}
-                {link.dropdown === "shop" && (
-                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="min-w-[170px] overflow-hidden rounded-2xl border border-lore-charcoal/5 bg-lore-birch py-2 shadow-[0_20px_50px_-20px_rgba(58,46,41,0.35)]">
-                      {shopSubLinks.map((sub) => (
-                        <Link
-                          key={sub.href}
-                          to={localize(sub.href)}
-                          className="block px-5 py-2 text-label text-muted-foreground hover:text-lore-night hover:bg-lore-linen transition-colors"
-                        >
-                          {sub.label}
-                        </Link>
+          {/* Desktop */}
+          <nav className="hidden items-center gap-8 lg:flex" aria-label={t("nav.main")}>
+            {items.map((item) =>
+              item.children ? (
+                <div key={item.href} className="group relative">
+                  <Link
+                    to={localize(item.href)}
+                    className={`flex items-center gap-1 py-6 text-label transition-opacity duration-200 hover:opacity-70 ${
+                      isActive(item) ? "text-foreground" : "text-muted-foreground"
+                    }`}
+                    aria-haspopup="true"
+                  >
+                    {item.label}
+                    <ChevronDown size={12} strokeWidth={1.5} className="transition-transform duration-200 group-hover:rotate-180" />
+                  </Link>
+                  <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-0 opacity-0 transition-opacity duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                    <ul className="min-w-[220px] rounded-xl border border-border bg-background py-2 shadow-[0_18px_40px_-24px_rgba(47,51,46,0.35)]">
+                      {item.children.map((c) => (
+                        <li key={c.href}>
+                          <Link
+                            to={localize(c.href)}
+                            className="block px-5 py-2.5 text-[14px] text-foreground transition-colors duration-200 hover:bg-card"
+                          >
+                            {c.label}
+                          </Link>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
-                )}
-
-                {/* About mega dropdown */}
-                {link.dropdown === "about" && (
-                  <div className="fixed left-0 right-0 top-[98px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="bg-background border-b border-border/50 shadow-xl">
-                      <div className="px-6 md:px-12 lg:px-24 py-10">
-                        <div className="grid grid-cols-3 gap-8 max-w-5xl mx-auto">
-                          {aboutMegaLinks.map((item) => (
-                            <Link
-                              key={item.href}
-                              to={localize(item.href)}
-                              className="group/card flex flex-col"
-                            >
-                              <div className="relative overflow-hidden mb-4 aspect-[16/10]">
-                                <img
-                                  src={item.image}
-                                  alt={item.alt}
-                                  className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-foreground/0 group-hover/card:bg-foreground/5 transition-colors duration-300" />
-                              </div>
-                              <h3 className="font-serif text-lg font-medium mb-1 group-hover/card:text-lore-night transition-colors duration-200">
-                                {item.label}
-                              </h3>
-                              <p className="text-body text-muted-foreground text-sm leading-relaxed mb-3">
-                                {item.description}
-                              </p>
-                              <span className="inline-flex items-center gap-2 text-label text-xs text-muted-foreground group-hover/card:text-lore-night group-hover/card:gap-3 transition-all duration-200">
-                                {t("nav.explore")} <ArrowRight size={12} />
-                              </span>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                key={link.href}
-                to={localize(link.href)}
-                className={`text-label transition-colors duration-300 ${
-                  barePath === link.href ? linkActive : linkIdle
-                }`}
-              >
-                {link.label}
-              </Link>
-            )
-          )}
-
-          <LanguageSwitcher inverted={overHero} className={overHero ? "text-lore-birch" : ""} />
-
-          {/* Cart icon, desktop */}
-          <button
-            onClick={toggleCart}
-            className={`relative transition-colors duration-300 ${iconColor}`}
-            aria-label={t("nav.openCart")}
-            style={{
-              transform: cartBounce ? "scale(1.2)" : "scale(1)",
-              transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
-            }}
-          >
-            <ShoppingBag size={20} strokeWidth={1.5} />
-            {totalItems > 0 && (
-              <span
-                className="absolute -top-1.5 -right-1.5 flex items-center justify-center font-sans font-medium"
-                style={{
-                  width: 16,
-                  height: 16,
-                  borderRadius: "50%",
-                  background: "hsl(var(--lore-night))",
-                  color: "hsl(var(--primary-foreground))",
-                  fontSize: "0.55rem",
-                  lineHeight: 1,
-                }}
-              >
-                {totalItems}
-              </span>
-            )}
-          </button>
-        </div>
-
-        {/* Mobile right side */}
-        <div className="flex items-center gap-4 md:hidden">
-          {/* Cart icon, mobile */}
-          <button
-            onClick={toggleCart}
-            className={`relative transition-colors duration-300 ${iconColor}`}
-            aria-label={t("nav.openCart")}
-            style={{
-              transform: cartBounce ? "scale(1.2)" : "scale(1)",
-              transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
-            }}
-          >
-            <ShoppingBag size={20} strokeWidth={1.5} />
-            {totalItems > 0 && (
-              <span
-                className="absolute -top-1.5 -right-1.5 flex items-center justify-center font-sans font-medium"
-                style={{
-                  width: 16,
-                  height: 16,
-                  borderRadius: "50%",
-                  background: "hsl(var(--lore-night))",
-                  color: "hsl(var(--primary-foreground))",
-                  fontSize: "0.55rem",
-                  lineHeight: 1,
-                }}
-              >
-                {totalItems}
-              </span>
-            )}
-          </button>
-
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`transition-colors duration-500 ${overHero ? "text-lore-birch" : "text-foreground"}`}
-            aria-label={t("nav.toggleMenu")}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden max-h-[calc(100svh-100px)] overflow-y-auto bg-lore-birch border-t border-lore-charcoal/5 px-6 py-8 fade-in">
-          <div className="flex flex-col gap-6">
-            {navLinks.map((link) => (
-              <div key={link.href}>
+                </div>
+              ) : (
                 <Link
-                  to={localize(link.href)}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-label transition-colors ${
-                    barePath === link.href
-                      ? "text-foreground"
-                      : "text-muted-foreground"
+                  key={item.href}
+                  to={localize(item.href)}
+                  className={`py-6 text-label transition-opacity duration-200 hover:opacity-70 ${
+                    isActive(item) ? "text-foreground" : "text-muted-foreground"
                   }`}
                 >
-                  {link.label}
+                  {item.label}
                 </Link>
-                {link.dropdown === "shop" && (
-                  <div className="flex flex-col gap-3 mt-3 ml-4">
-                    {shopSubLinks.map((sub) => (
-                      <Link
-                        key={sub.href}
-                        to={localize(sub.href)}
-                        onClick={() => setIsOpen(false)}
-                        className="text-label text-muted-foreground hover:text-lore-night transition-colors"
-                      >
-                        {sub.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-                {link.dropdown === "about" && (
-                  <div className="flex flex-col gap-4 mt-3 ml-4">
-                    {aboutMegaLinks.map((item) => (
-                      <Link
-                        key={item.href}
-                        to={localize(item.href)}
-                        onClick={() => setIsOpen(false)}
-                        className="text-label text-muted-foreground hover:text-lore-night transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <LanguageSwitcher className="pt-2 border-t border-border/40" />
+              )
+            )}
+          </nav>
+
+          <div className="flex items-center gap-2 md:gap-4">
+            <LanguageSwitcher className="hidden lg:flex" />
+            <CartButton bounce={cartBounce} />
+            <button
+              type="button"
+              onClick={() => setIsOpen((v) => !v)}
+              className="flex h-10 w-10 items-center justify-center text-foreground lg:hidden"
+              aria-label={t("nav.toggleMenu")}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X size={22} strokeWidth={1.25} /> : <Menu size={22} strokeWidth={1.25} />}
+            </button>
           </div>
         </div>
-      )}
+
+        {/* Mobile menu */}
+        {isOpen && (
+          <nav
+            className="max-h-[calc(100svh-96px)] overflow-y-auto border-t border-border bg-background lg:hidden"
+            aria-label={t("nav.main")}
+          >
+            <ul className="container-lore divide-y divide-border py-2">
+              {items.map((item) => (
+                <li key={item.href} className="py-4">
+                  <Link to={localize(item.href)} className="text-label text-foreground">
+                    {item.label}
+                  </Link>
+                  {item.children && (
+                    <ul className="mt-3 flex flex-col gap-3 pl-4">
+                      {item.children.map((c) => (
+                        <li key={c.href}>
+                          <Link to={localize(c.href)} className="t-body text-muted-foreground">
+                            {c.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+              <li className="py-5">
+                <LanguageSwitcher />
+              </li>
+            </ul>
+          </nav>
+        )}
       </div>
-    </nav>
+    </header>
   );
 };
 

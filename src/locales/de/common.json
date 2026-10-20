@@ -1,41 +1,57 @@
 {
-  "announcement": "Launch in {{days}} Tagen · 1. Oktober 2026",
-  "announcementLive": "Jetzt erhältlich in den Niederlanden & Deutschland",
+  "announcement": "Bald erhältlich in den Niederlanden und Deutschland.",
   "nav": {
-    "products": "Produkte",
+    "shop": "Shop",
     "cycleBox": "Cycle Box",
+    "theLore": "The Lore",
     "about": "Über uns",
-    "allProducts": "Alle Produkte",
     "pads": "Binden",
     "tampons": "Tampons",
-    "pantyLiners": "Slipeinlagen",
+    "liners": "Slipeinlagen",
+    "howCycleBoxWorks": "So funktioniert die Cycle Box",
     "ourStory": "Unsere Geschichte",
-    "ourStoryDesc": "Warum wir Lore gegründet haben – und welchen Standard Periodenpflege unserer Meinung nach verdient.",
-    "sustainability": "Nachhaltigkeit",
-    "sustainabilityDesc": "Bio-Baumwolle, biologisch abbaubare Materialien und FSC-zertifizierte Verpackung.",
-    "impact": "Impact",
-    "impactDesc": "Wie jeder Lore-Kauf durch Spenden und strukturellen Wandel etwas zurückgibt.",
-    "explore": "Entdecken",
+    "materials": "Materialien",
+    "giving": "Wir geben zurück",
+    "main": "Hauptmenü",
     "openCart": "Warenkorb öffnen",
-    "toggleMenu": "Menü umschalten"
+    "toggleMenu": "Menü"
   },
   "footer": {
-    "tagline": "Periodenpflege aus Bio-Baumwolle. Weil deine Vagina die Welt verdient. Und die Welt eine Zukunft verdient.",
-    "fromOneWoman": "von Frau zu Frau.",
-    "explore": "Entdecken",
-    "connect": "Kontakt",
+    "tagline": "Periodenpflege aus Bio-Baumwolle. Weil deine Vagina die Welt verdient.",
+    "newsletter": {
+      "title": "Bleib auf dem Laufenden.",
+      "body": "Melde dich an und erhalte 10 % Rabatt auf deine erste Bestellung.",
+      "label": "E-Mail-Adresse",
+      "placeholder": "Deine E-Mail-Adresse",
+      "submit": "Anmelden",
+      "consent": "E-Mails von Lore zu Neuheiten und Angeboten. Abmelden kannst du dich jederzeit.",
+      "success": "Danke. Dein 10-%-Code ist auf dem Weg in dein Postfach.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuche es gleich noch einmal."
+    },
+    "cols": {
+      "shop": "Shop",
+      "about": "Über uns",
+      "help": "Hilfe",
+      "legal": "Rechtliches"
+    },
     "faq": "FAQ",
+    "shipping": "Versand",
+    "returns": "Rückgabe und Widerruf",
+    "contact": "Kontakt",
     "terms": "AGB",
     "privacy": "Datenschutzerklärung",
-    "cookie": "Cookie-Richtlinie",
+    "cookie": "Cookies",
+    "impressum": "Impressum",
     "returnRefund": "Rückgabe- & Erstattungsrichtlinie",
+    "withdraw": "Vertrag widerrufen",
+    "cancelSubscription": "Verträge hier kündigen",
     "country": "Niederlande"
   },
   "cart": {
     "title": "Dein Warenkorb",
     "close": "Warenkorb schließen",
     "empty": "Dein Warenkorb ist leer",
-    "continueShopping": "Weiter einkaufen",
+    "continueShopping": "Zum Sortiment",
     "decrease": "Weniger",
     "increase": "Mehr",
     "remove": "Entfernen",
@@ -43,15 +59,15 @@
     "checkout": "Zur Kasse",
     "redirecting": "Weiterleitung…",
     "comingSoon": "Demnächst verfügbar",
-    "launching": "Launch am 1. Oktober 2026.",
+    "launching": "Bald erhältlich in den Niederlanden und Deutschland.",
     "donated": "Gespendet — {{region}}"
   },
   "giveOne": {
     "label": "Unser Spendenmodell",
     "title": "Von Frau zu Frau",
-    "body": "Bei jeder Bestellung kannst du eine Box Binden oder Tampons zum reduzierten Preis hinzufügen. Sie kommt nicht zu dir, sondern geht direkt an eine Frau, die sie braucht – über unsere Partnerorganisationen in den Niederlanden und Deutschland. Keine Verwaltung, kein Zwischenhändler. Einfach eine Frau, die einer anderen hilft.",
+    "body": "Bei jeder Bestellung kannst du eine Box Binden oder Tampons zum Selbstkostenpreis hinzufügen. Sie kommt nicht zu dir, sondern über Armoedefonds zu einer Frau, die sie braucht. Keine Verwaltung, kein Zwischenhändler. Einfach eine Frau, die einer anderen hilft.",
     "partnerLegend": "Wohin soll deine Spende gehen?",
-    "partnerNl": "Partnerorganisation — Niederlande (wird zum Launch bekannt gegeben)",
+    "partnerNl": "Armoedefonds — Niederlande",
     "partnerDe": "Partnerorganisation — Deutschland (wird zum Launch bekannt gegeben)",
     "padsOption": "Bio-Baumwollbinden",
     "tamponsOption": "Bio-Baumwolltampons",
@@ -60,14 +76,15 @@
     "atCost": "{{price}} — zum Selbstkostenpreis",
     "addToDonation": "Als Spende hinzufügen",
     "added": "Hinzugefügt — danke",
-    "footnote": "Die Partnerorganisationen in den Niederlanden und Deutschland werden zum Launch bekannt gegeben. Jede gespendete Box geht direkt an Frauen in Not.",
+    "footnote": "Jede gespendete Box geht über unseren Spendenpartner Armoedefonds direkt an Frauen in Not.",
     "interTitle": "Noch etwas — eine Box spenden?",
-    "interBody": "Füge eine Box zum Selbstkostenpreis hinzu und wir liefern sie über unsere Partnerorganisationen an eine Frau, die sie braucht. Keine Verwaltung, kein Zwischenhändler.",
+    "interBody": "Füge eine Box zum Selbstkostenpreis hinzu und wir spenden sie vollständig über Armoedefonds. Keine Verwaltung, kein Zwischenhändler.",
     "interAdd": "{{product}} hinzufügen",
     "interAtCost": "{{price}} zum Selbstkostenpreis — gespendet, dann weiter",
     "interDecline": "Nein danke, weiter zur Kasse"
   },
   "claims": {
+    "organicCotton": "Bio-Baumwolle",
     "dermatologicallyTested": "Dermatologisch getestet",
     "gynecologicallyTested": "Gynäkologisch getestet",
     "fragranceFree": "Ohne Duftstoffe",
@@ -84,5 +101,9 @@
   "freeShipping": {
     "away": "Noch {{amount}} bis zum kostenlosen Versand",
     "unlocked": "Deine Bestellung wird kostenlos versendet"
+  },
+  "price": {
+    "inclVat": "inkl. MwSt., zzgl.",
+    "shipping": "Versand"
   }
 }

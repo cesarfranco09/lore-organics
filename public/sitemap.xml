@@ -136,6 +136,141 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.lore-organics.com/products/pads/medium-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/pads/medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/pads/medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/pads/medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/pads/medium-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/nl/products/pads/medium-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/pads/medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/pads/medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/pads/medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/pads/medium-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/de/products/pads/medium-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/pads/medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/pads/medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/pads/medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/pads/medium-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/products/pads/heavy-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/pads/heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/pads/heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/pads/heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/pads/heavy-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/nl/products/pads/heavy-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/pads/heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/pads/heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/pads/heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/pads/heavy-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/de/products/pads/heavy-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/pads/heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/pads/heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/pads/heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/pads/heavy-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/products/tampons/light-to-medium-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/tampons/light-to-medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/tampons/light-to-medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/tampons/light-to-medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/tampons/light-to-medium-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/nl/products/tampons/light-to-medium-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/tampons/light-to-medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/tampons/light-to-medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/tampons/light-to-medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/tampons/light-to-medium-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/de/products/tampons/light-to-medium-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/tampons/light-to-medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/tampons/light-to-medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/tampons/light-to-medium-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/tampons/light-to-medium-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/products/tampons/medium-to-heavy-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/tampons/medium-to-heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/tampons/medium-to-heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/tampons/medium-to-heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/tampons/medium-to-heavy-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/nl/products/tampons/medium-to-heavy-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/tampons/medium-to-heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/tampons/medium-to-heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/tampons/medium-to-heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/tampons/medium-to-heavy-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/de/products/tampons/medium-to-heavy-flow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/tampons/medium-to-heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/tampons/medium-to-heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/tampons/medium-to-heavy-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/tampons/medium-to-heavy-flow"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/products/panty-liners/everyday</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/panty-liners/everyday"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/panty-liners/everyday"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/panty-liners/everyday"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/panty-liners/everyday"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/nl/products/panty-liners/everyday</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/panty-liners/everyday"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/panty-liners/everyday"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/panty-liners/everyday"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/panty-liners/everyday"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/de/products/panty-liners/everyday</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/products/panty-liners/everyday"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/products/panty-liners/everyday"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/products/panty-liners/everyday"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/products/panty-liners/everyday"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.lore-organics.com/cycle-box</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/cycle-box"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/cycle-box"/>
@@ -190,58 +325,85 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.lore-organics.com/sustainability</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/sustainability"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/sustainability"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/sustainability"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/sustainability"/>
+    <loc>https://www.lore-organics.com/materials</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/materials"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/materials"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/materials"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/materials"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.lore-organics.com/nl/sustainability</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/sustainability"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/sustainability"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/sustainability"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/sustainability"/>
+    <loc>https://www.lore-organics.com/nl/materials</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/materials"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/materials"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/materials"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/materials"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.lore-organics.com/de/sustainability</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/sustainability"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/sustainability"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/sustainability"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/sustainability"/>
+    <loc>https://www.lore-organics.com/de/materials</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/materials"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/materials"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/materials"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/materials"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.lore-organics.com/impact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/impact"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/impact"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/impact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/impact"/>
+    <loc>https://www.lore-organics.com/giving</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/giving"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/giving"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/giving"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/giving"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.lore-organics.com/nl/impact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/impact"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/impact"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/impact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/impact"/>
+    <loc>https://www.lore-organics.com/nl/giving</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/giving"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/giving"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/giving"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/giving"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.lore-organics.com/de/impact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/impact"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/impact"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/impact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/impact"/>
+    <loc>https://www.lore-organics.com/de/giving</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/giving"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/giving"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/giving"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/giving"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/the-lore</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/the-lore"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/the-lore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/the-lore"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/the-lore"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/nl/the-lore</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/the-lore"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/the-lore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/the-lore"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/the-lore"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/de/the-lore</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/the-lore"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/the-lore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/the-lore"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/the-lore"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.lore-organics.com/faq</loc>
@@ -269,6 +431,114 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/faq"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/shipping</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/shipping"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/shipping"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/shipping"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/shipping"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/nl/shipping</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/shipping"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/shipping"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/shipping"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/shipping"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/de/shipping</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/shipping"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/shipping"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/shipping"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/shipping"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/impressum</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/impressum"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/impressum"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/impressum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/impressum"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/nl/impressum</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/impressum"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/impressum"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/impressum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/impressum"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/de/impressum</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/impressum"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/impressum"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/impressum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/impressum"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/withdrawal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/withdrawal"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/withdrawal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/withdrawal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/withdrawal"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/nl/withdrawal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/withdrawal"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/withdrawal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/withdrawal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/withdrawal"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/de/withdrawal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/withdrawal"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/withdrawal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/withdrawal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/withdrawal"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/cancel-subscription</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/cancel-subscription"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/cancel-subscription"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/cancel-subscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/cancel-subscription"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/nl/cancel-subscription</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/cancel-subscription"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/cancel-subscription"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/cancel-subscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/cancel-subscription"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lore-organics.com/de/cancel-subscription</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lore-organics.com/cancel-subscription"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.lore-organics.com/nl/cancel-subscription"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lore-organics.com/de/cancel-subscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lore-organics.com/cancel-subscription"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.lore-organics.com/checkout</loc>

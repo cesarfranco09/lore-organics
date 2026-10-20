@@ -10,6 +10,13 @@ import type { ClaimKey } from "@/lib/catalog";
 const STRIKE = <path d="M14 34 L34 14" />;
 
 const GLYPHS: Record<ClaimKey, JSX.Element> = {
+  // cotton boll: three soft lobes on a stem
+  organicCotton: (
+    <>
+      <path d="M24 25 C19 25 16 22 17 18.5 C18 15.5 21.5 15 23 17 C23.5 14 27.5 13.5 29 16.5 C32 16.5 33 20.5 30.5 22.5 C29 24.5 26.5 25 24 25 Z" />
+      <path d="M24 25 L24 35 M24 30 C21 30 19 28.5 18.5 26.5 M24 30 C27 30 29 28.5 29.5 26.5" />
+    </>
+  ),
   // skin with a check
   dermatologicallyTested: (
     <>
@@ -80,7 +87,7 @@ export const ClaimIcon = ({ claim, size = 48 }: { claim: ClaimKey; size?: number
     viewBox="0 0 48 48"
     fill="none"
     stroke="currentColor"
-    strokeWidth={1.1}
+    strokeWidth={1.25}
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden="true"
@@ -90,25 +97,33 @@ export const ClaimIcon = ({ claim, size = 48 }: { claim: ClaimKey; size?: number
   </svg>
 );
 
-/** 4 × 2 on desktop, 2 × 4 on mobile (style guide). `columns={2}` keeps two columns, for narrow panels. */
+/**
+ * Claim icons with their labels. Two per row on phones, labels never break
+ * mid-word (brief §6c #24): 11px, 0.08em tracking, normal word breaking.
+ */
 export const ClaimGrid = ({
   claims,
   className = "",
-  columns = 4,
-  iconSize = 48,
+  columns = 5,
+  iconSize = 40,
 }: {
   claims: readonly ClaimKey[];
   className?: string;
-  columns?: 2 | 4;
+  columns?: 2 | 3 | 4 | 5;
   iconSize?: number;
 }) => {
   const { t } = useTranslation();
+  const md = { 2: "", 3: "md:grid-cols-3", 4: "md:grid-cols-4", 5: "md:grid-cols-5" }[columns];
   return (
-    <ul className={`grid grid-cols-2 gap-x-6 gap-y-8 ${columns === 4 ? "md:grid-cols-4" : ""} ${className}`}>
+    <ul className={`grid grid-cols-2 gap-x-4 gap-y-6 ${md} ${className}`}>
       {claims.map((c) => (
         <li key={c} className="flex flex-col items-center gap-3 text-center">
-          <ClaimIcon claim={c} size={iconSize} />
-          <span className="max-w-[20ch] text-[10px] font-medium uppercase leading-relaxed tracking-[0.16em] md:text-[11px]">{t(`claims.${c}`)}</span>
+          <span className="text-sage-mid">
+            <ClaimIcon claim={c} size={iconSize} />
+          </span>
+          <span className="claim-label max-w-[18ch] text-[11px] font-medium uppercase leading-[16px] tracking-[0.08em] text-foreground">
+            {t(`claims.${c}`)}
+          </span>
         </li>
       ))}
     </ul>

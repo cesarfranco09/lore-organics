@@ -25,7 +25,7 @@ const ReturnRefundPolicy = () => {
         path="/return-refund-policy"
       />
       <div className="max-w-3xl mx-auto">
-        <p className="text-label text-lore-botanical mb-4 text-center">{t("legal")}</p>
+        <p className="text-label text-primary mb-4 text-center">{t("legal")}</p>
         <div className="divider-botanical mx-auto mb-8" />
         <h1 className="text-editorial-lg mb-8 text-center">{t("returns.title")}</h1>
 

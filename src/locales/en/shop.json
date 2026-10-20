@@ -1,0 +1,197 @@
+{
+  "seo": {
+    "title": "Shop organic cotton pads, tampons & liners | Lore Organics",
+    "categoryTitle": "{{heading}} — GOTS-certified organic cotton | Lore Organics",
+    "description": "Every Lore product is made with GOTS-certified organic cotton. Fragrance free. Made in Europe."
+  },
+  "heading": "The range.",
+  "intro": "Every Lore product is made with GOTS-certified organic cotton. Fragrance free. Made in Europe.",
+  "filters": {
+    "all": "All",
+    "pads": "Pads",
+    "tampons": "Tampons",
+    "panty-liners": "Liners"
+  },
+  "categories": {
+    "pads": {
+      "heading": "Pads"
+    },
+    "tampons": {
+      "heading": "Tampons"
+    },
+    "panty-liners": {
+      "heading": "Liners"
+    }
+  },
+  "comingSoon": "Coming soon",
+  "priceLine": "{{price}} · from {{box}} in your Cycle Box",
+  "priceNote": "All prices incl. VAT, plus",
+  "shippingLink": "shipping",
+  "items": {
+    "day-pad": {
+      "name": "Medium Flow Pads",
+      "fullName": "Organic Cotton Pads, Medium Flow",
+      "spec": "240mm · 10 per pack",
+      "description": "Organic cotton pads for medium flow. 240mm, 10 per pack.",
+      "materials": [
+        {
+          "label": "Topsheet",
+          "value": "GOTS-certified organic cotton"
+        },
+        {
+          "label": "Core",
+          "value": "GOTS-certified organic cotton"
+        },
+        {
+          "label": "Backing",
+          "value": ""
+        },
+        {
+          "label": "Adhesive",
+          "value": ""
+        }
+      ],
+      "howToUse": "Peel off the release paper, place the pad in the middle of your underwear and fold the wings around. Change it every few hours, or more often on heavier days. Wrap the used pad in its wrapper and put it in the bin, never down the toilet."
+    },
+    "night-pad": {
+      "name": "Heavy Flow Pads",
+      "fullName": "Organic Cotton Pads, Heavy Flow",
+      "spec": "280mm · 10 per pack",
+      "description": "Longer organic cotton pads for heavy flow and overnight. 280mm, 10 per pack.",
+      "materials": [
+        {
+          "label": "Topsheet",
+          "value": "GOTS-certified organic cotton"
+        },
+        {
+          "label": "Core",
+          "value": "GOTS-certified organic cotton"
+        },
+        {
+          "label": "Backing",
+          "value": ""
+        },
+        {
+          "label": "Adhesive",
+          "value": ""
+        }
+      ],
+      "howToUse": "Peel off the release paper, place the pad in the middle of your underwear and fold the wings around. Change it every few hours, or more often on heavier days. Wrap the used pad in its wrapper and put it in the bin, never down the toilet."
+    },
+    "regular-tampon": {
+      "name": "Light to Medium Flow Tampons",
+      "fullName": "Organic Cotton Tampons, Light to Medium Flow",
+      "spec": "16 per pack",
+      "description": "Organic cotton tampons without applicator, for light to medium flow. 16 per pack.",
+      "materials": [
+        {
+          "label": "Absorbent",
+          "value": "GOTS-certified organic cotton"
+        },
+        {
+          "label": "Cord",
+          "value": ""
+        },
+        {
+          "label": "Wrapper",
+          "value": ""
+        }
+      ],
+      "howToUse": "The step-by-step instructions from the leaflet in every box will be added here."
+    },
+    "super-tampon": {
+      "name": "Medium to Heavy Flow Tampons",
+      "fullName": "Organic Cotton Tampons, Medium to Heavy Flow",
+      "spec": "16 per pack",
+      "description": "Organic cotton tampons without applicator, for medium to heavy flow. 16 per pack.",
+      "materials": [
+        {
+          "label": "Absorbent",
+          "value": "GOTS-certified organic cotton"
+        },
+        {
+          "label": "Cord",
+          "value": ""
+        },
+        {
+          "label": "Wrapper",
+          "value": ""
+        }
+      ],
+      "howToUse": "The step-by-step instructions from the leaflet in every box will be added here."
+    },
+    "liner": {
+      "name": "Panty Liners",
+      "fullName": "Organic Cotton Panty Liners",
+      "spec": "24 per pack",
+      "description": "Ultra-thin organic cotton liners for everyday wear. 24 per pack. Coming soon.",
+      "materials": [
+        {
+          "label": "Topsheet",
+          "value": "GOTS-certified organic cotton"
+        },
+        {
+          "label": "Core",
+          "value": "GOTS-certified organic cotton"
+        },
+        {
+          "label": "Backing",
+          "value": ""
+        }
+      ],
+      "howToUse": "Peel off the release paper and place the liner in the middle of your underwear. Change it whenever you like."
+    }
+  },
+  "product": {
+    "breadcrumb": "Shop",
+    "gallery": {
+      "front": "Box front",
+      "product": "The product",
+      "side": "Box side panel",
+      "lifestyle": "On the shelf",
+      "photoSoon": "Photo coming soon",
+      "show": "Show image {{n}}"
+    },
+    "purchase": {
+      "label": "How would you like it?",
+      "box": "Cycle Box, save up to 10%",
+      "boxHint": "Delivered on your schedule. Skip, pause or cancel anytime.",
+      "once": "One-time",
+      "every": "Every",
+      "cadence": {
+        "2m": "2 months",
+        "3m": "3 months",
+        "6m": "6 months"
+      },
+      "save": "Save {{pct}}%",
+      "perPack": "per pack",
+      "inclVat": "incl. VAT, plus",
+      "shipping": "shipping",
+      "addToBox": "Add to Cycle Box",
+      "addToBag": "Add to bag",
+      "added": "Added to your bag",
+      "outOfStock": "Out of stock",
+      "comingSoon": "Coming soon",
+      "firstBox": "Your first box uses your 10% welcome code. Your delivery discount starts from your second box."
+    },
+    "icons": {
+      "cotton": "Made with GOTS-certified organic cotton",
+      "schedule": "Delivered on your schedule",
+      "flexible": "Skip, pause or cancel anytime"
+    },
+    "accordion": {
+      "materials": "Materials",
+      "certification": "Certification",
+      "howToUse": "How to use",
+      "safety": "Safety information",
+      "specSoon": "Specification coming soon",
+      "certificationBody": "Our cotton is certified to the Global Organic Textile Standard (GOTS), which covers how it's grown and processed, including fair wages, safe working conditions and no child labor.",
+      "grade": "Grade",
+      "certifier": "Certifier",
+      "license": "License",
+      "safetyBody": "The full safety information from the leaflet in every box will be added here. Always read the leaflet before use."
+    },
+    "related": "More from the range",
+    "notFound": "We couldn't find that product."
+  }
+}

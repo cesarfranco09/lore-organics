@@ -140,8 +140,8 @@ const LeafShadow = ({
       aria-hidden="true"
     >
       <div className="absolute inset-0" style={{ opacity }}>
-        <Layer branches={far} color={color} blur={blur * 1.9} duration={19} still={still} offset="-6s" />
-        <Layer branches={near} color={color} blur={blur} duration={13} still={still} offset="0s" />
+        <Layer branches={far} color={color} blur={blur * 1.9} duration={20} still={still} offset="-10s" />
+        <Layer branches={near} color={color} blur={blur} duration={20} still={still} offset="0s" />
       </div>
       {sunlight && (
         <div

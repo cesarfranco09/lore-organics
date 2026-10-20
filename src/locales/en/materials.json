@@ -1,0 +1,23 @@
+{
+  "seo": {
+    "title": "Materials — what's in a Lore pad or tampon | Lore Organics",
+    "description": "Everything in a Lore pad or tampon, listed in plain words: GOTS-certified organic cotton, made in Europe, dermatologically and gynecologically tested."
+  },
+  "heading": "Materials.",
+  "intro": "Everything in a Lore pad or tampon, listed in plain words. If it touches you, you should know what it is.",
+  "line": "Every material, every product, listed here and on the pack. Because you have the right to know.",
+  "imageAlt": "A box of Lore Organics pads in daylight",
+  "sections": {
+    "pads": "Pads",
+    "tampons": "Tampons",
+    "liners": "Liners",
+    "packaging": "Packaging",
+    "certification": "Certification",
+    "testing": "Testing"
+  },
+  "packaging": "All packaging is FSC-certified, sourced from responsibly managed forests.",
+  "certification": "Our cotton is GOTS certified. The Global Organic Textile Standard covers how it's grown and processed, including fair wages, safe working conditions and no child labor.",
+  "certPads": "Pads and liners",
+  "certTampons": "Tampons",
+  "testing": "Our pads and tampons are dermatologically tested and gynecologically tested. Because your period is enough to deal with already."
+}

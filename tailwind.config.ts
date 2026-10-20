@@ -51,6 +51,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        cream: "hsl(var(--background))",
+        panel: "hsl(var(--card))",
+        ink: "hsl(var(--foreground))",
+        hairline: "hsl(var(--border))",
+        sage: {
+          light: "hsl(var(--sage-light))",
+          mid: "hsl(var(--sage-mid))",
+          deep: "hsl(var(--sage-deep))",
+        },
         lore: {
           charcoal: "hsl(var(--lore-charcoal))",
           birch: "hsl(var(--lore-birch))",

@@ -4,127 +4,113 @@
     "description": "Stell dir deine eigene Cycle Box mit Binden und Tampons aus Bio-Baumwolle zusammen, geliefert alle 2, 3 oder 6 Monate. Spare bis zu 10 %, kostenloser Versand ab €50, jederzeit aussetzen, pausieren oder kündigen."
   },
   "hero": {
-    "title1": "Stell dir deine",
-    "title2": "Cycle Box zusammen",
-    "tagline": "Nie wieder ohne, jederzeit anpassbar.",
-    "eyebrow": "Abo",
-    "pick": "Wähle deine Lieferung",
-    "choose": "Hier starten",
-    "discreet": "Diskrete Lieferung"
-  },
-  "bag": {
-    "empty": "Dein Zyklusritual wartet auf dich",
-    "kitLabel": "Dein Cycle Kit"
+    "title": "Stell deine Cycle Box zusammen.",
+    "tagline": "Nie wieder ohne. Jederzeit anpassbar.",
+    "checklist": [
+      "€4,95 Versand pro Lieferung",
+      "Spare bis zu 10 %",
+      "Jederzeit aussetzen, pausieren oder kündigen"
+    ],
+    "cta": "Jetzt starten",
+    "imageAlt": "Eine Cycle Box Lieferung: Packungen mit Binden und Tampons im Tageslicht"
   },
   "howItWorks": {
-    "label": "So einfach wie 1-2-3-4",
+    "label": "Die Cycle Box",
     "title": "So funktioniert's",
-    "step1": {
-      "title": "Wähle deine Lieferung",
-      "desc": "Kostenloser Versand für jede Lieferung ab €50."
-    },
-    "step2": {
-      "title": "Stell deine Box zusammen",
-      "desc": "Kombiniere Produkte ganz nach deinem Zyklus. Tagesbinden, Nachtbinden, Tampons Regular oder Super — du entscheidest."
-    },
-    "months_one": "{{count}} Monat",
-    "months_other": "{{count}} Monate",
-    "perYear_one": "{{count}} Lieferung im Jahr",
-    "perYear_other": "{{count}} Lieferungen im Jahr",
-    "step3": {
-      "title": "Es kommt an"
-    },
-    "step4": {
-      "title": "Jederzeit anpassen"
-    },
-    "adjust": {
-      "title": "Deine nächste Lieferung",
-      "skip": "Aussetzen",
-      "pause": "Pausieren",
-      "cancel": "Kündigen",
-      "skipped": "Ausgesetzt. Die nächste kommt am {{date}}.",
-      "paused": "Pausiert, bis du bereit bist.",
-      "cancelled": "Gekündigt. Ohne Wenn und Aber."
+    "cta": "Cycle Box zusammenstellen",
+    "steps": {
+      "often": {
+        "title": "Wähle, wie oft",
+        "body": "Alle 2, 3 oder 6 Monate."
+      },
+      "build": {
+        "title": "Stell deine Box zusammen",
+        "body": "Kombiniere Binden und Tampons nach Blutungsstärke."
+      },
+      "arrives": {
+        "title": "Sie kommt an",
+        "body": "€4,95 Versand für jede Cycle Box Lieferung."
+      },
+      "adjust": {
+        "title": "Jederzeit anpassen",
+        "body": "Jederzeit aussetzen, pausieren oder kündigen."
+      }
     }
   },
-  "builder": {
-    "label": "Zusammenstellen",
-    "title": "Stell deine Cycle Box zusammen",
-    "step1Label": "Schritt 1 · Wähle deine Lieferung",
-    "step2Label": "Schritt 2 · Stell deine Box zusammen",
-    "decrease": "{{name}} verringern",
-    "increase": "{{name}} erhöhen",
-    "boxCount_one": "{{count}} Packung",
-    "boxCount_other": "{{count}} Packungen",
-    "recommendationLabel": "Wie viel brauchst du?",
-    "carbon": "Weniger Lieferungen bedeuten einen kleineren CO₂-Fußabdruck.",
-    "limits": "Mindestens {{min}} Packungen pro Lieferung, höchstens {{max}}.",
-    "fromPerPack": "Ab {{price}} pro Packung",
+  "step1": {
+    "label": "Schritt 1",
+    "title": "Wie oft?",
+    "every": "Alle {{n}} Monate",
     "perPack": "{{price}} pro Packung",
-    "maxReached": "Das ist das Maximum von {{max}} Packungen pro Lieferung.",
-    "comingSoon": "Bald verfügbar"
+    "save": "Spare {{pct}} %",
+    "shippingNote": "Jede Cycle Box Lieferung kostet €4,95 Versand, €1 weniger als eine Einzelbestellung."
   },
-  "selection": {
-    "label": "Deine Auswahl"
+  "howMany": {
+    "link": "Wie viel brauche ich?",
+    "body": "Zähl, was du in einem Zyklus verbrauchst, und multipliziere es mit den Monaten zwischen den Lieferungen. Eine Packung Binden enthält 10 Stück, eine Packung Tampons 16.",
+    "recommendLabel": "Ein guter Startpunkt für {{frequency}}:",
+    "pads": "Vor allem Binden: {{count}} Packungen",
+    "tampons": "Vor allem Tampons: {{count}} Packungen",
+    "close": "Schließen"
   },
-  "summary": {
-    "empty": "Füge Produkte hinzu, um deine Summe zu sehen.",
+  "step2": {
+    "label": "Schritt 2",
+    "title": "Deine Produkte und deine Box.",
+    "groups": {
+      "pads": "Binden",
+      "tampons": "Tampons",
+      "liners": "Slipeinlagen"
+    },
+    "decrease": "Eine Packung {{name}} weniger",
+    "increase": "Eine Packung {{name}} mehr",
+    "comingSoon": "Demnächst verfügbar"
+  },
+  "box": {
+    "title": "Deine Cycle Box",
+    "count": "{{count}} von {{max}} Packungen",
+    "empty": "Deine Box wartet auf ihre erste Packung.",
     "subtotal": "Zwischensumme",
     "shipping": "Versand",
-    "total": "Gesamt",
-    "start": "Mein Abo starten",
-    "redirecting": "Weiterleiten…",
-    "recurring": "Wiederkehrend {{frequency}} · jederzeit pausieren, wechseln oder kündigen.",
-    "comingSoon": "Bald verfügbar",
-    "launching": "Start am 1. Oktober 2026.",
-    "delivered": "Geliefert {{frequency}} · Diskrete Verpackung",
     "shippingFree": "Kostenlos",
-    "freeShippingHint": "Noch {{amount}} bis zum kostenlosen Versand",
-    "belowMin_one": "Füge noch {{count}} Packung hinzu, um das Minimum von {{min}} zu erreichen.",
-    "belowMin_other": "Füge noch {{count}} Packungen hinzu, um das Minimum von {{min}} zu erreichen.",
-    "firstBox": "Deine erste Box bekommt stattdessen 10 % mit deinem Willkommenscode. Der Lieferrabatt gilt ab deiner zweiten Lieferung."
+    "total": "Gesamt",
+    "belowMin_one": "Füge noch {{count}} Packung hinzu, um deine Cycle Box zu starten.",
+    "belowMin_other": "Füge noch {{count}} Packungen hinzu, um deine Cycle Box zu starten.",
+    "atMax": "{{max}} Packungen sind das Maximum pro Lieferung.",
+    "start": "Meine Cycle Box starten",
+    "redirecting": "Weiterleitung…",
+    "comingSoon": "Demnächst verfügbar",
+    "launching": "Bald erhältlich in den Niederlanden und Deutschland.",
+    "inclVat": "Preise inkl. MwSt.",
+    "firstOrder": "Für deine erste Box gilt dein 10-%-Willkommenscode. Dein Lieferrabatt gilt ab deiner zweiten Box.",
+    "mobileBar": "Deine Box: {{count}} von {{max}}",
+    "continue": "Weiter",
+    "close": "Schließen"
   },
   "products": {
-    "day-pad": {
-      "name": "Tagesbinden",
-      "subtitle": "10 pro Packung"
-    },
-    "night-pad": {
-      "name": "Nachtbinden",
-      "subtitle": "10 pro Packung"
-    },
-    "regular-tampon": {
-      "name": "Tampons Regular",
-      "subtitle": "16 pro Packung"
-    },
-    "super-tampon": {
-      "name": "Tampons Super",
-      "subtitle": "16 pro Packung"
-    },
-    "liner": {
-      "name": "Slipeinlagen",
-      "subtitle": "24 pro Packung"
-    }
+    "day-pad": "Binden für mittlere Blutung",
+    "night-pad": "Binden für starke Blutung",
+    "regular-tampon": "Tampons leicht bis mittel",
+    "super-tampon": "Tampons mittel bis stark",
+    "liner": "Slipeinlagen"
   },
-  "benefits": {
+  "why": {
     "label": "Warum ein Abo",
-    "title": "Der Cycle Box Vorteil",
     "items": [
       {
-        "title": "Bio-Materialien",
-        "desc": "Aus zertifizierter Bio-Baumwolle, für eine sicherere, natürlichere Periode."
+        "title": "Bio-Baumwolle",
+        "body": "Aus GOTS-zertifizierter Bio-Baumwolle."
       },
       {
-        "title": "Diskrete Lieferung",
-        "desc": "Deine Cycle Box kommt in schlichter, diskreter Verpackung."
+        "title": "Geliefert, wann es dir passt",
+        "body": "Alle 2, 3 oder 6 Monate."
       },
       {
-        "title": "Flexibles Abo",
-        "desc": "Jederzeit aussetzen, pausieren oder kündigen, oder tausche, was in deiner Box ist."
+        "title": "Flexibel",
+        "body": "Jederzeit aussetzen, pausieren oder kündigen, oder tausche, was in deiner Box ist."
       },
       {
         "title": "Spare bis zu 10 %",
-        "desc": "Spare 5 % alle 3 Monate oder 10 % alle 6 Monate, ab deiner zweiten Lieferung. Kostenloser Versand ab €50."
+        "body": "5 % alle 3 Monate oder 10 % alle 6 Monate, ab deiner zweiten Lieferung."
       }
     ]
   },
@@ -157,7 +143,7 @@
         "a": "Ja, mit unserer Cycle Box wählst du genau die Produkte, die du brauchst, und wie oft du sie geliefert bekommst: alle 2, 3 oder 6 Monate. Alle 3 Monate sparst du 5 %, alle 6 Monate 10 %, ab deiner zweiten Lieferung, und ab €50 ist der Versand kostenlos. Du kannst jederzeit aussetzen, pausieren, Produkte wechseln oder kündigen."
       },
       {
-        "q": "Sind eure Produkte plastikfrei?",
+        "q": "Woraus bestehen eure Produkte?",
         "a": "Unsere Tampons und Binden enthalten kein Plastik in den saugfähigen Materialien, sie bestehen aus Bio-Baumwolle. Unsere Slipeinlage hat eine Rückschicht aus Biopolymer, die pflanzenbasiert ist. Wir sind bei allen Materialien völlig transparent und veröffentlichen eine vollständige Übersicht auf unserer Website."
       },
       {
@@ -174,35 +160,18 @@
       }
     ]
   },
-  "finalCta": {
-    "title1": "Nie wieder ohne,",
-    "title2": "jederzeit anpassbar.",
-    "body": "Stell deine Cycle Box zusammen und erhalte Bio-Essentials genau dann, wenn du sie brauchst.",
-    "cta": "Stell deine Cycle Box zusammen"
-  },
-  "perks": [
-    "Kostenloser Versand ab €50",
-    "Spare bis zu 10 %",
-    "Jederzeit aussetzen, pausieren oder kündigen"
-  ],
   "cadences": {
     "2m": {
       "label": "Alle 2 Monate",
-      "labelLower": "alle 2 Monate",
-      "tag": "Normalpreis",
-      "recommendation": "Im Durchschnitt braucht eine Kundin {{tampons}} Packungen Tampons oder {{pads}} Packungen Binden."
+      "labelLower": "alle 2 Monate"
     },
     "3m": {
       "label": "Alle 3 Monate",
-      "labelLower": "alle 3 Monate",
-      "tag": "Spare 5 %",
-      "recommendation": "Im Durchschnitt braucht eine Kundin {{tampons}} Packungen Tampons oder {{pads}} Packungen Binden."
+      "labelLower": "alle 3 Monate"
     },
     "6m": {
       "label": "Alle 6 Monate",
-      "labelLower": "alle 6 Monate",
-      "tag": "Spare 10 %",
-      "recommendation": "Im Durchschnitt braucht eine Kundin {{tampons}} Packungen Tampons oder {{pads}} Packungen Binden."
+      "labelLower": "alle 6 Monate"
     }
   }
 }

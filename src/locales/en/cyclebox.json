@@ -4,127 +4,113 @@
     "description": "Build your own Cycle Box of organic cotton pads and tampons, delivered every 2, 3 or 6 months. Save up to 10%, free shipping over €50, skip, pause or cancel anytime."
   },
   "hero": {
-    "title1": "Build Your",
-    "title2": "Cycle Box",
-    "tagline": "Never run out, adjust anytime.",
-    "eyebrow": "Subscription",
-    "pick": "Choose your delivery",
-    "choose": "Start here",
-    "discreet": "Discreet delivery"
-  },
-  "bag": {
-    "empty": "Your cycle ritual awaits",
-    "kitLabel": "Your Cycle Kit"
+    "title": "Build your Cycle Box.",
+    "tagline": "Never run out. Adjust anytime.",
+    "checklist": [
+      "€4.95 shipping on every delivery",
+      "Save up to 10%",
+      "Skip, pause or cancel anytime"
+    ],
+    "cta": "Start building",
+    "imageAlt": "A Cycle Box delivery: pad and tampon boxes standing in daylight"
   },
   "howItWorks": {
-    "label": "Simple as 1-2-3-4",
+    "label": "The Cycle Box",
     "title": "How it works",
-    "step1": {
-      "title": "Choose your delivery",
-      "desc": "Free shipping on every delivery over €50."
-    },
-    "step2": {
-      "title": "Build Your Box",
-      "desc": "Mix and match products based on your flow. Day pads, night pads, regular or super tampons, you decide."
-    },
-    "months_one": "{{count}} month",
-    "months_other": "{{count}} months",
-    "perYear_one": "{{count}} delivery a year",
-    "perYear_other": "{{count}} deliveries a year",
-    "step3": {
-      "title": "It arrives"
-    },
-    "step4": {
-      "title": "Adjust anytime"
-    },
-    "adjust": {
-      "title": "Your next delivery",
-      "skip": "Skip",
-      "pause": "Pause",
-      "cancel": "Cancel",
-      "skipped": "Skipped. Next one arrives {{date}}.",
-      "paused": "Paused until you’re ready.",
-      "cancelled": "Cancelled. No questions asked."
+    "cta": "Build your Cycle Box",
+    "steps": {
+      "often": {
+        "title": "Choose how often",
+        "body": "Every 2, 3 or 6 months."
+      },
+      "build": {
+        "title": "Build your box",
+        "body": "Mix pads and tampons by flow."
+      },
+      "arrives": {
+        "title": "It arrives",
+        "body": "€4.95 shipping on every Cycle Box delivery."
+      },
+      "adjust": {
+        "title": "Adjust anytime",
+        "body": "Skip, pause or cancel anytime."
+      }
     }
   },
-  "builder": {
-    "label": "Customise",
-    "title": "Build Your Cycle Box",
-    "step1Label": "Step 1 · Choose your delivery",
-    "step2Label": "Step 2 · Build your box",
-    "decrease": "Decrease {{name}}",
-    "increase": "Increase {{name}}",
-    "boxCount_one": "{{count}} box",
-    "boxCount_other": "{{count}} boxes",
-    "recommendationLabel": "How much do you need?",
-    "carbon": "Fewer deliveries means a smaller carbon footprint.",
-    "limits": "Minimum {{min}} boxes per delivery, up to {{max}}.",
-    "fromPerPack": "From {{price}} per pack",
+  "step1": {
+    "label": "Step 1",
+    "title": "How often?",
+    "every": "Every {{n}} months",
     "perPack": "{{price}} per pack",
-    "maxReached": "That's the maximum of {{max}} boxes per delivery.",
+    "save": "Save {{pct}}%",
+    "shippingNote": "Every Cycle Box delivery ships for €4.95, €1 less than a one-time order."
+  },
+  "howMany": {
+    "link": "How many do I need?",
+    "body": "Count what you use in one cycle, then multiply by the months between deliveries. A box of pads holds 10; a box of tampons holds 16.",
+    "recommendLabel": "A good place to start for {{frequency}}:",
+    "pads": "Mostly pads: {{count}} boxes",
+    "tampons": "Mostly tampons: {{count}} boxes",
+    "close": "Close"
+  },
+  "step2": {
+    "label": "Step 2",
+    "title": "Your products and your box.",
+    "groups": {
+      "pads": "Pads",
+      "tampons": "Tampons",
+      "liners": "Liners"
+    },
+    "decrease": "One less {{name}}",
+    "increase": "One more {{name}}",
     "comingSoon": "Coming soon"
   },
-  "selection": {
-    "label": "Your Selection"
-  },
-  "summary": {
-    "empty": "Add products to see your total.",
+  "box": {
+    "title": "Your Cycle Box",
+    "count": "{{count}} of {{max}} boxes",
+    "empty": "Your box is waiting for its first pack.",
     "subtotal": "Subtotal",
     "shipping": "Shipping",
-    "total": "Total",
-    "start": "Start My Subscription",
-    "redirecting": "Redirecting…",
-    "recurring": "Recurring {{frequency}} · pause, swap or cancel anytime.",
-    "comingSoon": "Coming Soon",
-    "launching": "Launching October 1st, 2026.",
-    "delivered": "Delivered {{frequency}} · Discreet packaging",
     "shippingFree": "Free",
-    "freeShippingHint": "{{amount}} more for free shipping",
-    "belowMin_one": "Add {{count}} more box to reach the minimum of {{min}}.",
-    "belowMin_other": "Add {{count}} more boxes to reach the minimum of {{min}}.",
-    "firstBox": "Your first box gets 10% off with your welcome code instead. The delivery discount starts from your second delivery."
+    "total": "Total",
+    "belowMin_one": "Add {{count}} more box to start your Cycle Box.",
+    "belowMin_other": "Add {{count}} more boxes to start your Cycle Box.",
+    "atMax": "{{max}} boxes is the maximum per delivery.",
+    "start": "Start my Cycle Box",
+    "redirecting": "Redirecting…",
+    "comingSoon": "Coming soon",
+    "launching": "Launching soon in the Netherlands and Germany.",
+    "inclVat": "Prices incl. VAT.",
+    "firstOrder": "Your first box uses your 10% welcome code. Your delivery discount starts from your second box.",
+    "mobileBar": "Your box: {{count}} of {{max}}",
+    "continue": "Continue",
+    "close": "Close"
   },
   "products": {
-    "day-pad": {
-      "name": "Day Pads",
-      "subtitle": "10 per pack"
-    },
-    "night-pad": {
-      "name": "Night Pads",
-      "subtitle": "10 per pack"
-    },
-    "regular-tampon": {
-      "name": "Tampons Regular",
-      "subtitle": "16 per pack"
-    },
-    "super-tampon": {
-      "name": "Tampons Super",
-      "subtitle": "16 per pack"
-    },
-    "liner": {
-      "name": "Liners",
-      "subtitle": "24 per pack"
-    }
+    "day-pad": "Medium Flow Pads",
+    "night-pad": "Heavy Flow Pads",
+    "regular-tampon": "Light to Medium Flow Tampons",
+    "super-tampon": "Medium to Heavy Flow Tampons",
+    "liner": "Panty Liners"
   },
-  "benefits": {
+  "why": {
     "label": "Why subscribe",
-    "title": "The Cycle Box advantage",
     "items": [
       {
-        "title": "Organic Materials",
-        "desc": "Made with certified organic cotton for a safer, more natural period."
+        "title": "Organic cotton",
+        "body": "Made with GOTS-certified organic cotton."
       },
       {
-        "title": "Discreet Delivery",
-        "desc": "Your Cycle Box arrives in simple, private packaging."
+        "title": "Delivered on your schedule",
+        "body": "Every 2, 3 or 6 months."
       },
       {
-        "title": "Flexible Subscription",
-        "desc": "Skip, pause or cancel anytime, or swap what's in your box."
+        "title": "Flexible",
+        "body": "Skip, pause or cancel anytime, or swap what's in your box."
       },
       {
         "title": "Save up to 10%",
-        "desc": "Save 5% every 3 months or 10% every 6 months, from your second delivery. Free shipping over €50."
+        "body": "5% every 3 months or 10% every 6 months, from your second delivery."
       }
     ]
   },
@@ -153,11 +139,11 @@
         "a": "We launch with five products: Organic Cotton Day Pad, Organic Cotton Night Pad, Tampon Regular, Tampon Super, and Pantyliner Ultra-thin. All are individually wrapped and made from 100% GOTS certified organic cotton."
       },
       {
-        "q": "Can I subscribe and customise my delivery?",
+        "q": "Can I subscribe and customize my delivery?",
         "a": "Yes, our Cycle Box lets you choose exactly which products you need and how often you want them delivered: every 2, 3 or 6 months. You save 5% every 3 months and 10% every 6 months, starting from your second delivery, and shipping is free on deliveries over €50. You can skip, pause, swap products or cancel anytime."
       },
       {
-        "q": "Are your products plastic free?",
+        "q": "What are your products made of?",
         "a": "Our tampon and pad products contain no plastic in the absorbent materials, they are made from organic cotton. Our pantyliner contains a biopolymer backing layer which is plant-based. We are fully transparent about all materials and publish a complete breakdown on our website."
       },
       {
@@ -174,35 +160,18 @@
       }
     ]
   },
-  "finalCta": {
-    "title1": "Never run out,",
-    "title2": "adjust anytime.",
-    "body": "Build your Cycle Box and get organic essentials delivered when you need them.",
-    "cta": "Build Your Cycle Box"
-  },
-  "perks": [
-    "Free shipping over €50",
-    "Save up to 10%",
-    "Skip, pause or cancel anytime"
-  ],
   "cadences": {
     "2m": {
       "label": "Every 2 months",
-      "labelLower": "every 2 months",
-      "tag": "Standard price",
-      "recommendation": "The average customer uses {{tampons}} boxes of tampons or {{pads}} boxes of pads."
+      "labelLower": "every 2 months"
     },
     "3m": {
       "label": "Every 3 months",
-      "labelLower": "every 3 months",
-      "tag": "Save 5%",
-      "recommendation": "The average customer uses {{tampons}} boxes of tampons or {{pads}} boxes of pads."
+      "labelLower": "every 3 months"
     },
     "6m": {
       "label": "Every 6 months",
-      "labelLower": "every 6 months",
-      "tag": "Save 10%",
-      "recommendation": "The average customer uses {{tampons}} boxes of tampons or {{pads}} boxes of pads."
+      "labelLower": "every 6 months"
     }
   }
 }

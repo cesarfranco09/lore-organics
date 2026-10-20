@@ -1,16 +1,47 @@
 /**
- * LORE / ORGANICS lockup — one treatment everywhere (header, footer).
- * Replace with the supplied logo file once the team sends it.
+ * The Lore Organics lockup as one locked SVG: "Lore" over spaced "ORGANICS",
+ * as on the boxes. Width is fixed by the viewBox, so it never reflows with
+ * the font. Swap the two <text> runs for the outlined artwork when the
+ * logo file arrives (keep the viewBox proportions).
+ *
+ * Sized by height, about 1.5× the previous header lockup: 100px wide on
+ * desktop, 80px on phones. The brief's 150/112px widths assume the final
+ * outlined lockup; adjust here once it is in.
  */
-const Wordmark = ({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" | "lg" }) => {
-  const main = size === "lg" ? "text-4xl" : size === "sm" ? "text-xl" : "text-2xl md:text-[28px]";
-  const sub = size === "lg" ? "text-[11px]" : "text-[9px] md:text-[10px]";
-  return (
-    <span className={`inline-flex flex-col items-center leading-none ${className}`}>
-      <span className={`font-serif font-normal tracking-[0.14em] ${main}`}>LORE</span>
-      <span className={`mt-1 font-sans font-medium tracking-[0.42em] pl-[0.42em] ${sub}`}>ORGANICS</span>
-    </span>
-  );
-};
+const Wordmark = ({ className = "", width }: { className?: string; width?: number }) => (
+  <svg
+    viewBox="0 0 84 46"
+    role="img"
+    aria-label="Lore Organics"
+    className={width ? className : `h-auto w-[80px] md:w-[100px] ${className}`}
+    style={width ? { width, height: "auto" } : undefined}
+    fill="currentColor"
+  >
+    <text
+      x="42"
+      y="30"
+      textAnchor="middle"
+      fontFamily="'Cormorant Garamond', Georgia, serif"
+      fontWeight={400}
+      fontSize="38"
+      letterSpacing="0.5"
+    >
+      Lore
+    </text>
+    <text
+      x="42"
+      y="43"
+      textAnchor="middle"
+      fontFamily="Inter, system-ui, sans-serif"
+      fontWeight={500}
+      fontSize="6.6"
+      letterSpacing="3"
+      textLength="70"
+      lengthAdjust="spacing"
+    >
+      ORGANICS
+    </text>
+  </svg>
+);
 
 export default Wordmark;

@@ -1,0 +1,68 @@
+{
+  "shipping": {
+    "seo": {
+      "title": "Shipping | Lore Organics",
+      "description": "Shipping costs and delivery times for the Netherlands and Germany."
+    },
+    "heading": "Shipping.",
+    "intro": "We ship to the Netherlands and Germany.",
+    "costsTitle": "Costs",
+    "oneTime": "One-time order",
+    "cycleBox": "Cycle Box delivery",
+    "freeOver": "Orders over {{amount}}",
+    "free": "Free",
+    "timesTitle": "Delivery times",
+    "countries": {
+      "nl": "Netherlands",
+      "de": "Germany"
+    },
+    "timeTbc": "[Delivery time to confirm]",
+    "note": "All prices include VAT. Shipping is added at checkout."
+  },
+  "impressum": {
+    "seo": {
+      "title": "Impressum | Lore Organics",
+      "description": "Company details for Lore Organics B.V."
+    },
+    "heading": "Impressum.",
+    "company": "Company",
+    "address": "Address",
+    "directors": "Managing directors",
+    "registry": "Chamber of Commerce (KvK)",
+    "vat": "VAT number",
+    "contact": "Contact"
+  },
+  "withdrawal": {
+    "seo": {
+      "title": "Withdraw from your contract | Lore Organics",
+      "description": "Withdraw from your purchase online, within 14 days."
+    },
+    "heading": "Withdraw from your contract.",
+    "intro": "You can withdraw from your purchase within 14 days of receiving it, without giving a reason. Fill in the form and confirm. Sealed hygiene products can't be returned once the seal is broken.",
+    "name": "Full name",
+    "email": "Email address",
+    "order": "Order number",
+    "items": "Which products? (optional)",
+    "received": "Date received",
+    "confirm": "Confirm withdrawal",
+    "doneTitle": "Thank you. We've received your withdrawal.",
+    "doneBody": "Your email app opened with your withdrawal. Send it and we'll confirm by email within 2 working days. Didn't open? Email us at info@lore-organics.com.",
+    "subject": "Withdrawal from contract — order {{order}}"
+  },
+  "cancel": {
+    "seo": {
+      "title": "Cancel your subscription | Lore Organics",
+      "description": "Cancel your Cycle Box subscription online, no login needed."
+    },
+    "heading": "Cancel your subscription.",
+    "germanLabel": "Verträge hier kündigen",
+    "intro": "Cancel your Cycle Box here, no login needed. Fill in the form and confirm; we'll confirm the cancellation by email.",
+    "name": "Full name",
+    "email": "Email address",
+    "order": "Subscription or order number (if you have it)",
+    "confirm": "Cancel my subscription",
+    "doneTitle": "Thank you. We've received your cancellation.",
+    "doneBody": "Your email app opened with your cancellation. Send it and we'll confirm by email. Didn't open? Email us at info@lore-organics.com.",
+    "subject": "Subscription cancellation — {{name}}"
+  }
+}

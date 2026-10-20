@@ -1,0 +1,68 @@
+{
+  "shipping": {
+    "seo": {
+      "title": "Verzending | Lore Organics",
+      "description": "Verzendkosten en levertijden voor Nederland en Duitsland."
+    },
+    "heading": "Verzending.",
+    "intro": "We verzenden naar Nederland en Duitsland.",
+    "costsTitle": "Kosten",
+    "oneTime": "Losse bestelling",
+    "cycleBox": "Cycle Box-bezorging",
+    "freeOver": "Bestellingen vanaf {{amount}}",
+    "free": "Gratis",
+    "timesTitle": "Levertijden",
+    "countries": {
+      "nl": "Nederland",
+      "de": "Duitsland"
+    },
+    "timeTbc": "[Levertijd nog te bevestigen]",
+    "note": "Alle prijzen zijn inclusief btw. Verzendkosten worden bij het afrekenen toegevoegd."
+  },
+  "impressum": {
+    "seo": {
+      "title": "Impressum | Lore Organics",
+      "description": "Bedrijfsgegevens van Lore Organics B.V."
+    },
+    "heading": "Impressum.",
+    "company": "Bedrijf",
+    "address": "Adres",
+    "directors": "Bestuurders",
+    "registry": "Kamer van Koophandel (KvK)",
+    "vat": "Btw-nummer",
+    "contact": "Contact"
+  },
+  "withdrawal": {
+    "seo": {
+      "title": "Je overeenkomst herroepen | Lore Organics",
+      "description": "Herroep je aankoop online, binnen 14 dagen."
+    },
+    "heading": "Je overeenkomst herroepen.",
+    "intro": "Je kunt je aankoop binnen 14 dagen na ontvangst herroepen, zonder opgaaf van reden. Vul het formulier in en bevestig. Verzegelde hygiëneproducten kunnen niet retour zodra de verzegeling is verbroken.",
+    "name": "Volledige naam",
+    "email": "E-mailadres",
+    "order": "Bestelnummer",
+    "items": "Welke producten? (optioneel)",
+    "received": "Datum van ontvangst",
+    "confirm": "Herroeping bevestigen",
+    "doneTitle": "Dank je. We hebben je herroeping ontvangen.",
+    "doneBody": "Je e-mailapp is geopend met je herroeping. Verstuur hem en we bevestigen binnen 2 werkdagen per e-mail. Ging je app niet open? Mail ons op info@lore-organics.com.",
+    "subject": "Herroeping van overeenkomst — bestelling {{order}}"
+  },
+  "cancel": {
+    "seo": {
+      "title": "Je abonnement opzeggen | Lore Organics",
+      "description": "Zeg je Cycle Box-abonnement online op, zonder in te loggen."
+    },
+    "heading": "Je abonnement opzeggen.",
+    "germanLabel": "Verträge hier kündigen",
+    "intro": "Zeg je Cycle Box hier op, zonder in te loggen. Vul het formulier in en bevestig; we bevestigen de opzegging per e-mail.",
+    "name": "Volledige naam",
+    "email": "E-mailadres",
+    "order": "Abonnements- of bestelnummer (als je het hebt)",
+    "confirm": "Mijn abonnement opzeggen",
+    "doneTitle": "Dank je. We hebben je opzegging ontvangen.",
+    "doneBody": "Je e-mailapp is geopend met je opzegging. Verstuur hem en we bevestigen het per e-mail. Ging je app niet open? Mail ons op info@lore-organics.com.",
+    "subject": "Opzegging abonnement — {{name}}"
+  }
+}

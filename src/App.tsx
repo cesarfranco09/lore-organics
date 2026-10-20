@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { CartProvider } from "@/contexts/CartContext";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
@@ -18,8 +18,14 @@ import SignupPopup from "@/components/SignupPopup";
 // Code-split secondary routes so the home page loads only what it needs
 const Products = lazy(() => import("./pages/Products"));
 const About = lazy(() => import("./pages/About"));
-const Sustainability = lazy(() => import("./pages/Sustainability"));
-const Impact = lazy(() => import("./pages/Impact"));
+const ProductPage = lazy(() => import("./pages/ProductPage"));
+const Materials = lazy(() => import("./pages/Materials"));
+const Giving = lazy(() => import("./pages/Giving"));
+const TheLore = lazy(() => import("./pages/TheLore"));
+const Shipping = lazy(() => import("./pages/InfoPages").then((m) => ({ default: m.Shipping })));
+const Impressum = lazy(() => import("./pages/InfoPages").then((m) => ({ default: m.Impressum })));
+const Withdrawal = lazy(() => import("./pages/InfoPages").then((m) => ({ default: m.Withdrawal })));
+const CancelSubscription = lazy(() => import("./pages/InfoPages").then((m) => ({ default: m.CancelSubscription })));
 const CycleBox = lazy(() => import("./pages/CycleBox"));
 const Checkout = lazy(() => import("./pages/Checkout"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -40,10 +46,19 @@ const pageRoutes = (
     <Route index element={<Index />} />
     <Route path="products" element={<Products />} />
     <Route path="products/:category" element={<Products />} />
+    <Route path="products/:category/:slug" element={<ProductPage />} />
     <Route path="cycle-box" element={<CycleBox />} />
     <Route path="about" element={<About />} />
-    <Route path="sustainability" element={<Sustainability />} />
-    <Route path="impact" element={<Impact />} />
+    <Route path="materials" element={<Materials />} />
+    <Route path="giving" element={<Giving />} />
+    <Route path="the-lore" element={<TheLore />} />
+    <Route path="shipping" element={<Shipping />} />
+    <Route path="impressum" element={<Impressum />} />
+    <Route path="withdrawal" element={<Withdrawal />} />
+    <Route path="cancel-subscription" element={<CancelSubscription />} />
+    {/* Renamed pages: Sustainability → Materials, Impact → Giving */}
+    <Route path="sustainability" element={<Navigate to="../materials" replace relative="path" />} />
+    <Route path="impact" element={<Navigate to="../giving" replace relative="path" />} />
     <Route path="checkout" element={<Checkout />} />
     <Route path="privacy-policy" element={<PrivacyPolicy />} />
     <Route path="return-refund-policy" element={<ReturnRefundPolicy />} />

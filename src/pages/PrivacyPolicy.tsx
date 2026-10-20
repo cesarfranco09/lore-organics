@@ -18,14 +18,14 @@ const PrivacyPolicy = () => {
   }, []);
 
   return (
-    <main className="pt-32 pb-24 section-padding min-h-[60vh]">
+    <main className="section-padding min-h-[60vh]">
       <Seo
         title={t("privacy.seo.title")}
         description={t("privacy.seo.description")}
         path="/privacy-policy"
       />
       <div className="max-w-2xl mx-auto text-center">
-        <p className="text-label text-lore-botanical mb-4">{t("legal")}</p>
+        <p className="text-label text-primary mb-4">{t("legal")}</p>
         <div className="divider-botanical mx-auto mb-8" />
         <h1 className="text-editorial-lg mb-8">{t("privacy.title")}</h1>
         {t("privacy.englishOnlyNote") && (

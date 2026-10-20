@@ -12,6 +12,7 @@ export type ProductFamily = "pads" | "tampons" | "liners";
 
 /** Claim keys, in the style guide's display order. Labels live in common.json → claims.<key>. */
 export const CLAIM_KEYS = [
+  "organicCotton",
   "dermatologicallyTested",
   "gynecologicallyTested",
   "fragranceFree",
@@ -23,14 +24,32 @@ export const CLAIM_KEYS = [
 ] as const;
 export type ClaimKey = (typeof CLAIM_KEYS)[number];
 
-/** Tampon claims, per the website brief (compliance section). */
+/**
+ * Approved claims (design brief §4, Oct 19 2026). Hypoallergenic stays off
+ * until Harper's results confirm it; "No chlorine bleaching" stays off until
+ * it is approved for the web. Move these to Shopify metafields once set up.
+ */
+const PAD_CLAIMS: ClaimKey[] = [
+  "dermatologicallyTested",
+  "gynecologicallyTested",
+  "fragranceFree",
+  "madeInEurope",
+  "vegan",
+];
 const TAMPON_CLAIMS: ClaimKey[] = [
   "dermatologicallyTested",
   "gynecologicallyTested",
   "fragranceFree",
-  "noChlorineBleaching",
-  "noPesticides",
   "madeInEurope",
+  "noPesticides",
+];
+/** The quiet strip under the hero. */
+export const HOME_CLAIMS: ClaimKey[] = [
+  "dermatologicallyTested",
+  "gynecologicallyTested",
+  "fragranceFree",
+  "madeInEurope",
+  "organicCotton",
 ];
 
 export interface Certifier {
@@ -50,6 +69,8 @@ export interface CatalogProduct {
   family: ProductFamily;
   /** Shopify product handle (admin → Products → URL slug). */
   shopifyHandle: string;
+  /** Product page URL segment: /products/<category>/<slug>. */
+  slug: string;
   /** Canonical English name for analytics, cart lines and JSON-LD. */
   name: string;
   /** Short name printed on the 3D box ("\n" splits lines). */
@@ -63,12 +84,16 @@ export interface CatalogProduct {
   colorVar: string;
   /** Whether cream type is readable on this shade (style guide contrast rule). */
   lightText: boolean;
-  /** Pads/liners: only claims on approved packaging (not yet supplied), so empty. */
   claims: ClaimKey[];
+  /** Cart thumbnail. */
   image: string;
+  /**
+   * Real product photos, in gallery order: box front, the product out of the
+   * box, box side panel, in hand / on the shelf. Until they exist the site
+   * shows a static render of the box.
+   */
+  photos?: string[];
   comingSoon?: boolean;
-  /** Fits a night-time routine (used by the day → night section). */
-  night?: boolean;
 }
 
 export const CATALOG: CatalogProduct[] = [
@@ -76,14 +101,15 @@ export const CATALOG: CatalogProduct[] = [
     id: "day-pad",
     family: "pads",
     shopifyHandle: "organic-cotton-day-pad",
-    name: "Organic Cotton Day Pad",
-    boxLabel: "Day Pads",
+    slug: "medium-flow",
+    name: "Organic Cotton Pads, Medium Flow",
+    boxLabel: "Pads\nMedium Flow",
     packCount: 10,
     size: "240mm",
     absorbency: 2,
     colorVar: "--lore-day",
     lightText: true,
-    claims: [],
+    claims: PAD_CLAIMS,
     image: "/lovable-uploads/day-pads-sage.webp",
   },
   {
@@ -91,23 +117,24 @@ export const CATALOG: CatalogProduct[] = [
     family: "pads",
     // Shopify handle has a stray "-by" from a title typo; update both if fixed in admin.
     shopifyHandle: "organic-cotton-night-pad-by",
-    name: "Organic Cotton Night Pad",
-    boxLabel: "Night Pads",
+    slug: "heavy-flow",
+    name: "Organic Cotton Pads, Heavy Flow",
+    boxLabel: "Pads\nHeavy Flow",
     packCount: 10,
     size: "280mm",
     absorbency: 3,
     colorVar: "--lore-night",
     lightText: true,
-    claims: [],
+    claims: PAD_CLAIMS,
     image: "/lovable-uploads/6cf4ee2b-9d53-4707-a40f-661d9359f9ad.webp",
-    night: true,
   },
   {
     id: "regular-tampon",
     family: "tampons",
     shopifyHandle: "organic-cotton-tampons-regular",
-    name: "Organic Cotton Regular Tampons",
-    boxLabel: "Tampons\nRegular",
+    slug: "light-to-medium-flow",
+    name: "Organic Cotton Tampons, Light to Medium Flow",
+    boxLabel: "Tampons\nLight to Medium",
     packCount: 16,
     absorbency: 2,
     colorVar: "--lore-regular",
@@ -119,8 +146,9 @@ export const CATALOG: CatalogProduct[] = [
     id: "super-tampon",
     family: "tampons",
     shopifyHandle: "organic-cotton-tampons-super",
-    name: "Organic Cotton Super Tampons",
-    boxLabel: "Tampons\nSuper",
+    slug: "medium-to-heavy-flow",
+    name: "Organic Cotton Tampons, Medium to Heavy Flow",
+    boxLabel: "Tampons\nMedium to Heavy",
     packCount: 16,
     absorbency: 3,
     colorVar: "--lore-super",
@@ -132,7 +160,8 @@ export const CATALOG: CatalogProduct[] = [
     id: "liner",
     family: "liners",
     shopifyHandle: "organic-cotton-panty-liners",
-    name: "Organic Cotton Liners",
+    slug: "everyday",
+    name: "Organic Cotton Panty Liners",
     boxLabel: "Panty Liners",
     packCount: 24,
     absorbency: 1,
@@ -146,6 +175,25 @@ export const CATALOG: CatalogProduct[] = [
 
 export const getProduct = (id: ProductId): CatalogProduct =>
   CATALOG.find((p) => p.id === id)!;
+
+/** URL category for each family (/products/<category>). */
+export const FAMILY_CATEGORY: Record<ProductFamily, string> = {
+  pads: "pads",
+  tampons: "tampons",
+  liners: "panty-liners",
+};
+
+export const CATEGORY_FAMILY: Record<string, ProductFamily> = {
+  pads: "pads",
+  tampons: "tampons",
+  "panty-liners": "liners",
+};
+
+/** Bare product page path (localize before linking). */
+export const productPath = (p: CatalogProduct): string => `/products/${FAMILY_CATEGORY[p.family]}/${p.slug}`;
+
+export const productBySlug = (category: string, slug: string): CatalogProduct | undefined =>
+  CATALOG.find((p) => FAMILY_CATEGORY[p.family] === category && p.slug === slug);
 
 /** `hsl(var(--lore-day))`-style color for inline styles. */
 export const familyColor = (p: CatalogProduct, alpha?: number): string =>
