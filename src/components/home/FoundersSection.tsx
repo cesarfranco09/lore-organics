@@ -20,7 +20,7 @@ const FoundersSection = () => {
           />
         </Reveal>
         <Reveal delay={80}>
-          <p className="text-label mb-6 text-muted-foreground">{t("founders.label")}</p>
+          <p className="eyebrow mb-7">{t("founders.label")}</p>
           <p className="t-h2 measure mb-10">{t("founders.body")}</p>
           <Link to={localize("/about")} className="link-arrow">
             {t("founders.cta")} <ArrowRight size={13} />

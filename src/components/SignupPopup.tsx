@@ -187,14 +187,14 @@ const SignupPopup = () => {
           <div className="flex flex-col justify-center px-6 pb-[max(1.75rem,env(safe-area-inset-bottom))] pt-7 md:px-12 md:py-14">
             {status === "success" ? (
               <div className="text-center md:text-left" role="status">
-                <p className="text-label mb-4 text-muted-foreground">{t("label")}</p>
+                <p className="eyebrow mb-5">{t("label")}</p>
                 <DialogPrimitive.Title className="t-h2 mb-4">{t("successTitle")}</DialogPrimitive.Title>
                 <DialogPrimitive.Description className="text-body text-foreground/80">{t("success")}</DialogPrimitive.Description>
                 <DialogPrimitive.Close className="btn-ghost mt-8 w-full text-foreground md:w-auto">{t("close")}</DialogPrimitive.Close>
               </div>
             ) : (
               <>
-                <p className="text-label mb-3 text-muted-foreground md:mb-5">{t("label")}</p>
+                <p className="eyebrow mb-4 md:mb-6">{t("label")}</p>
                 <DialogPrimitive.Title className="t-h2 mb-3 md:mb-4">{t("title")}</DialogPrimitive.Title>
                 <DialogPrimitive.Description className="text-body mb-6 text-foreground/80 md:mb-8">{t("body")}</DialogPrimitive.Description>
 

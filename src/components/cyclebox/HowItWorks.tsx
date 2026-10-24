@@ -24,7 +24,7 @@ const HowItWorks = ({ withButton = false, className = "" }: { withButton?: boole
     <section id="how-it-works" className={`section scroll-mt-28 ${className}`}>
       <div className="container-lore">
         <Reveal className="mb-12 md:mb-16">
-          <p className="text-label mb-4 text-muted-foreground">{t("howItWorks.label")}</p>
+          <p className="eyebrow mb-6">{t("howItWorks.label")}</p>
           <h2 className="t-h1">{t("howItWorks.title")}</h2>
         </Reveal>
 

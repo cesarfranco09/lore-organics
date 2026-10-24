@@ -17,7 +17,7 @@ const About = () => {
       <section className="section">
         <div className="container-lore">
           <Reveal>
-            <p className="text-label mb-6 text-muted-foreground">{t("mission.label")}</p>
+            <p className="eyebrow mb-7">{t("mission.label")}</p>
             <h1 className="t-h1 mb-10">
               {t("mission.titleLine1")} <em className="font-light italic">{t("mission.titleLine2")}</em>
             </h1>
@@ -40,7 +40,7 @@ const About = () => {
             />
           </Reveal>
           <Reveal delay={80}>
-            <p className="text-label mb-6 text-muted-foreground">{t("story.label")}</p>
+            <p className="eyebrow mb-7">{t("story.label")}</p>
             <div className="t-body measure space-y-5 text-foreground/85">
               {Array.isArray(paragraphs) && (paragraphs as string[]).map((p) => <p key={p}>{p}</p>)}
             </div>

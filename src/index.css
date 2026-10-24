@@ -155,6 +155,25 @@
     @apply text-[11px] font-medium uppercase tracking-[0.14em];
   }
 
+  /* Section subtitles: warm brown, widely spaced caps over a short sage line. */
+  .eyebrow {
+    font-family: var(--font-sans);
+    @apply block text-[13px] font-medium uppercase leading-[18px] tracking-[0.28em] md:text-[15px] md:leading-[20px];
+    color: #7a5a43;
+  }
+  .eyebrow::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 1.5px;
+    margin-top: 14px;
+    background: hsl(var(--sage-light));
+  }
+  .eyebrow-center::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .divider-botanical {
     @apply w-12 h-px bg-current opacity-30;
   }

@@ -308,7 +308,7 @@ const CycleBox = () => {
         <div className="container-lore">
           {/* Step 1 */}
           <Reveal>
-            <p className="text-label mb-3 text-muted-foreground">{t("step1.label")}</p>
+            <p className="eyebrow mb-5">{t("step1.label")}</p>
             <h2 className="t-h2 mb-8">{t("step1.title")}</h2>
           </Reveal>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3" role="radiogroup" aria-label={t("step1.title")}>
@@ -393,7 +393,7 @@ const CycleBox = () => {
           {/* Step 2 */}
           <div className="mt-16 md:mt-24">
             <Reveal>
-              <p className="text-label mb-3 text-muted-foreground">{t("step2.label")}</p>
+              <p className="eyebrow mb-5">{t("step2.label")}</p>
               <h2 className="t-h2 mb-8">{t("step2.title")}</h2>
             </Reveal>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_2fr] lg:gap-12">

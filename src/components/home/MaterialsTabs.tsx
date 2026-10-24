@@ -28,7 +28,7 @@ const MaterialsTabs = () => {
     <section className="section border-t border-border">
       <div className="container-lore grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
         <Reveal>
-          <p className="text-label mb-4 text-muted-foreground">{t("materials.label")}</p>
+          <p className="eyebrow mb-6">{t("materials.label")}</p>
           <h2 className="t-h1 mb-10">{t("materials.heading")}</h2>
 
           <div role="tablist" aria-label={t("materials.label")} className="mb-8 flex flex-wrap gap-2">

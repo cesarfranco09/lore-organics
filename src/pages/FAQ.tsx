@@ -22,7 +22,7 @@ const FAQ = () => {
       />
       <section className="section-padding">
         <div className="max-w-2xl mx-auto">
-          <p className="text-label text-muted-foreground text-center mb-4">{t("label")}</p>
+          <p className="eyebrow eyebrow-center mb-6 text-center">{t("label")}</p>
           <h1 className="t-h1 text-center mb-12">{t("heading")}</h1>
           <div className="space-y-0">
             {faqs.map((faq, i) => {

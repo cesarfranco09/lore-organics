@@ -49,7 +49,7 @@ const RangeSection = () => {
             { label: t("range.tampons"), products: TAMPONS, extra: <BoxCard key="box" /> },
           ].map((row) => (
             <div key={row.label}>
-              <p className="text-label mb-5 text-muted-foreground">{row.label}</p>
+              <p className="eyebrow mb-6">{row.label}</p>
               <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
                 {row.products.map((p, i) => (
                   <Reveal key={p.id} delay={i * 60}>
